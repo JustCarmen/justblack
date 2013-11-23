@@ -2,8 +2,8 @@
 // Header for the JustBlack theme
 //
 // webtrees: Web based Family History software
-// Copyright (C) 2012 webtrees development team.
-// Copyright (C) 2012 JustCarmen.
+// Copyright (C) 2013 webtrees development team.
+// Copyright (C) 2013 JustCarmen.
 //
 // Derived from PhpGedView
 // Copyright (C) 2002 to 2009  PGV Development Team.  All rights reserved.
@@ -22,43 +22,45 @@
 // along with this program; if not, write to the Free Software
 // Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 //
-// $Id: header.php 2012-10-24 JustCarmen $
+// $Id: header.php 2013-09-15 JustCarmen $
 
 if (!defined('WT_WEBTREES')) {
 	header('HTTP/1.0 403 Forbidden');
 	exit;
 }
 
-ob_start();
-// This theme uses the jQuery “colorbox” plugin to display images
 $this
+	// This theme uses the jQuery “colorbox” plugin to display images
 	->addExternalJavascript(WT_JQUERY_COLORBOX_URL)
-	->addExternalJavascript(WT_JQUERY_WHEELZOOM_URL);
+	->addExternalJavascript(WT_JQUERY_WHEELZOOM_URL)
+	// JustBlack
+	->addExternalJavascript(WT_THEME_JUSTBLACK.'justblack.js');
 	
+ob_start();	
 echo
 	'<!DOCTYPE html>',
 	'<html ', WT_I18N::html_markup(), '>',
 	'<head>';
 	
-	// use IE8 for medialist page if browser is IE 9 or 10
-	if (basename($_SERVER['PHP_SELF']) == 'medialist.php' && (strpos($_SERVER['HTTP_USER_AGENT'],"MSIE 9") || strpos($_SERVER['HTTP_USER_AGENT'],"MSIE 10"))) {
-		echo '<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8" />';
-	}
-	
 echo
 	'<meta charset="utf-8">',
 	'<title>', htmlspecialchars($title), '</title>',
 	header_links($META_DESCRIPTION, $META_ROBOTS, $META_GENERATOR, $LINK_CANONICAL),
-	'<link rel="icon" href="', WT_THEME_URL, 'favicon.png" type="image/png">',
-	'<link rel="stylesheet" type="text/css" href="', WT_THEME_URL, 'css/jquery-ui/jquery-ui-1.10.3.custom.css">',
-	'<link rel="stylesheet" type="text/css" href="', WT_THEME_URL, 'css/colorbox/colorbox.css', '">',	
-	'<link rel="stylesheet" type="text/css" href="', WT_THEME_URL, 'css/style.css', '">';
+	'<link rel="icon" href="', WT_CSS_URL, 'favicon.png" type="image/png">',
+	'<link rel="stylesheet" type="text/css" href="', WT_THEME_URL, 'jquery-ui-1.10.3/jquery-ui-1.10.3.custom.css">',
+	'<link rel="stylesheet" type="text/css" href="', WT_THEME_URL, 'colorbox-1.4.15/colorbox.css', '">',
+	'<link rel="stylesheet" type="text/css" href="', WT_CSS_URL, 'style.css', '">';
 
 switch ($BROWSERTYPE) {
 case 'msie':
-	echo '<link type="text/css" rel="stylesheet" href="', WT_THEME_URL, 'css/', $BROWSERTYPE, '.css">';
+	echo '<link type="text/css" rel="stylesheet" href="', WT_CSS_URL, $BROWSERTYPE, '.css">';
 	break;
 }	
+
+// Function to replace lightbox images with justblack theme images. No additional css required (module css integrated in theme css)
+if (WT_USE_LIGHTBOX && WT_SCRIPT_NAME == 'individual.php') {
+	echo '<link rel="stylesheet" type="text/css" href="'.WT_CSS_URL.'lightbox.css">';
+}
 
 if ($view=='simple') {
 	// Popup windows need space for the save/close buttons
@@ -70,6 +72,7 @@ echo
 	'<body id="body">';
 
 if ($view!='simple') { // no headers for dialogs
+		getJBScriptVars();
 		// begin header section
 		echo getJBheader();	
 		
@@ -84,14 +87,7 @@ if ($view!='simple') { // no headers for dialogs
 		echo 
 		'<div id="topMenu">'.getJBTopMenu().'</div>',			
 	    '<div class="divider"></div>'.
-        WT_FlashMessages::getHtmlMessages(); // Feedback from asynchronous actions
-		
-	// JustBlack
-	$this->addExternalJavascript(WT_THEME_URL.'js/justblack.js');	
-	
-	// activate ColorBox
-	getColorBox();	
+        WT_FlashMessages::getHtmlMessages(); // Feedback from asynchronous actions	
 }
 
 echo $javascript, '<div id="content">';
-

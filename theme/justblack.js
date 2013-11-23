@@ -129,10 +129,122 @@ function qstring(key, url) {
 //=========================================================================================================
 jQuery.noConflict();
 
-jQuery(document).ready(function($){
-	
-	// THEME VARS
-	var WT_THEME_DIR = "themes/justblack/";	
+jQuery(document).ready(function($){	
+
+	/********************************************* COLORBOX MEDIA GALLERY ***********************************************/	
+	$("body").on('click', 'a.gallery', function(event) {
+		// Function for title correction
+		function longTitles() {
+			// correct long titles
+			var tClass 		= $("#cboxTitle .title");
+			var tID		  	= $("#cboxTitle");
+			if (tClass.width() > tID.width() - 100) { // 100 because the width of the 4 buttons is 25px each
+				tClass.css({"width" : tID.width() - 100, "margin-left" : "75px"});
+			}
+			if (tClass.height() > 25) { // 26 is 2 lines
+				tID.css({"bottom" : 0});
+				tClass.css({"height" : "26px"}); // max 2 lines.
+			} else {
+				tID.css({"bottom" : "6px"}); // set the value to vertically center a 1 line title.
+				tClass.css({"height" : "auto"}); // set the value back;
+			}			
+		}
+			
+		// General (both images and pdf)
+		$("a[type^=image].gallery, a[type$=pdf].gallery").colorbox({
+			rel:      		"gallery",				
+			current:		"",
+			slideshow:		true,
+			slideshowAuto:	false,
+			slideshowSpeed: 3000,
+			onLoad:			function() {
+								$(".cboxNote, .pdf-layer").remove() // remove previous note or watermarks.
+							},
+			onComplete:		function() {				
+								$(".cboxPhoto").wheelzoom();
+								if($(".cboxPhoto").width() <= $("#cboxContent").width()) {
+									$("#cboxLoadedContent").css('overflow-x', 'hidden');
+								}
+								$(".cboxPhoto img").on("click", function(e) {e.preventDefault();});								
+								var note = $(this).data("obje-note");
+								if(note != '') {
+										$('#cboxContent').append('<div class="cboxNote">' + note);
+										if($('.cboxPhoto').innerHeight() > $('#cboxContent').innerHeight()) {
+											$('.cboxNote').css('width', $('.cboxNote').width() - 27);
+										}
+								}
+								longTitles();																			
+							}
+		});
+		
+		// Add colorbox to images
+		$("a[type^=image].gallery").colorbox({			
+			photo:			true,
+			scalePhotos:	false,			
+			maxWidth:		"95%",
+			maxHeight:		"95%",				
+			fixed:			false,
+			title:			function(){
+								var img_title = jQuery(this).data("title");
+								return "<div class=\"title\">" + img_title + "</div>";
+							}
+		});
+		
+		// default settings for all pdf's
+		$("a[type$=pdf].gallery").colorbox({
+			width:		"75%",
+			height:		"90%",
+			fixed:		true,				
+			title:		function(){
+							var pdf_title = $(this).data("title");
+							pdf_title = '<div class="title">' + pdf_title;
+							if(useWatermark == 0) pdf_title += ' &diams; <a href="' + $(this).attr("href") + '" target="_blank">' + fullPdfText + '</a>';
+							pdf_title += '</div>';
+							return pdf_title;
+						}			
+		});
+		
+		// use Google Docs Viewer for pdf's if theme option is set.
+		if(useGviewer == 1) {
+			$("a[type$=pdf].gallery").colorbox({
+				scrolling:	false, // the gviewer has a scrollbar.
+				html:		function(){
+								var mid = qstring('mid', $(this).attr("href"));
+								return '<iframe width="100%" height="100%" src="http://docs.google.com/viewer?url=' + WT_SERVER_NAME + WT_SCRIPT_PATH + WT_THEME_JUSTBLACK + 'pdfviewer.php?mid=' + mid + '&embedded=true"></iframe>';
+							},
+				onComplete: function() {
+							if(useWatermark == 1) {
+								var layerHeight = $('#cboxContent iframe').height();
+								var layerWidth = $('#cboxContent iframe').width();
+								$('#cboxLoadedContent')
+									.append('<div class="pdf-menu"></div>' +
+											'<div class="pdf-body">' +
+												'<div class="pdf-watermark"><span class="text-right">' + WT_TREE_TITLE + '</span></div>' +												
+											'</div>');
+								$('.pdf-menu').css({
+									 'width'	: layerWidth + 'px'							
+								});
+								$('.pdf-body').css({
+									 'height'	: layerHeight - 37 +'px',
+									 'width'	: layerWidth - 17 + 'px'							
+								});	
+								$('.pdf-watermark').css({
+									 'margin-top'	: ((layerHeight - 37)/2) - 48 +'px'						
+								});								
+							}					
+						}
+			});
+		}
+		// use browsers default pdf viewer
+		else {
+			$("a[type$=pdf].gallery").colorbox({iframe:	true});		
+		}		
+		
+		// Do not open the gallery when clicking on the mainimage on the individual page
+		if($(this).parents("#indi_mainimage").length > 0) {
+			$(this).colorbox({rel:"nofollow"});
+		}
+	});		
 	
 	/********************************************* TOOLTIPS ***********************************************/	
 	// Tooltips for all title attributes	
@@ -197,8 +309,12 @@ jQuery(document).ready(function($){
 		var li_height = $(this).find('> li').height()			
 		var height = $(this).find('> li > a').map(function(){
    			return $(this).height();
-		});
-		$('#topMenu').css('height', li_height + Math.max.apply(Math, height));
+		});			
+		var maxHeight=height[0];
+		for (var i=0;i<height.length;i++) {
+		 	maxHeight=Math.max(maxHeight, height[i]);
+		}
+		$('#topMenu').css('height', li_height + maxHeight);
 		
 		// No Gedcom submenu if there is just one gedcom
 		if ($('#menu-tree ul li').length == 1) $('#menu-tree ul').remove();	
@@ -266,6 +382,7 @@ jQuery(document).ready(function($){
 			});		
 		});		
 	 })
+	 
 	/********************************************* CUSTOM CONTACT LINK ***********************************************/	
 	// custom contact link (in custom html block or news block for example). Give the link the class 'contact_link_admin');
 	$('a.contact_link_admin').each(function() {
@@ -366,7 +483,7 @@ jQuery(document).ready(function($){
 	if (curPage() == 'individual.php') {
 			
 		// General
-		$('<div class="divider">').appendTo('#tabs ul');
+		$('<div class="divider">').appendTo('#tabs ul:first');
 		$('#tabs li').each(function(){
 			$(this).tooltip({
 				position: {
@@ -374,34 +491,30 @@ jQuery(document).ready(function($){
 					at: "center center"
 				}				
 			}); 
-		});	
-		
-		// Album tab - moved from jb_lightbox.js
-		function changeMediaIcons() {
-			$.ajax({
-				start:function(){
-					$('img.icon').hide();
-				},				
-				complete:function(){
-					$('img.icon').each(function(){
-						$(this).attr('src',function(index,attr){
-						  return attr.replace('modules_v3/lightbox/images', WT_THEME_DIR + 'css/images/buttons');		  
-						});
-						$(this).css('padding-left', '5px');
-						$(this).show();
-					});
-				}
-			});
-		}
+		});		
 		
 		$('#tabs a[title=lightbox]').on('click', function(){
-			changeMediaIcons();		
-		});		
+			var tabindex = $(this).parent().attr('aria-controls');
+			$('#' + tabindex).before('<div class="loading-image"></div>').hide();			
+			$.ajax({
+				complete:function(){
+					$('#lightbox_content img.icon').each(function(){
+						$(this).attr('src',function(index,attr){
+							return attr.replace('modules_v3/lightbox/images', WT_CSS_URL + 'images/buttons');		  
+						});
+						$(this).css('padding-left', '5px');
+					});	
+					$('.loading-image').remove();
+					$('#' + tabindex).show();				
+				}				
+			});			
+		});
+			
 		if ($('#tabs a[title=lightbox]').parent('li').hasClass('ui-state-active')) {
 			setTimeout(function() {
 				$('#tabs a[title=lightbox]').trigger('click');		
 			}, 10);			
-		}			
+		}	
 	}
 	
 	/************************************************ HOURGLASS CHART *****************************************************/
@@ -531,14 +644,14 @@ jQuery(document).ready(function($){
 			cache:false,
 			async:false,
 			beforeSend:function(){	
-				$('.tv_out').hide();								
+				$('.tv_out').hide();
 				if (document.createStyleSheet) {
-					document.createStyleSheet("' + WT_THEME_DIR + 'css/jb_treeview.css"); // For Internet Explorer
+					document.createStyleSheet('' + WT_CSS_URL + 'treeview.css'); // For Internet Explorer
 				} else {
-					$('head').append('<link rel="stylesheet" type="text/css" href="' + WT_THEME_DIR + 'css/jb_treeview.css">');	
+					$('head').append('<link rel="stylesheet" type="text/css" href="' + WT_CSS_URL + 'treeview.css">');	
 				}
 			},
-			complete:function(){									
+			complete:function(){								
 				$('.tv_out').show(); 
 			}			
 		});
@@ -621,6 +734,43 @@ jQuery(document).ready(function($){
 		$('#media-tabs').find('.ui-widget-header').removeClass('ui-widget-header');
 		$('#media-tabs ul').after('<div class="divider">');	
 	}
+	
+	/********************************************* SMALL THUMBS *****************************************************/	
+	// currently small thumbs (on the sourcepage for instance) are having a height of 40px and a width of auto by default.
+	// This causes a messy listview.
+	// In style.css the default height changed to 45px. Use this function to retrieve a cropped 60/45 (4:3) image. 	 
+	// It would be better to do this on the server side, but then we have to mess with the core code.		 
+	$('.media-list td img').each(function(){
+		var obj = $(this);
+		var src = obj.attr('src');
+		var img = new Image();
+		img.onload = function() {
+			newWidth = 60;
+			ratio = newWidth/this.width;
+			newHeight = this.height * ratio;
+			marginLeft = 0;
+			if(newHeight < 45) {
+				newHeight = 45;
+				ratio = newHeight/this.height;
+				newWidth = this.width * ratio;	
+				marginLeft = -(newWidth - 60)/2;			
+			}			
+			obj.css({
+				'width'  		: newWidth,
+				'height' 		: newHeight,
+				'margin-left'	: marginLeft			
+			})
+		}
+		img.src = src;	
+		$div = $('<div>').css({
+			'width' 	: '60px',
+			'height' 	: '45px',
+			'display' 	: 'inline-block',
+			'overflow' 	: 'hidden'		
+		});
+		obj.parent().wrap($div);
+		obj.parents('td').css('text-align', 'center');		
+	});
 	
 	/************************************** CLIPPINGS PAGE ********************************************/	
 	if(qstring('mod') == 'clippings') {

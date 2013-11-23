@@ -3,10 +3,7 @@
 // Functions for the JustBlack theme
 //
 // webtrees: Web based Family History software
-// Copyright (C) 2012 JustCarmen.
-//
-// Derived from PhpGedView
-// Copyright (C) 2002 to 2010  PGV Development Team.  All rights reserved.
+// Copyright (C) 2013 JustCarmen.
 //
 // This program is free software; you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -22,7 +19,7 @@
 // along with this program; if not, write to the Free Software
 // Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 //
-// $Id: functions.php 2012-10-24 JustCarmen $
+// $Id: functions.php 2013-09-15 JustCarmen $
 
 if (!defined('WT_WEBTREES')) {
 	header('HTTP/1.0 403 Forbidden');
@@ -39,10 +36,27 @@ function getThemeOption ($option) {
 	}
 }
 
+// variables needed in justblack.js
+function getJBScriptVars() {
+	global $controller, $SHOW_NO_WATERMARK;
+	WT_USER_ACCESS_LEVEL > $SHOW_NO_WATERMARK ? $useWatermark = 1 : $useWatermark = 0;	
+	$controller->addInlineJavascript('
+			// JustBlack Theme variables
+			var WT_SERVER_NAME = "'.WT_SERVER_NAME.'";
+			var WT_SCRIPT_PATH = "'.WT_SCRIPT_PATH.'";
+			var WT_CSS_URL = "'.WT_CSS_URL.'";
+			var WT_THEME_JUSTBLACK = "'.WT_THEME_JUSTBLACK.'";
+			var WT_TREE_TITLE = "'.strip_tags(WT_TREE_TITLE).'";
+			var useWatermark  = '.$useWatermark.';
+			var useGviewer = '.getThemeOption('gviewer_pdf').';
+			var fullPdfText = "'.WT_I18N::translate('Open this file in full browser window').'";
+	', WT_Controller_Base::JS_PRIORITY_HIGH);
+}
+
 // Theme setting for the header section
 function getJBheader() {	
 	// are we taking the default header image, a custom one or none?
-	$path = WT_THEME_DIR.'css/images/';
+	$path = WT_CSS_URL.'images/';
 	switch (getThemeOption('header')) {
 		case 'custom':	
 			$exts = array('png','jpg', 'gif');
@@ -101,6 +115,7 @@ function getJBheader() {
 
 // Menus
 function getJBTopMenu() {
+	global $controller;
 	$menus = getThemeOption('menu_order');
 	
 	if($menus) {
@@ -118,6 +133,12 @@ function getJBTopMenu() {
 					$item = $modulemenu->getMenu();						
 				} elseif ($label == 'compact') {
 					$item = $jb_controller->$function();
+				} elseif ($label == 'media') {
+					$item = $jb_controller->$function();
+					// hide the original submenu item
+					$controller->addInlineJavascript('
+						jQuery("li#menu-list-obje").hide();
+					');
 				} else {							
 					$item = WT_MenuBar::$function();
 				}
@@ -144,7 +165,7 @@ function getJBSearch () {
 					<input type="hidden" name="action" value="general"/>
 					<input type="hidden" name="topsearch" value="yes"/>
 					<input type="search" name="query" size="20" placeholder="'. WT_I18N::translate('Search'). '" dir="auto"/>
-					<input type="image" class="searchbtn" src="'.WT_THEME_URL.'css/images/buttons/search_go.png" alt="'.WT_I18N::translate('Search').'" title="'.WT_I18N::translate('Search').'">
+					<input type="image" class="searchbtn" src="'.WT_CSS_URL.'images/buttons/search_go.png" alt="'.WT_I18N::translate('Search').'" title="'.WT_I18N::translate('Search').'">
 					</form>';
 	return $searchform;
 }
@@ -155,7 +176,7 @@ function getJBFlags() {
 		$user_id = getUserID();
 		$user_lang = get_user_setting($user_id, 'language');
 		
-		if ($menu->submenus) {
+		if ($menu && $menu->submenus) {
 			$output ='<div id="lang-menu"><ul>';
 			foreach ($menu->submenus as $submenu) {
 				if ($submenu) {
@@ -173,9 +194,9 @@ function getJBFlags() {
 					}	
 				}
 			}
-			$output .='</ul></div>';
-		}			
+			$output .='</ul></div>';					
 		return $output;
+		}
 	}
 }
 
@@ -298,94 +319,6 @@ function getJBThumb($person, $max_thumbsize, $square = '') {
 			return '';
 		}
 	}
-}
-
-function getColorBox() {
-	global $controller;
-	
-	$controller->addInlineJavascript('	
-		jQuery("body").on("click", "a.gallery", function(event) {
-			// Function for title correction
-			function longTitles() {
-				// correct long titles
-				var tClass 		= jQuery("#cboxTitle .title");
-				var tID		  	= jQuery("#cboxTitle");
-				if (tClass.width() > tID.width() - 100) { // 100 because the width of the 4 buttons is 25px each
-					tClass.css({"width" : tID.width() - 100, "margin-left" : "75px"});
-				}
-				if (tClass.height() > 25) { // 26 is 2 lines
-					tID.css({"bottom" : 0});
-					tClass.css({"height" : "26px"}); // max 2 lines.
-				} else {
-					tID.css({"bottom" : "6px"}); // set the value to vertically center a 1 line title.
-					tClass.css({"height" : "auto"}); // set the value back;
-				}			
-			}
-			// Function to retrieve notes as a tooltip in colorbox
-			function notes(obj) {
-				var note = obj.data("obje-note");
-				jQuery(".cboxPhoto").each(function(){
-					jQuery(this).attr("title", note);
-					jQuery(this).tooltip({
-						tooltipClass: "cboxTooltip",
-						position: {
-							my: "center",
-							at: "bottom-50"
-						},
-						hide: { duration: 5000 }
-					}).mouseenter();
-				});	
-			}
-			
-			// Add colorbox to images
-			jQuery("a[type^=image].gallery").colorbox({
-				rel:      		"gallery",				
-				current:		"",
-				slideshow:		true,
-				slideshowAuto:	false,
-				slideshowSpeed: 3000,
-				photo:			true,
-				maxWidth:		"95%",
-				maxHeight:		"95%",				
-				fixed:			true,				
-				title:			function(){
-									var img_title = jQuery(this).data("title");
-									return "<div class=\"title\">" + img_title + "</div>";
-								},
-				onComplete: function() {
-					jQuery(".cboxPhoto").wheelzoom();
-					jQuery(".cboxPhoto img").on("click", function(e) {e.preventDefault();});
-					longTitles();	
-					notes(jQuery(this));																			
-				}
-			});
-			// Add colorbox to pdf-files
-			jQuery("a[type$=pdf].gallery").colorbox({
-				rel:      		"gallery",				
-				current:		"",
-				slideshow:		true,
-				slideshowAuto:	false,
-				slideshowSpeed: 3000,
-				innerWidth: "60%",
-				innerHeight:"90%",
-				iframe:     true,
-				photo:      false,				
-				title:		function(){
-								var pdf_title = jQuery(this).data("title");
-								var url = jQuery(this).attr("href");
-								return "<div class=\"title\">" + pdf_title + " &diams; <a href=\"" + url + "\" target=\"_blank\">'.WT_I18N::translate('Open this file in full browser window').'</a></div>";
-							},
-				onComplete: function() {
-					longTitles();						
-				}
-			});
-			// Do not open the gallery when clicking on the mainimage on the individual page
-			if(jQuery(this).parents("#indi_mainimage").length > 0) {
-				jQuery(this).colorbox({rel:"nofollow"});
-			}
-		});
-	
-	');
 }
 
 ?>

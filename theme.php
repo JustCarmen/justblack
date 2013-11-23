@@ -2,7 +2,7 @@
 // JustBlack theme
 //
 // webtrees: Web based Family History software
-// Copyright (C) 2012 webtrees development team.
+// Copyright (C) 2013 webtrees development team.
 //
 // Derived from PhpGedView
 // Copyright (C) 2002 to 2010  PGV Development Team.  All rights reserved.
@@ -21,7 +21,7 @@
 // along with this program; if not, write to the Free Software
 // Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 //
-// $Id: theme.php 2012-10-24 JustCarmen $
+// $Id: theme.php 2013-09-15 JustCarmen $
 
 if (!defined('WT_WEBTREES')) {
 	header('HTTP/1.0 403 Forbidden');
@@ -30,7 +30,13 @@ if (!defined('WT_WEBTREES')) {
 
 $theme_name = "JustBlack"; // need double quotes, as file is scanned/parsed by script
 
-require_once(WT_THEME_URL . 'functions.php');
+// A version number in the path prevents browser-cache problems during upgrade
+define('WT_CSS_URL', WT_THEME_URL . 'css-1.5.0/');
+
+// theme specific files.
+define('WT_THEME_JUSTBLACK', WT_THEME_URL . 'theme/'); 
+
+require_once(WT_ROOT.WT_THEME_JUSTBLACK . 'functions.php');
 
 $headerfile       	= WT_THEME_DIR.'header.php';
 $footerfile       	= WT_THEME_DIR.'footer.php';

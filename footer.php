@@ -2,8 +2,8 @@
 // Footer for JustBlack theme
 //
 // webtrees: Web based Family History software
-// Copyright (C) 2012 webtrees development team.
-// Copyright (C) 2012 JustCarmen.
+// Copyright (C) 2013 webtrees development team.
+// Copyright (C) 2013 JustCarmen.
 //
 // Derived from PhpGedView
 // Copyright (C) 2002 to 2009  PGV Development Team.  All rights reserved.

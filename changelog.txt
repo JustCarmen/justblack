@@ -1,21 +1,36 @@
 READ THE README FILE FOR INSTALLATION AND UPGRADE INSTRUCTIONS
-========================================================================================================
-20-10-2013 - JustBlack for webtrees 1.4.3 v4
-* Included patch from 19-08
-* Bugfix in the JustBlack Theme Options Module
-========================================================================================================
 
-19-08-2013 - Patch
-* See http://www.webtrees.net/index.php/en/forum/4-customising/28173-just-black-and-media
-========================================================================================================
+JustBlack for webtrees 1.5.0 - NOT PUBLISHED YET
+* The same changes made to the core theme files have been made to this theme if neccessary. Followed dev upgrades on this.
+* Bugfix from error log:
+  [Mon Jul 08 19:17:35 2013] [error] [client 66.249.78.188] PHP Notice:  Undefined variable: output in /var/www/qb103200/data/www/stamboomknegt.nl/themes/justblack/functions.php on line 178
+  [Mon Jul 08 19:27:54 2013] [error] [client 66.249.78.188] PHP Notice:  Trying to get property of non-object in /var/www/qb103200/data/www/stamboomknegt.nl/themes/justblack/functions.php on line 158, referer: http://www.stamboomknegt.nl/individual.php?pid=I461&ged=stamboom_knegt.ged
+  Added extra security in function getFlags in functions.php
+!!!* Changed colorbox function for images. Set max-width and max-height to auto and fixed to false to be able to scroll larger images (like documents).
+* Bugfix in the topmenu styling in justblack.js due to issues in IE8. 
+  See forum topic http://www.webtrees.net/index.php/en/forum/4-customising/28160-error-in-justblack-theme/
+* TODO: Bugfix in functions.php colorbox function. See forum topic: http://www.webtrees.net/index.php/en/forum/4-customising/28173-just-black-and-media#40504
+* Removed the code in the header which stated to use IE8 for medialist page if browser is IE 9 or 10.
+* Bugfix. The divider on the individual page only needs to be placed beyond the menu. In some cases, when entering a story for instance the divider was placed multiple times.
+* Better layout for stories tab on individual page.
+* Removed lightgrey color of text in indilist and famlist for better readability.
+* Changed the source citations style and the indent style.
+* Changed font-size in dataTables from 12 to 11px.
+* Changed the size of the small thumbs in the media list view (use a cropped image of 60px/45px. Done with some js.
+* Bugfix: styles for the lightbox module were accidentally removed in the previous version. Back in this version with an improved style.
+* Changed the folder structure and some folder names to keep in sync with the default themes.
 
-01-07-2013 - JustBlack for webtrees 1.4.3 v3
-* Bugfix in the JustBlack Theme Options Module.
+TODO:: ADD ICONS FOR edit_raw (see theme Xenea in svn 7131). Update submenu styles.
 ========================================================================================================
-
+ 
+01-07-2013 - JustBlack for webtrees 1.4.3 v3.
+* Added JustBlack Theme Options module version 1.0.2.
+========================================================================================================
+ 
 28-06-2013 - JustBlack for webtrees 1.4.3 v2.
 * Bugfix: Active flags in language bar not lightening up. Fixed.
 * Bugfix: Border around header bar in advanced search results - error in css file. Fixed.
+* JustBlack Theme Options Module version 1.0.1
 
 ========================================================================================================
 25-06-2013 - JustBlack for webtrees 1.4.2/1.4.3
