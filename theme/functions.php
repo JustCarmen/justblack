@@ -141,7 +141,8 @@ function getJBTopMenu() {
 						jQuery("li#menu-list-obje").hide();
 					');
 				} else {							
-					$item = WT_MenuBar::$function();
+					if (method_exists('WT_MenuBar', $function))
+						$item = WT_MenuBar::$function();
 				}
 				$list[] = $item;
 			}
