@@ -227,7 +227,8 @@ jQuery(document).ready(function($){
 							if(useWatermark == 0) pdf_title += ' &diams; <a href="' + $(this).attr("href") + '" target="_blank">' + fullPdfText + '</a>';
 							pdf_title += '</div>';
 							return pdf_title;
-						}			
+						},
+			onComplete: function() { longTitles() }		
 		});
 		
 		// use Google Docs Viewer for pdf's if theme option is set.
@@ -239,6 +240,7 @@ jQuery(document).ready(function($){
 								return '<iframe width="100%" height="100%" src="http://docs.google.com/viewer?url=' + WT_SERVER_NAME + WT_SCRIPT_PATH + WT_THEME_JUSTBLACK + 'pdfviewer.php?mid=' + mid + '&embedded=true"></iframe>';
 							},
 				onComplete: function() {
+							longTitles();
 							if(useWatermark == 1) {
 								var layerHeight = $('#cboxContent iframe').height();
 								var layerWidth = $('#cboxContent iframe').width();
