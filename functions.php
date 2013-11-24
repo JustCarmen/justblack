@@ -118,8 +118,9 @@ function getJBTopMenu() {
 					$item = $modulemenu->getMenu();						
 				} elseif ($label == 'compact') {
 					$item = $jb_controller->$function();
-				} else {							
-					$item = WT_MenuBar::$function();
+				} else {
+					if (method_exists('WT_MenuBar', $function))							
+						$item = WT_MenuBar::$function();
 				}
 				$list[] = $item;
 			}
