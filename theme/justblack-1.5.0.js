@@ -185,18 +185,6 @@ jQuery(document).ready(function($){
 			slideshowSpeed: 3000,
 			onLoad:			function() {
 								$(".cboxNote, .pdf-layer").remove() // remove previous note or watermarks.
-							},
-			onComplete:		function() {				
-								$(".cboxPhoto").wheelzoom();
-								$(".cboxPhoto img").on("click", function(e) {e.preventDefault();});								
-								var note = $(this).data("obje-note");
-								if(note != '') {
-										$('#cboxContent').append('<div class="cboxNote">' + note);
-										if($('.cboxPhoto').innerHeight() > $('#cboxContent').innerHeight()) {
-											$('.cboxNote').css('width', $('.cboxNote').width() - 27);
-										}
-								}
-								longTitles();																			
 							}
 		});
 		
@@ -215,6 +203,16 @@ jQuery(document).ready(function($){
 							},
 			onComplete:		function() {
 								if($(this).data('obje-type') !== 'photo') resizeImg();
+								$(".cboxPhoto").wheelzoom();
+								$(".cboxPhoto img").on("click", function(e) {e.preventDefault();});								
+								var note = $(this).data("obje-note");
+								if(note != '') {
+										$('#cboxContent').append('<div class="cboxNote">' + note);
+										if($('.cboxPhoto').innerHeight() > $('#cboxContent').innerHeight()) {
+											$('.cboxNote').css('width', $('.cboxNote').width() - 27);
+										}
+								}
+								longTitles();		
 							}
 		});
 		
