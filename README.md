@@ -2,25 +2,28 @@ JustBlack Theme for webtrees
 ============================
 
 Features of this theme:
-
-    * A nice darkgrey layout with orange and yellow accents.
-    * Smooth Top Navigation Menu.
-    * Nice font for titles.
-	* Extended colorbox functions.
-    * Colorbox support for pdf files.
-    * Better dialog boxes. In this theme all dialog boxes are opening in the center of the browser window.
+	<ul>
+	<li>A nice darkgrey layout with orange and yellow accents.</li>
+    	<li>Smooth Top Navigation Menu.</li>
+    	<li>Nice font for titles.
+	<li>Extended colorbox functions.</li>
+    	<li>Colorbox support for pdf files.</li>
+    	<li>Better dialog boxes. In this theme all dialog boxes are opening in the center of the browser window.</li>
+    	</ul>
 
 And much more.    
 
-THE JUSTBLACK THEME COMES WITH HIS OWN THEME OPTIONS MODULE
+The JustBlack Theme comes with his own theme options module.
 
-The theme package includes a theme option module: https://github.com/JustCarmen/justblack_theme_options/releases
+The theme package includes a theme option module: https://github.com/JustCarmen/justblack_theme_options/releases<br>
 Pick the version number that correspondents with the version number of the JustBlack Theme. Read the readme files in the folder for installation instructions and usage.
 
 A few options to mention:
-	* Flags for language menu in the header with a nice tooltip system (requires the JustBlack Theme Options Module).
-    * Use a compact menu (requires the JustBlack Theme Options Module).
-    * Use Google Docs Viewer for pdf display.
+	<ul>
+	<li>Flags for language menu in the header with a nice tooltip system (requires the JustBlack Theme Options Module).</li>
+    	<li>Use a compact menu (requires the JustBlack Theme Options Module).</li>
+    	<li>Use Google Docs Viewer for pdf display.</li>
+    	</ul>
 
 For a complete overview of all the options in the JustBlack Theme Options module read this page.
 
