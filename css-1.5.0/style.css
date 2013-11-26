@@ -513,7 +513,7 @@ h4{color:#e7e7e7;font-size:13px;font-weight:bold}
 /* Change indicators  */
 .new{outline:solid #dd6900 1px}
 .old{outline:solid #767676 1px}
-.note_details{display:none}
+
 a.showit{color:#e7e7e7;position:relative;text-decoration:none;z-index:24}
 a.showit:hover{background-color:#fff8dc;cursor:crosshair;z-index:25}
 a.showit > span{display:none}
@@ -711,7 +711,6 @@ html[dir=rtl].field .editlink,html[dir=rtl].field .deletelink{float:left}
 .indi_name_details .name1 {font-weight:normal;padding-top:5px;font-size:inherit;}
 #indi_note{margin:0 0 5px}
 #indi_note .fact_NOTE{float:left;margin:0 10px 0 0}
-#indi_note .note_details{font-size:100%}
 #indi_note .fact_SOUR a{font-size:100%}
 #header_accordion1{float:right}
 .indi_table{clear:left}
