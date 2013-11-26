@@ -1485,6 +1485,7 @@ html[dir=rtl] #lightbox_content #thumblist li  {float:right; margin-left:5px;}
 /* Census assistant module */
 table.table-census-assistant th {
 	font-weight: bold;
+	text-align: left;
 }
 
 /* Stories Tab */
