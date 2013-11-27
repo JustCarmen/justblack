@@ -30,10 +30,11 @@ if (!defined('WT_WEBTREES')) {
 $theme_name = "JustBlack";
 
 // A version number in the path prevents browser-cache problems during upgrade
-define('WT_CSS_URL', WT_THEME_URL . 'css-1.5.0/');
+define('WT_CSS_URL', WT_THEME_URL . 'css-1.5.1/');
 
 // theme specific files.
 define('WT_THEME_JUSTBLACK', WT_THEME_URL . 'theme/'); 
+define('JUSTBLACK_JS_URL', WT_THEME_JUSTBLACK . 'justblack-1.5.1.js');
 
 require_once(WT_ROOT.WT_THEME_JUSTBLACK . 'functions.php');
 
