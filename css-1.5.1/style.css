@@ -856,7 +856,7 @@ html[dir=rtl] .desc_tree_div ul{margin-left:0;margin-right:10px}
 .name_tree_div ul,.name_tree_div_visible ul{margin:0;padding:0}
 
 /* Clippings  */
-#sb_clippings_content li{list-style:none;margin:0;padding:0}
+#sb_clippings_content li{list-style:none;margin:0;padding:5px 0;display:inline-block}
 #sb_clippings_content ul{margin:0;padding:0}
 
 /* Extra info  */
@@ -1531,7 +1531,7 @@ label[for=checkbox_rela_facts], label[for=checkbox_elder], label[for=checkbox_so
 #sb_content_families .name_tree_div li, #sb_content_families .name_tree_div_visible li{background:url(images/icons/rings.png) no-repeat left center;line-height:16px;padding-left:16px;padding-bottom:5px;vertical-align:middle}
 
 #sb_clippings_content .add_cart {display:block;margin-top:10px}
-#sb_clippings_content .icon-clippings, #sb_clippings_content .icon-indis{float:left;margin-left:0;margin-right:5px}
+#sb_clippings_content .icon-clippings, #sb_clippings_content .icon-indis, #sb_clippings_content .icon-sfamily{float:left;margin-left:0;margin-right:5px}
 #sb_clippings_content td.topbottombar{border:1px solid #545454;background:#2e2e2e url(../jquery-ui-1.10.3/images/ui-bg_highlight-soft_50_2e2e2e_1x100.png) 50% 50% repeat-x;color:#e2e2e2;font-weight:bold;margin:0;padding:0}
 #sb_clippings_content td.topbottombar h2{font-size:14px;margin:0;padding:0}
 #sb_clippings_content td.descriptionbox{font-size:11px;line-height:1.3em}
