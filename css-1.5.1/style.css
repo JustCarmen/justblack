@@ -94,13 +94,13 @@ html[dir="rtl"] input:required:valid, html[dir="rtl"] textarea:required:valid, h
 #main-menu a{display:block;overflow:hidden;white-space:nowrap}
 #main-menu ul{background:#272727;border:1px solid #FF8C00;display:none;margin:0;padding:0;position:absolute;z-index:99}
 #main-menu li a{color:#E7E7E7;font-size:11px;margin:auto;width:100%}
-#main-menu > li > a {padding-top:28px;padding-bottom:10px;white-space:normal;line-height:1.2em} /* padding-bottom for better mouse experience on hover */
+#main-menu > li > a {padding-top:28px;padding-bottom:10px;white-space:normal;line-height:1.2em;max-width:115px} /* padding-bottom for better mouse experience on hover */
 #main-menu li li a{display:block;float:left;font-size:11px;padding:0 5px 1px;position:relative}
 #main-menu ul li a:hover{color:#e7e7e7;text-decoration:none}
 #main-menu li li:first-child{margin-top:3px}
 
 /* Menu icons  */
-#main-menu > li{background-image:url(images/sprites-top-menu.png);background-repeat:no-repeat;height:28px;line-height:28px;text-align:center;text-indent:0;width:95px}
+#main-menu > li{background-image:url(images/sprites-top-menu.png);background-repeat:no-repeat;height:28px;line-height:28px;text-align:center;text-indent:0;min-width:95px}
 #main-menu li li{background-image:url(images/sprites-sub-menu.png);background-repeat:no-repeat;clear:both;height:23px;left:auto;line-height:23px;margin-bottom:3px;text-align:left;text-indent:26px;width:100%}
 
 /* Reverse left and right on RTL pages  */
