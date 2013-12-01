@@ -1185,6 +1185,7 @@ input[type="search"]{background-color:#FFFFDE}
 .dataTable tbody {line-height:1.5em}
 .dataTable tbody, .dataTable tbody a {font-size:11px}
 .dataTable td {padding: 5px}
+.dataTables_wrapper .fg-toolbar{background:none;border:none}
 
 /* Blocks  */
 .block #login-box a{font-size:11px}
@@ -1395,8 +1396,12 @@ table.tabs_table #side_bar a#alturl {font-size:9px}
 .clippings-page {width:50%;margin-left:auto;margin-right:auto;line-height:1.4em}
 .clippings-page ul {margin:8px 0}
 .clippings-page li {list-style-type:none;padding:2px 0;margin-left:20px}
-.clippings-page span.ui-icon {clear:both;display:block;margin-left:-25px;vertical-align:middle}
+.clippings-page span.ui-icon:not(.DataTables_sort_icon) {clear:both;display:block;margin-left:-25px;vertical-align:middle}
+.clippings-page span.DataTables_sort_icon {margin-left:-15px}
 .clippings-page form{margin-top:30px}
+.clippings-page td.ui-state-default{padding:0 5px 5px}
+.clippings-page .add-clippings {text-align:center}
+.clippings-page .add-clippings table {margin:0 auto;text-align:left}
 
 /* Calendar Page */
 #calendar-page {width:80%;margin-left:auto;margin-right:auto}
@@ -1530,11 +1535,14 @@ label[for=checkbox_rela_facts], label[for=checkbox_elder], label[for=checkbox_so
 #sb_content_families .name_tree_div li a, #sb_content_families .name_tree_div_visible li a{font-size:11px}
 #sb_content_families .name_tree_div li, #sb_content_families .name_tree_div_visible li{background:url(images/icons/rings.png) no-repeat left center;line-height:16px;padding-left:16px;padding-bottom:5px;vertical-align:middle}
 
+#sb_content_clippings {padding:0}
+#sb_content_clippings ul {padding:10px}
 #sb_clippings_content .add_cart {display:block;margin-top:10px}
 #sb_clippings_content .icon-clippings, #sb_clippings_content .icon-indis, #sb_clippings_content .icon-sfamily{float:left;margin-left:0;margin-right:5px}
-#sb_clippings_content td.topbottombar{border:1px solid #545454;background:#2e2e2e url(../jquery-ui-1.10.3/images/ui-bg_highlight-soft_50_2e2e2e_1x100.png) 50% 50% repeat-x;color:#e2e2e2;font-weight:bold;margin:0;padding:0}
-#sb_clippings_content td.topbottombar h2{font-size:14px;margin:0;padding:0}
-#sb_clippings_content td.descriptionbox{font-size:11px;line-height:1.3em}
+#sb_clippings_content td.topbottombar{border:none;background:none}
+#sb_clippings_content td.topbottombar h2{font-family:Verdana,Arial,Helvetica,sans-serif;font-weight:bold;font-size:13px;margin:0;padding:0}
+#sb_clippings_content td.descriptionbox {width:65%}
+#sb_clippings_content td.descriptionbox, #sb_clippings_content td.optionbox{font-size:11px;line-height:1.3em;background:none;border:none}
 #sb_clippings_content td.list_value{font-size:11px;line-height:1.3em}
 #sb_clippings_content td.topbottombar input{font-size:11px}
 

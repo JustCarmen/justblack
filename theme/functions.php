@@ -323,4 +323,29 @@ function getJBThumb($person, $max_thumbsize, $square = '') {
 	}
 }
 
+function getJBClippingsTable() {
+	global $controller;
+	$controller
+		->addExternalJavascript(WT_JQUERY_DATATABLES_URL)
+		->addInlineJavascript('
+			jQuery("table#mycart tr:first").wrap("<thead>"); jQuery("table#mycart tbody").before(jQuery("thead"));	
+			jQuery.fn.dataTableExt.oSort["unicode-asc" ]=function(a,b) {return a.replace(/<[^<]*>/, "").localeCompare(b.replace(/<[^<]*>/, ""))};
+			jQuery.fn.dataTableExt.oSort["unicode-desc"]=function(a,b) {return b.replace(/<[^<]*>/, "").localeCompare(a.replace(/<[^<]*>/, ""))};
+			jQuery("table#mycart").dataTable({
+				"sDom": \'<"H"pf<"dt-clear">irl>t<"F"pl>\',
+				'.WT_I18N::datatablesI18N().',
+				"bJQueryUI": true,
+				"bAutoWidth":false,
+				"bProcessing": true,
+				"bFilter": true,
+				"aoColumns": [				
+					/* 0-Name/Description */	{"bSortable": true},
+					/* 1-Delete */    			{"bSortable": false, "sClass": "center"}
+				],
+				"iDisplayLength": 10,
+				"sPaginationType": "full_numbers"
+			});	
+		');
+}
+
 ?>

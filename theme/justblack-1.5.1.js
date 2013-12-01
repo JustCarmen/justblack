@@ -803,6 +803,13 @@ jQuery(document).ready(function($){
 	if(qstring('mod') == 'clippings') {
 		$('#content').addClass('clippings-page');
 		$('.clippings-page li').prepend('<span class="ui-icon ui-icon-triangle-1-e left">');
+		$('.clippings-page .topbottombar').addClass('ui-state-default descriptionbox').removeClass('topbottombar');
+		$('.clippings-page h2').parent('td').removeClass();
+		$('.clippings-page input[type=submit]').parent('td').removeClass().css('text-align', 'right');
+		
+		if($('.clippings-page h3').length > 0) {
+			$('.clippings-page').wrapInner('<div class="add-clippings">');
+		}
 	}
 
 	/************************************** SEARCH PAGE ***********************************************/
