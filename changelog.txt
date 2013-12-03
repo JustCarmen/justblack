@@ -1,4 +1,22 @@
-READ THE README FILE FOR INSTALLATION AND UPGRADE INSTRUCTIONS
+READ THE README.HTML FILE FOR INSTALLATION AND UPGRADE INSTRUCTIONS
+
+03-12-2013 - JustBlack 1.5.1 for webtrees 1.5.1
+* Changes made to header.php for compatibility with webtrees 1.5.1
+* Added support for long titles in topmenu
+* Restyled the clippings page and the clippings sidebar
+* Turned the user message table and the clippings table into a jQuery dataTable.
+
+========================================================================================================
+
+24-11-2013 - JustBlack 1.5.0.1 for webtrees 1.5.0
+
+* Better colorbox display. Resize images which are bigger then maxWidth to prevent horizontal scrollbar.
+* Bugfix: Function for justblack dialogboxes was not working inside popups anymore.
+* Bugfix: Wrong placement of tooltip inside help dialog box.
+* Bugfix: The general colorbox oncomplete function was been overwritten by the specific oncomplete function. Moved the whole function to the image section because it is only applied  on media of the type 'image'.
+* Backwards compatibility for new menu items.
+
+========================================================================================================
 
 10-11-2013 - JustBlack for webtrees 1.5.0
 * The same changes made to the core theme files have been made to this theme if neccessary. Followed development for wt 1.5.0.
