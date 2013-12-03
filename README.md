@@ -15,7 +15,7 @@ And much more.
 
 The JustBlack Theme comes with his own theme options module.
 
-The theme package includes a theme option module: https://github.com/JustCarmen/justblack_theme_options/releases<br>
+Download the theme option module here: https://github.com/JustCarmen/justblack_theme_options/releases<br>
 Pick the version number that correspondents with the version number of the JustBlack Theme. Read the readme files in the folder for installation instructions and usage.
 
 A few options to mention:
