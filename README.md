@@ -20,12 +20,12 @@ Pick the version number that correspondents with the version number of the JustB
 
 A few options to mention:
 	<ul>
-	<li>Flags for language menu in the header with a nice tooltip system (requires the JustBlack Theme Options Module).</li>
-    	<li>Use a compact menu (requires the JustBlack Theme Options Module).</li>
+	<li>Flags for language menu in the header with a nice tooltip system.</li>
+    	<li>Use a compact menu.</li>
     	<li>Use Google Docs Viewer for pdf display.</li>
     	</ul>
 
-For a complete overview of all the options in the JustBlack Theme Options module read this page.
+For a complete overview of all the options in the JustBlack Theme Options module read <a href="https://github.com/JustCarmen/justblack_theme_options">this</a> page.
 
 Note: the JustBlack Theme Option Module is optional. The theme is fully functioning without the module activated.
 
