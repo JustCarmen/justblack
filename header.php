@@ -35,7 +35,10 @@ $this
 	->addExternalJavascript(WT_JQUERY_WHEELZOOM_URL)
 	// JustBlack
 	->addExternalJavascript(JUSTBLACK_JS_URL);
-	if (WT_Filter::get('mod') == 'clippings') getJBClippingsTable();
+	
+// extra dataTables
+if (WT_SCRIPT_NAME == 'index.php') getJBMessageTable();
+if (WT_Filter::get('mod') == 'clippings') getJBClippingsTable();
 	
 ob_start();	
 echo

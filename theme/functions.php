@@ -323,15 +323,84 @@ function getJBThumb($person, $max_thumbsize, $square = '') {
 	}
 }
 
+function getJBMessageTable() {
+	global $controller;
+	$controller
+		->addExternalJavascript(WT_JQUERY_DATATABLES_URL)
+		->addInlineJavascript('
+			function jb_expand_layer(sid) {
+				var obj = jQuery("#"+sid+"_img");
+				if (obj.hasClass("icon-plus")) {
+					obj.removeClass("icon-plus").addClass("icon-minus");
+					var $class = obj.parents("tr").attr("class");
+					obj.parents("tr").after("<tr class=\"" + $class + "\"><td class=\"wrap\" colspan=\"4\">" + jQuery("#"+sid).html());
+				} else {
+					obj.removeClass("icon-minus").addClass("icon-plus");
+					obj.parents("tr").next().remove();
+				}
+				return false;
+			}
+			
+			var dataTable = jQuery(".user_messages_block");
+						
+			dataTable.removeClass("small_inner_block");
+			dataTable.find("table").removeClass("list_table");
+			dataTable.find("td").removeClass("list_value_wrap").addClass("wrap");
+			dataTable.find("table tr:first").wrap("<thead>");
+			dataTable.find("tbody").before(jQuery(".user_messages_block thead"));
+			dataTable.find("tbody tr:odd").each(function(){
+				jQuery(this).find("div[id^=message]").appendTo("body");
+				jQuery(this).remove();			
+			});
+			dataTable.find("tr:first").children("td").replaceWith(function(i, html) {
+        		return "<th>" + html.replace(":", "") + "</th>";
+      		});
+			dataTable.find("th:first a").replaceWith("<input type=\"checkbox\" name=\"select_all\" style=\"vertical-align:middle;margin:0 3px\">");
+			dataTable.find("th:first br").remove();
+			
+			dataTable.on("click", "input[name=select_all]", function(){
+				if (jQuery(this).is(":checked") == true) {
+					jQuery("input[id^=cb_message]").prop("checked", true);
+				} else {
+					jQuery("input[id^=cb_message]").prop("checked", false);
+				}
+			});
+			
+			dataTable.find("a[onclick*=expand_layer]").each(function(){
+				jQuery(this).attr("onclick",function(index,attr){
+					return attr.replace("expand_layer", "jb_expand_layer");
+				});
+			});
+			
+			dataTable.find("table").dataTable({
+				"sDom": \'<"H"pf<"dt-clear">irl>t<"F"pl>\',
+				'.WT_I18N::datatablesI18N().',
+				"bJQueryUI": true,
+				"bAutoWidth":false,
+				"bProcessing": true,
+				"bFilter": true,
+				"aoColumns": [
+					/* 0-Delete */    		{"bSortable": false, "sClass": "center"},
+					/* 1-Subject */  		{"bSortable": false},
+					/* 2-Date_send */  		{"bSortable": false},
+					/* 3-User - email */    {"bSortable": false}
+				],
+				"iDisplayLength": 10,
+				"sPaginationType": "full_numbers"
+			});					
+		');
+}
+
 function getJBClippingsTable() {
 	global $controller;
 	$controller
 		->addExternalJavascript(WT_JQUERY_DATATABLES_URL)
 		->addInlineJavascript('
-			jQuery("table#mycart tr:first").wrap("<thead>"); jQuery("table#mycart tbody").before(jQuery("thead"));	
+			var dataTable = jQuery("table#mycart");
+			dataTable.find("tr:first").wrap("<thead>"); dataTable.find("tbody").before(jQuery("thead"));	
 			jQuery.fn.dataTableExt.oSort["unicode-asc" ]=function(a,b) {return a.replace(/<[^<]*>/, "").localeCompare(b.replace(/<[^<]*>/, ""))};
 			jQuery.fn.dataTableExt.oSort["unicode-desc"]=function(a,b) {return b.replace(/<[^<]*>/, "").localeCompare(a.replace(/<[^<]*>/, ""))};
-			jQuery("table#mycart").dataTable({
+			dataTable.dataTable({
 				"sDom": \'<"H"pf<"dt-clear">irl>t<"F"pl>\',
 				'.WT_I18N::datatablesI18N().',
 				"bJQueryUI": true,
