@@ -903,7 +903,7 @@ jQuery(document).ready(function($){
 		event.preventDefault();
 	});
 
-	// open all external links in new window/tab
+	// open all external links in new window/tab - Not sure if this function is still neccessary. See WT_Filter::expandUrls
 	$("a[href^=http]").each(function(){
       if(this.href.indexOf(location.hostname) == -1) {
          $(this).attr({
