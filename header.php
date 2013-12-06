@@ -83,8 +83,10 @@ if ($view!='simple') { // no headers for dialogs
 		// Print the TopMenu
 		echo 
 		'<div id="topMenu">'.getJBTopMenu().'</div>',			
-	    '<div class="divider"></div>'.
-        WT_FlashMessages::getHtmlMessages(); // Feedback from asynchronous actions	
+	    '<div class="divider"></div>';
 }
 
-echo $javascript, '<div id="content">';
+echo
+	$javascript,
+	WT_FlashMessages::getHtmlMessages(), // Feedback from asynchronous actions
+	'<div id="content">';
