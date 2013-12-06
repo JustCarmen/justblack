@@ -989,10 +989,10 @@ a.icon-rdarrow:hover{background-image:url(images/icons/rdarrow2.png);height:20px
 .icon-remove{background-image:url(images/icons/remove.png);height:16px;width:16px}
 .icon-repo-list{background-image:url(images/buttons/repository.png);height:25px;width:25px}
 .icon-repository{background-image:url(images/buttons/repository.png);height:25px;width:25px}
-.icon-resn-confidential{background-image:url(images/icons/resn_confidential.png);height:16px;width:16px}
-.icon-resn-locked{background-image:url(images/icons/resn_locked.png);height:16px;width:16px}
-.icon-resn-none{background-image:url(images/icons/resn_none.png);height:16px;width:16px}
-.icon-resn-privacy{background-image:url(images/icons/resn_privacy.png);height:16px;width:16px}
+.icon-confidential-none{background-image:url(images/icons/resn_confidential.png);height:16px;width:16px} /* show to managers */
+.icon-locked-none{background-image:url(images/icons/resn_locked.png);height:16px;width:16px} /* only managers can edit */
+.icon-resn-none{background-image:url(images/icons/resn_none.png);height:16px;width:16px} /* show to visitors */
+.icon-class-none{background-image:url(images/icons/resn_privacy.png);height:16px;width:16px} /* show to members */
 .icon-rings{background-image:url(images/icons/ring.png);height:16px;width:16px}
 .icon-search{background-image:url(images/buttons/search.png);height:25px;width:25px}
 .icon-selected{background-image:url(images/icons/selected.png);height:12px;width:12px}
