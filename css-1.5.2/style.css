@@ -1162,6 +1162,7 @@ td.topbottombar a:hover{color:#545454;font-weight:bold}
 td.optionbox.wrap div {white-space:normal !important}
 ul#reorder_list{list-style-type:none}
 .facts_table td.descriptionbox, .facts_table td.optionbox {font-size:11px}
+.fact_TEXT{padding-top:5px}
 .date{font-size:11px;font-weight:bold}
 .left{float:left}
 .right{float:right}
@@ -1277,7 +1278,8 @@ li.lb-image_edit {background:url(images/buttons/image_edit.png) no-repeat;width:
 li.lb-image_link {background:url(images/buttons/image_link.png) no-repeat;width:25px}
 li.lb-image_view {background:url(images/buttons/image_view.png) no-repeat;width:25px}
 
-.lb-image_info{margin-top:-10px;padding:0 5px}
+.lb-image_info{font-size:11px;margin-top:-10px;padding:0 5px}
+.lb-image_info > p:first-child{font-size:13px}
 
 /* Stats page */
 #stats-details .facts_table {width:100%;box-shadow:6px 8px #171717}
@@ -1498,7 +1500,7 @@ table.table-census-assistant th {
 /* Stories Tab */
 #stories {border:#545454 1px solid;margin:10px 20px 0 20px;line-height:1.5em}
 #stories h2,#stories h3,#stories h4,#stories h5{padding-top:20px;}
-.story_title{background:none;color:#e7e7e7;padding-top:12px;font-size:12px;font-weight:700;opacity:1;text-align:left}
+.story_title{background:none;color:#e7e7e7;padding-top:12px;font-size:16px;font-weight:700;opacity:1;text-align:left}
 .story_body{background:none;border:none;white-space:normal}
 .story_body p:first-child{margin-top:0;padding-top:0}
 .story_body a{text-decoration:underline;}
