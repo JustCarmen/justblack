@@ -1499,7 +1499,7 @@ table.table-census-assistant th {
 /* Stories Tab */
 #stories {border:#545454 1px solid;margin:10px 20px 0 20px;line-height:1.5em}
 #stories h2,#stories h3,#stories h4,#stories h5{padding-top:20px;}
-.story_title{background:none;color:#e7e7e7;padding-top:12px;font-size:12px;font-weight:700;opacity:1;text-align:left}
+.story_title{background:none;color:#e7e7e7;padding-top:12px;font-size:16px;font-weight:700;opacity:1;text-align:left}
 .story_body{background:none;border:none;white-space:normal}
 .story_body p:first-child{margin-top:0;padding-top:0}
 .story_body a{text-decoration:underline;}
