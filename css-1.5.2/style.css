@@ -1162,6 +1162,7 @@ td.topbottombar a:hover{color:#545454;font-weight:bold}
 td.optionbox.wrap div {white-space:normal !important}
 ul#reorder_list{list-style-type:none}
 .facts_table td.descriptionbox, .facts_table td.optionbox {font-size:11px}
+.fact_TEXT{padding-top:5px}
 .date{font-size:11px;font-weight:bold}
 .left{float:left}
 .right{float:right}
