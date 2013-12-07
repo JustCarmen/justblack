@@ -1159,6 +1159,7 @@ html[dir=rtl] #lang-menu.dropdown{margin-right:10px;text-align:right}
 #my-page h1 {font-family:'@Salina',Verdana,Arial,Helvetica,sans-serif;font-weight:normal;font-size:42px;margin-top:0}
 td.topbottombar a:link,td.topbottombar a:active,td.topbottombar a:visited{color:#e7e7e7;font-weight:bold}
 td.topbottombar a:hover{color:#545454;font-weight:bold}
+td.optionbox.wrap div {white-space:normal !important}
 ul#reorder_list{list-style-type:none}
 .facts_table td.descriptionbox, .facts_table td.optionbox {font-size:11px}
 .date{font-size:11px;font-weight:bold}
