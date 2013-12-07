@@ -1278,7 +1278,8 @@ li.lb-image_edit {background:url(images/buttons/image_edit.png) no-repeat;width:
 li.lb-image_link {background:url(images/buttons/image_link.png) no-repeat;width:25px}
 li.lb-image_view {background:url(images/buttons/image_view.png) no-repeat;width:25px}
 
-.lb-image_info{margin-top:-10px;padding:0 5px}
+.lb-image_info{font-size:11px;margin-top:-10px;padding:0 5px}
+.lb-image_info > p:first-child{font-size:13px}
 
 /* Stats page */
 #stats-details .facts_table {width:100%;box-shadow:6px 8px #171717}
