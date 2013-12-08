@@ -794,7 +794,6 @@ jQuery(document).ready(function($){
 		img.src = src;
 		$div = $('<div>').css({
 			'width' 	: '60px',
-			'height' 	: '45px',
 			'display' 	: 'inline-block',
 			'overflow' 	: 'hidden'
 		});
