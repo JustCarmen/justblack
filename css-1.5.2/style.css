@@ -1329,6 +1329,7 @@ body .ui-tooltip {border-width: 2px}
 /* Colorbox custom changes */
 #cboxTitle a {color:#000}
 #cboxTitle a:hover {color:#767676}
+.cboxNote a, .cboxNote a:hover {color:#fff}
 
 /* Search result tab */
 #search-result-tabs{background:none;border:none}

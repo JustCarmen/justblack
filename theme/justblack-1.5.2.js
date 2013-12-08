@@ -172,7 +172,8 @@ jQuery(document).ready(function($){
 		}
 	}
 
-	function jbColorbox() {
+	// add colorbox function to all images on the page when first clicking on an image.
+	$("body").one('click', 'a.gallery', function(event) {
 		get_imagetype();
 
 		// General (both images and pdf)
@@ -206,10 +207,14 @@ jQuery(document).ready(function($){
 								$(".cboxPhoto img").on("click", function(e) {e.preventDefault();});
 								var note = $(this).data("obje-note");
 								if(note != '') {
-										$('#cboxContent').append('<div class="cboxNote">' + note);
+										$('#cboxContent').append('<div class="cboxNote"><a href="#">' + note);
 										if($('.cboxPhoto').innerHeight() > $('#cboxContent').innerHeight()) {
 											$('.cboxNote').css('width', $('.cboxNote').width() - 27);
 										}
+										$('.cboxNote a').click(function(e){
+											e.preventDefault();
+											$(this).parent().hide();										
+										});
 								}
 								longTitles();
 							}
@@ -273,18 +278,6 @@ jQuery(document).ready(function($){
 				$(this).colorbox({rel:"nofollow"});
 			}
 		});
-	}
-	
-	// add colorbox function to all images on the page when first clicking on an image except when using the random media block. One time activating means quicker page loading but is not working on the random media block.
-	$("body").one('click', 'a.gallery', function(event) {
-		event.preventDefault();
-		jbColorbox();	
-		if($('.random_media_block').length > 0) {
-			$("body").on('click', 'a.gallery', function(event) {
-				event.preventDefault();
-				jbColorbox();	
-			});
-		}					
 	});
 
 	/********************************************* TOOLTIPS ***********************************************/
@@ -794,6 +787,7 @@ jQuery(document).ready(function($){
 		img.src = src;
 		$div = $('<div>').css({
 			'width' 	: '60px',
+			'height' 	: '45px',
 			'display' 	: 'inline-block',
 			'overflow' 	: 'hidden'
 		});
