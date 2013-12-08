@@ -172,8 +172,7 @@ jQuery(document).ready(function($){
 		}
 	}
 
-	// add colorbox function to all images on the page when first clicking on an image.
-	$("body").one('click', 'a.gallery', function(event) {
+	function jbColorbox() {
 		get_imagetype();
 
 		// General (both images and pdf)
@@ -274,6 +273,18 @@ jQuery(document).ready(function($){
 				$(this).colorbox({rel:"nofollow"});
 			}
 		});
+	}
+	
+	// add colorbox function to all images on the page when first clicking on an image except when using the random media block. One time activating means quicker page loading but is not working on the random media block.
+	$("body").one('click', 'a.gallery', function(event) {
+		event.preventDefault();
+		jbColorbox();	
+		if($('.random_media_block').length > 0) {
+			$("body").on('click', 'a.gallery', function(event) {
+				event.preventDefault();
+				jbColorbox();	
+			});
+		}					
 	});
 
 	/********************************************* TOOLTIPS ***********************************************/
