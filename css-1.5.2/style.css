@@ -617,7 +617,7 @@ html[dir="rtl"] .person_box_template i[class^="icon-silhouette"] {float:right;}
 #verify-form div{text-align:center; width:630px}
 #register-form label{display:inline-block;width:250px}
 #register-form label input,#register-form label select,#register-form textarea{margin:0 10px;width:220px}
-#register-form input{width:240px};
+#register-form input{width:240px}
 #register-form label select{margin:0 9px;width:223px}
 #register-form textarea{margin:0 3px;vertical-align:top;width:580px}
 #register-form div#registration-submit{text-align:center}
