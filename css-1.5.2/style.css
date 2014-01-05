@@ -30,7 +30,7 @@
 	#topMenu, #header, #optionsmenu, #header select, #header input, #footer select, #backprint, #sidebar, #separator {display:none;}
 	#header, #footer, .noprint {display:none !important;}
 	form, button, input {display:none;} 
-	#pedigree_chart {left:right;left:-80px;}
+	#pedigree_chart {right:auto;left:-80px;}
 	#header_accordion1 {width: 500px!important}
 	html[dir=rtl] #pedigree_chart {left:auto;right:-80px;}
 	#familybook_chart h3 {margin-bottom: 10px;}
@@ -112,7 +112,7 @@ html[dir=rtl] #main-menu li li a{float:right;padding:1px 5px 1px 10px}
 
 /********************Menu Top Row Icons **********************/
 
-#menu-tree      {background-position:center   -0px;}
+#menu-tree      {background-position:center    	 0;}
 #menu-chart     {background-position:center  -29px;}
 #menu-list      {background-position:center  -58px;}
 #menu-calendar  {background-position:center  -87px;}
@@ -131,7 +131,7 @@ html[dir=rtl] #main-menu li li a{float:right;padding:1px 5px 1px 10px}
 
 /*******************Menu submenu Icons**********************/
 /* Chart Icons */
-#menu-chart-ancestry        {background-position:left   -0px;} html[dir=rtl] #menu-chart-ancestry         {background-position:right   -0px;}
+#menu-chart-ancestry        {background-position:left      0;} html[dir=rtl] #menu-chart-ancestry         {background-position:right      0;}
 #menu-chart-fanchart        {background-position:left  -23px;} html[dir=rtl] #menu-chart-fanchart         {background-position:right  -23px;}
 #menu-chart-compact         {background-position:left  -46px;} html[dir=rtl] #menu-chart-compact          {background-position:right  -46px;}
 #menu-chart-descendancy     {background-position:left  -69px;} html[dir=rtl] #menu-chart-descendancy      {background-position:right  -69px;}
@@ -750,7 +750,6 @@ html[dir=rtl] dd .editlink,html[dir=rtl] dd .deletelink{float:left}
 /* Facts & Events tab  */
 #personal_facts_content .fact_NOTE,#personal_facts_content .fact_SOUR,#family-table .fact_NOTE,#family-table .fact_SOUR{clear:both;font-size:11px;margin:5px 3px 5px 0}
 .media-display{margin:5px 0}
-.media-display-image{}
 .media-display-title{font-style:italic;padding-top:5px}
 .media-separator{display:none}
 
@@ -793,7 +792,6 @@ html[dir=rtl] .DataTables_sort_wrapper span{left:auto;margin-right:-20px;right:0
 .surname-list,.givn-list{margin:5px auto}
 .source-list table,.note-list table,.repo-list table,.media-list table,.indi-list table,.fam-list table{width:100%}
 .source-list td,.note-list td,.repo-list td,.media-list td,.indi-list td,.fam-list td,.recent_changes_block td,.upcoming_events_block,.surname-list td,.givn-list td{padding:2px 5px}
-.indi-list td,.fam-list td{}
 .surname-list td{vertical-align:top}
 .indi-list .stats,.fam-list .stats{margin:0 auto;width:auto}
 .source-list th,.note-list th,.repo-list th,.media-list th,.indi-list th,.fam-list th,.recent_changes_block th,.upcoming_events_block th,.todays_events_block th,.todo_block th,.yahrzeit_block th,.surname-list th,.givn-list th{cursor:pointer;white-space:nowrap}
@@ -1117,7 +1115,7 @@ html[dir=rtl] #save-cancel .cancel {float:left;}
 
 /* Language menu */
 #lang-menu ul{display:inline-block;list-style-type:none;margin:0;padding:0}
-#lang-menu li{background-image:url(images/flags_sprite.png);background-repeat:no-repeat;cursor:pointer;display:inline;float:left;height:15px;margin-top:3px;
+#lang-menu li{background-image:url(images/flags_sprite.png);background-repeat:no-repeat;cursor:pointer;float:left;height:15px;margin-top:3px;
               padding-right:5px;width:25px;filter: alpha(opacity=40);opacity: 0.4}
 #lang-menu li.lang-active{filter: alpha(opacity=100);opacity: 1}
 #lang-menu span{display:none}
@@ -1126,41 +1124,41 @@ html[dir=rtl] #save-cancel .cancel {float:left;}
 html[dir=rtl] #lang-menu.dropdown{margin-right:10px;text-align:right}
 
 /*Language flags (only core languages) */
-#menu-language-ar {background-position: 0px -15px}
-#menu-language-bg {background-position: 0px -30px}
-#menu-language-bs {background-position: 0px -45px}
-#menu-language-ca {background-position: 0px -60px}
-#menu-language-cs {background-position: 0px -75px}
-#menu-language-da {background-position: 0px -90px}
-#menu-language-de {background-position: 0px -105px}
-#menu-language-en_GB {background-position: 0px -120px}
-#menu-language-en_US {background-position: 0px -135px}
-#menu-language-es {background-position: 0px -150px}
-#menu-language-et {background-position: 0px -165px}
-#menu-language-fa {background-position: 0px -180px}
-#menu-language-fi {background-position: 0px -195px}
-#menu-language-fr {background-position: 0px -210px}
-#menu-language-he {background-position: 0px -225px}
-#menu-language-hr {background-position: 0px -240px}
-#menu-language-hu {background-position: 0px -255px}
-#menu-language-is {background-position: 0px -270px}
-#menu-language-it {background-position: 0px -285px}
-#menu-language-lt {background-position: 0px -300px}
-#menu-language-nb {background-position: 0px -315px}
-#menu-language-nl {background-position: 0px -330px}
-#menu-language-nn {background-position: 0px -345px}
-#menu-language-pl {background-position: 0px -360px}
-#menu-language-pt {background-position: 0px -375px}
-#menu-language-pt_BR {background-position: 0px -390px}
-#menu-language-ru {background-position: 0px -405px}
-#menu-language-sk {background-position: 0px -420px}
-#menu-language-sl {background-position: 0px -435px}
-#menu-language-sv {background-position: 0px -450px}
-#menu-language-tr {background-position: 0px -465px}
-#menu-language-tt {background-position: 0px -480px}
-#menu-language-uk {background-position: 0px -495px}
-#menu-language-vi {background-position: 0px -510px}
-#menu-language-zh_CN {background-position: 0px -525px}
+#menu-language-ar {background-position: 0 -15px}
+#menu-language-bg {background-position: 0 -30px}
+#menu-language-bs {background-position: 0 -45px}
+#menu-language-ca {background-position: 0 -60px}
+#menu-language-cs {background-position: 0 -75px}
+#menu-language-da {background-position: 0 -90px}
+#menu-language-de {background-position: 0 -105px}
+#menu-language-en_GB {background-position: 0 -120px}
+#menu-language-en_US {background-position: 0 -135px}
+#menu-language-es {background-position: 0 -150px}
+#menu-language-et {background-position: 0 -165px}
+#menu-language-fa {background-position: 0 -180px}
+#menu-language-fi {background-position: 0 -195px}
+#menu-language-fr {background-position: 0 -210px}
+#menu-language-he {background-position: 0 -225px}
+#menu-language-hr {background-position: 0 -240px}
+#menu-language-hu {background-position: 0 -255px}
+#menu-language-is {background-position: 0 -270px}
+#menu-language-it {background-position: 0 -285px}
+#menu-language-lt {background-position: 0 -300px}
+#menu-language-nb {background-position: 0 -315px}
+#menu-language-nl {background-position: 0 -330px}
+#menu-language-nn {background-position: 0 -345px}
+#menu-language-pl {background-position: 0 -360px}
+#menu-language-pt {background-position: 0 -375px}
+#menu-language-pt_BR {background-position: 0 -390px}
+#menu-language-ru {background-position: 0 -405px}
+#menu-language-sk {background-position: 0 -420px}
+#menu-language-sl {background-position: 0 -435px}
+#menu-language-sv {background-position: 0 -450px}
+#menu-language-tr {background-position: 0 -465px}
+#menu-language-tt {background-position: 0 -480px}
+#menu-language-uk {background-position: 0 -495px}
+#menu-language-vi {background-position: 0 -510px}
+#menu-language-zh_CN {background-position: 0 -525px}
 
 /* General  */
 #my-page h1 {font-family:'@Salina',Verdana,Arial,Helvetica,sans-serif;font-weight:normal;font-size:42px;margin-top:0}
@@ -1278,7 +1276,7 @@ table.facts_table td.ui-widget-header input{margin:0;vertical-align:middle}
 .ui-autocomplete li a:hover{color:#e2e2e2}
 
 /* Tooltips (jquery-ui tooltips)  */
-.ui-tooltip {padding: 2px 4px;position: absolute;z-index: 9999;max-width: 300px;-webkit-box-shadow: 3px 4px #171717;box-shadow: 3px 4px #171717;
+.ui-tooltip {padding: 2px 4px;position: absolute;z-index: 9999;max-width: 300px;box-shadow: 3px 4px #171717;
 			background-image:none;background-color: #FFEEB0;color:#272727;font-size:9px;border: 1px solid #FECF5B}
 body .ui-tooltip {border-width: 2px}
 
@@ -1325,7 +1323,7 @@ tr.classy0, tr.classy1{color:#e2e2e2}
 
 .lb-menu {position:relative; float:right; list-style-type:none; margin:0; padding:0}
 .lb-menu ul {list-style-type:none;}
-.lb-menu li {display:inline;position:relative;float:left; top:0;}
+.lb-menu li {position:relative;float:left; top:0;}
 .lb-menu a {display:block}
 .lb-menu li a {padding-top:25px;}
 html[dir=rtl] .lb-menu {float:right;}
@@ -1430,7 +1428,7 @@ table.tabs_table #side_bar a#alturl {font-size:9px}
 .clippings-page {width:50%;margin-left:auto;margin-right:auto;line-height:1.4em}
 .clippings-page ul {margin:8px 0}
 .clippings-page li {list-style-type:none;padding:2px 0;margin-left:20px}
-.clippings-page span.ui-icon:not(.DataTables_sort_icon) {clear:both;display:block;margin-left:-25px;vertical-align:middle}
+.clippings-page span.ui-icon:not(.DataTables_sort_icon) {clear:both;display:block;margin-left:-25px}
 .clippings-page span.DataTables_sort_icon {margin-left:-15px}
 .clippings-page form{margin-top:30px}
 .clippings-page td.ui-state-default{padding:0 5px 5px}
@@ -1448,7 +1446,7 @@ table.tabs_table #side_bar a#alturl {font-size:9px}
 #calendar-page > table:last-child tr:last-child .descriptionbox{background: none;font-size:11px;line-height:1.5em}
 #calendar-page table:last-child tr:last-child td:last-child{text-align:right}
 #calendar-page ul {list-style-type:none}
-#calendar-page li {font-size:12px;margin-bottom:15px;font-size:11px}
+#calendar-page li {margin-bottom:15px;font-size:11px}
 #calendar-page li a {font-weight:bold}
 #calendar-page li .indent {padding-top:0;padding-left:16px}
 #calendar-page a, #calendar-page .indent .date a {color: #E2E2E2}
@@ -1503,7 +1501,6 @@ label[for=checkbox_rela_facts], label[for=checkbox_elder], label[for=checkbox_so
 #lightbox_content li.li_new{border:2px solid #FECF5B;}
 #lightbox_content li.li_old{border:2px solid #DD6900;}
 #lightbox_content .thumblist a img {max-height:122px;max-width:122px; width:auto;display: block;margin: 0 auto}
-#lightbox_content .thumblist a:hover img  {}
 #lightbox_content .clearlist:after{clear:both; content:"."; display:block; height:0; visibility:hidden;}
 #lightbox_content span {padding:10px;}
 #lightbox_content span img {vertical-align:middle;}
@@ -1536,7 +1533,9 @@ html[dir=rtl] #lightbox_content #thumblist li  {float:right; margin-left:5px;}
 .story_body p:first-child{margin-top:0;padding-top:0}
 .story_body a{text-decoration:underline;}
 .story_edit{border-top:#545454 1px solid;margin-top:10px;padding-top:10px;text-align:center}
-.story_edit a {background: url(images/button_sprite.png) repeat-x scroll 0 0 rgba(0, 0, 0, 0);border: 1px solid #545454;border-radius: 2px 2px 2px 2px;color: #E7E7E7;	 			   font-size: 8pt;padding: 3px;}
+.story_edit a {background: url(images/button_sprite.png) repeat-x;border: 1px solid #545454;border-radius: 2px 2px 2px 2px;color: #E7E7E7;font-size: 8pt;padding: 3px;}
+.story_edit a:hover{background-position:50% -25px;cursor:pointer}
+.story_edit a:active{background-position:50% -50px}
 
 /* Sidebar */
 #sidebarAccordion h3 {height:20px}
