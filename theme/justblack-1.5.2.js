@@ -694,60 +694,43 @@ jQuery(document).ready(function($){
 
 	/************************************** MEDIALIST PAGE ********************************************/
 	if (WT_SCRIPT_NAME == 'medialist.php') {
-		$('#medialist-page .list_table:eq(1)').each(function(){
-			$(this).find('.list_table:last').addClass('list_table_controls');
-		});
-
-		// Medialist Menu - Moved from jb_lightbox.js
-		$('#medialist-page #lightbox-menu').removeAttr('id').addClass('lightbox-menu');
+		// Medialist Menu
 		$('.lightbox-menu').parent('td').each(function(){
 			$(this).wrapInner('<div class="lb-image_info">');
 			$(this).find('.lightbox-menu').prependTo($(this));
 		});
 
-		// change id's in classes for W3C validation (id's must be unique and they aren't). Put all li's in one ul (one menulist)
-		$('.lightbox-menu').each(function(){
-			var lb_edit = $(this).find('#lb-image_edit').removeAttr('id').addClass('lb-image_edit');
-			var lb_link = $(this).find('#lb-image_link').removeAttr('id').addClass('lb-image_link');
-			var lb_view = $(this).find('#lb-image_view').removeAttr('id').addClass('lb-image_view');
-			lb_edit.parent().append(lb_link, lb_view);
-			$(this).find('.lb-menu').not('.lb-menu:first').remove();
-		});
+		$('.lightbox-menu .lb-menu li ul').wrap('<div class="popup">');
 
-		$('.lightbox-menu ul.lb-menu li ul').wrap('<div class="popup">');
-
-		$('.lightbox-menu ul.lb-menu > li').each(function(){
-			var tooltip = $(this).find('> a').text();
+		$('.lightbox-menu .lb-menu > li > a').each(function(){
+			var tooltip = $(this).text();
 			if($(this).hasClass('lb-image_link')) {
-				$(this).find('.popup ul').prepend('<li class="lb-pop-title no-ui-icon">' + tooltip);
+				$(this).parent().find('.popup ul').prepend('<li class="lb-pop-title">' + tooltip);
 			}
 			else {
 				if ($(this).hasClass('lb-image_edit')) {var pos = "right-18"}
 				if ($(this).hasClass('lb-image_view')) {var pos = "left+15"}
-				$(this).tooltip({
+				$(this).parent().tooltip({
 					position: {
 						my: pos + " center-2",
 						at: "center center"
 					}
 				});
-				$(this).attr('title', tooltip);
+				$(this).parent().attr('title', tooltip);
 			}
-			$(this).find('> a').text('');
+			$(this).text('');
 		});
 
-		$('.lb-menu .lb-image_link').hover(function(){
+		$('.lb-menu .lb-image_link').parent().hover(function(){
 			$(this).find('.popup').fadeIn('slow');
 		},
 		function(){
 			$(this).find('.popup').fadeOut('slow');
 		});
 
-		$('.lightbox-menu').show();
-
 		// media link list
 		$(".lb-image_info").each(function(){
-			$(this).find('a[href^="individual.php"], a[href^="family.php"], a[href^="source.php"]').not('.fact_SOUR a').addClass("media_link")
-			$(this).find('.media_link').next('br').remove();
+			$(this).find('> a').addClass("media_link").next('br').remove();
 			$(this).find('.media_link').wrapAll('<div class="media_link_list">');
 		});
 	}

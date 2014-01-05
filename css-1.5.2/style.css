@@ -1224,6 +1224,21 @@ div.charts_block .person_box_template, #descendancy_chart .person_box_template, 
 .person_box_zoom{background-color:#272727;margin:15px 5px 5px 5px;padding:5px}
 .person_box_zoom a{color:#e2e2e2;font-size:12px;font-style:italic}
 
+/* Popups */
+.popup ul {display:table;margin:0;padding:0}
+.popup > ul {background-color:#272727;border:#545454 1px solid;padding:10px 0}
+#descendancy_chart .popup ul {padding:10px 10px 5px 5px} /* overwrite default value for descendancy chart */
+.popup li, #descendancy_chart .popup li{margin:0;line-height:16px;white-space:nowrap} 
+.popup ul li {position: relative;display: block;text-indent:16px}
+.popup ul > li > a:first-child::before {background:url(../jquery-ui-1.10.3/images/ui-icons_e2e2e2_256x240.png) no-repeat -32px -16px;width:16px;height:16px;display:block;position:absolute;content: " "}
+.popup > ul > li li > a:first-child::before {background:url(../jquery-ui-1.10.3/images/ui-icons_e2e2e2_256x240.png) no-repeat -144px -96px;width:16px;height:16px;display:block;position:absolute;content: " "}
+.popup > ul > li > a:not(:first-child) {display:block;margin-top:5px;font-size:11px;font-weight:bold;background-color:#E2E2E2;color:#2E2E2E}
+.popup > ul > li > a:not(:first-child):hover {background-color:#8E8E8E;color:#E2E2E2;text-decoration:none}
+.popup > ul > li > a:not(:first-child) span {padding-left:0}
+.popup li li {margin-left:10px}
+.popup > ul > li ul span.NAME {margin:0}
+.popup > ul > li li a{font-style:italic}
+
 /* childbox */
 #childbox {background-color:#272727;border:#545454 1px solid;padding:15px 5px 10px 5px;position:absolute;visibility:hidden;width:200px;margin-top:20px} 
 #hourglass_chart #childbox {margin-left:20px;margin-right:20px}
@@ -1265,7 +1280,6 @@ div.charts_block .person_box_template, #descendancy_chart .person_box_template, 
 #medialist-page .media_link_list {margin-top:15px}
 #medialist-page a.media_link {display:block;height:1.4em;font-size:11px}
 
-#lightbox-menu{display:none}
 .lb-menu {position:relative; float:right; list-style-type:none; margin:0; padding:0}
 .lb-menu ul {list-style-type:none;}
 .lb-menu li {display:inline;position:relative;float:left; top:0;}
@@ -1276,14 +1290,14 @@ html[dir=rtl] .lb-menu li {float:right;}
 
 .lb-menu .popup{position:absolute;left:-50px;width:140px;z-index:999}
 .lb-menu .popup ul {background-color:#FFEEB0;border:#FECF5B 1px solid;padding:0;box-shadow: 3px 4px #171717;}
-.lb-menu .popup .ui-icon{background-image: url("images/ui-icons_222222_256x240.png")}
+.lb-menu .popup li > a:first-child::before {background:url(../jquery-ui-1.10.3/images/ui-icons_4b8e0b_256x240.png) no-repeat -32px -16px}
 .lb-menu .popup a{color:#272727;padding:0}
 .lb-menu .popup a:hover{color:#8e8e8e;text-decoration:underline}
 .lb-menu .lb-pop-title {color:#272727;font-size:10px;font-weight:bold}
 
-li.lb-image_edit {background:url(images/buttons/image_edit.png) no-repeat;width:25px}
-li.lb-image_link {background:url(images/buttons/image_link.png) no-repeat;width:25px}
-li.lb-image_view {background:url(images/buttons/image_view.png) no-repeat;width:25px}
+.lb-image_edit {background:url(images/buttons/image_edit.png) no-repeat;width:25px}
+.lb-image_link {background:url(images/buttons/image_link.png) no-repeat;width:25px}
+.lb-image_view {background:url(images/buttons/image_view.png) no-repeat;width:25px}
 
 .lb-image_info{font-size:11px;margin-top:-10px;padding:0 5px}
 .lb-image_info > p:first-child{font-size:13px}
@@ -1565,23 +1579,6 @@ tr.classy0, tr.classy1{color:#e2e2e2}
 /* Placeholder style in input area's */
 :-moz-placeholder{color: #808080}
 ::-webkit-input-placeholder{color: #808080}
-
-/* Popups */
-.popup ul {display:table;margin:0;padding:0}
-.popup > ul {background-color:#272727;border:#545454 1px solid;padding:10px 0}
-#descendancy_chart .popup ul {padding:10px 10px 5px 5px} /* overwrite default value for descendancy chart */
-.popup li, #descendancy_chart .popup li{margin:0;line-height:16px;white-space:nowrap} 
-.popup ul li {position: relative;display: block;text-indent:16px}
-.popup ul > li > a:first-child::before		 	{background:url(../jquery-ui-1.10.3/images/ui-icons_e2e2e2_256x240.png) no-repeat -32px -16px;width:16px;height:16px;display:block;
-												position:absolute;content: " "}
-.popup > ul > li li > a:first-child::before 	{background:url(../jquery-ui-1.10.3/images/ui-icons_e2e2e2_256x240.png) no-repeat -144px -96px;width:16px;height:16px;display:block;
-												position:absolute;content: " "}
-.popup > ul > li > a:not(:first-child) {display:block;margin-top:5px;font-size:11px;font-weight:bold;background-color:#E2E2E2;color:#2E2E2E}
-.popup > ul > li > a:not(:first-child):hover {background-color:#8E8E8E;color:#E2E2E2;text-decoration:none}
-.popup > ul > li > a:not(:first-child) span {padding-left:0}
-.popup li li {margin-left:10px}
-.popup > ul > li ul span.NAME {margin:0}
-.popup > ul > li li a{font-style:italic}
 
 /* Watermarked pdf's - Optional */
 .pdf-menu{background-color:#EBEBEB;height:37px;position:absolute;top:0;overflow:hidden}
