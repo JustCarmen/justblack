@@ -1182,7 +1182,7 @@ input[type="search"]{background-color:#FFFFDE}
 
 /* Dropdown menu */
 .dropdown{list-style-type:none;padding:0;background-color:#FFFFDE;height:18px;border:#545454 1px inset;position:relative;z-index:999}
-.dropdown > li {background: url("images/buttons/dropdown.png") no-repeat scroll right top}
+.dropdown > li {background: url(images/buttons/dropdown.png) no-repeat scroll right top}
 .dropdown > li > a {padding:3px 30px 3px 10px;overflow:hidden;height:13px}
 .dropdown a {display:block;color: #272727;font-weight:normal;font-size:11px}
 .dropdown ul {display:none;padding:5px 0;margin:1px 0 0;list-style-type:none;background-color:#FFFFDE}
@@ -1527,7 +1527,7 @@ table.table-census-assistant th {
 .story_body p:first-child{margin-top:0;padding-top:0}
 .story_body a{text-decoration:underline;}
 .story_edit{border-top:#545454 1px solid;margin-top:10px;padding-top:10px;text-align:center}
-.story_edit a {background: url("images/button_sprite.png") repeat-x scroll 0 0 rgba(0, 0, 0, 0);border: 1px solid #545454;border-radius: 2px 2px 2px 2px;color: #E7E7E7;	 			   font-size: 8pt;padding: 3px;}
+.story_edit a {background: url(images/button_sprite.png) repeat-x scroll 0 0 rgba(0, 0, 0, 0);border: 1px solid #545454;border-radius: 2px 2px 2px 2px;color: #E7E7E7;	 			   font-size: 8pt;padding: 3px;}
 
 /* Multiple Tabs (General) */
 #tabs tr:first-child td.rela {border: 1px solid #545454; background: #2e2e2e url(../jquery-ui-1.10.3/images/ui-bg_highlight-soft_50_2e2e2e_1x100.png) 50% 50% repeat-x;
