@@ -2,7 +2,7 @@
 // Custom pdfviewer for the JustBlack theme
 //
 // webtrees: Web based Family History software
-// Copyright (C) 2013 JustCarmen.
+// Copyright (C) 2014 JustCarmen.
 //
 // This program is free software; you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -16,9 +16,7 @@
 //
 // You should have received a copy of the GNU General Public License
 // along with this program; if not, write to the Free Software
-// Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
-//
-// $Id: pdfviewer.php 2013-09-15 JustCarmen $
+// Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
 
 // Note: this script is not checking for private media because google docs viewer can't reach them. But if the media is private the thumbnails won't be listed,
 // so this script can be used safely. The script is checking if a file exists. If not the built-in gdocs viewer exit message will be shown.
