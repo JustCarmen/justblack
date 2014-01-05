@@ -1251,6 +1251,49 @@ div.charts_block .person_box_template, #descendancy_chart .person_box_template, 
 #childbox li.cb_title span.name1 {font-size:11px;padding:0}
 #childbox .cb_child{font-style:italic}
 
+/* Tag Cloud styles */
+.tag_cloud_table{margin-left:auto;margin-right:auto;width:70%}
+.tag_cloud_sub{color:#808080;font-size:8px}
+
+/* JQuery ui-custom changes (also see jquery-ui.custom.css  */
+.ui-tabs, .ui-tabs .ui-tabs-nav li a {padding:0;}
+.ui-tabs .ui-tabs-nav li a span {display:block; padding:.5em 1em;}
+.ui-widget-content{font-size:12px}
+.ui-state-highlight,.ui-widget-content .ui-state-highlight,.ui-widget-header .ui-state-highlight{padding:6px}
+.ui-state-highlight a{text-decoration:underline}
+
+/* Keep ui-dialog centered on page when scrolling window  */
+.ui-dialog{position:fixed}
+
+/* overflow correction sidebar on individual page  */
+.ui-accordion .ui-accordion-content{overflow:visible}
+.ui-widget-content,.ui-widget-content .optionbox{font-size:1em}
+.ui-widget-content a:hover{text-decoration:none}
+table.facts_table td.ui-widget-header{padding:8px 6px}
+table.facts_table td.ui-widget-header input{margin:0;vertical-align:middle}
+
+/* Autocomplete styles */
+.ui-autocomplete li:nth-child(even){background-color:#e8e8e8}
+.ui-autocomplete li a{color:#2e2e2e}
+.ui-autocomplete li a:hover{color:#e2e2e2}
+
+/* Tooltips (jquery-ui tooltips)  */
+.ui-tooltip {padding: 2px 4px;position: absolute;z-index: 9999;max-width: 300px;-webkit-box-shadow: 3px 4px #171717;box-shadow: 3px 4px #171717;
+			background-image:none;background-color: #FFEEB0;color:#272727;font-size:9px;border: 1px solid #FECF5B}
+body .ui-tooltip {border-width: 2px}
+
+/* Colorbox custom changes */
+#cboxTitle a {color:#000}
+#cboxTitle a:hover {color:#767676}
+.cboxNote a, .cboxNote a:hover {color:#fff}
+
+/* Manage media links */
+tr.classy0, tr.classy1{color:#e2e2e2}
+
+/* Placeholder style in input area's */
+:-moz-placeholder{color: #808080}
+::-webkit-input-placeholder{color: #808080}
+
 /* Hourglass chart */
 #hourglass_chart{margin-top:20px; margin-bottom:20px}
 #hourglass_chart .person_box_template.spouse_box {border-top:none;width:250px;height:80px;z-index:-1}
@@ -1315,42 +1358,6 @@ html[dir=rtl] .lb-menu li {float:right;}
 #stats-details .facts_value ul li:before {background:url(../jquery-ui-1.10.3/images/ui-icons_e2e2e2_256x240.png) no-repeat -32px -16px;width:16px;height:16px;display:block;
 								position:absolute;content: " "}
 #stats-details .facts_value ul li {text-indent:16px}
-
-/* Tag Cloud styles */
-.tag_cloud_table{margin-left:auto;margin-right:auto;width:70%}
-.tag_cloud_sub{color:#808080;font-size:8px}
-
-/* JQuery ui-custom changes (also see jquery-ui.custom.css  */
-.ui-tabs, .ui-tabs .ui-tabs-nav li a {padding:0;}
-.ui-tabs .ui-tabs-nav li a span {display:block; padding:.5em 1em;}
-.ui-widget-content{font-size:12px}
-.ui-state-highlight,.ui-widget-content .ui-state-highlight,.ui-widget-header .ui-state-highlight{padding:6px}
-.ui-state-highlight a{text-decoration:underline}
-
-/* Keep ui-dialog centered on page when scrolling window  */
-.ui-dialog{position:fixed}
-
-/* overflow correction sidebar on individual page  */
-.ui-accordion .ui-accordion-content{overflow:visible}
-.ui-widget-content,.ui-widget-content .optionbox{font-size:1em}
-.ui-widget-content a:hover{text-decoration:none}
-table.facts_table td.ui-widget-header{padding:8px 6px}
-table.facts_table td.ui-widget-header input{margin:0;vertical-align:middle}
-
-/* Autocomplete styles */
-.ui-autocomplete li:nth-child(even){background-color:#e8e8e8}
-.ui-autocomplete li a{color:#2e2e2e}
-.ui-autocomplete li a:hover{color:#e2e2e2}
-
-/* Tooltips (jquery-ui tooltips)  */
-.ui-tooltip {padding: 2px 4px;position: absolute;z-index: 9999;max-width: 300px;-webkit-box-shadow: 3px 4px #171717;box-shadow: 3px 4px #171717;
-			background-image:none;background-color: #FFEEB0;color:#272727;font-size:9px;border: 1px solid #FECF5B}
-body .ui-tooltip {border-width: 2px}
-
-/* Colorbox custom changes */
-#cboxTitle a {color:#000}
-#cboxTitle a:hover {color:#767676}
-.cboxNote a, .cboxNote a:hover {color:#fff}
 
 /* Search result tab */
 #search-result-tabs{background:none;border:none}
@@ -1454,6 +1461,15 @@ table.tabs_table #side_bar a#alturl {font-size:9px}
 #contactform #content{background-color:#303030;border:#545454 1px solid;padding:10px}
 #contactform form{border-bottom:#545454 1px solid;margin:10px 0}
 
+/* Multiple Tabs (General) */
+#tabs tr:first-child td.rela {border: 1px solid #545454; background: #2e2e2e url(../jquery-ui-1.10.3/images/ui-bg_highlight-soft_50_2e2e2e_1x100.png) 50% 50% repeat-x;
+	color: #e2e2e2;	font-weight: bold;} /* table headers */
+#tabs tr.row_sour2 td.rela, #tabs tr.row_note2 td.rela {background-color:#545454;background-image:none;font-weight:normal}
+#sources_tab_content .facts_label, #notes_content .facts_label, #media_content .facts_label {text-align:left}
+input#checkbox_rela_facts, input#checkbox_elder, input#checkbox_sour2, input#checkbox_note2{margin-right:5px}
+label[for=checkbox_rela_facts], label[for=checkbox_elder], label[for=checkbox_sour2], label[for=checkbox_note2]{font-size:11px}
+#tabs .optionbox {padding:3px 8px}
+
 /* Relatives tab  */
 #relatives_content .person_box,#relatives_content .person_boxF{background-color:#272727;border:#545454 1px solid}
 #relatives_content .facts_value{background-color:#303030}
@@ -1464,7 +1480,6 @@ table.tabs_table #side_bar a#alturl {font-size:9px}
 #relatives_content td > span.subheaders {display:inline-block;padding:0;margin-top:15px;vertical-align:baseline}
 #relatives_content td > span.subheaders + a {display:inline-block;margin-top:15px}
 
-/* From webtrees version 1.4.0 styling through css, using the same class names - no javascript needed anymore */
 #relatives_content .icon-media-shuffle, #relatives_content .icon-sex_m_15x15, #relatives_content .icon-sex_f_15x15{background:url(images/children_sprite.png) no-repeat}
 #relatives_content .icon-media-shuffle{background-position:0 0;height:25px;width:25px}
 #relatives_content .icon-media-shuffle:hover{background-position:-25px 0;height:25px;width:25px}
@@ -1513,12 +1528,6 @@ html[dir=rtl] #lightbox_content #thumblist li  {float:right; margin-left:5px;}
 #map_pane .infowindow .highlt_img img[src*=silhouette]{background-color:#8E8E8E;border:1px solid #272727;padding:2px}
 #iwcontent_edit {background-color:#CCC !important}
 
-/* Census assistant module */
-table.table-census-assistant th {
-	font-weight: bold;
-	text-align: left;
-}
-
 /* Stories Tab */
 #stories {border:#545454 1px solid;margin:10px 20px 0 20px;line-height:1.5em}
 #stories h2,#stories h3,#stories h4,#stories h5{padding-top:20px;}
@@ -1528,15 +1537,6 @@ table.table-census-assistant th {
 .story_body a{text-decoration:underline;}
 .story_edit{border-top:#545454 1px solid;margin-top:10px;padding-top:10px;text-align:center}
 .story_edit a {background: url(images/button_sprite.png) repeat-x scroll 0 0 rgba(0, 0, 0, 0);border: 1px solid #545454;border-radius: 2px 2px 2px 2px;color: #E7E7E7;	 			   font-size: 8pt;padding: 3px;}
-
-/* Multiple Tabs (General) */
-#tabs tr:first-child td.rela {border: 1px solid #545454; background: #2e2e2e url(../jquery-ui-1.10.3/images/ui-bg_highlight-soft_50_2e2e2e_1x100.png) 50% 50% repeat-x;
-	color: #e2e2e2;	font-weight: bold;} /* table headers */
-#tabs tr.row_sour2 td.rela, #tabs tr.row_note2 td.rela {background-color:#545454;background-image:none;font-weight:normal}
-#sources_tab_content .facts_label, #notes_content .facts_label, #media_content .facts_label {text-align:left}
-input#checkbox_rela_facts, input#checkbox_elder, input#checkbox_sour2, input#checkbox_note2{margin-right:5px}
-label[for=checkbox_rela_facts], label[for=checkbox_elder], label[for=checkbox_sour2], label[for=checkbox_note2]{font-size:11px}
-#tabs .optionbox {padding:3px 8px}
 
 /* Sidebar */
 #sidebarAccordion h3 {height:20px}
@@ -1573,12 +1573,8 @@ label[for=checkbox_rela_facts], label[for=checkbox_elder], label[for=checkbox_so
 #sb_clippings_content td.list_value{font-size:11px;line-height:1.3em}
 #sb_clippings_content td.topbottombar input{font-size:11px}
 
-/* Manage media links */
-tr.classy0, tr.classy1{color:#e2e2e2}
-
-/* Placeholder style in input area's */
-:-moz-placeholder{color: #808080}
-::-webkit-input-placeholder{color: #808080}
+/* Census assistant module */
+table.table-census-assistant th {font-weight: bold;text-align: left}
 
 /* Watermarked pdf's - Optional */
 .pdf-menu{background-color:#EBEBEB;height:37px;position:absolute;top:0;overflow:hidden}
