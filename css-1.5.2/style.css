@@ -1290,7 +1290,7 @@ html[dir=rtl] .lb-menu li {float:right;}
 
 .lb-menu .popup{position:absolute;left:-50px;width:140px;z-index:999}
 .lb-menu .popup ul {background-color:#FFEEB0;border:#FECF5B 1px solid;padding:0;box-shadow: 3px 4px #171717;}
-.lb-menu .popup li > a:first-child::before {background:url(../jquery-ui-1.10.3/images/ui-icons_4b8e0b_256x240.png) no-repeat -32px -16px}
+.lb-menu .popup li > a:first-child::before {background:url(../jquery-ui-1.10.3/images/ui-icons_dd6900_256x240.png) no-repeat -32px -16px}
 .lb-menu .popup a{color:#272727;padding:0}
 .lb-menu .popup a:hover{color:#8e8e8e;text-decoration:underline}
 .lb-menu .lb-pop-title {color:#272727;font-size:10px;font-weight:bold}
