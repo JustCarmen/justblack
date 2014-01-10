@@ -117,20 +117,18 @@ function qstring(key, url) {
 //=========================================================================================================
 //												GENERAL
 //=========================================================================================================
-jQuery.noConflict();
-
-jQuery(document).ready(function($){
+jQuery(document).ready(function(){
 
 	/********************************************* COLORBOX MEDIA GALLERY ***********************************************/
 	// prepare all images for colorbox display
 	function get_imagetype() {
 		var xrefs = [];
-		$('a[type^=image].gallery').each(function(){
-		  var xref = qstring('mid', $(this).attr('href'));
-		  $(this).attr('id', xref);
+		jQuery('a[type^=image].gallery').each(function(){
+		  var xref = qstring('mid', jQuery(this).attr('href'));
+		  jQuery(this).attr('id', xref);
 		  xrefs.push(xref);
 		});
-		$.ajax({
+		jQuery.ajax({
 			url: WT_THEME_JUSTBLACK + 'action.php?action=imagetype',
 			type: 'POST',
 			async: false,
@@ -138,16 +136,16 @@ jQuery(document).ready(function($){
 				'xrefs': xrefs
 			},
 			success: function(data) {
-				$.each(data, function(index, value) {
-					$('a[id=' + index + ']').attr('data-obje-type', value);
+				jQuery.each(data, function(index, value) {
+					jQuery('a[id=' + index + ']').attr('data-obje-type', value);
 				})
 			}
 		});
 	}
 	// Function to correct long titles
 	function longTitles() {
-		var tClass 		= $("#cboxTitle .title");
-		var tID		  	= $("#cboxTitle");
+		var tClass 		= jQuery("#cboxTitle .title");
+		var tID		  	= jQuery("#cboxTitle");
 		if (tClass.width() > tID.width() - 100) { // 100 because the width of the 4 buttons is 25px each
 			tClass.css({"width" : tID.width() - 100, "margin-left" : "75px"});
 		}
@@ -161,38 +159,38 @@ jQuery(document).ready(function($){
 	}
 
 	function resizeImg() {
-		$("#cboxLoadedContent").css('overflow-x', 'hidden');
-		var outerW = parseInt($("#cboxLoadedContent").css("width"), 10);
-		var innerW = parseInt($(".cboxPhoto").css("width"), 10);
+		jQuery("#cboxLoadedContent").css('overflow-x', 'hidden');
+		var outerW = parseInt(jQuery("#cboxLoadedContent").css("width"), 10);
+		var innerW = parseInt(jQuery(".cboxPhoto").css("width"), 10);
 		if (innerW > outerW) {
-			var innerH = parseInt($(".cboxPhoto").css("height"), 10);
+			var innerH = parseInt(jQuery(".cboxPhoto").css("height"), 10);
 			var ratio = innerH/innerW;
 			var outerH = outerW * ratio;
-			$(".cboxPhoto").css({"width": outerW + "px", "height": outerH + "px"});
+			jQuery(".cboxPhoto").css({"width": outerW + "px", "height": outerH + "px"});
 		}
 	}
 
 	// add colorbox function to all images on the page when first clicking on an image.
-	$("body").one('click', 'a.gallery', function(event) {
+	jQuery("body").one('click', 'a.gallery', function(event) {
 		get_imagetype();
 
 		// General (both images and pdf)
-		$("a[type^=image].gallery, a[type$=pdf].gallery").colorbox({
+		jQuery("a[type^=image].gallery, a[type$=pdf].gallery").colorbox({
 			rel:      		"gallery",
 			current:		"",
 			slideshow:		true,
 			slideshowAuto:	false,
 			slideshowSpeed: 3000,
 			onLoad:			function() {
-								$(".cboxNote, .pdf-layer").remove() // remove previous note or watermarks.
+								jQuery(".cboxNote, .pdf-layer").remove() // remove previous note or watermarks.
 							}
 		});
 
 		// Add colorbox to images
-		$("a[type^=image].gallery").colorbox({
+		jQuery("a[type^=image].gallery").colorbox({
 			photo:			true,
 			scalePhotos:	function(){
-								if($(this).data('obje-type') === 'photo') return true;
+								if(jQuery(this).data('obje-type') === 'photo') return true;
 								else return false;
 							},
 			maxWidth:		"90%",
@@ -202,18 +200,18 @@ jQuery(document).ready(function($){
 								return "<div class=\"title\">" + img_title + "</div>";
 							},
 			onComplete:		function() {
-								if($(this).data('obje-type') !== 'photo') resizeImg();
-								$(".cboxPhoto").wheelzoom();
-								$(".cboxPhoto img").on("click", function(e) {e.preventDefault();});
-								var note = $(this).data("obje-note");
+								if(jQuery(this).data('obje-type') !== 'photo') resizeImg();
+								jQuery(".cboxPhoto").wheelzoom();
+								jQuery(".cboxPhoto img").on("click", function(e) {e.preventDefault();});
+								var note = jQuery(this).data("obje-note");
 								if(note != '') {
-										$('#cboxContent').append('<div class="cboxNote"><a href="#">' + note);
-										if($('.cboxPhoto').innerHeight() > $('#cboxContent').innerHeight()) {
-											$('.cboxNote').css('width', $('.cboxNote').width() - 27);
+										jQuery('#cboxContent').append('<div class="cboxNote"><a href="#">' + note);
+										if(jQuery('.cboxPhoto').innerHeight() > jQuery('#cboxContent').innerHeight()) {
+											jQuery('.cboxNote').css('width', jQuery('.cboxNote').width() - 27);
 										}
-										$('.cboxNote a').click(function(e){
+										jQuery('.cboxNote a').click(function(e){
 											e.preventDefault();
-											$(this).parent().hide();										
+											jQuery(this).parent().hide();										
 										});
 								}
 								longTitles();
@@ -221,14 +219,14 @@ jQuery(document).ready(function($){
 		});
 
 		// default settings for all pdf's
-		$("a[type$=pdf].gallery").colorbox({
+		jQuery("a[type$=pdf].gallery").colorbox({
 			width:		"75%",
 			height:		"90%",
 			fixed:		true,
 			title:		function(){
-							var pdf_title = $(this).data("title");
+							var pdf_title = jQuery(this).data("title");
 							pdf_title = '<div class="title">' + pdf_title;
-							if(useWatermark == 0) pdf_title += ' &diams; <a href="' + $(this).attr("href") + '" target="_blank">' + fullPdfText + '</a>';
+							if(useWatermark == 0) pdf_title += ' &diams; <a href="' + jQuery(this).attr("href") + '" target="_blank">' + fullPdfText + '</a>';
 							pdf_title += '</div>';
 							return pdf_title;
 						},
@@ -237,30 +235,30 @@ jQuery(document).ready(function($){
 
 		// use Google Docs Viewer for pdf's if theme option is set.
 		if(useGviewer == 1) {
-			$("a[type$=pdf].gallery").colorbox({
+			jQuery("a[type$=pdf].gallery").colorbox({
 				scrolling:	false, // the gviewer has a scrollbar.
 				html:		function(){
-								var mid = qstring('mid', $(this).attr("href"));
+								var mid = qstring('mid', jQuery(this).attr("href"));
 								return '<iframe width="100%" height="100%" src="http://docs.google.com/viewer?url=' + WT_SERVER_NAME + WT_SCRIPT_PATH + WT_THEME_JUSTBLACK + 'pdfviewer.php?mid=' + mid + '&embedded=true"></iframe>';
 							},
 				onComplete: function() {
 							longTitles();
 							if(useWatermark == 1) {
-								var layerHeight = $('#cboxContent iframe').height();
-								var layerWidth = $('#cboxContent iframe').width();
-								$('#cboxLoadedContent')
+								var layerHeight = jQuery('#cboxContent iframe').height();
+								var layerWidth = jQuery('#cboxContent iframe').width();
+								jQuery('#cboxLoadedContent')
 									.append('<div class="pdf-menu"></div>' +
 											'<div class="pdf-body">' +
 												'<div class="pdf-watermark"><span class="text-right">' + WT_TREE_TITLE + '</span></div>' +
 											'</div>');
-								$('.pdf-menu').css({
+								jQuery('.pdf-menu').css({
 									 'width'	: layerWidth + 'px'
 								});
-								$('.pdf-body').css({
+								jQuery('.pdf-body').css({
 									 'height'	: layerHeight - 37 +'px',
 									 'width'	: layerWidth - 17 + 'px'
 								});
-								$('.pdf-watermark').css({
+								jQuery('.pdf-watermark').css({
 									 'margin-top'	: ((layerHeight - 37)/2) - 48 +'px'
 								});
 							}
@@ -269,13 +267,13 @@ jQuery(document).ready(function($){
 		}
 		// use browsers default pdf viewer
 		else {
-			$("a[type$=pdf].gallery").colorbox({iframe:	true});
+			jQuery("a[type$=pdf].gallery").colorbox({iframe:	true});
 		}
 
 		// Do not open the gallery when clicking on the mainimage on the individual page
-		$('a.gallery').each(function(){
-			if($(this).parents("#indi_mainimage").length > 0) {
-				$(this).colorbox({rel:"nofollow"});
+		jQuery('a.gallery').each(function(){
+			if(jQuery(this).parents("#indi_mainimage").length > 0) {
+				jQuery(this).colorbox({rel:"nofollow"});
 			}
 		});
 	});
@@ -283,99 +281,99 @@ jQuery(document).ready(function($){
 	/********************************************* TOOLTIPS ***********************************************/
 	// Tooltips for all title attributes
 	function add_tooltips() {
-		$('*[title]').each(function() {
-            var title = $(this).attr('title');
-			$(this).on('click', function(){
-				$(this).attr('title', title);	// some functions need the title attribute. Make sure it is filled when clicking the item.
+		jQuery('*[title]').each(function() {
+            var title = jQuery(this).attr('title');
+			jQuery(this).on('click', function(){
+				jQuery(this).attr('title', title);	// some functions need the title attribute. Make sure it is filled when clicking the item.
 			});
         });
 
-		$(document).tooltip({
+		jQuery(document).tooltip({
 			items: '*[title]:not(.ui-dialog-titlebar-close)'
 		});
 	}
 
 	add_tooltips();	// needed when no ajaxcall is made on the particular page.
-	$(document).ajaxComplete(function() { // be sure the tooltip is activated after a ajax call is made.
+	jQuery(document).ajaxComplete(function() { // be sure the tooltip is activated after a ajax call is made.
 		add_tooltips();
 	})
 
 	/******************************************* DROPDOWN MENU *********************************************/
-	$('.dropdown > li').hover(function(){
-		$(this).find('ul').show();
+	jQuery('.dropdown > li').hover(function(){
+		jQuery(this).find('ul').show();
 	}, function(){
-		$(this).find('ul').hide();
+		jQuery(this).find('ul').hide();
 	});
 
 	// function to use with unsorted dropdownmenus like the fav-menu.
 	function sortMenu(dropdownMenu) {
-		var menu = $(dropdownMenu + ' .dropdown ul').children('li').get();
+		var menu = jQuery(dropdownMenu + ' .dropdown ul').children('li').get();
 		menu.sort(function(a, b) {
-			var val1 = $(a).text().toUpperCase();
-			var val2 = $(b).text().toUpperCase();
+			var val1 = jQuery(a).text().toUpperCase();
+			var val2 = jQuery(b).text().toUpperCase();
 			return (val1 < val2) ? -1 : (val1 > val2) ? 1 : 0;
 		});
-		$.each(menu, function(index, row) {
-			$(dropdownMenu + ' .dropdown ul').append(row);
+		jQuery.each(menu, function(index, row) {
+			jQuery(dropdownMenu + ' .dropdown ul').append(row);
 		});
 	}
 
 	/********************************************* MAIN MENU ***********************************************/
-	$('#main-menu').each(function(){
-		$(this).find('li').hover(function(){
+	jQuery('#main-menu').each(function(){
+		jQuery(this).find('li').hover(function(){
 			//show submenu
-			$(this).find('>ul').slideDown('slow');
+			jQuery(this).find('>ul').slideDown('slow');
 		},function () {
 			//hide submenu
-			$(this).find('>ul').hide();
+			jQuery(this).find('>ul').hide();
 		});
 
 		var dTime = 1200;
-		$(this).find('ul').each(function(){
-			$(this).find('li').hover(function() {
-				$(this).stop().animate({backgroundColor: '#808080'}, dTime)
+		jQuery(this).find('ul').each(function(){
+			jQuery(this).find('li').hover(function() {
+				jQuery(this).stop().animate({backgroundColor: '#808080'}, dTime)
 			}, function(){
-				$(this).stop().animate({backgroundColor: '#272727'}, dTime);
+				jQuery(this).stop().animate({backgroundColor: '#272727'}, dTime);
 			});
 		});
 
 		// dynamic height of menubar
-		var li_height = $(this).find('> li').height()
-		var height = $(this).find('> li > a').map(function(){
-   			return $(this).height();
+		var li_height = jQuery(this).find('> li').height()
+		var height = jQuery(this).find('> li > a').map(function(){
+   			return jQuery(this).height();
 		});
 		var maxHeight=height[0];
 		for (var i=0;i<height.length;i++) {
 		 	maxHeight=Math.max(maxHeight, height[i]);
 		}
-		$('#topMenu').css('height', li_height + maxHeight);
+		jQuery('#topMenu').css('height', li_height + maxHeight);
 
 		// No Gedcom submenu if there is just one gedcom
-		if ($('#menu-tree ul li').length == 1) $('#menu-tree ul').remove();
+		if (jQuery('#menu-tree ul li').length == 1) jQuery('#menu-tree ul').remove();
 
 		// open admin in new browsertab
-		$(this).find('ul li#menu-admin a').attr('target','blank');
+		jQuery(this).find('ul li#menu-admin a').attr('target','blank');
 	});
 
 	/********************************************* LANGUAGE (FLAGS) MENU ******************************************/
-	$('#optionsmenu #lang-menu').each(function(){
-		$(this).find('li').each(function(){
-			$(this).tooltip({
+	jQuery('#optionsmenu #lang-menu').each(function(){
+		jQuery(this).find('li').each(function(){
+			jQuery(this).tooltip({
 				position: {
 					my: "center top-40",
 					at: "center center"
 				}
 			});
-			$(this).click(function(){
-				location.href = $(this).find('a').attr('href');
+			jQuery(this).click(function(){
+				location.href = jQuery(this).find('a').attr('href');
 			});
-			$(this).find('a.lang-active').removeClass().parent('li').addClass('lang-active');
+			jQuery(this).find('a.lang-active').removeClass().parent('li').addClass('lang-active');
 		});
 	});
 
 	/********************************************* FAV-MENU ******************************************/
 	var pageId = qstring('pid') || qstring('famid') || qstring('mid') || qstring('nid') || qstring('rid') || qstring('sid');
-	var submenu = $('#fav-menu > ul ul');
+	var submenu = jQuery('#fav-menu > ul ul');
 
 	if (WT_USER_ID > 0 && typeof pageId != 'undefined') {
 		var obj = submenu.find('li').not(':last');
@@ -386,17 +384,17 @@ jQuery(document).ready(function($){
 	}
 
 	obj.each(function(){
-		var url = $(this).find('a').attr('href');
+		var url = jQuery(this).find('a').attr('href');
 		var id = qstring('pid', url) || qstring('famid', url) || qstring('mid', url) || qstring('nid', url) || qstring('rid', url) || qstring('sid', url);
 		if(id == pageId) {
-			$(this).addClass('active');
-			$('#menu-favorites > a').replaceWith($(this).html());
-			$('.addFav').parent('li').remove();
+			jQuery(this).addClass('active');
+			jQuery('#menu-favorites > a').replaceWith(jQuery(this).html());
+			jQuery('.addFav').parent('li').remove();
 		}
 	});
 
 	obj.click(function(){
-		$('#menu-favorites > a').replaceWith($(this).html());
+		jQuery('#menu-favorites > a').replaceWith(jQuery(this).html());
 	});
 
 	sortMenu('#fav-menu');
@@ -404,101 +402,101 @@ jQuery(document).ready(function($){
 	/**************************************** MODAL DIALOG BOXES ********************************************/
 	// replace default function with our justblack theme function (better dialog boxes)
 	function jb_dialogBox() {
-		$('[onclick^="helpDialog"]').each(function(){
-			$(this).attr('onclick',function(index,attr){
+		jQuery('[onclick^="helpDialog"]').each(function(){
+			jQuery(this).attr('onclick',function(index,attr){
 				return attr.replace('helpDialog', 'jb_helpDialog');
 			});
 		});
 
-		$('[onclick^="modalDialog"], [onclick^="return modalDialog"]').each(function(){
-			$(this).attr('onclick',function(index,attr){
+		jQuery('[onclick^="modalDialog"], [onclick^="return modalDialog"]').each(function(){
+			jQuery(this).attr('onclick',function(index,attr){
 				return attr.replace('modalDialog', 'jb_modalDialog');
 			});
 		});
 	}
 
 	jb_dialogBox();
-	$(document).ajaxComplete(function() {
+	jQuery(document).ajaxComplete(function() {
 		jb_dialogBox();
 	})
 
 	/********************************************* CUSTOM CONTACT LINK ***********************************************/
 	// custom contact link (in custom html block or news block for example). Give the link the class 'contact_link_admin');
-	$('a.contact_link_admin').each(function() {
-		var onclickItem = $('.contact_links a').attr('onclick')
-		$(this).attr('onclick', onclickItem).wrap('<span class="contact_links">');
+	jQuery('a.contact_link_admin').each(function() {
+		var onclickItem = jQuery('.contact_links a').attr('onclick')
+		jQuery(this).attr('onclick', onclickItem).wrap('<span class="contact_links">');
 	});
 
 	/********************************************* LOGIN FORM ***********************************************/
-	if ($('#login-page').length > 0) {
+	if (jQuery('#login-page').length > 0) {
 		// login page styling
-		$('#login-page #login-text b:first').wrap('<div id="login-page-title" class="subheaders ui-state-default">');
-		$('#login-page #login-page-title').prependTo('#login-page');
-		$('#login-page #login-text br:first').remove();
-		$('#login-page #login-text br:first').remove();
-		$('#login-page #login-text, #login-page #login-box').wrapAll('<div id="login-page-block">');
+		jQuery('#login-page #login-text b:first').wrap('<div id="login-page-title" class="subheaders ui-state-default">');
+		jQuery('#login-page #login-page-title').prependTo('#login-page');
+		jQuery('#login-page #login-text br:first').remove();
+		jQuery('#login-page #login-text br:first').remove();
+		jQuery('#login-page #login-text, #login-page #login-box').wrapAll('<div id="login-page-block">');
 	}
 
 	/********************************************* REGISTER FORM ***********************************************/
-	if ($('#login-register-page').length > 0) {
-		var title = $('#login-register-page h2').text();
-		$('#login-register-page h2').remove();
+	if (jQuery('#login-register-page').length > 0) {
+		var title = jQuery('#login-register-page h2').text();
+		jQuery('#login-register-page h2').remove();
 		if (title != "") {
-			$('<div id="login-register-page-title" class="subheaders ui-state-default">' + title + '</div>').prependTo('#login-register-page');
+			jQuery('<div id="login-register-page-title" class="subheaders ui-state-default">' + title + '</div>').prependTo('#login-register-page');
 		}
-		$('#login-register-page .largeError').removeAttr('class').css('font-weight', 'bold');
-		$('#login-register-page .error').removeAttr('class');
-		$('#login-register-page #register-text, #login-register-page #register-box').wrapAll('<div id="register-page-block">');
+		jQuery('#login-register-page .largeError').removeAttr('class').css('font-weight', 'bold');
+		jQuery('#login-register-page .error').removeAttr('class');
+		jQuery('#login-register-page #register-text, #login-register-page #register-box').wrapAll('<div id="register-page-block">');
 
-		$('#login-register-page #register-form label').each(function(){
-			$(this).after($(this).find('input'));
-			$(this).after($(this).find('select'));
-			$(this).after($(this).find('textarea'));
+		jQuery('#login-register-page #register-form label').each(function(){
+			jQuery(this).after(jQuery(this).find('input'));
+			jQuery(this).after(jQuery(this).find('select'));
+			jQuery(this).after(jQuery(this).find('textarea'));
 		});
-		$('#login-register-page #register-form textarea').before('<br />').attr('rows', '8');
+		jQuery('#login-register-page #register-form textarea').before('<br />').attr('rows', '8');
 	}
 
 	/************************************ EDIT USER PAGE **********************************************/
 	if (WT_SCRIPT_NAME == 'edituser.php') {
-		var title = $('#edituser-page h2').text();
-		$('#edituser-page h2').remove();
-		$('<div id="edituser-page-title" class="subheaders ui-state-default">' + title + '</div>').prependTo('#edituser-page');
-		$('#edituser_submit').before('<hr class="clearfloat">');
-		$('#edituser-table input:first[type=password]').each(function(){
-			$(this).parent().wrapInner('<span class="pw-info">');
-			$(this).prependTo($(this).parents('.value'));
+		var title = jQuery('#edituser-page h2').text();
+		jQuery('#edituser-page h2').remove();
+		jQuery('<div id="edituser-page-title" class="subheaders ui-state-default">' + title + '</div>').prependTo('#edituser-page');
+		jQuery('#edituser_submit').before('<hr class="clearfloat">');
+		jQuery('#edituser-table input:first[type=password]').each(function(){
+			jQuery(this).parent().wrapInner('<span class="pw-info">');
+			jQuery(this).prependTo(jQuery(this).parents('.value'));
 		});
 
-		if ($('#theme-menu').html() == "") {
-			$('select[name=form_theme]').parents('.value').prev('.label').remove();
-			$('select[name=form_theme]').parents('.value').remove();
+		if (jQuery('#theme-menu').html() == "") {
+			jQuery('select[name=form_theme]').parents('.value').prev('.label').remove();
+			jQuery('select[name=form_theme]').parents('.value').remove();
 		}
 	}
 
 	/************************************** HOMEPAGE AND MY PAGE ***********************************************/
 
 	// Icons for gedcom block on homepage and user welcome block on my page (these are bigger then the standard icons)
-	var block = $('.gedcom_block_block, .user_welcome_block');
+	var block = jQuery('.gedcom_block_block, .user_welcome_block');
 	block.find('.icon-indis').removeClass().addClass('icon-indi-big');
 	block.find('.icon-pedigree').removeClass().addClass('icon-pedigree-big');
 	block.find('.icon-mypage').removeClass().addClass('icon-mypage-big');
 	block.find('a').css('font-size', '11px');
 
 	// link change block styling. In the default styling the text does not fit in the block.
-	$('#link_change_blocks a').after('<br />');
+	jQuery('#link_change_blocks a').after('<br />');
 
 	// gedcom and user favorites block
-	$('.block .gedcom_favorites_block .action_header, .block .gedcom_favorites_block .action_headerF, .block .user_favorites_block .action_header, .block .user_favorites_block .action_headerF').each(function(){
-		$(this).removeClass('person_box');
+	jQuery('.block .gedcom_favorites_block .action_header, .block .gedcom_favorites_block .action_headerF, .block .user_favorites_block .action_header, .block .user_favorites_block .action_headerF').each(function(){
+		jQuery(this).removeClass('person_box');
 	});
 
 	/************************************** INDIVIDUAL PAGE ***********************************************/
 	if (WT_SCRIPT_NAME == 'individual.php') {
 
 		// General
-		$('<div class="divider">').appendTo('#tabs ul:first');
-		$('#tabs li').each(function(){
-			$(this).tooltip({
+		jQuery('<div class="divider">').appendTo('#tabs ul:first');
+		jQuery('#tabs li').each(function(){
+			jQuery(this).tooltip({
 				position: {
 					my: "center top+25",
 					at: "center center"
@@ -506,28 +504,28 @@ jQuery(document).ready(function($){
 			});
 		});
 
-		$('#tabs a[title=lightbox]').on('click', function(){
-			var tabindex = $(this).parent().attr('aria-controls');
-			if($('#jb-loading-image').length === 0) {
-				$('#' + tabindex).before('<div id="jb-loading-image" class="loading-image"></div>').hide();
-				$.ajax({
+		jQuery('#tabs a[title=lightbox]').on('click', function(){
+			var tabindex = jQuery(this).parent().attr('aria-controls');
+			if(jQuery('#jb-loading-image').length === 0) {
+				jQuery('#' + tabindex).before('<div id="jb-loading-image" class="loading-image"></div>').hide();
+				jQuery.ajax({
 					complete:function(){
-						$('#lightbox_content img.icon').each(function(){
-							$(this).attr('src',function(index,attr){
+						jQuery('#lightbox_content img.icon').each(function(){
+							jQuery(this).attr('src',function(index,attr){
 								return attr.replace('modules_v3/lightbox/images', WT_CSS_URL + 'images/buttons');
 							});
-							$(this).css('padding-left', '5px');
+							jQuery(this).css('padding-left', '5px');
 						});
-						$('#jb-loading-image').hide();
-						$('#' + tabindex).show();
+						jQuery('#jb-loading-image').hide();
+						jQuery('#' + tabindex).show();
 					}
 				});
 			}
 		});
 
-		if ($('#tabs a[title=lightbox]').parent('li').hasClass('ui-state-active')) {
+		if (jQuery('#tabs a[title=lightbox]').parent('li').hasClass('ui-state-active')) {
 			setTimeout(function() {
-				$('#tabs a[title=lightbox]').trigger('click');
+				jQuery('#tabs a[title=lightbox]').trigger('click');
 			}, 10);
 		}
 	}
@@ -535,19 +533,19 @@ jQuery(document).ready(function($){
 	/********************************************* MESSAGES.PHP*******************************************************/
 	// correction. Popup is smaller than the input and textarea field.
 	if (WT_SCRIPT_NAME == 'message.php') {
-		$('input[name=subject]').attr('size', '45');
-		$('textarea[name=body]').attr('cols', '43');
+		jQuery('input[name=subject]').attr('size', '45');
+		jQuery('textarea[name=body]').attr('cols', '43');
 	}
 
 	/************************************************ HOURGLASS CHART *****************************************************/
 	if (WT_SCRIPT_NAME == 'hourglass.php' && qstring('show_spouse') == '1') {
 		function styleSB(){
-			 $.ajax({
+			 jQuery.ajax({
 				success:function(){
-					$('.person_box_template.style1').each(function(){
-						var width = $(this).width();
+					jQuery('.person_box_template.style1').each(function(){
+						var width = jQuery(this).width();
 						if(width < 250) { // spouses boxes are smaller then the default ones.
-							$(this)
+							jQuery(this)
 								.addClass('spouse_box')
 								.removeAttr('style') // css styling
 								.closest('table').find('tr:first .person_box_template').css('border-bottom-style', 'dashed');
@@ -555,14 +553,14 @@ jQuery(document).ready(function($){
 					});
 				},
 				complete:function(data) {
-					$('a[onclick*=ChangeDis]').on('click', function(event){	// needed for dynamic added arrow links.
+					jQuery('a[onclick*=ChangeDis]').on('click', function(event){	// needed for dynamic added arrow links.
 						styleSB();
 					});
 					return data;
 				}
 			 });
 		};
-		$('a[onclick*=ChangeDis]').on('click', function(){
+		jQuery('a[onclick*=ChangeDis]').on('click', function(){
 			styleSB();
 		});
 		styleSB();
@@ -570,37 +568,37 @@ jQuery(document).ready(function($){
 
 	/****************************** CHILDBOX (ON PEDIGREE CHART AND HOURGLASS CHART)***************************************/
 	if (WT_SCRIPT_NAME == 'pedigree.php' || WT_SCRIPT_NAME == 'hourglass.php') {
-		$('#hourglass_chart #childbox .name1').each(function(){
-			$(this).appendTo($(this).parents('#childbox'));
+		jQuery('#hourglass_chart #childbox .name1').each(function(){
+			jQuery(this).appendTo(jQuery(this).parents('#childbox'));
 		});
-		$('#hourglass_chart #childbox table').remove();
-		$('#hourglass_chart #childbox').removeAttr('style');
+		jQuery('#hourglass_chart #childbox table').remove();
+		jQuery('#hourglass_chart #childbox').removeAttr('style');
 
-		$('#childbox').each(function(){
-			var childbox = $(this);
+		jQuery('#childbox').each(function(){
+			var childbox = jQuery(this);
 			childbox.find('br').remove();
 			childbox.wrapInner('<ul>');
 			childbox.find('a').wrap('<li>');
 			childbox.find('ul > span').wrap('<li class="cb_title">');
 			childbox.find('span.name1').each(function(){
 				var sChar = '<';
-				var str = $(this).text();
+				var str = jQuery(this).text();
 				if (str.indexOf(sChar) > -1) {
 					var newStr = str.replace(sChar, '');
-					$(this).text(newStr);
-					$(this).parents('li').addClass('cb_child');
+					jQuery(this).text(newStr);
+					jQuery(this).parents('li').addClass('cb_child');
 				}
 			});
 
-			var li_child = $('#hourglass_chart #childbox').parent().prev('table').find('.popup li.cb_child');
+			var li_child = jQuery('#hourglass_chart #childbox').parent().prev('table').find('.popup li.cb_child');
 			li_child.each(function(){
-				var child = $(this).text();
-				$('#hourglass_chart #childbox li').each(function(){
-					var str = $(this).text();
+				var child = jQuery(this).text();
+				jQuery('#hourglass_chart #childbox li').each(function(){
+					var str = jQuery(this).text();
 					if (str == child) {
-						$(this).addClass('cb_child');
+						jQuery(this).addClass('cb_child');
 					}
-					if ($(this).hasClass('cb_title')) {
+					if (jQuery(this).hasClass('cb_title')) {
 						return false; // stop the loop
 					}
 				});
@@ -611,45 +609,45 @@ jQuery(document).ready(function($){
 			childbox.find('.cb_child').prepend('<span class="ui-icon ui-icon-person left">');
 		});
 
-		if($('#hourglass_chart #childbox').length > 0) {
-			var fTop = $('#footer').offset().top;
-			var cTop = $('#hourglass_chart #childbox').offset().top;
-			var cHeight = $('#hourglass_chart #childbox').outerHeight();
+		if(jQuery('#hourglass_chart #childbox').length > 0) {
+			var fTop = jQuery('#footer').offset().top;
+			var cTop = jQuery('#hourglass_chart #childbox').offset().top;
+			var cHeight = jQuery('#hourglass_chart #childbox').outerHeight();
 			var hMargin = cHeight - (fTop - cTop) + 60;
 
 			if (hMargin > 0) {
-				$('#hourglass_chart').css('margin-bottom', hMargin);
+				jQuery('#hourglass_chart').css('margin-bottom', hMargin);
 			}
 		}
 	}
 
 	/************************************ FANCHART PAGE (POPUPS)***************************************/
 	if (WT_SCRIPT_NAME == 'fanchart.php') {
-		$('table.person_box td').each(function(){
-			var content = $(this).html();
-			$(this).parents('table').before('<div class="fanchart_box">' + content + '</div>').remove();
+		jQuery('table.person_box td').each(function(){
+			var content = jQuery(this).html();
+			jQuery(this).parents('table').before('<div class="fanchart_box">' + content + '</div>').remove();
 		});
 
-		$('.fanchart_box').each(function(){
-			var fanbox = $(this);
+		jQuery('.fanchart_box').each(function(){
+			var fanbox = jQuery(this);
 			fanbox.find('br').remove();
 			fanbox.wrapInner('<ul>');
 			fanbox.find('a').wrap('<li>');
 			fanbox.find('ul > span').wrap('<li class="fb_title">');
 			fanbox.find('a.name1').each(function(){
 				var sChar = '<';
-				var str = $(this).text();
+				var str = jQuery(this).text();
 				if (str.indexOf(sChar) > -1) {
 					var newStr = str.replace(sChar, '');
-					$(this).text(newStr);
-					$(this).parents('li').addClass('fb_child');
+					jQuery(this).text(newStr);
+					jQuery(this).parents('li').addClass('fb_child');
 				}
 			});
 			fanbox.find('li:first').addClass('fb_indi');
 			fanbox.find('.fb_child').prev('li').not('.fb_child').addClass('fb_parent');
-			fanbox.find('.fb_child').appendTo($('.fb_child').prev('.fb_parent'));
+			fanbox.find('.fb_child').appendTo(jQuery('.fb_child').prev('.fb_parent'));
 			fanbox.find('.fb_parent').each(function(){
-				$(this).find('.fb_child').wrapAll('<ul>');
+				jQuery(this).find('.fb_child').wrapAll('<ul>');
 			});
 			fanbox.find(' > ul > li:not(.fb_title)').prepend('<span class="ui-icon ui-icon-triangle-1-e left">');
 			fanbox.find('.fb_child').prepend('<span class="ui-icon ui-icon-person left">');
@@ -662,83 +660,83 @@ jQuery(document).ready(function($){
 		if (document.createStyleSheet) {
 			document.createStyleSheet('' + WT_CSS_URL + 'treeview.css'); // For Internet Explorer
 		} else {
-			$('head').append('<link id="jb-treeview-css" rel="stylesheet" type="text/css" href="' + WT_CSS_URL + 'treeview.css">');
+			jQuery('head').append('<link id="jb-treeview-css" rel="stylesheet" type="text/css" href="' + WT_CSS_URL + 'treeview.css">');
 		}
 	}
 
 	if (WT_SCRIPT_NAME == 'individual.php' || qstring('mod_action') == 'treeview') {
-		$('#content a[name=tv_content]').after('<div class="loading-image"></div>');
-		$.ajax({
+		jQuery('#content a[name=tv_content]').after('<div class="loading-image"></div>');
+		jQuery.ajax({
 			beforeSend:function(){
-				$('.tv_out').hide();
+				jQuery('.tv_out').hide();
 				getTreeStylesheet();
 			},
 			complete:function(){
-				$('.tv_out').show();
+				jQuery('.tv_out').show();
 			}
 		});
-		$('#content .loading-image').remove();
+		jQuery('#content .loading-image').remove();
 	}
 
 	if (WT_SCRIPT_NAME == 'index.php') {
-		$(document).ajaxStop(function(){
-			if($("a[name=tv_content]").length > 0){
+		jQuery(document).ajaxStop(function(){
+			if(jQuery("a[name=tv_content]").length > 0){
 				getTreeStylesheet();
 			}
 		})
 	}
 	/************************************** FAMILY BOOK ***********************************************/
 	if (WT_SCRIPT_NAME == 'familybook.php') {
-		$('hr:last').remove(); // remove the last page-break line because it is just above the justblack divider.
+		jQuery('hr:last').remove(); // remove the last page-break line because it is just above the justblack divider.
 	}
 
 	/************************************** MEDIALIST PAGE ********************************************/
 	if (WT_SCRIPT_NAME == 'medialist.php') {
 		// Medialist Menu
-		$('.lightbox-menu').parent('td').each(function(){
-			$(this).wrapInner('<div class="lb-image_info">');
-			$(this).find('.lightbox-menu').prependTo($(this));
+		jQuery('.lightbox-menu').parent('td').each(function(){
+			jQuery(this).wrapInner('<div class="lb-image_info">');
+			jQuery(this).find('.lightbox-menu').prependTo(jQuery(this));
 		});
 
-		$('.lightbox-menu .lb-menu li ul').wrap('<div class="popup">');
+		jQuery('.lightbox-menu .lb-menu li ul').wrap('<div class="popup">');
 
-		$('.lightbox-menu .lb-menu > li > a').each(function(){
-			var tooltip = $(this).text();
-			if($(this).hasClass('lb-image_link')) {
-				$(this).parent().find('.popup ul').prepend('<li class="lb-pop-title">' + tooltip);
+		jQuery('.lightbox-menu .lb-menu > li > a').each(function(){
+			var tooltip = jQuery(this).text();
+			if(jQuery(this).hasClass('lb-image_link')) {
+				jQuery(this).parent().find('.popup ul').prepend('<li class="lb-pop-title">' + tooltip);
 			}
 			else {
-				if ($(this).hasClass('lb-image_edit')) {var pos = "right-18"}
-				if ($(this).hasClass('lb-image_view')) {var pos = "left+15"}
-				$(this).parent().tooltip({
+				if (jQuery(this).hasClass('lb-image_edit')) {var pos = "right-18"}
+				if (jQuery(this).hasClass('lb-image_view')) {var pos = "left+15"}
+				jQuery(this).parent().tooltip({
 					position: {
 						my: pos + " center-2",
 						at: "center center"
 					}
 				});
-				$(this).parent().attr('title', tooltip);
+				jQuery(this).parent().attr('title', tooltip);
 			}
-			$(this).text('');
+			jQuery(this).text('');
 		});
 
-		$('.lb-menu .lb-image_link').parent().hover(function(){
-			$(this).find('.popup').fadeIn('slow');
+		jQuery('.lb-menu .lb-image_link').parent().hover(function(){
+			jQuery(this).find('.popup').fadeIn('slow');
 		},
 		function(){
-			$(this).find('.popup').fadeOut('slow');
+			jQuery(this).find('.popup').fadeOut('slow');
 		});
 
 		// media link list
-		$(".lb-image_info").each(function(){
-			$(this).find('> a').addClass("media_link").next('br').remove();
-			$(this).find('.media_link').wrapAll('<div class="media_link_list">');
+		jQuery(".lb-image_info").each(function(){
+			jQuery(this).find('> a').addClass("media_link").next('br').remove();
+			jQuery(this).find('.media_link').wrapAll('<div class="media_link_list">');
 		});
 	}
 
 	/************************************** MEDIAVIEWER PAGE ******************************************/
 	if (WT_SCRIPT_NAME == 'mediaviewer.php') {
-		$('#media-tabs').find('.ui-widget-header').removeClass('ui-widget-header');
-		$('#media-tabs ul').after('<div class="divider">');
+		jQuery('#media-tabs').find('.ui-widget-header').removeClass('ui-widget-header');
+		jQuery('#media-tabs ul').after('<div class="divider">');
 	}
 
 	/********************************************* SMALL THUMBS *****************************************************/
@@ -746,8 +744,8 @@ jQuery(document).ready(function($){
 	// This causes a messy listview.
 	// In style.css the default height changed to 45px. Use this function to retrieve a cropped 60/45 (4:3) image.
 	// It would be better to do this on the server side, but then we have to mess with the core code.
-	$('.media-list td img').each(function(){
-		var obj = $(this);
+	jQuery('.media-list td img').each(function(){
+		var obj = jQuery(this);
 		var src = obj.attr('src');
 		var img = new Image();
 		img.onload = function() {
@@ -768,7 +766,7 @@ jQuery(document).ready(function($){
 			})
 		}
 		img.src = src;
-		$div = $('<div>').css({
+		$div = jQuery('<div>').css({
 			'width' 	: '60px',
 			'display' 	: 'inline-block',
 			'overflow' 	: 'hidden'
@@ -779,46 +777,46 @@ jQuery(document).ready(function($){
 
 	/************************************** CALENDAR PAGE ********************************************/
 	if (WT_SCRIPT_NAME == 'calendar.php') {
-		$('.icon-indis, .icon-cfamily').parent().addClass('ui-state-default');
-		$('.icon-sex_m_15x15').removeClass().addClass('icon-sex_m_9x9');
-		$('.icon-sex_f_15x15').removeClass().addClass('icon-sex_f_9x9');
-		$('#calendar-page li').prepend('<span class="ui-icon ui-icon-triangle-1-e left">');
+		jQuery('.icon-indis, .icon-cfamily').parent().addClass('ui-state-default');
+		jQuery('.icon-sex_m_15x15').removeClass().addClass('icon-sex_m_9x9');
+		jQuery('.icon-sex_f_15x15').removeClass().addClass('icon-sex_f_9x9');
+		jQuery('#calendar-page li').prepend('<span class="ui-icon ui-icon-triangle-1-e left">');
 	}
 
 	/************************************** CLIPPINGS PAGE ********************************************/
 	if(qstring('mod') == 'clippings') {
-		$('#content').addClass('clippings-page');
-		$('.clippings-page li').prepend('<span class="ui-icon ui-icon-triangle-1-e left">');
-		$('.clippings-page .topbottombar').addClass('ui-state-default descriptionbox').removeClass('topbottombar');
-		$('.clippings-page h2').parent('td').removeClass();
-		$('.clippings-page input[type=submit]').parent('td').removeClass().css('text-align', 'right');
+		jQuery('#content').addClass('clippings-page');
+		jQuery('.clippings-page li').prepend('<span class="ui-icon ui-icon-triangle-1-e left">');
+		jQuery('.clippings-page .topbottombar').addClass('ui-state-default descriptionbox').removeClass('topbottombar');
+		jQuery('.clippings-page h2').parent('td').removeClass();
+		jQuery('.clippings-page input[type=submit]').parent('td').removeClass().css('text-align', 'right');
 		
-		if($('.clippings-page h3').length > 0) {
-			$('.clippings-page').wrapInner('<div class="add-clippings">');
+		if(jQuery('.clippings-page h3').length > 0) {
+			jQuery('.clippings-page').wrapInner('<div class="add-clippings">');
 		}
 	}
 
 	/************************************** SEARCH PAGE ***********************************************/
 	if (WT_SCRIPT_NAME == 'search.php') {
-		var searchForm = $('#search-page form');
-		var searchResult = $('#search-result-tabs');
-		var titleBtn = $('#search-page h2').text();
+		var searchForm = jQuery('#search-page form');
+		var searchResult = jQuery('#search-result-tabs');
+		var titleBtn = jQuery('#search-page h2').text();
 		if (searchResult.length > 0) {
 			searchForm.hide();
 			searchResult.each(function(){
-				$(this).find('ul').append('<li id="search-btn" class="ui-state-default ui-corner-top"><a href="#search"><span>' + titleBtn);
-				$(this).find('.ui-tabs-nav, .fg-toolbar').removeClass('ui-widget-header');
+				jQuery(this).find('ul').append('<li id="search-btn" class="ui-state-default ui-corner-top"><a href="#search"><span>' + titleBtn);
+				jQuery(this).find('.ui-tabs-nav, .fg-toolbar').removeClass('ui-widget-header');
 			});
 
-			$('li#search-btn').on({
+			jQuery('li#search-btn').on({
 				mouseenter: function(){
-					$(this).addClass('ui-state-hover');
+					jQuery(this).addClass('ui-state-hover');
 				},
 				mouseleave: function(){
-					$(this).removeClass('ui-state-hover');
+					jQuery(this).removeClass('ui-state-hover');
 				},
 				click: function(){
-					$(this).addClass('ui-state-active');
+					jQuery(this).addClass('ui-state-active');
 					searchResult.fadeOut('slow');
 					searchForm.fadeIn('slow');
 				}
@@ -827,21 +825,21 @@ jQuery(document).ready(function($){
 	}
 
 	if (WT_SCRIPT_NAME == 'search_advanced.php') {
-		$('#search-page a[onclick^=addFields]').attr('onclick', 'addFields();return false;');
-		var searchForm = $('#search-page form');
-		var searchResult = $('#search-page .indi-list');
-		var titleBtn = $('#search-page h2').text();
+		jQuery('#search-page a[onclick^=addFields]').attr('onclick', 'addFields();return false;');
+		var searchForm = jQuery('#search-page form');
+		var searchResult = jQuery('#search-page .indi-list');
+		var titleBtn = jQuery('#search-page h2').text();
 		if(searchResult.length > 0) {
 			searchForm.hide();
 			searchResult.each(function(){
-				$(this).find('.fg-toolbar').removeClass('ui-widget-header');
-				var filters = $(this).find('.fg-toolbar div[class^=filtersH], .fg-toolbar .dt-clear:first').remove();
-				$(this).find('.fg-toolbar div').wrapAll('<div class="fg-toolbar-border">');
-				$(this).find('.fg-toolbar').prepend(filters);
-				$(this).find('div[class^=filtersH]').append('<button id="search-btn" class="ui-state-default" type="button">' + titleBtn);
+				jQuery(this).find('.fg-toolbar').removeClass('ui-widget-header');
+				var filters = jQuery(this).find('.fg-toolbar div[class^=filtersH], .fg-toolbar .dt-clear:first').remove();
+				jQuery(this).find('.fg-toolbar div').wrapAll('<div class="fg-toolbar-border">');
+				jQuery(this).find('.fg-toolbar').prepend(filters);
+				jQuery(this).find('div[class^=filtersH]').append('<button id="search-btn" class="ui-state-default" type="button">' + titleBtn);
 			});
 
-			$('#search-btn').on({
+			jQuery('#search-btn').on({
 				click: function(){
 					searchResult.fadeOut('slow');
 					searchForm.fadeIn('slow');
@@ -852,33 +850,33 @@ jQuery(document).ready(function($){
 
 	/************************************** FAQ PAGE ***********************************************/
 	if (qstring('mod') == 'faq') {
-		$('#content').addClass('faq-page');
-		$('.faq_title').addClass('ui-state-default');
-		$('hr').remove();
-		$('.faq_italic:first').css('padding', '10px 2px');
-		$('.faq a, .faq_top a').addClass('scroll');
+		jQuery('#content').addClass('faq-page');
+		jQuery('.faq_title').addClass('ui-state-default');
+		jQuery('hr').remove();
+		jQuery('.faq_italic:first').css('padding', '10px 2px');
+		jQuery('.faq a, .faq_top a').addClass('scroll');
 	}
 
 	/************************************* PLACELIST PAGE *******************************************/
 	if (WT_SCRIPT_NAME == 'placelist.php') {
-		$('#place-hierarchy').each(function(){
-			$(this).find('.list_label').addClass('ui-state-default');
-			$(this).find('.icon-place').remove();
-			$(this).find('.list_table li a').before('<span class="ui-icon ui-icon-triangle-1-e left">');
-			$(this).find('table:first').prependTo('#places-tabs')
-			$(this).find('#places-tabs .ui-widget-header').removeClass('ui-widget-header');
-			$(this).find('#places-tabs ul.ui-tabs-nav').after('<div class="divider">');
+		jQuery('#place-hierarchy').each(function(){
+			jQuery(this).find('.list_label').addClass('ui-state-default');
+			jQuery(this).find('.icon-place').remove();
+			jQuery(this).find('.list_table li a').before('<span class="ui-icon ui-icon-triangle-1-e left">');
+			jQuery(this).find('table:first').prependTo('#places-tabs')
+			jQuery(this).find('#places-tabs .ui-widget-header').removeClass('ui-widget-header');
+			jQuery(this).find('#places-tabs ul.ui-tabs-nav').after('<div class="divider">');
 		});
 	}
 
 	/************************************* OTHER *******************************************/
 	// Correction. On default pdf opens on the same page. We do not want to force users to use the browser back button.
-	$('#reportengine-page form').attr("onsubmit", "this.target='_blank'");
+	jQuery('#reportengine-page form').attr("onsubmit", "this.target='_blank'");
 
 		// styling of the lifespan module
-	$('.lifespan_people .icon-sex_m_9x9').parents('#inner div[id^="bar"]').css({'background-color':'#545454', 'border':'#dd6900 1px solid'});
-	$('.lifespan_people .icon-sex_f_9x9').parents('#inner div[id^="bar"]').css({'background-color':'#8E8E8E', 'border':'#dd6900 1px solid'});
-	$('.lifespan_people a.showit i.icon-sex_m_9x9, .lifespan_people a.showit i.icon-sex_f_9x9').hide();
+	jQuery('.lifespan_people .icon-sex_m_9x9').parents('#inner div[id^="bar"]').css({'background-color':'#545454', 'border':'#dd6900 1px solid'});
+	jQuery('.lifespan_people .icon-sex_f_9x9').parents('#inner div[id^="bar"]').css({'background-color':'#8E8E8E', 'border':'#dd6900 1px solid'});
+	jQuery('.lifespan_people a.showit i.icon-sex_m_9x9, .lifespan_people a.showit i.icon-sex_f_9x9').hide();
 
 	// scroll to anchors
 	jQuery(".scroll").click(function(event){
@@ -890,9 +888,9 @@ jQuery(document).ready(function($){
 	});
 
 	// open all external links in new window/tab - Not sure if this function is still neccessary. See WT_Filter::expandUrls
-	$("a[href^=http]").each(function(){
+	jQuery("a[href^=http]").each(function(){
       if(this.href.indexOf(location.hostname) == -1) {
-         $(this).attr({
+         jQuery(this).attr({
             target: "_blank"
          });
       }
