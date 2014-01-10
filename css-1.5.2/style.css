@@ -1022,7 +1022,7 @@ a.icon-udarrow:hover{background-image:url(images/icons/udarrow2.png);height:20px
 .icon-user_add{background-image:url(images/buttons/user_add.png);height:32px;width:32px}
 .icon-warning{background-image:url(images/icons/warning.png);height:16px;width:16px}
 .icon-webtrees{background-image:url(images/webtrees.png);height:25px;width:110px}
-.icon-wiki{background-image:url(images/icons/wiki.png);height:25px;width:25px}
+.icon-wiki{background-image:url(images/icons/wiki.png);height:16px;width:16px}
 .icon-zoomin{background-image:url(images/icons/zoomin.png);height:25px;width:25px}
 .icon-zoomout{background-image:url(images/icons/zoomout.png);height:25px;width:25px}
 
@@ -1574,6 +1574,33 @@ html[dir=rtl] #lightbox_content #thumblist li  {float:right; margin-left:5px;}
 
 /* Census assistant module */
 table.table-census-assistant th {font-weight: bold;text-align: left}
+#edit_interface-page .cens_header {margin:5px 0}
+#edit_interface-page .cens_header_right {width:45%}
+#edit_interface-page #censYear {background-color:#FFFFDE !important}
+#edit_interface-page .cens_sour_scs {width:375px}
+#edit_interface-page .cens_sour_2 {margin-top:0;width:30%}
+#edit_interface-page .cens_sour_scs input {vertical-align:middle}
+#edit_interface-page .cens_container {width:540px}
+#edit_interface-page .cens_container span {margin:0}
+#edit_interface-page .cens_container span {margin:0}
+#edit_interface-page .cens_text {margin:15px 0 10px;padding:0}
+#edit_interface-page .cens_text_header {padding:0 5px}
+#edit_interface-page .cens_text .optionbox {border:none}
+#edit_interface-page .cens_text textarea {margin:0}
+#edit_interface-page .cens_search {height:440px;width:auto}
+#edit_interface-page .cens_search #navenclose {border:none;line-height:1.4em;margin:0;text-align:left}
+#edit_interface-page .cens_search .fact_table {border-spacing: 1px; border-collapse: separate}
+#edit_interface-page .cens_search .optionbox, #edit_interface-page .cens_search .descriptionbox {font-size:11px;text-align:left !important;white-space:normal}
+#edit_interface-page .cens_search span {margin:0;white-space:normal}
+#edit_interface-page .cens_search .headimg2 {height:25px}
+#edit_interface-page .cens_textinput {margin:0}
+#edit_interface-page .cens_textinput, #edit_interface-page .cens_addrows, #edit_interface-page .cens_data {width:830px}
+#edit_interface-page .cens_textinput .cens_textinput_right {margin:0}
+#edit_interface-page .cens_data table {border-collapse:collapse;width:99.5%}
+#edit_interface-page .cens_data .descriptionbox {background:#FCDE97;line-height:1.4em;color:#000}
+#edit_interface-page .cens_data .descriptionbox a{color:#2e2e2e;text-decoration:underline}
+#edit_interface-page .cens_data .descriptionbox a:hover{color:#767676}
+#edit_interface-page .cens_data input {background-color:#FFFFDE !important;font-size:12px !important}
 
 /* Watermarked pdf's - Optional */
 .pdf-menu{background-color:#EBEBEB;height:37px;position:absolute;top:0;overflow:hidden}
