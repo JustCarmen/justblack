@@ -1602,6 +1602,9 @@ table.table-census-assistant th {font-weight: bold;text-align: left}
 #edit_interface-page .cens_data .descriptionbox a:hover{color:#767676}
 #edit_interface-page .cens_data input {background-color:#FFFFDE !important;font-size:12px !important}
 
+/* Historical Facts */
+label[for=checkbox_histo]{font-size:11px}
+
 /* Watermarked pdf's - Optional */
 .pdf-menu{background-color:#EBEBEB;height:37px;position:absolute;top:0;overflow:hidden}
 .pdf-body{background-color:transparent;position:absolute;top:37px;left:0;z-index:998;overflow:hidden}
