@@ -1,4 +1,15 @@
-READ THE README.HTML FILE FOR INSTALLATION AND UPGRADE INSTRUCTIONS
+GOTO HTTP://WWW.JUSTCARMEN.NL/HELP FOR INSTALLATION AND UPGRADE INSTRUCTIONS
+
+30-01-2014 - JustBlack 1.5.2 for webtrees 1.5.2
+* New icon for the clippings menu
+* Fix: status messages do not show up in pop-up frames.
+* Fix: colorbox not working on second image in random media block.
+* Fix: wrong display of portrait thumbnails in media lists.
+* Improved layout in the Census Assistant Shared Note popup.
+* The same changes made to the core theme files have been made to this theme if neccessary. Followed development for wt 1.5.2.
+* Add a scrollbar to the indipage to prevent content from growing to large.
+
+========================================================================================================
 
 03-12-2013 - JustBlack 1.5.1 for webtrees 1.5.1
 * Changes made to header.php for compatibility with webtrees 1.5.1
