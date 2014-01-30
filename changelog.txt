@@ -1,6 +1,6 @@
 GOTO HTTP://WWW.JUSTCARMEN.NL/HELP FOR INSTALLATION AND UPGRADE INSTRUCTIONS
 
-30-01-2014 - JustBlack 1.5.2 for webtrees 1.5.2
+10-02-2014 - JustBlack 1.5.2 for webtrees 1.5.2
 * New icon for the clippings menu
 * Fix: status messages do not show up in pop-up frames.
 * Fix: colorbox not working on second image in random media block.
