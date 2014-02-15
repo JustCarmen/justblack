@@ -818,7 +818,7 @@ html[dir=rtl] .source-list th:last-child,html[dir=rtl] .note-list th:last-child,
 #sidebar{border-color:#DDD;display:none;height:auto;margin:5px 2px 0 0}
 #sidebarAccordion,#sidebarAccordion2{width:auto}
 #sidebarAccordion h3,#sidebarAccordion2 h3{border-color:#999;height:30px;text-align:center}
-.use-sidebar #indi_left{width:77%;overflow-x:auto}
+.use-sidebar #indi_left{width:77%}
 .use-sidebar #sidebar{display:block}
 .sidebar-at-right #sidebar{width:20%}
 .use-sidebar.sidebar-at-right #sidebar,.sidebar-at-right #separator{float:right}
@@ -1468,6 +1468,9 @@ input#checkbox_rela_facts, input#checkbox_elder, input#checkbox_sour2, input#che
 label[for=checkbox_rela_facts], label[for=checkbox_elder], label[for=checkbox_sour2], label[for=checkbox_note2]{font-size:11px}
 #tabs .optionbox {padding:3px 8px}
 
+/* Personal facts tab */
+#personal_facts_content {overflow-x:auto}
+
 /* Relatives tab  */
 #relatives_content .person_box,#relatives_content .person_boxF{background-color:#272727;border:#545454 1px solid}
 #relatives_content .facts_value{background-color:#303030}
@@ -1485,6 +1488,9 @@ label[for=checkbox_rela_facts], label[for=checkbox_elder], label[for=checkbox_so
 #relatives_content .icon-sex_f_15x15:hover{background-position:-70px 0;height:25px;width:20px}
 #relatives_content .icon-sex_m_15x15{background-position:-90px 0;height:25px;width:13px}
 #relatives_content .icon-sex_m_15x15:hover{background-position:-103px 0;height:25px;width:13px}
+
+/* Notes tab */
+#notes_content {overflow-x:auto}
 
 /* Media Tab */
 #media_content .ui-widget-header {font-size:11px}
