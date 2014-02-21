@@ -78,8 +78,8 @@ function getJBheader() {
 			break;
 		case '1':	
 			$pos 	= getThemeOption('titlepos');
-			$posV = 'top:'.$pos[0];
-			$pos[1] == 0 ? $posH = 'left:'.$pos[2] : $posH = 'right:'.$pos[2];
+			$posV = 'top:'.$pos['V']['size'].$pos['V']['fmt'];
+			$posH = $pos['H']['pos'].':'.$pos['H']['size'].$pos['H']['fmt'];
 			
 			$font_size = 'font-size:'.getThemeOption('titlesize').'px';			
 			$title = '<div id="tree-title" dir="auto" style="'.$posV.';'.$posH.'"><h1 style="'.$font_size.'">'.WT_TREE_TITLE.'</h1></div>';
