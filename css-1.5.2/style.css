@@ -77,7 +77,7 @@ html[dir="rtl"] input:required:valid, html[dir="rtl"] textarea:required:valid, h
 
 /* Header Layout  */
 #header-image {background-position:center top;background-repeat:no-repeat;height:150px}
-#header #tree-title {position:absolute;top:110px;left:52%}
+#header #tree-title {position:absolute;top:110px;left:52%;z-index:1}
 #header #tree-title h1 {font-family:'@Comfortaa',Verdana,Arial,Helvetica,sans-serif;font-size:20px;color:#e7e7e7;line-height:1.2em;margin:0;text-shadow: 2px 2px #000;filter: shadow(color=#000, direction=135, strength=4)}
 #header-menu{position:absolute;top:0;left:0;height:150px;width:100%}
 #flash-messages{clear:both}
