@@ -50,15 +50,17 @@ function getJBScriptVars() {
 }
 
 // Theme setting for the header section
-function getJBheader() {	
-	// are we taking the default header image, a custom one or none?
+function getJBheader() {
 	switch (getThemeOption('header')) {
 		case '1':
-			if(file_exists(WT_DATA_DIR.getThemeOption('image'))){
-				$header_image_style = 'background-image:url("'.WT_DATA_DIR.getThemeOption('image').'"); height: '.getThemeOption('headerheight').'px';
+			$image = WT_DATA_DIR.getThemeOption('image');		
+			if(file_exists($image)){
+				$bg = file_get_contents($image); // The data dir is a protected directory.
+				$type = @getimagesize($image);
+				$header_image_style = 'background-image:url(data:'.$type['mime'].';base64,'.base64_encode($bg).'); height: '.getThemeOption('headerheight').'px';
 				$header_menu_style = 'height: '.getThemeOption('headerheight').'px';
 			} else {
-				$header_image_style = 'background-image:url('. WT_CSS_URL.'images/'.'header.jpg)';
+				$header_image_style = 'background-image:url('.WT_CSS_URL.'images/header.jpg)';
 				$header_menu_style = '';
 			}
 			break;
@@ -67,7 +69,7 @@ function getJBheader() {
 			$header_menu_style = $header_image_style;
 			break;
 		default:
-			$header_image_style = 'background-image:url('. WT_CSS_URL.'images/'.'header.jpg)';
+			$header_image_style = 'background-image:url('.WT_CSS_URL.'images/header.jpg)';
 			$header_menu_style = '';
 			break;
 	}
