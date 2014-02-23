@@ -239,10 +239,20 @@ function getJBThumb($person, $max_thumbsize, $square = '') {
 					'></i>';
 			} else {
 				// Create a thumbnail image
-				if($media->mimeType() == 'image/jpeg') {				
+				$type = $media->mimeType();
+				if($type == 'image/jpeg' || $type == 'image/png') {
+
+					if(!list($width_orig, $height_orig) = @getimagesize($mediasrc)) return $noThumb = true;;
+
+					switch ($type) {
+						case 'image/jpeg':
+							$imagesrc = @imagecreatefromjpeg($mediasrc);
+							break;
+						case 'image/png':
+							$imagesrc = @imagecreatefrompng($mediasrc);
+							break;
+					}
 					
-					list($width_orig, $height_orig) = getimagesize($mediasrc);  
-					$imagesrc = imagecreatefromjpeg($mediasrc);
 					$ratio_orig = $width_orig/$height_orig;
 					$thumbwidth = $thumbheight = $max_thumbsize;
 					
