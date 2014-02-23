@@ -50,7 +50,7 @@ echo
 	header_links($META_DESCRIPTION, $META_ROBOTS, $META_GENERATOR, $LINK_CANONICAL),
 	'<title>', WT_Filter::escapeHtml($title), '</title>',
 	'<link rel="icon" href="', WT_CSS_URL, 'favicon.png" type="image/png">',
-	'<link rel="stylesheet" type="text/css" href="', WT_THEME_URL, 'jquery-ui-1.10.3/jquery-ui-1.10.3.custom.css">',
+	'<link rel="stylesheet" type="text/css" href="', WT_THEME_URL, 'jquery-ui-1.10.4/jquery-ui-1.10.4.custom.min.css">',
 	'<link rel="stylesheet" type="text/css" href="', WT_THEME_URL, 'colorbox-1.4.15/colorbox.css', '">',
 	'<link rel="stylesheet" type="text/css" href="', WT_CSS_URL, 'style.css', '">',
 	'<!--[if IE]>',

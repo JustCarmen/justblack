@@ -1254,7 +1254,7 @@ div.charts_block .person_box_template, #descendancy_chart .person_box_template, 
 .tag_cloud_sub{color:#808080;font-size:8px}
 
 /* JQuery ui-custom changes (also see jquery-ui.custom.css  */
-.ui-tabs, .ui-tabs .ui-tabs-nav li a {padding:0;}
+.ui-tabs .ui-tabs-nav .ui-tabs-anchor, .ui-tabs .ui-tabs-nav .ui-tabs-anchor li a {padding:0;}
 .ui-tabs .ui-tabs-nav li a span {display:block; padding:.5em 1em;}
 .ui-widget-content{font-size:12px}
 .ui-state-highlight,.ui-widget-content .ui-state-highlight,.ui-widget-header .ui-state-highlight{padding:6px}
