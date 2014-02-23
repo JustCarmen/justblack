@@ -25,12 +25,10 @@ if (!defined('WT_WEBTREES')) {
 }
 
 // This theme comes with a optional module to set a few theme options
-function getThemeOption ($option) {	
+function getThemeOption ($setting) {	
 	if (array_key_exists('justblack_theme_options', WT_Module::getActiveModules())) {
-		$themeOptions = new justblack_theme_options_WT_Module;
-		$JB_SETTINGS = $themeOptions->getSettings();
-		$setting = $JB_SETTINGS[strtoupper($option)];
-		return $setting;	
+		$module = new justblack_theme_options_WT_Module;
+		return $module->options($setting);
 	}
 }
 
@@ -38,7 +36,6 @@ function getThemeOption ($option) {
 function getJBScriptVars() {
 	global $controller, $SHOW_NO_WATERMARK;
 	WT_USER_ACCESS_LEVEL > $SHOW_NO_WATERMARK ? $useWatermark = 1 : $useWatermark = 0;
-	getThemeOption('gviewer_pdf') ? $useGviewer = getThemeOption('gviewer_pdf') : $useGviewer = 0;
 	$controller->addInlineJavascript('
 			// JustBlack Theme variables
 			var WT_SERVER_NAME = "'.WT_SERVER_NAME.'";
@@ -47,7 +44,7 @@ function getJBScriptVars() {
 			var WT_THEME_JUSTBLACK = "'.WT_THEME_JUSTBLACK.'";
 			var WT_TREE_TITLE = "'.strip_tags(WT_TREE_TITLE).'";
 			var useWatermark  = '.$useWatermark.';
-			var useGviewer = '.$useGviewer.';
+			var useGviewer = '.getThemeOption('gviewer').';
 			var fullPdfText = "'.WT_I18N::translate('Open this file in full browser window').'";
 	', WT_Controller_Base::JS_PRIORITY_HIGH);
 }
@@ -55,23 +52,22 @@ function getJBScriptVars() {
 // Theme setting for the header section
 function getJBheader() {	
 	// are we taking the default header image, a custom one or none?
-	$path = WT_CSS_URL.'images/';
 	switch (getThemeOption('header')) {
-		case 'custom':	
-			$exts = array('png','jpg', 'gif');
-			foreach($exts as $ext) {
-				if(file_exists($path.'custom_header.'.$ext)){
-					$header_image_style = 'background-image:url('.$path.'custom_header.'.$ext.'); height: '.getThemeOption('headerheight').'px';
-					$header_menu_style = 'height: '.getThemeOption('headerheight').'px';
-				}
+		case '1':
+			if(file_exists(WT_DATA_DIR.getThemeOption('image'))){
+				$header_image_style = 'background-image:url("'.WT_DATA_DIR.getThemeOption('image').'"); height: '.getThemeOption('headerheight').'px';
+				$header_menu_style = 'height: '.getThemeOption('headerheight').'px';
+			} else {
+				$header_image_style = 'background-image:url('. WT_CSS_URL.'images/'.'header.jpg)';
+				$header_menu_style = '';
 			}
 			break;
-		case 'none':
+		case '2':
 			$header_image_style = 'height: '.getThemeOption('headerheight').'px';
 			$header_menu_style = $header_image_style;
 			break;
 		default:
-			$header_image_style = 'background-image:url('.$path.'header.jpg)';
+			$header_image_style = 'background-image:url('. WT_CSS_URL.'images/'.'header.jpg)';
 			$header_menu_style = '';
 			break;
 	}
@@ -81,14 +77,9 @@ function getJBheader() {
 			$title = '';
 			break;
 		case '1':	
-			$pos 	= explode(',',getThemeOption('titlepos'));
-			$top 	= $pos[0];
-			$right	= $pos[1];
-			$bottom = $pos[2];
-			$left 	= $pos[3];
-			
-			$top >= $bottom ? $posV = 'top:'.$top : $posV = 'bottom:'.$bottom;
-			$left >= $right ? $posH = 'left:'.$left : $posH = 'right:'.$right;
+			$pos 	= getThemeOption('titlepos');
+			$posV = 'top:'.$pos[0];
+			$pos[1] == 0 ? $posH = 'left:'.$pos[2] : $posH = 'right:'.$pos[2];
 			
 			$font_size = 'font-size:'.getThemeOption('titlesize').'px';			
 			$title = '<div id="tree-title" dir="auto" style="'.$posV.';'.$posH.'"><h1 style="'.$font_size.'">'.WT_TREE_TITLE.'</h1></div>';
@@ -115,7 +106,7 @@ function getJBheader() {
 // Menus
 function getJBTopMenu() {
 	global $controller;
-	$menus = getThemeOption('menu_order');
+	$menus = getThemeOption('menu');
 	
 	if($menus) {
 		$jb_controller = new justblack_theme_options_WT_Module;
@@ -424,5 +415,3 @@ function getJBClippingsTable() {
 			});	
 		');
 }
-
-?>
