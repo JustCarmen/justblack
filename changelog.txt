@@ -1,5 +1,11 @@
 GOTO HTTP://WWW.JUSTCARMEN.NL/HELP FOR INSTALLATION AND UPGRADE INSTRUCTIONS
 
+15-03-2014 - JustBlack 1.5.2.1 for webtrees 1.5.2
+* Theme functions changed due to changes in the theme options module.
+* Personbox template supports png images now.
+
+========================================================================================================
+
 10-02-2014 - JustBlack 1.5.2 for webtrees 1.5.2
 * New icon for the clippings menu
 * Fix: status messages do not show up in pop-up frames.
