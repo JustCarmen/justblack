@@ -831,13 +831,7 @@ jQuery(document).ready(function(){
 		var titleBtn = jQuery('#search-page h2').text();
 		if(searchResult.length > 0) {
 			searchForm.hide();
-			searchResult.each(function(){
-				jQuery(this).find('.fg-toolbar').removeClass('ui-widget-header');
-				var filters = jQuery(this).find('.fg-toolbar div[class^=filtersH], .fg-toolbar .dt-clear:first').remove();
-				jQuery(this).find('.fg-toolbar div').wrapAll('<div class="fg-toolbar-border">');
-				jQuery(this).find('.fg-toolbar').prepend(filters);
-				jQuery(this).find('div[class^=filtersH]').append('<button id="search-btn" class="ui-state-default" type="button">' + titleBtn);
-			});
+			searchResult.find('div[class^=filtersH]').append('<button id="search-btn" class="ui-state-default" type="button">' + titleBtn);
 
 			jQuery('#search-btn').on({
 				click: function(){
