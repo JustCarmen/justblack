@@ -32,6 +32,7 @@ if (!defined('WT_WEBTREES')) {
 }
 
 $JBthumbnail = getJBThumb($person, '50', true); // better thumbnail display for personboxes (overrides the default thumbnail).
+$BirthDeath = trim(str_replace(array('—', '<span dir="auto"></span>'), '', $BirthDeath));
 
 // note: added class person_box_zoom to inout div for styling purposes - JustCarmen
 echo '<div id="out-',$boxID,'" ',$outBoxAdd,'>
@@ -47,7 +48,7 @@ echo '<div id="out-',$boxID,'" ',$outBoxAdd,'>
 		<div id="inout2-',$boxID,'" style="max-height:', ($bheight*.9),'px;">',$BirthDeath,'</div>
 	</div>
 	</div>
-	<div id="inout-',$boxID,'" class="person_box_zoom" style="display:none;">
+	<div id="inout-',$boxID,'" class="person_box_zoom" style="display:none;" data-id="'.$boxID.'">
 		<div id="LOADING-inout-',$boxID,'">',WT_I18N::translate('Loading...'),'</div>
 	</div>
 </div>';

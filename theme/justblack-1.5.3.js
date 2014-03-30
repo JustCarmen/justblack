@@ -114,6 +114,60 @@ function qstring(key, url) {
 	}
 }
 
+function jb_expandbox(boxid, bstyle) {
+	var getBox = function () {
+	var result = jQuery.Deferred(); 	
+	
+	expandbox(boxid, bstyle);
+	jQuery(".person_box_zoom[data-id='"+boxid+"']").each(function(){
+		if (jQuery(this).html().indexOf("LOADING")>0) {
+			jQuery(this).hide();
+		}
+	});	
+	
+	setTimeout(function () {
+		result.resolve();
+	}, 500);
+	
+	return result;
+	};
+	
+	var modifyBox = function () {	
+		jQuery(".person_box_zoom[data-id='"+boxid+"']").each(function(){
+			var obj = jQuery(this);			
+			obj.find(".field").contents().filter(function(){
+				return (this.nodeType == 3);
+			}).remove();
+			obj.find(".field span").filter(function(){
+				return jQuery(this).text().trim().length==0
+			}).remove();
+			obj.find("div[class^=fact_]").each(function(){
+				var div = jQuery(this);
+				div.find(".field").each(function(){
+					if(jQuery.trim(jQuery(this).text()) == '') {
+						div.remove();
+					}		
+				});	
+			});
+			obj.show();
+		});
+	};
+	
+	jQuery(".person_box_zoom[data-id='"+boxid+"']").each(function(){
+		if (jQuery(this).html().indexOf("LOADING")>0) {
+			jQuery(this).parents(".shadow").css({'box-shadow' : 'none'});
+			getBox().done(modifyBox);
+		} else {
+			getBox();
+			if(jQuery(this).is(':visible')) {
+				jQuery(this).parents(".shadow").css({'box-shadow' : 'none'});
+			} else {
+				jQuery(this).parents(".shadow").css({'box-shadow' : '6px 8px #171717'});
+			}
+		}
+	});	
+}
+
 //=========================================================================================================
 //												GENERAL
 //=========================================================================================================
@@ -536,7 +590,25 @@ jQuery(document).ready(function(){
 		jQuery('input[name=subject]').attr('size', '45');
 		jQuery('textarea[name=body]').attr('cols', '43');
 	}
-
+	
+	/************************************************ PERSON BOXES *****************************************************/
+	//Remove labels with empty fields from the personboxes.
+   	jQuery('div[class^=fact_]').each(function(){
+		var obj = jQuery(this);
+		obj.find('span.field').each(function(){
+			if(jQuery.trim(jQuery(this).text()) == '') {
+				obj.remove();
+			}		
+		});		
+	});
+	
+	// replace the default function with our own to customize the zoomed personbox view
+	jQuery('[onclick^="expandbox"]').each(function(){
+		jQuery(this).attr('onclick',function(index,attr){
+			return attr.replace('expandbox', 'jb_expandbox');
+		});		
+	});
+	
 	/************************************************ HOURGLASS CHART *****************************************************/
 	if (WT_SCRIPT_NAME == 'hourglass.php' && qstring('show_spouse') == '1') {
 		function styleSB(){
