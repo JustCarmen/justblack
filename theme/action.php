@@ -29,6 +29,7 @@ switch($action) {
 	case 'imagetype':
 		$xrefs = WT_Filter::postArray('xrefs');
 		
+		$data = array();
 		foreach($xrefs as $xref) {
 			$row=
 				WT_DB::prepare("SELECT m_type as imagetype FROM `##media` WHERE m_id=?")
