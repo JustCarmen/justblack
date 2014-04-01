@@ -528,11 +528,6 @@ a.showit:hover > span{background:#ffdcb2;border-bottom:1px solid #000;border-lef
 .iwstyle{width:360px}
 #map_nav{left:101%;position:relative;top:-484px}
 #tree_nav{left:90%;position:relative;top:-584px;z-index:100}
-#map_type{font-size:10px;list-style:none;margin:0;padding:0}
-#map_type li{border:1px solid black;cursor:pointer;display:block;float:left;margin-left:2px;padding:2px;text-align:center;width:70px}
-#map_type li.non_active{background:white;color:black;font-weight:normal}
-#map_type li.active{background:gray;color:white;font-weight:bold}
-#map_type li:hover{background:#ddd}
 .tag_cloud{padding:10px 5px 10px 15px;text-align:justify}
 .tag_cloud a{white-space:nowrap}
 
