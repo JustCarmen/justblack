@@ -52,5 +52,3 @@ echo '<div id="out-',$boxID,'" ',$outBoxAdd,'>
 		<div id="LOADING-inout-',$boxID,'">',WT_I18N::translate('Loading...'),'</div>
 	</div>
 </div>';
-
-?>

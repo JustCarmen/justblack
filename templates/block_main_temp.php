@@ -48,5 +48,3 @@ if ($id == 'login_block'.$block_id && WT_USER_ID) {
 else {
 	echo $block_main_tpl; 	
 }
-
-?>

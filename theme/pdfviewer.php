@@ -108,5 +108,3 @@ if (function_exists('readfile')) {
 	}
 	fclose($fp);
 }
-
-?>
