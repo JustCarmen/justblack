@@ -157,9 +157,9 @@ function getJBTopMenu() {
 
 function getJBSearch () {
 	$searchform = '	<form action="search.php" method="post">
-					<input type="hidden" name="action" value="general"/>
-					<input type="hidden" name="topsearch" value="yes"/>
-					<input type="search" name="query" size="20" placeholder="'. WT_I18N::translate('Search'). '" dir="auto"/>
+					<input type="hidden" name="action" value="general">
+					<input type="hidden" name="topsearch" value="yes">
+					<input type="search" name="query" size="20" placeholder="'. WT_I18N::translate('Search'). '">
 					<input type="image" class="searchbtn" src="'.WT_CSS_URL.'images/buttons/search_go.png" alt="'.WT_I18N::translate('Search').'" title="'.WT_I18N::translate('Search').'">
 					</form>';
 	return $searchform;
