@@ -23,6 +23,8 @@ define('WT_SCRIPT_NAME', 'action.php');
 chdir('../../../'); // change the directory to the root of webtrees to load the required files from session.php.
 require './includes/session.php';
 
+header('Content-type: text/html; charset=UTF-8');
+
 Zend_Session::writeClose();
 
 $action = WT_Filter::get('action');
