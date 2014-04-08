@@ -187,7 +187,8 @@ jQuery(document).ready(function(){
 			type: 'POST',
 			async: false,
 			data: {
-				'xrefs': xrefs
+				'csrf'	:   WT_CSRF_TOKEN,
+				'xrefs'	: xrefs
 			},
 			success: function(data) {
 				jQuery.each(data, function(index, value) {

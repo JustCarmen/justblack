@@ -25,7 +25,11 @@ require './includes/session.php';
 
 header('Content-type: text/html; charset=UTF-8');
 
-Zend_Session::writeClose();
+if (!WT_Filter::checkCsrf()) {
+	Zend_Session::writeClose();
+	header('HTTP/1.0 406 Not Acceptable');
+	exit;
+}
 
 $action = WT_Filter::get('action');
 switch($action) {
