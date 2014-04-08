@@ -19,8 +19,9 @@
 // along with this program; if not, write to the Free Software
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
 
-define('WT_SCRIPT_NAME', 'json.php');
-require './../../../includes/session.php';
+define('WT_SCRIPT_NAME', 'action.php');
+chdir('../../../'); // change the directory to the root of webtrees to load the required files from session.php.
+require './includes/session.php';
 
 Zend_Session::writeClose();
 
