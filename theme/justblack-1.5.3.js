@@ -26,38 +26,8 @@
 //												FUNCTIONS
 //=========================================================================================================
 
-function jb_helpDialog(which, mod) {
-	'use strict';
-	var url='help_text.php?help='+which+'&mod='+mod;
-	var $dialog = jQuery('<div style="max-height:375px; overflow-y:auto"><div><div class="loading-image"></div></div></div>')
-		.dialog({
-			width: 500,
-			height: 'auto',
-			maxHeight: 500,
-			modal: true,
-			position: ['center', 'center'],
-			autoOpen: true,
-			close: function(event, ui) {
-				$dialog.remove();
-			},
-			open: function(event, ui) {
-				jQuery('.ui-widget-overlay').bind('click', function(){
-					$dialog.dialog('close');
-				});
-			}
-		}).load(url+' .helpcontent', function() {
-			jQuery(this).dialog("option", "position", ['center', 'center'] );
-		});
-
-	jQuery('.ui-dialog-title').load(url+' .helpheader');
-	return false;
-}
-
 function jb_modalDialog(url, title) {
-	'use strict';
-	jQuery(document).ajaxComplete(function() {
-		jQuery('#config-dialog').parent('.ui-dialog').before('<div class="ui-widget-overlay" />');
-	});
+	'use strict';	
 	// initialize the dialog box
 	var $tempdialog = jQuery('<div><div class="loading-image"></div></div>')
 		.dialog({
@@ -74,7 +44,7 @@ function jb_modalDialog(url, title) {
 				title: title,
 				width: 'auto',
 				height: 'auto',
-				modal: false,
+				modal: true,
 				autoOpen: false,
 				open: function(event, ui) {
 					$tempdialog.dialog('close');
@@ -82,14 +52,9 @@ function jb_modalDialog(url, title) {
 						$dialog.dialog( "option", "width", 700 );
 						$dialog.dialog( "option", "height", 550 );
 					}
-					jQuery('.ui-widget-overlay').bind('click', function(){
+					jQuery('.ui-widget-overlay').on('click', function(){
 						$dialog.dialog('close');
-						jQuery(this).remove();
 					});
-				},
-				close: function(event, ui) {
-					$dialog.remove();
-					jQuery('.ui-widget-overlay').remove();
 				}
 			}).load(url);
 
@@ -98,6 +63,30 @@ function jb_modalDialog(url, title) {
 		$dialog.dialog('open');
 	}, 500);
 
+	return false;
+}
+
+function jb_helpDialog(topic, module) {
+	'use strict';
+	var url='help_text.php?help=' + topic + '&mod=' + module;
+	var $dialog = jQuery('<div style="max-height:375px; overflow-y:auto"><div><div class="loading-image"></div></div></div>')
+		.dialog({
+			width: 500,
+			height: 'auto',
+			maxHeight: 500,
+			modal: true,
+			position: ['center', 'center'],
+			autoOpen: true,
+			open: function(event, ui) {
+				jQuery('.ui-widget-overlay').on('click', function(){
+					$dialog.dialog('close');
+				});
+			}
+		}).load(url + ' .helpcontent', function() {
+			jQuery(this).dialog("option", "position", ['center', 'center'] );
+		});
+
+	jQuery('.ui-dialog-title').load(url +' .helpheader');
 	return false;
 }
 
@@ -471,16 +460,16 @@ jQuery(document).ready(function(){
 
 	/**************************************** MODAL DIALOG BOXES ********************************************/
 	// replace default function with our justblack theme function (better dialog boxes)
-	function jb_dialogBox() {
-		jQuery('[onclick^="helpDialog"]').each(function(){
-			jQuery(this).attr('onclick',function(index,attr){
-				return attr.replace('helpDialog', 'jb_helpDialog');
-			});
-		});
-
+	function jb_dialogBox() {		
 		jQuery('[onclick^="modalDialog"], [onclick^="return modalDialog"]').each(function(){
 			jQuery(this).attr('onclick',function(index,attr){
 				return attr.replace('modalDialog', 'jb_modalDialog');
+			});
+		});
+		
+		jQuery('[onclick^="helpDialog"]').each(function(){
+			jQuery(this).attr('onclick',function(index,attr){
+				return attr.replace('helpDialog', 'jb_helpDialog');
 			});
 		});
 	}
