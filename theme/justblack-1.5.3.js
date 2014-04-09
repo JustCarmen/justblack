@@ -27,8 +27,9 @@
 //=========================================================================================================
 
 function jb_helpDialog(which, mod) {
+	'use strict';
 	var url='help_text.php?help='+which+'&mod='+mod;
-	$dialog = jQuery('<div style="max-height:375px; overflow-y:auto"><div><div class="loading-image"></div></div></div>')
+	var $dialog = jQuery('<div style="max-height:375px; overflow-y:auto"><div><div class="loading-image"></div></div></div>')
 		.dialog({
 			width: 500,
 			height: 'auto',
@@ -42,7 +43,7 @@ function jb_helpDialog(which, mod) {
 			open: function(event, ui) {
 				jQuery('.ui-widget-overlay').bind('click', function(){
 					$dialog.dialog('close');
-				})
+				});
 			}
 		}).load(url+' .helpcontent', function() {
 			jQuery(this).dialog("option", "position", ['center', 'center'] );
@@ -53,43 +54,44 @@ function jb_helpDialog(which, mod) {
 }
 
 function jb_modalDialog(url, title) {
+	'use strict';
 	jQuery(document).ajaxComplete(function() {
 		jQuery('#config-dialog').parent('.ui-dialog').before('<div class="ui-widget-overlay" />');
 	});
 	// initialize the dialog box
-	$tempdialog = jQuery('<div><div class="loading-image"></div></div>')
-	.dialog({
-		title: title,
-		width: 400,
-		height: 'auto',
-		autoOpen: true,
-		close: function(event, ui) {
-			$tempdialog.remove();
-		}
-	});
-	$dialog = jQuery('<div id="config-dialog" style="max-height:550px; overflow-y:auto"><div title="'+title+'"><div></div>')
+	var $tempdialog = jQuery('<div><div class="loading-image"></div></div>')
 		.dialog({
 			title: title,
-			width: 'auto',
+			width: 400,
 			height: 'auto',
-			modal: false,
-			autoOpen: false,
-			open: function(event, ui) {
-				$tempdialog.dialog('close');
-				if (jQuery('textarea.html-edit').length > 0) {
-					$dialog.dialog( "option", "width", 700 );
-					$dialog.dialog( "option", "height", 550 );
-				}
-				jQuery('.ui-widget-overlay').bind('click', function(){
-					$dialog.dialog('close');
-					jQuery(this).remove();
-				})
-			},
+			autoOpen: true,
 			close: function(event, ui) {
-				$dialog.remove();
-				jQuery('.ui-widget-overlay').remove();
-			},
-		}).load(url);
+				$tempdialog.remove();
+			}
+		}),
+		$dialog = jQuery('<div id="config-dialog" style="max-height:550px; overflow-y:auto"><div title="'+title+'"><div></div>')
+			.dialog({
+				title: title,
+				width: 'auto',
+				height: 'auto',
+				modal: false,
+				autoOpen: false,
+				open: function(event, ui) {
+					$tempdialog.dialog('close');
+					if (jQuery('textarea.html-edit').length > 0) {
+						$dialog.dialog( "option", "width", 700 );
+						$dialog.dialog( "option", "height", 550 );
+					}
+					jQuery('.ui-widget-overlay').bind('click', function(){
+						$dialog.dialog('close');
+						jQuery(this).remove();
+					});
+				},
+				close: function(event, ui) {
+					$dialog.remove();
+					jQuery('.ui-widget-overlay').remove();
+				}
+			}).load(url);
 
 	// open the dialog box after some time. This is needed for the dialogbox to get loaded in center position.
 	setTimeout(function() {
@@ -100,51 +102,56 @@ function jb_modalDialog(url, title) {
 }
 
 jQuery(window).resize(function() {
+	'use strict';
 	jQuery(".ui-dialog-content").dialog("option", "position", ['center', 'center']);
 });
 
 function qstring(key, url) {
-	if (url == null) var url = window.location.href;
+	'use strict';
+	var KeysValues, KeyValue, i;
+	if (url === null || url === undefined) {
+		url = window.location.href;
+	}
 	KeysValues = url.split(/[\?&]+/);
 	for (i = 0; i < KeysValues.length; i++) {
-		KeyValue= KeysValues[i].split("=");
-		if (KeyValue[0] == key) {
+		KeyValue = KeysValues[i].split("=");
+		if (KeyValue[0] === key) {
 			return KeyValue[1];
 		}
 	}
 }
 
 function jb_expandbox(boxid, bstyle) {
+	'use strict';
 	var getBox = function () {
-	var result = jQuery.Deferred(); 	
-	
-	expandbox(boxid, bstyle);
-	jQuery(".person_box_zoom[data-id='"+boxid+"']").each(function(){
-		if (jQuery(this).html().indexOf("LOADING")>0) {
-			jQuery(this).hide();
-		}
-	});	
-	
-	setTimeout(function () {
-		result.resolve();
-	}, 500);
-	
-	return result;
-	};
-	
-	var modifyBox = function () {	
+		var result = jQuery.Deferred(); 	
+		
+		expandbox(boxid, bstyle);
+		jQuery(".person_box_zoom[data-id='"+boxid+"']").each(function(){
+			if (jQuery(this).html().indexOf("LOADING")>0) {
+				jQuery(this).hide();
+			}
+		});	
+		
+		setTimeout(function () {
+			result.resolve();
+		}, 500);
+		
+		return result;
+	},	
+	modifyBox = function () {	
 		jQuery(".person_box_zoom[data-id='"+boxid+"']").each(function(){
 			var obj = jQuery(this);			
 			obj.find(".field").contents().filter(function(){
-				return (this.nodeType == 3);
+				return (this.nodeType === 3);
 			}).remove();
 			obj.find(".field span").filter(function(){
-				return jQuery(this).text().trim().length==0
+				return jQuery(this).text().trim().length === 0;
 			}).remove();
 			obj.find("div[class^=fact_]").each(function(){
 				var div = jQuery(this);
 				div.find(".field").each(function(){
-					if(jQuery.trim(jQuery(this).text()) == '') {
+					if(jQuery.trim(jQuery(this).text()) === '') {
 						div.remove();
 					}		
 				});	
@@ -172,7 +179,8 @@ function jb_expandbox(boxid, bstyle) {
 //												GENERAL
 //=========================================================================================================
 jQuery(document).ready(function(){
-
+	'use strict';
+	var obj, title;
 	/********************************************* COLORBOX MEDIA GALLERY ***********************************************/
 	// prepare all images for colorbox display
 	function get_imagetype() {
@@ -193,7 +201,7 @@ jQuery(document).ready(function(){
 			success: function(data) {
 				jQuery.each(data, function(index, value) {
 					jQuery('a[id=' + index + ']').attr('data-obje-type', value);
-				})
+				});
 			}
 		});
 	}
@@ -237,7 +245,7 @@ jQuery(document).ready(function(){
 			slideshowAuto:	false,
 			slideshowSpeed: 3000,
 			onLoad:			function() {
-								jQuery(".cboxNote, .pdf-layer").remove() // remove previous note or watermarks.
+								jQuery(".cboxNote, .pdf-layer").remove(); // remove previous note or watermarks.
 							}
 		});
 
@@ -245,8 +253,9 @@ jQuery(document).ready(function(){
 		jQuery("a[type^=image].gallery").colorbox({
 			photo:			true,
 			scalePhotos:	function(){
-								if(jQuery(this).data('obje-type') === 'photo') return true;
-								else return false;
+								if(jQuery(this).data('obje-type') === 'photo') {
+									return true;
+								}
 							},
 			maxWidth:		"90%",
 			maxHeight:		"90%",
@@ -255,11 +264,13 @@ jQuery(document).ready(function(){
 								return "<div class=\"title\">" + img_title + "</div>";
 							},
 			onComplete:		function() {
-								if(jQuery(this).data('obje-type') !== 'photo') resizeImg();
+								if(jQuery(this).data('obje-type') !== 'photo') {
+									resizeImg();
+								}
 								jQuery(".cboxPhoto").wheelzoom();
 								jQuery(".cboxPhoto img").on("click", function(e) {e.preventDefault();});
 								var note = jQuery(this).data("obje-note");
-								if(note != '') {
+								if(note !== '') {
 										jQuery('#cboxContent').append('<div class="cboxNote"><a href="#">' + note);
 										if(jQuery('.cboxPhoto').innerHeight() > jQuery('#cboxContent').innerHeight()) {
 											jQuery('.cboxNote').css('width', jQuery('.cboxNote').width() - 27);
@@ -281,15 +292,17 @@ jQuery(document).ready(function(){
 			title:		function(){
 							var pdf_title = jQuery(this).data("title");
 							pdf_title = '<div class="title">' + pdf_title;
-							if(useWatermark == 0) pdf_title += ' &diams; <a href="' + jQuery(this).attr("href") + '" target="_blank">' + fullPdfText + '</a>';
+							if(useWatermark === 0) {
+								pdf_title += ' &diams; <a href="' + jQuery(this).attr("href") + '" target="_blank">' + fullPdfText + '</a>';
+							}
 							pdf_title += '</div>';
 							return pdf_title;
 						},
-			onComplete: function() { longTitles() }
+			onComplete: function() { longTitles(); }
 		});
 
 		// use Google Docs Viewer for pdf's if theme option is set.
-		if(useGviewer == 1) {
+		if(useGviewer === 1) {
 			jQuery("a[type$=pdf].gallery").colorbox({
 				scrolling:	false, // the gviewer has a scrollbar.
 				html:		function(){
@@ -298,7 +311,7 @@ jQuery(document).ready(function(){
 							},
 				onComplete: function() {
 							longTitles();
-							if(useWatermark == 1) {
+							if(useWatermark === 1) {
 								var layerHeight = jQuery('#cboxContent iframe').height();
 								var layerWidth = jQuery('#cboxContent iframe').width();
 								jQuery('#cboxLoadedContent')
@@ -337,7 +350,7 @@ jQuery(document).ready(function(){
 	// Tooltips for all title attributes
 	function add_tooltips() {
 		jQuery('*[title]').each(function() {
-            var title = jQuery(this).attr('title');
+            title = jQuery(this).attr('title');
 			jQuery(this).on('click', function(){
 				jQuery(this).attr('title', title);	// some functions need the title attribute. Make sure it is filled when clicking the item.
 			});
@@ -351,7 +364,7 @@ jQuery(document).ready(function(){
 	add_tooltips();	// needed when no ajaxcall is made on the particular page.
 	jQuery(document).ajaxComplete(function() { // be sure the tooltip is activated after a ajax call is made.
 		add_tooltips();
-	})
+	});
 
 	/******************************************* DROPDOWN MENU *********************************************/
 	jQuery('.dropdown > li').hover(function(){
@@ -375,6 +388,8 @@ jQuery(document).ready(function(){
 
 	/********************************************* MAIN MENU ***********************************************/
 	jQuery('#main-menu').each(function(){
+		var dTime, li_height, height, maxHeight, i;
+		
 		jQuery(this).find('li').hover(function(){
 			//show submenu
 			jQuery(this).find('>ul').slideDown('slow');
@@ -383,28 +398,30 @@ jQuery(document).ready(function(){
 			jQuery(this).find('>ul').hide();
 		});
 
-		var dTime = 1200;
+		dTime = 1200;
 		jQuery(this).find('ul').each(function(){
 			jQuery(this).find('li').hover(function() {
-				jQuery(this).stop().animate({backgroundColor: '#808080'}, dTime)
+				jQuery(this).stop().animate({backgroundColor: '#808080'}, dTime);
 			}, function(){
 				jQuery(this).stop().animate({backgroundColor: '#272727'}, dTime);
 			});
 		});
 
 		// dynamic height of menubar
-		var li_height = jQuery(this).find('> li').height()
-		var height = jQuery(this).find('> li > a').map(function(){
+		li_height = jQuery(this).find('> li').height();
+		height = jQuery(this).find('> li > a').map(function(){
    			return jQuery(this).height();
 		});
-		var maxHeight=height[0];
-		for (var i=0;i<height.length;i++) {
-		 	maxHeight=Math.max(maxHeight, height[i]);
+		maxHeight=height[0];
+		for (i = 0; i<height.length; i++) {
+		 	maxHeight = Math.max(maxHeight, height[i]);
 		}
 		jQuery('#topMenu').css('height', li_height + maxHeight);
 
 		// No Gedcom submenu if there is just one gedcom
-		if (jQuery('#menu-tree ul li').length == 1) jQuery('#menu-tree ul').remove();
+		if (jQuery('#menu-tree ul li').length === 1) {
+			jQuery('#menu-tree ul').remove();
+		}
 
 		// open admin in new browsertab
 		jQuery(this).find('ul li#menu-admin a').attr('target','blank');
@@ -429,19 +446,17 @@ jQuery(document).ready(function(){
 	/********************************************* FAV-MENU ******************************************/
 	var pageId = qstring('pid') || qstring('famid') || qstring('mid') || qstring('nid') || qstring('rid') || qstring('sid');
 	var submenu = jQuery('#fav-menu > ul ul');
-
-	if (WT_USER_ID > 0 && typeof pageId != 'undefined') {
-		var obj = submenu.find('li').not(':last');
-		submenu.find('li:last a').addClass('addFav')
-	}
-	else {
-		var obj = submenu.find('li');
+	
+	obj = submenu.find('li');
+	if (WT_USER_ID > 0 && pageId !== undefined) {
+		obj = submenu.find('li').not(':last');	
+		submenu.find('li:last a').addClass('addFav');
 	}
 
 	obj.each(function(){
 		var url = jQuery(this).find('a').attr('href');
 		var id = qstring('pid', url) || qstring('famid', url) || qstring('mid', url) || qstring('nid', url) || qstring('rid', url) || qstring('sid', url);
-		if(id == pageId) {
+		if (id === pageId) {
 			jQuery(this).addClass('active');
 			jQuery('#menu-favorites > a').replaceWith(jQuery(this).html());
 			jQuery('.addFav').parent('li').remove();
@@ -473,12 +488,12 @@ jQuery(document).ready(function(){
 	jb_dialogBox();
 	jQuery(document).ajaxComplete(function() {
 		jb_dialogBox();
-	})
+	});
 
 	/********************************************* CUSTOM CONTACT LINK ***********************************************/
 	// custom contact link (in custom html block or news block for example). Give the link the class 'contact_link_admin');
 	jQuery('a.contact_link_admin').each(function() {
-		var onclickItem = jQuery('.contact_links a').attr('onclick')
+		var onclickItem = jQuery('.contact_links a').attr('onclick');
 		jQuery(this).attr('onclick', onclickItem).wrap('<span class="contact_links">');
 	});
 
@@ -494,9 +509,9 @@ jQuery(document).ready(function(){
 
 	/********************************************* REGISTER FORM ***********************************************/
 	if (jQuery('#login-register-page').length > 0) {
-		var title = jQuery('#login-register-page h2').text();
+		title = jQuery('#login-register-page h2').text();
 		jQuery('#login-register-page h2').remove();
-		if (title != "") {
+		if (title !== "") {
 			jQuery('<div id="login-register-page-title" class="subheaders ui-state-default">' + title + '</div>').prependTo('#login-register-page');
 		}
 		jQuery('#login-register-page .largeError').removeAttr('class').css('font-weight', 'bold');
@@ -512,8 +527,8 @@ jQuery(document).ready(function(){
 	}
 
 	/************************************ EDIT USER PAGE **********************************************/
-	if (WT_SCRIPT_NAME == 'edituser.php') {
-		var title = jQuery('#edituser-page h2').text();
+	if (WT_SCRIPT_NAME === 'edituser.php') {
+		title = jQuery('#edituser-page h2').text();
 		jQuery('#edituser-page h2').remove();
 		jQuery('<div id="edituser-page-title" class="subheaders ui-state-default">' + title + '</div>').prependTo('#edituser-page');
 		jQuery('#edituser_submit').before('<hr class="clearfloat">');
@@ -522,7 +537,7 @@ jQuery(document).ready(function(){
 			jQuery(this).prependTo(jQuery(this).parents('.value'));
 		});
 
-		if (jQuery('#theme-menu').html() == "") {
+		if (jQuery('#theme-menu').html() === "") {
 			jQuery('select[name=form_theme]').parents('.value').prev('.label').remove();
 			jQuery('select[name=form_theme]').parents('.value').remove();
 		}
@@ -546,7 +561,7 @@ jQuery(document).ready(function(){
 	});
 
 	/************************************** INDIVIDUAL PAGE ***********************************************/
-	if (WT_SCRIPT_NAME == 'individual.php') {
+	if (WT_SCRIPT_NAME === 'individual.php') {
 
 		// General
 		jQuery('<div class="divider">').appendTo('#tabs ul:first');
@@ -587,7 +602,7 @@ jQuery(document).ready(function(){
 
 	/********************************************* MESSAGES.PHP*******************************************************/
 	// correction. Popup is smaller than the input and textarea field.
-	if (WT_SCRIPT_NAME == 'message.php') {
+	if (WT_SCRIPT_NAME === 'message.php') {
 		jQuery('input[name=subject]').attr('size', '45');
 		jQuery('textarea[name=body]').attr('cols', '43');
 	}
@@ -595,9 +610,9 @@ jQuery(document).ready(function(){
 	/************************************************ PERSON BOXES *****************************************************/
 	//Remove labels with empty fields from the personboxes.
    	jQuery('div[class^=fact_]').each(function(){
-		var obj = jQuery(this);
+		obj = jQuery(this);
 		obj.find('span.field').each(function(){
-			if(jQuery.trim(jQuery(this).text()) == '') {
+			if(jQuery.trim(jQuery(this).text()) === '') {
 				obj.remove();
 			}		
 		});		
@@ -611,28 +626,28 @@ jQuery(document).ready(function(){
 	});
 	
 	/************************************************ HOURGLASS CHART *****************************************************/
-	if (WT_SCRIPT_NAME == 'hourglass.php' && qstring('show_spouse') == '1') {
-		function styleSB(){
-			 jQuery.ajax({
-				success:function(){
-					jQuery('.person_box_template.style1').each(function(){
-						var width = jQuery(this).width();
-						if(width < 250) { // spouses boxes are smaller then the default ones.
-							jQuery(this)
-								.addClass('spouse_box')
-								.removeAttr('style') // css styling
-								.closest('table').find('tr:first .person_box_template').css('border-bottom-style', 'dashed');
-						}
-					});
-				},
-				complete:function(data) {
-					jQuery('a[onclick*=ChangeDis]').on('click', function(event){	// needed for dynamic added arrow links.
-						styleSB();
-					});
-					return data;
-				}
-			 });
-		};
+	function styleSB(){
+		 jQuery.ajax({
+			success:function(){
+				jQuery('.person_box_template.style1').each(function(){
+					var width = jQuery(this).width();
+					if(width < 250) { // spouses boxes are smaller then the default ones.
+						jQuery(this)
+							.addClass('spouse_box')
+							.removeAttr('style') // css styling
+							.closest('table').find('tr:first .person_box_template').css('border-bottom-style', 'dashed');
+					}
+				});
+			},
+			complete:function(data) {
+				jQuery('a[onclick*=ChangeDis]').on('click', function(event){	// needed for dynamic added arrow links.
+					styleSB();
+				});
+				return data;
+			}
+		 });
+	}
+	if (WT_SCRIPT_NAME === 'hourglass.php' && qstring('show_spouse') === '1') {		
 		jQuery('a[onclick*=ChangeDis]').on('click', function(){
 			styleSB();
 		});
@@ -640,7 +655,7 @@ jQuery(document).ready(function(){
 	}
 
 	/****************************** CHILDBOX (ON PEDIGREE CHART AND HOURGLASS CHART)***************************************/
-	if (WT_SCRIPT_NAME == 'pedigree.php' || WT_SCRIPT_NAME == 'hourglass.php') {
+	if (WT_SCRIPT_NAME === 'pedigree.php' || WT_SCRIPT_NAME === 'hourglass.php') {
 		jQuery('#hourglass_chart #childbox .name1').each(function(){
 			jQuery(this).appendTo(jQuery(this).parents('#childbox'));
 		});
@@ -668,7 +683,7 @@ jQuery(document).ready(function(){
 				var child = jQuery(this).text();
 				jQuery('#hourglass_chart #childbox li').each(function(){
 					var str = jQuery(this).text();
-					if (str == child) {
+					if (str === child) {
 						jQuery(this).addClass('cb_child');
 					}
 					if (jQuery(this).hasClass('cb_title')) {
@@ -695,7 +710,7 @@ jQuery(document).ready(function(){
 	}
 
 	/************************************ FANCHART PAGE (POPUPS)***************************************/
-	if (WT_SCRIPT_NAME == 'fanchart.php') {
+	if (WT_SCRIPT_NAME === 'fanchart.php') {
 		jQuery('table.person_box td').each(function(){
 			var content = jQuery(this).html();
 			jQuery(this).parents('table').before('<div class="fanchart_box">' + content + '</div>').remove();
@@ -737,7 +752,7 @@ jQuery(document).ready(function(){
 		}
 	}
 
-	if (WT_SCRIPT_NAME == 'individual.php' || qstring('mod_action') == 'treeview') {
+	if (WT_SCRIPT_NAME === 'individual.php' || qstring('mod_action') === 'treeview') {
 		jQuery('#content a[name=tv_content]').after('<div class="loading-image"></div>');
 		jQuery.ajax({
 			beforeSend:function(){
@@ -751,7 +766,7 @@ jQuery(document).ready(function(){
 		jQuery('#content .loading-image').remove();
 	}
 
-	if (WT_SCRIPT_NAME == 'index.php') {
+	if (WT_SCRIPT_NAME === 'index.php') {
 		jQuery(document).ajaxStop(function(){
 			if(jQuery("a[name=tv_content]").length > 0){
 				getTreeStylesheet();
@@ -759,12 +774,12 @@ jQuery(document).ready(function(){
 		})
 	}
 	/************************************** FAMILY BOOK ***********************************************/
-	if (WT_SCRIPT_NAME == 'familybook.php') {
+	if (WT_SCRIPT_NAME === 'familybook.php') {
 		jQuery('hr:last').remove(); // remove the last page-break line because it is just above the justblack divider.
 	}
 
 	/************************************** MEDIALIST PAGE ********************************************/
-	if (WT_SCRIPT_NAME == 'medialist.php') {
+	if (WT_SCRIPT_NAME === 'medialist.php') {
 		// Medialist Menu
 		jQuery('.lightbox-menu').parent('td').each(function(){
 			jQuery(this).wrapInner('<div class="lb-image_info">');
@@ -774,13 +789,18 @@ jQuery(document).ready(function(){
 		jQuery('.lightbox-menu .lb-menu li ul').wrap('<div class="popup">');
 
 		jQuery('.lightbox-menu .lb-menu > li > a').each(function(){
-			var tooltip = jQuery(this).text();
+			var tooltip, pos;
+			tooltip	= jQuery(this).text();
 			if(jQuery(this).hasClass('lb-image_link')) {
 				jQuery(this).parent().find('.popup ul').prepend('<li class="lb-pop-title">' + tooltip);
 			}
 			else {
-				if (jQuery(this).hasClass('lb-image_edit')) {var pos = "right-18"}
-				if (jQuery(this).hasClass('lb-image_view')) {var pos = "left+15"}
+				if (jQuery(this).hasClass('lb-image_edit')) {
+					pos = "right-18";
+				}
+				if (jQuery(this).hasClass('lb-image_view')) {
+					pos = "left+15";
+				}
 				jQuery(this).parent().tooltip({
 					position: {
 						my: pos + " center-2",
@@ -807,7 +827,7 @@ jQuery(document).ready(function(){
 	}
 
 	/************************************** MEDIAVIEWER PAGE ******************************************/
-	if (WT_SCRIPT_NAME == 'mediaviewer.php') {
+	if (WT_SCRIPT_NAME === 'mediaviewer.php') {
 		jQuery('#media-tabs').find('.ui-widget-header').removeClass('ui-widget-header');
 		jQuery('#media-tabs ul').after('<div class="divider">');
 	}
@@ -818,14 +838,15 @@ jQuery(document).ready(function(){
 	// In style.css the default height changed to 45px. Use this function to retrieve a cropped 60/45 (4:3) image.
 	// It would be better to do this on the server side, but then we have to mess with the core code.
 	jQuery('.media-list td img').each(function(){
-		var obj = jQuery(this);
+		obj = jQuery(this);
 		var src = obj.attr('src');
 		var img = new Image();
 		img.onload = function() {
-			newWidth = 60;
-			ratio = newWidth/this.width;
-			newHeight = this.height * ratio;
+			var newWidth = 60,
+			ratio = newWidth/this.width,
+			newHeight = this.height * ratio,
 			marginLeft = 0;
+			
 			if(newHeight < 45) {
 				newHeight = 45;
 				ratio = newHeight/this.height;
@@ -836,10 +857,10 @@ jQuery(document).ready(function(){
 				'width'  		: newWidth,
 				'height' 		: newHeight,
 				'margin-left'	: marginLeft
-			})
-		}
+			});
+		};
 		img.src = src;
-		$div = jQuery('<div>').css({
+		var $div = jQuery('<div>').css({
 			'width' 	: '60px',
 			'display' 	: 'inline-block',
 			'overflow' 	: 'hidden'
@@ -849,7 +870,7 @@ jQuery(document).ready(function(){
 	});
 
 	/************************************** CALENDAR PAGE ********************************************/
-	if (WT_SCRIPT_NAME == 'calendar.php') {
+	if (WT_SCRIPT_NAME === 'calendar.php') {
 		jQuery('.icon-indis, .icon-cfamily').parent().addClass('ui-state-default');
 		jQuery('.icon-sex_m_15x15').removeClass().addClass('icon-sex_m_9x9');
 		jQuery('.icon-sex_f_15x15').removeClass().addClass('icon-sex_f_9x9');
@@ -857,7 +878,7 @@ jQuery(document).ready(function(){
 	}
 
 	/************************************** CLIPPINGS PAGE ********************************************/
-	if(qstring('mod') == 'clippings') {
+	if(qstring('mod') === 'clippings') {
 		jQuery('#content').addClass('clippings-page');
 		jQuery('.clippings-page li').prepend('<span class="ui-icon ui-icon-triangle-1-e left">');
 		jQuery('.clippings-page .topbottombar').addClass('ui-state-default descriptionbox').removeClass('topbottombar');
@@ -870,10 +891,12 @@ jQuery(document).ready(function(){
 	}
 
 	/************************************** SEARCH PAGE ***********************************************/
-	if (WT_SCRIPT_NAME == 'search.php') {
-		var searchForm = jQuery('#search-page form');
-		var searchResult = jQuery('#search-result-tabs');
-		var titleBtn = jQuery('#search-page h2').text();
+	var searchForm = jQuery('#search-page form');
+	var searchResult;
+	var titleBtn = jQuery('#search-page h2').text();
+	
+	if (WT_SCRIPT_NAME === 'search.php') {
+		searchResult = jQuery('#search-result-tabs');
 		if (searchResult.length > 0) {
 			searchForm.hide();
 			searchResult.each(function(){
@@ -897,11 +920,9 @@ jQuery(document).ready(function(){
 		}
 	}
 
-	if (WT_SCRIPT_NAME == 'search_advanced.php') {
+	if (WT_SCRIPT_NAME === 'search_advanced.php') {
 		jQuery('#search-page a[onclick^=addFields]').attr('onclick', 'addFields();return false;');
-		var searchForm = jQuery('#search-page form');
-		var searchResult = jQuery('#search-page .indi-list');
-		var titleBtn = jQuery('#search-page h2').text();
+		searchResult = jQuery('#search-page .indi-list');
 		if(searchResult.length > 0) {
 			searchForm.hide();
 			searchResult.find('div[class^=filtersH]').append('<button id="search-btn" class="ui-state-default" type="button">' + titleBtn);
@@ -916,7 +937,7 @@ jQuery(document).ready(function(){
 	}
 
 	/************************************** FAQ PAGE ***********************************************/
-	if (qstring('mod') == 'faq') {
+	if (qstring('mod') === 'faq') {
 		jQuery('#content').addClass('faq-page');
 		jQuery('.faq_title').addClass('ui-state-default');
 		jQuery('hr').remove();
@@ -925,12 +946,12 @@ jQuery(document).ready(function(){
 	}
 
 	/************************************* PLACELIST PAGE *******************************************/
-	if (WT_SCRIPT_NAME == 'placelist.php') {
+	if (WT_SCRIPT_NAME === 'placelist.php') {
 		jQuery('#place-hierarchy').each(function(){
 			jQuery(this).find('.list_label').addClass('ui-state-default');
 			jQuery(this).find('.icon-place').remove();
 			jQuery(this).find('.list_table li a').before('<span class="ui-icon ui-icon-triangle-1-e left">');
-			jQuery(this).find('table:first').prependTo('#places-tabs')
+			jQuery(this).find('table:first').prependTo('#places-tabs');
 			jQuery(this).find('#places-tabs .ui-widget-header').removeClass('ui-widget-header');
 			jQuery(this).find('#places-tabs ul.ui-tabs-nav').after('<div class="divider">');
 		});
@@ -956,10 +977,10 @@ jQuery(document).ready(function(){
 
 	// open all external links in new window/tab - Not sure if this function is still neccessary. See WT_Filter::expandUrls
 	jQuery("a[href^=http]").each(function(){
-      if(this.href.indexOf(location.hostname) == -1) {
+      if(this.href.indexOf(location.hostname) === -1) {
          jQuery(this).attr({
             target: "_blank"
          });
       }
-   })
+   });
 });
