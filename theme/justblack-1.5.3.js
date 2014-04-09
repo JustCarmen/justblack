@@ -744,35 +744,19 @@ jQuery(document).ready(function(){
 
 	/************************************** TREE VIEW ***********************************************/
 	// load custom treeview stylesheet. Be sure it is loaded after treeview.css
-	function getTreeStylesheet(){
-		if (document.createStyleSheet) {
-			document.createStyleSheet('' + WT_CSS_URL + 'treeview.css'); // For Internet Explorer
-		} else {
-			jQuery('head').append('<link id="jb-treeview-css" rel="stylesheet" type="text/css" href="' + WT_CSS_URL + 'treeview.css">');
-		}
+	function include_css(css_file) {
+		var html_doc = document.getElementsByTagName("head")[0];
+		var css = document.createElement("link");
+		css.setAttribute("rel", "stylesheet");
+		css.setAttribute("type", "text/css");
+		css.setAttribute("href", css_file);
+		html_doc.appendChild(css);
 	}
-
+	
 	if (WT_SCRIPT_NAME === 'individual.php' || qstring('mod_action') === 'treeview') {
-		jQuery('#content a[name=tv_content]').after('<div class="loading-image"></div>');
-		jQuery.ajax({
-			beforeSend:function(){
-				jQuery('.tv_out').hide();
-				getTreeStylesheet();
-			},
-			complete:function(){
-				jQuery('.tv_out').show();
-			}
-		});
-		jQuery('#content .loading-image').remove();
+		include_css(WT_CSS_URL + 'treeview.css');
 	}
-
-	if (WT_SCRIPT_NAME === 'index.php') {
-		jQuery(document).ajaxStop(function(){
-			if(jQuery("a[name=tv_content]").length > 0){
-				getTreeStylesheet();
-			}
-		})
-	}
+	
 	/************************************** FAMILY BOOK ***********************************************/
 	if (WT_SCRIPT_NAME === 'familybook.php') {
 		jQuery('hr:last').remove(); // remove the last page-break line because it is just above the justblack divider.
