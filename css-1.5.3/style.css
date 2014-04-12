@@ -1604,6 +1604,9 @@ table.table-census-assistant th {font-weight: bold;text-align: left;}
 #edit_interface-page .cens_data .descriptionbox a:hover{color:#767676;}
 #edit_interface-page .cens_data input {background-color:#FFFFDE !important;font-size:12px !important;}
 
+/* Census assistant output */
+.table-census-assistant th, .table-census-assistant td {padding:2px 7px}
+
 /* Add media popup */
 #addmedia-page input[type=file]{color:#e2e2e2;font-size:11px;}
 
