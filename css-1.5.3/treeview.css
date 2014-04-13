@@ -62,6 +62,15 @@
 	color: #272727;
 }
 
+#tv_tree div.tv_box div.tvU {
+	font-family: Times new Roman, Times, serif;
+	font-size: 120%;
+	border-radius: 0;
+	background: #FCDE97;
+	color: #272727;
+	padding:0 4px;
+}
+
 #tv_tree div.tv_box div.tv_person_expanded a {
 	color: #272727;
 	text-decoration: underline;
