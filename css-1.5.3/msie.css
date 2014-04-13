@@ -16,7 +16,7 @@
 	*left: 30px;
 }
 
-html[dir='rtl'] #fav-menu {
+[dir=rtl] #fav-menu {
 	*right: 30px;
 }
 
