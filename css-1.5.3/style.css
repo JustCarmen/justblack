@@ -5635,6 +5635,10 @@ body .ui-tooltip {
 	color: #767676;
 }
 
+.cboxNote {
+	padding: 10px 0;
+}
+
 .cboxNote a, .cboxNote a:hover {
 	color: #fff;
 }
