@@ -2806,7 +2806,6 @@ html[dir=rtl] .itr:hover .popup {
 }
 
 #layDefinedTags {
-	border: inset 2px buttonface;
 	height: 285px;
 	margin-left: auto;
 	margin-right: auto;
