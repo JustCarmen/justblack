@@ -541,9 +541,6 @@ jQuery(document).ready(function(){
 	block.find('.icon-mypage').removeClass().addClass('icon-mypage-big');
 	block.find('a').css('font-size', '11px');
 
-	// link change block styling. In the default styling the text does not fit in the block.
-	jQuery('#link_change_blocks a').after('<br />');
-
 	// gedcom and user favorites block
 	jQuery('.block .gedcom_favorites_block .action_header, .block .gedcom_favorites_block .action_headerF, .block .user_favorites_block .action_header, .block .user_favorites_block .action_headerF').each(function(){
 		jQuery(this).removeClass('person_box');
