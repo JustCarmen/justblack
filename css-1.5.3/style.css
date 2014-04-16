@@ -6350,21 +6350,8 @@ table.tabs_table #side_bar a#alturl {
 }
 
 /* Contactform  */
-#contactform {
-	margin: 20px auto;
-	padding: 10px;
-	width: 800px;
-}
-
-#contactform #content {
-	background-color: #303030;
-	border: #545454 1px solid;
-	padding: 10px;
-}
-
-#contactform form {
-	border-bottom: #545454 1px solid;
-	margin: 10px 0;
+form[name=messageform] input, form[name=messageform] textarea {
+	font-size:12px;
 }
 
 /* Multiple Tabs (General) */

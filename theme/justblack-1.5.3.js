@@ -561,13 +561,6 @@ jQuery(document).ready(function(){
 		});
 	}
 
-	/********************************************* MESSAGES.PHP*******************************************************/
-	// correction. Popup is smaller than the input and textarea field.
-	if (WT_SCRIPT_NAME === 'message.php') {
-		jQuery('input[name=subject]').attr('size', '45');
-		jQuery('textarea[name=body]').attr('cols', '43');
-	}
-	
 	/************************************************ PERSON BOXES *****************************************************/
 	//Remove labels with empty fields from the personboxes.
    	jQuery('div[class^=fact_]').each(function(){
