@@ -581,26 +581,17 @@ jQuery(document).ready(function(){
 	
 	/************************************************ HOURGLASS CHART *****************************************************/
 	function styleSB(){
-		 jQuery.ajax({
-			success:function(){
-				jQuery('.person_box_template.style1').each(function(){
-					var width = jQuery(this).width();
-					if(width < 250) { // spouses boxes are smaller then the default ones.
-						jQuery(this)
-							.addClass('spouse_box')
-							.removeAttr('style') // css styling
-							.closest('table').find('tr:first .person_box_template').css('border-bottom-style', 'dashed');
-					}
-				});
-			},
-			complete:function(data) {
-				jQuery('a[onclick*=ChangeDis]').on('click', function(event){	// needed for dynamic added arrow links.
-					styleSB();
-				});
-				return data;
+		jQuery('.person_box_template.style1').each(function(){
+			var width = jQuery(this).width();
+			if(width < 250) { // spouses boxes are smaller then the default ones.
+				jQuery(this)
+					.addClass('spouse_box')
+					.removeAttr('style') // css styling
+					.closest('table').find('tr:first .person_box_template').css('border-bottom-style', 'dashed');
 			}
-		 });
+		});
 	}
+	
 	if (WT_SCRIPT_NAME === 'hourglass.php' && qstring('show_spouse') === '1') {		
 		jQuery('a[onclick*=ChangeDis]').on('click', function(){
 			styleSB();
