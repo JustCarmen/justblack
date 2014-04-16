@@ -6360,13 +6360,15 @@ form[name=messageform] input, form[name=messageform] textarea {
 }
 
 /* Multiple Tabs (General) */
+/* table headers */
 #tabs tr:first-child td.rela {
 	border: 1px solid #545454;
 	background: #2e2e2e url(../jquery-ui-1.10.4/images/ui-bg_highlight-soft_50_2e2e2e_1x100.png) 50% 50% repeat-x;
 	color: #e2e2e2;
 	font-weight: bold;
-} /* table headers */
-#tabs tr.row_sour2 td.rela, #tabs tr.row_note2 td.rela {
+}
+
+#tabs tr.row_sour2 td.rela, #tabs tr.row_note2 td.rela, #tabs tr.row_obje2 td.rela {
 	background-color: #545454;
 	background-image: none;
 	font-weight: normal;
