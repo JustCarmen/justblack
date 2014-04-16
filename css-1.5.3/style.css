@@ -5762,6 +5762,11 @@ tr.classy0, tr.classy1 {
 	font-style: italic;
 }
 
+/* Famlybook page */
+#familybook_chart hr:last-of-type {
+	display:none
+}
+
 /* Branches page  */
 #branches-page .facts_table {
 	border-spacing: 0;

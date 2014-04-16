@@ -701,11 +701,6 @@ jQuery(document).ready(function(){
 	if (WT_SCRIPT_NAME === 'individual.php' || qstring('mod_action') === 'treeview') {
 		include_css(WT_CSS_URL + 'treeview.css');
 	}
-	
-	/************************************** FAMILY BOOK ***********************************************/
-	if (WT_SCRIPT_NAME === 'familybook.php') {
-		jQuery('hr:last').remove(); // remove the last page-break line because it is just above the justblack divider.
-	}
 
 	/************************************** MEDIALIST PAGE ********************************************/
 	if (WT_SCRIPT_NAME === 'medialist.php') {
