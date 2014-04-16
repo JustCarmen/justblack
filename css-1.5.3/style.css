@@ -6361,6 +6361,10 @@ form[name=messageform] input, form[name=messageform] textarea {
 
 /* Multiple Tabs (General) */
 /* table headers */
+#tabs {
+	line-height:1.1em;
+}
+
 #tabs tr:first-child td.rela {
 	border: 1px solid #545454;
 	background: #2e2e2e url(../jquery-ui-1.10.4/images/ui-bg_highlight-soft_50_2e2e2e_1x100.png) 50% 50% repeat-x;
