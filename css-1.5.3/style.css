@@ -3227,20 +3227,20 @@ dd .editlink,dd .deletelink {
 .album-list-item {
 	display: inline-block;
 	text-align: center;
-	padding: 0 12px;
-	height: 112px;
-	width: 120px;
+	padding: 8px;
+	height: 150px;
+	width: 140px;
 }
 
 .album-list-item a img {
-	max-height: 78px;
-	max-width: 100px;
+	max-height: 122px;
+	max-width: 122px;
 	height: auto;
 	width: auto;
 }
 
 .album-list-item a:hover {
-	outline: thin solid #bdb071;
+	outline: none;
 }
 
 .album-image {
@@ -3250,12 +3250,6 @@ dd .editlink,dd .deletelink {
 .album-title {
 	padding-top: 4px;
 	width: 100%;
-}
-
-.album-title div {
-	overflow: hidden;
-	white-space: nowrap;
-	text-overflow: ellipsis;
 }
 
 /* ========= jquery-ui.custom.css changes (also see jquery_ui.custom.css) ============  */
@@ -5876,17 +5870,17 @@ tr.classy0, tr.classy1 {
 }
 
 .lb-image_edit {
-	background: url(images/buttons/image_edit.png) no-repeat;
+	background: url(images/image_edit.png) no-repeat;
 	width: 25px;
 }
 
 .lb-image_link {
-	background: url(images/buttons/image_link.png) no-repeat;
+	background: url(images/image_link.png) no-repeat;
 	width: 25px;
 }
 
 .lb-image_view {
-	background: url(images/buttons/image_view.png) no-repeat;
+	background: url(images/image_view.png) no-repeat;
 	width: 25px;
 }
 
@@ -6500,118 +6494,46 @@ label[for=checkbox_rela_facts], label[for=checkbox_elder], label[for=checkbox_so
 	width: 100%;
 }
 
-#lightbox_content .descriptionbox span {
-	margin: 0 20px;
-}
-
-#lightbox_content .pic {
-	width: 140px;
-	height: 150px;
-	overflow: hidden;
-}
-
-#lightbox_content .thumbcontainer {
-	display: block;
-	width: 100%;
-}
-
-#lightbox_content .thumblist {
-	display: block;
-	float: left;
-	list-style-type: none;
-}
-
-#lightbox_content .thumblist li {
-	background-color: #272727;
-	float: left;
-	padding: 8px;
-	margin: 6px;
-	box-shadow: 2px 3px 10px #171717;
-	border-radius: 5px 5px 0 0;
-	position: relative;
-}
-
-#lightbox_content li.li_norm {
-	border: 1px solid #545454;
-}
-
-#lightbox_content li.li_new {
-	border: 2px solid #FECF5B;
-}
-
-#lightbox_content li.li_old {
-	border: 2px solid #DD6900;
-}
-
-#lightbox_content .thumblist a img {
-	max-height: 122px;
-	max-width: 122px;
-	width: auto;
-	display: block;
-	margin: 0 auto;
-}
-
-#lightbox_content .clearlist:after {
-	clear: both;
-	content: ".";
-	display: block;
-	height: 0;
-	visibility: hidden;
-}
-
 #lightbox_content span {
 	padding: 10px;
 }
 
-#lightbox_content span img {
-	vertical-align: middle;
+#lightbox_content .descriptionbox span {
+	margin-left: 30px;
 }
 
-#lightbox_content .submenu {
+.album-list-item {	
+	background-color: #272727;
+	border: 1px solid #545454;
+	border-radius: 5px 5px 0 0;
+	box-shadow: 2px 3px 10px #171717;
+	margin: 6px;
+}
+
+.album-image {
+	height: 125px;
+}
+
+.album-list-item .submenu {
 	background-color: #FFEEB0;
 	border: 1px solid #FECF5B;
 	box-shadow: 3px 4px #171717;
-	height: auto;
 	padding: 5px;
+	margin: 0 8px;
 }
 
-#lightbox_content .submenuitem {
+.album-list-item .submenuitem {
 	background-color: #FFEEB0;
-	height: 1.4em;
+	height: 18px;
 }
 
-#lightbox_content .submenuitem a {
+.album-list-item .submenuitem a {
 	color: #272727;
 	font-size: 10px;
 }
 
-#lightbox_content .submenuitem a:hover {
+.album-list-item .submenuitem a:hover {
 	color: #8E8E8E;
-}
-
-#lightbox_content .album_media_title {
-	width: 122px;
-	font-size: 11px;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
-	padding: 2px;
-	margin-top: 5px;
-	color: #e2e2e2;
-	text-align: center;
-}
-
-#lightbox_content #clearlist {
-	display: block;
-}
-
-[dir=rtl] #lightbox_content #thumblist {
-	float: right;
-}
-
-[dir=rtl] #lightbox_content #thumblist li {
-	float: right;
-	margin-left: 5px;
 }
 
 /* Google maps tab  */

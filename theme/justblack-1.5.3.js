@@ -562,31 +562,6 @@ jQuery(document).ready(function(){
 				}
 			});
 		});
-
-		jQuery('#tabs a[title=lightbox]').on('click', function(){
-			var tabindex = jQuery(this).parent().attr('aria-controls');
-			if(jQuery('#jb-loading-image').length === 0) {
-				jQuery('#' + tabindex).before('<div id="jb-loading-image" class="loading-image"></div>').hide();
-				jQuery.ajax({
-					complete:function(){
-						jQuery('#lightbox_content img.icon').each(function(){
-							jQuery(this).attr('src',function(index,attr){
-								return attr.replace('modules_v3/lightbox/images', WT_CSS_URL + 'images/buttons');
-							});
-							jQuery(this).css('padding-left', '5px');
-						});
-						jQuery('#jb-loading-image').hide();
-						jQuery('#' + tabindex).show();
-					}
-				});
-			}
-		});
-
-		if (jQuery('#tabs a[title=lightbox]').parent('li').hasClass('ui-state-active')) {
-			setTimeout(function() {
-				jQuery('#tabs a[title=lightbox]').trigger('click');
-			}, 10);
-		}
 	}
 
 	/********************************************* MESSAGES.PHP*******************************************************/
