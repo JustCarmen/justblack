@@ -264,9 +264,9 @@ jQuery(document).ready(function(){
 										if(jQuery('.cboxPhoto').innerHeight() > jQuery('#cboxContent').innerHeight()) {
 											jQuery('.cboxNote').css('width', jQuery('.cboxNote').width() - 27);
 										}
-										jQuery('.cboxNote a').click(function(e){
+										jQuery('.cboxNote').click(function(e){
 											e.preventDefault();
-											jQuery(this).parent().hide();										
+											jQuery(this).hide();										
 										});
 								}
 								longTitles();

@@ -5669,6 +5669,7 @@ body .ui-tooltip {
 }
 
 .cboxNote {
+	cursor:pointer;
 	padding: 10px 0;
 }
 
