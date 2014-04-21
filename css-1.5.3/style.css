@@ -1611,10 +1611,15 @@ html[dir="rtl"] .pedigree_image {
 	white-space: nowrap;
 }
 
+.journal_box:first-child {
+	margin-top:10px;
+}
+
 .journal_box {
-	border: thin solid #e7e7e7;
-	overflow: visible;
-	padding: 3pt;
+	background-color:#2E2E2E;
+	border: 1px solid #545454;
+	box-shadow: 6px 8px #171717;
+	padding: 7px;
 }
 
 .news_box {
@@ -1625,8 +1630,9 @@ html[dir="rtl"] .pedigree_image {
 }
 
 .news_title {
+	border-bottom:1px solid #545454;
 	color: #e7e7e7;
-	font-size: 12px;
+	font-size: 13px;
 	font-weight: bold;
 	line-height: 1.5em;
 }
@@ -1634,7 +1640,13 @@ html[dir="rtl"] .pedigree_image {
 .news_date {
 	color: #e7e7e7;
 	font-size: 9px;
+	margin-top: 5px;
 	margin-bottom: 9px;
+}
+
+.news_date .date {
+	font-size: 10px;
+	font-weight:normal;
 }
 
 .menuitem a {
