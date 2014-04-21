@@ -6922,6 +6922,15 @@ label[for=checkbox_histo] {
 	font-size: 11px;
 }
 
+/* Markdown links */
+.markdown a {
+	text-decoration:underline;
+}
+
+.markdown a:hover {
+	text-decoration:underline;
+}
+
 /* Watermarked pdf's - Optional */
 .pdf-menu {
 	background-color: #EBEBEB;
