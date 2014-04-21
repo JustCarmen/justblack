@@ -754,44 +754,7 @@ jQuery(document).ready(function(){
 	if (WT_SCRIPT_NAME === 'mediaviewer.php') {
 		jQuery('#media-tabs').find('.ui-widget-header').removeClass('ui-widget-header');
 		jQuery('#media-tabs ul').after('<div class="divider">');
-	}
-
-	/********************************************* SMALL THUMBS *****************************************************/
-	// currently small thumbs (on the sourcepage for instance) are having a height of 40px and a width of auto by default.
-	// This causes a messy listview.
-	// In style.css the default height changed to 45px. Use this function to retrieve a cropped 60/45 (4:3) image.
-	// It would be better to do this on the server side, but then we have to mess with the core code.
-	jQuery('.media-list td img').each(function(){
-		obj = jQuery(this);
-		var src = obj.attr('src');
-		var img = new Image();
-		img.onload = function() {
-			var newWidth = 60,
-			ratio = newWidth/this.width,
-			newHeight = this.height * ratio,
-			marginLeft = 0;
-			
-			if(newHeight < 45) {
-				newHeight = 45;
-				ratio = newHeight/this.height;
-				newWidth = this.width * ratio;
-				marginLeft = -(newWidth - 60)/2;
-			}
-			obj.css({
-				'width'  		: newWidth,
-				'height' 		: newHeight,
-				'margin-left'	: marginLeft
-			});
-		};
-		img.src = src;
-		var $div = jQuery('<div>').css({
-			'width' 	: '60px',
-			'display' 	: 'inline-block',
-			'overflow' 	: 'hidden'
-		});
-		obj.parent().wrap($div);
-		obj.parents('td').css('text-align', 'center');
-	});
+	}	
 
 	/************************************** CALENDAR PAGE ********************************************/
 	if (WT_SCRIPT_NAME === 'calendar.php') {
