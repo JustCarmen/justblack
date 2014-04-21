@@ -1576,7 +1576,6 @@ html[dir="rtl"] .pedigree_image {
 	position: absolute;
 	text-decoration: none;
 	visibility: hidden;
-	white-space: nowrap;
 	z-index: 100;
 }
 
