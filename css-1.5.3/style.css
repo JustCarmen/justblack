@@ -6920,7 +6920,18 @@ table.table-census-assistant th {
 }
 
 /* Census assistant output */
-.table-census-assistant th, .table-census-assistant td {padding:2px 7px}
+.table-census-assistant th,
+.table-census-assistant td {
+	padding:2px 7px; border:1px solid #545454;
+}
+
+.table-census-assistant tbody tr:first-child td:empty {
+	display:none;
+}
+
+.table-census-assistant tbody tr:first-child td:empty + td:not(:empty) {
+	display:table-cell;
+}
 
 /* Add media popup */
 #addmedia-page input[type=file] {
