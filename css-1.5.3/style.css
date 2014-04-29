@@ -5229,8 +5229,14 @@ ul#reorder_list {
 	font-size: 11px;
 }
 
-.fact_TEXT {
-	padding-top: 5px;
+#personal_facts_content div[class^="fact_"],
+#family-table div[class^="fact_"],
+#relatives_content div[class^="fact_"] {
+	margin:5px 3px 5px 0
+}
+
+.fact_NOTE, .fact_SHARED_NOTE {
+	line-height:1.5em;
 }
 
 #link_change_blocks a {
