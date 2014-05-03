@@ -6791,11 +6791,6 @@ label[for=checkbox_rela_facts], label[for=checkbox_elder], label[for=checkbox_so
 }
 
 /* Census assistant module */
-table.table-census-assistant th {
-	font-weight: bold;
-	text-align: left;
-}
-
 #edit_interface-page .cens_header {
 	margin: 5px 0;
 }
@@ -6920,6 +6915,15 @@ table.table-census-assistant th {
 }
 
 /* Census assistant output */
+.table-census-assistant {
+	border-collapse:collapse;
+}
+
+.table-census-assistant th {
+	font-weight: bold;
+	text-align: left;
+}
+
 .table-census-assistant th,
 .table-census-assistant td {
 	padding:2px 7px; border:1px solid #545454;
