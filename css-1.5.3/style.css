@@ -1350,9 +1350,10 @@ a:hover .name1 {
 }
 
 a:hover .name2 {
-	color: #767676;
+	color: #E7E7E7;
 	font-size: 11px;
 	font-weight: bold;
+	text-decoration: underline;
 }
 
 a:hover .nameZoom {
@@ -5355,31 +5356,52 @@ input[type="search"] {
 	font-size: 11px;
 }
 
-.block .gedcom_favorites_block .person_box,.block .gedcom_favorites_block .person_boxF,.block .user_favorites_block .person_box,.block .user_favorites_block .person_boxF {
-	background-color: #272727;
-	border: #545454 1px solid;
-}
-
-.block .gedcom_favorites_block .action_header,.block .gedcom_favorites_block .action_headerF,.block .user_favorites_block .action_header,.block .user_favorites_block .action_headerF,
-.block .gedcom_favorites_block > .person_box,.block .gedcom_favorites_block > .person_box,.block .user_favorites_block > .person_box,.block .user_favorites_block > .person_box {
-	margin-top: 10px;
-}
-
-.block .gedcom_favorites_block .action_header .ui-widget-header,.block .gedcom_favorites_block .action_headerF .ui-widget-header,.block .user_favorites_block .action_header .ui-widget-header,.block .user_favorites_block .action_headerF .ui-widget-header {
-	height: 22px;
-}
-
-.block .gedcom_favorites_block .person_box_template,.block .gedcom_favorites_block .person_box_template,.block .user_favorites_block .person_box_template,.block .user_favorites_block .person_box_template {
-	min-height: 50px;
-}
-
-.block .gedcom_favorites_block .add_fav_head,.block .user_favorites_block .add_fav_head {
+.gedcom_favorites_block .action_header,
+.gedcom_favorites_block .action_headerF,
+.user_favorites_block .action_header,
+.user_favorites_block .action_headerF,
+.gedcom_favorites_block > .person_box
+.user_favorites_block > .person_box {
 	margin-top: 15px;
 }
 
-.block .gedocm_favorites_block .remove_fav, .block .user_favorites_block .remove_fav {
+.gedcom_favorites_block .action_header .ui-widget-header,
+.gedcom_favorites_block .action_headerF .ui-widget-header,
+.user_favorites_block .action_header .ui-widget-header,
+.user_favorites_block .action_headerF .ui-widget-header {
+	height: 22px;
+}
+
+.gedcom_favorites_block .person_box_template,
+.user_favorites_block .person_box_template {
+	margin:5px 0;
+	min-height: 50px;
+}
+
+.gedcom_favorites_block .person_box a,
+.user_favorites_block .person_box a {
+	color:#e2e2e2;
+}
+
+.gedcom_favorites_block .add_fav_head,
+.user_favorites_block .add_fav_head {
+	margin-top: 15px;
+}
+
+.gedocm_favorites_block .remove_fav,
+.user_favorites_block .remove_fav {
 	margin-top: -25px;
 	margin-left: 5px;
+}
+
+.action_header,
+.action_headerF {
+	font-size: 11px;
+}
+
+.action_header a,
+.action_headerF a {
+	color: #e2e2e2;
 }
 
 table#change_blocks {
