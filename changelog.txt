@@ -1,4 +1,22 @@
-GOTO HTTP://WWW.JUSTCARMEN.NL/HELP FOR INSTALLATION AND UPGRADE INSTRUCTIONS
+﻿GOTO HTTP://WWW.JUSTCARMEN.NL/HELP FOR INSTALLATION AND UPGRADE INSTRUCTIONS
+
+04-05-2014 - JustBlack 1.5.3 for webtrees 1.5.3
+* Bugfix: buttons not clickable in advanced search results table.
+* Get rid of empty dashes and spans in personbox template and remove labels with empty fields from the personboxes and personbox zoom view.
+* Bugfix: Add header content type to action script.
+* Add csrf check to post action.
+* Update treeview.css to use the latest jQuery-ui.
+* Improved function for linking treeview stylesheet. No need to wait until Ajax is loaded, quicker loading.
+* Simplified code for modal dialog boxes.
+* Add style for personbox with unknown gender.
+* Click in notes area to hide note from image.
+* Moved some jquery to css.
+* Styling of the journal box.
+* Improved styling of the census assistant table output.
+* Improved Styling of the gedcom and user favorites blocks
+* Some more changes due to changes in webtrees core.
+
+========================================================================================================
 
 15-03-2014 - JustBlack 1.5.2.1 for webtrees 1.5.2
 * Theme functions changed due to changes in the theme options module.
