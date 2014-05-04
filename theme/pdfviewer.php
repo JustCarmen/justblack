@@ -22,7 +22,8 @@
 // so this script can be used safely. The script is checking if a file exists. If not the built-in gdocs viewer exit message will be shown.
 
 define('WT_SCRIPT_NAME', 'pdfviewer.php');
-require './../../../includes/session.php';
+chdir('../../../'); // change the directory to the root of webtrees to load the required files from session.php.
+require './includes/session.php';
 
 Zend_Session::writeClose();
 
@@ -41,7 +42,7 @@ if ($media->isExternal()) {
 	exit;
 }
 
-$serverFilename = WT_ROOT.'data'.$media->getServerFileName();
+$serverFilename = $media->getServerFileName();
 
 if (!file_exists($serverFilename)) {
 	send404AndExit();
