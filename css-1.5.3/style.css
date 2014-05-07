@@ -4014,9 +4014,9 @@ dd .editlink,dd .deletelink {
 }
 
 .icon-bing {
-	background-image: url(images/buttons/bing.png);
-	height: 25px;
-	width: 25px;
+	background-image: url(images/icons/bing.png);
+	height: 23px;
+	width: 23px;
 }
 
 .icon-button_addmedia {
@@ -4177,8 +4177,8 @@ a.icon-ddarrow:hover {
 
 .icon-googlemaps {
 	background-image: url(images/icons/googlemaps.png);
-	height: 16px;
-	width: 16px;
+	height: 23px;
+	width: 23px;
 }
 
 .icon-help {
@@ -4343,6 +4343,12 @@ a.icon-ldarrow:hover {
 	background-image: url(images/buttons/note.png);
 	height: 25px;
 	width: 25px;
+}
+
+.icon-osm {
+	width: 23px;
+	height: 23px;
+	background-image: url(images/icons/osm.png);
 }
 
 .icon-patriarch {
