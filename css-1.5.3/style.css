@@ -5691,6 +5691,10 @@ body .ui-tooltip {
 }
 
 /* Colorbox custom changes */
+#cboxTitle {
+    font-weight:bold
+}
+
 #cboxTitle a {
 	color: #000;
 }
@@ -5699,9 +5703,25 @@ body .ui-tooltip {
 	color: #767676;
 }
 
+#cboxContent {
+    font-size:11px
+}
+
+#cboxContent iframe {
+    border:none
+}
+
 .cboxNote {
 	cursor:pointer;
 	padding: 10px 0;
+        background-color:#000;color:#FFF;
+        filter: alpha(opacity=60);
+        opacity: 0.6;
+        padding:10px 5px;
+        position:absolute;
+        bottom:45px;
+        text-align:center;
+        width:100%
 }
 
 .cboxNote a, .cboxNote a:hover {
