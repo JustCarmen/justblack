@@ -168,9 +168,7 @@ function getJBSearch () {
 function getJBFlags() {
 	if (getThemeOption('flags') == 1) {
 		$menu=WT_MenuBar::getLanguageMenu();
-		$user_id = getUserID();
-		$user_lang = get_user_setting($user_id, 'language');
-
+		
 		if ($menu && $menu->submenus) {
 			$output ='<div id="lang-menu"><ul>';
 			foreach ($menu->submenus as $submenu) {
@@ -183,9 +181,8 @@ function getJBFlags() {
 						if ($submenu->link=='#' && $submenu->onclick !== null) {
 								$link .= ' onclick="'.$submenu->onclick.'"';
 						}
-						$lang_code = str_replace('menu-language-', '', $submenu->id);
-						$lang_code == $user_lang ? $output .= '<li id="'.$submenu->id.'" title="'.$submenu->label.'" class="lang-active">' : $output .= '<li id="'.$submenu->id.'" title="'.$submenu->label.'">';
-						$output .= '<a class="'.$submenu->iconclass.'" href="'.$submenu->link.'"'.$link.'></a></li>';
+						$output .= '<li id="'.$submenu->id.'" title="'.$submenu->label.'">
+									<a class="'.$submenu->iconclass.'" href="'.$submenu->link.'"'.$link.'></a></li>';
 					}
 				}
 			}
@@ -197,7 +194,7 @@ function getJBFlags() {
 
 function getJBLoginMenu() {
 	if (WT_USER_ID) {
-		$output = '<a class="link" href="edituser.php">'.WT_I18N::translate('Logged in as ').getUserName(WT_USER_ID).'</a> | ';
+		$output = '<a class="link" href="edituser.php">' . WT_I18N::translate('Logged in as ') . WT_Filter::escapeHtml(\WT\Auth::user()->getUserName()) . '</a> | ';
 		if (WT_USER_CAN_ACCEPT && exists_pending_change()) {
 			$output .= '<a class="link" href="#" onclick="window.open(\'edit_changes.php\', \'_blank\', chan_window_specs); return false;">'. WT_I18N::translate('Pending changes').'</a>&nbsp;|&nbsp;';
 		}
