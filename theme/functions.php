@@ -306,12 +306,12 @@ function getJBThumb($person, $max_thumbsize, $square = '') {
 									
 				return
 						'<a' .
-						' class="'          . 'gallery'                          . '"' .
-						' href="'           . $media->getHtmlUrlDirect('main')    . '"' .
-						' type="'           . $media->mimeType()                  . '"' .
-						' data-obje-url="'  . $media->getHtmlUrl()                . '"' .
-						' data-obje-note="' . htmlspecialchars($media->getNote()) . '"' .
-						' data-title="'     . strip_tags($media->getFullName())   . '"' .
+						' class="'          . 'gallery'										. '"' .
+						' href="'           . $media->getHtmlUrlDirect('main')				. '"' .
+						' type="'           . $media->mimeType()							. '"' .
+						' data-obje-url="'  . $media->getHtmlUrl()							. '"' .
+						' data-obje-note="' . htmlspecialchars($media->getNote())			. '"' .
+						' data-title="'     . WT_Filter::escapeHtml($media->getFullName())	. '"' .
 				'>' . $image . '</a>';
 			}	
 		} else { $noThumb = true; }
