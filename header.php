@@ -33,17 +33,17 @@ $this
 	->addExternalJavascript(WT_JQUERY_WHEELZOOM_URL)
 	// JustBlack
 	->addExternalJavascript(JUSTBLACK_JS_URL);
-	
+
 // extra dataTables
 if (WT_SCRIPT_NAME == 'index.php') getJBMessageTable();
 if (WT_Filter::get('mod') == 'clippings') getJBClippingsTable();
-	
-ob_start();	
+
+ob_start();
 echo
 	'<!DOCTYPE html>',
 	'<html ', WT_I18N::html_markup(), '>',
 	'<head>';
-	
+
 echo
 	'<meta charset="UTF-8">',
 	'<meta http-equiv="X-UA-Compatible" content="IE=edge">',
@@ -69,18 +69,18 @@ echo
 if ($view!='simple') { // no headers for dialogs
 		getJBScriptVars();
 		// begin header section
-		echo getJBheader();	
-		
+		echo getJBheader();
+
 		echo
-		'<div id="optionsmenu">',		
+		'<div id="optionsmenu">',
 			'<div id="fav-menu"><ul class="dropdown">', WT_MenuBar::getFavoritesMenu(), '</ul></div>',
 			'<div id="search-menu">', getJBSearch(), '</div>', getJBFlags(),
 		'</div>',
 		'<div class="clearfloat"></div>';
-	
+
 		// Print the TopMenu
-		echo 
-		'<div id="topMenu">'.getJBTopMenu().'</div>',			
+		echo
+		'<div id="topMenu">'.getJBTopMenu().'</div>',
 	    '<div class="divider"></div>';
 }
 

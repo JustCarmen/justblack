@@ -35,17 +35,17 @@ $action = WT_Filter::get('action');
 switch($action) {
 	case 'imagetype':
 		$xrefs = WT_Filter::postArray('xrefs');
-		
+
 		$data = array();
 		foreach($xrefs as $xref) {
 			$row=
 				WT_DB::prepare("SELECT m_type as imagetype FROM `##media` WHERE m_id=?")
 				->execute(array($xref))
-				->fetchOneRow(PDO::FETCH_ASSOC);		
-			
+				->fetchOneRow(PDO::FETCH_ASSOC);
+
 			$data[$xref] = $row['imagetype'];
 		};
-		
+
 		header("Content-Type: application/json; charset=UTF-8");
 		echo json_encode((object)$data);
 		break;

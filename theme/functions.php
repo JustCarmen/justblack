@@ -25,7 +25,7 @@ if (!defined('WT_WEBTREES')) {
 }
 
 // This theme comes with a optional module to set a few theme options
-function getThemeOption ($setting) {	
+function getThemeOption ($setting) {
 	if (array_key_exists('justblack_theme_options', WT_Module::getActiveModules())) {
 		$module = new justblack_theme_options_WT_Module;
 		return $module->options($setting);
@@ -54,7 +54,7 @@ function getJBScriptVars() {
 function getJBheader() {
 	switch (getThemeOption('header')) {
 		case '1':
-			$image = WT_DATA_DIR.getThemeOption('image');		
+			$image = WT_DATA_DIR.getThemeOption('image');
 			if(file_exists($image)){
 				$bg = file_get_contents($image); // The data dir is a protected directory.
 				$type = @getimagesize($image);
@@ -74,27 +74,27 @@ function getJBheader() {
 			$header_menu_style = '';
 			break;
 	}
-	
+
 	switch (getThemeOption('treetitle')) {
 		case '0':
 			$title = '';
 			break;
-		case '1':	
+		case '1':
 			$pos 	= getThemeOption('titlepos');
 			$posV = 'top:'.$pos['V']['size'].$pos['V']['fmt'];
 			$posH = $pos['H']['pos'].':'.$pos['H']['size'].$pos['H']['fmt'];
 			$posH = $pos['H']['pos'] == 'left' ? 'right:auto;'.$posH : 'left:auto;'.$posH;
-			
-			$font_size = 'font-size:'.getThemeOption('titlesize').'px';			
+
+			$font_size = 'font-size:'.getThemeOption('titlesize').'px';
 			$title = '<div id="tree-title" dir="auto" style="'.$posV.';'.$posH.'"><h1 style="'.$font_size.'">'.WT_TREE_TITLE.'</h1></div>';
 			break;
 		default:
 			$title = '<div id="tree-title" dir="auto"><h1>'.WT_TREE_TITLE.'</h1></div>';
 			break;
 	}
-	
+
 	$html =	'<div id="header">
-				<div id="header-image" style="'.$header_image_style.'"></div>	
+				<div id="header-image" style="'.$header_image_style.'"></div>
 				<div id="header-menu" style="'.$header_menu_style.'">'.$title.'
 					<div id="extra-menu">
 						<ul class="dropdown">'.WT_MenuBar::getThemeMenu();
@@ -103,7 +103,7 @@ function getJBheader() {
 					<div id="login-menu">'.getJBLoginMenu().'</div>
 				</div>
 			</div>';
-	
+
 	return $html;
 }
 
@@ -111,7 +111,7 @@ function getJBheader() {
 function getJBTopMenu() {
 	global $controller;
 	$menus = getThemeOption('menu');
-	
+
 	if($menus) {
 		$jb_controller = new justblack_theme_options_WT_Module;
 		$menus = $jb_controller->checkModule($menus);
@@ -121,10 +121,10 @@ function getJBTopMenu() {
 			$sort 		= $menu['sort'];
 			$function 	= $menu['function'];
 			if($sort > 0) {
-				if ($function == 'getModuleMenu') {						
+				if ($function == 'getModuleMenu') {
 					$module = $label.'_WT_Module';
 					$modulemenu = new $module;
-					$item = $modulemenu->getMenu();						
+					$item = $modulemenu->getMenu();
 				} elseif ($label == 'compact') {
 					$item = $jb_controller->$function();
 				} elseif ($label == 'media') {
@@ -133,16 +133,16 @@ function getJBTopMenu() {
 					$controller->addInlineJavascript('
 						jQuery("li#menu-list-obje").hide();
 					');
-				} else {							
+				} else {
 					if (method_exists('WT_MenuBar', $function))
 						$item = WT_MenuBar::$function();
 				}
 				$list[] = $item;
 			}
-		}			
+		}
 		$output = implode('', $list);
 	} else {
-		$output = 
+		$output =
 			WT_MenuBar::getGedcomMenu().
 			WT_MenuBar::getMyPageMenu().
 			WT_MenuBar::getChartsMenu().
@@ -151,7 +151,7 @@ function getJBTopMenu() {
 			WT_MenuBar::getReportsMenu().
 			WT_MenuBar::getSearchMenu().
 			implode('', WT_MenuBar::getModuleMenus());
-	}	
+	}
 	return '<ul id="main-menu">'.$output.'</ul>';
 }
 
@@ -170,7 +170,7 @@ function getJBFlags() {
 		$menu=WT_MenuBar::getLanguageMenu();
 		$user_id = getUserID();
 		$user_lang = get_user_setting($user_id, 'language');
-		
+
 		if ($menu && $menu->submenus) {
 			$output ='<div id="lang-menu"><ul>';
 			foreach ($menu->submenus as $submenu) {
@@ -186,27 +186,27 @@ function getJBFlags() {
 						$lang_code = str_replace('menu-language-', '', $submenu->id);
 						$lang_code == $user_lang ? $output .= '<li id="'.$submenu->id.'" title="'.$submenu->label.'" class="lang-active">' : $output .= '<li id="'.$submenu->id.'" title="'.$submenu->label.'">';
 						$output .= '<a class="'.$submenu->iconclass.'" href="'.$submenu->link.'"'.$link.'></a></li>';
-					}	
+					}
 				}
 			}
-			$output .='</ul></div>';					
+			$output .='</ul></div>';
 		return $output;
 		}
 	}
 }
 
-function getJBLoginMenu() {	
+function getJBLoginMenu() {
 	if (WT_USER_ID) {
 		$output = '<a class="link" href="edituser.php">'.WT_I18N::translate('Logged in as ').getUserName(WT_USER_ID).'</a> | ';
 		if (WT_USER_CAN_ACCEPT && exists_pending_change()) {
 			$output .= '<a class="link" href="#" onclick="window.open(\'edit_changes.php\', \'_blank\', chan_window_specs); return false;">'. WT_I18N::translate('Pending changes').'</a>&nbsp;|&nbsp;';
 		}
 		$output .= logout_link();
-	} 
+	}
 	else {
 		$output = login_link();
-	}	
-	return $output;				
+	}
+	return $output;
 }
 
 // Extended thumbnails - code original from library/WT/Media.php line 391.
@@ -219,9 +219,9 @@ function getJBThumb($person, $max_thumbsize, $square = '') {
 
 	$media = $person->findHighlightedMedia();
 	if ($media) {
-		$mediasrc = $media->getServerFilename();		
+		$mediasrc = $media->getServerFilename();
 		if (file_exists($mediasrc) && $data = getimagesize($mediasrc)) { // extra check to be sure the thumb can be created.
-						
+
 			// Thumbnail exists - use it.
 			if ($media->isExternal()) {
 				// Use an icon
@@ -247,10 +247,10 @@ function getJBThumb($person, $max_thumbsize, $square = '') {
 							$imagesrc = @imagecreatefrompng($mediasrc);
 							break;
 					}
-					
+
 					$ratio_orig = $width_orig/$height_orig;
 					$thumbwidth = $thumbheight = $max_thumbsize;
-					
+
 					if($square == true) {
 						if ($thumbwidth/$thumbheight > $ratio_orig) {
 						   $new_height = $thumbwidth/$ratio_orig;
@@ -258,7 +258,7 @@ function getJBThumb($person, $max_thumbsize, $square = '') {
 						} else {
 						   $new_width = $thumbheight*$ratio_orig;
 						   $new_height = $thumbheight;
-						}				
+						}
 					}
 					else {
 						if ($width_orig > $height_orig) {
@@ -270,40 +270,40 @@ function getJBThumb($person, $max_thumbsize, $square = '') {
 						} else {
 							$new_width 	= $thumbwidth;
 							$new_height = $thumbheight;
-						}	
+						}
 					}
-				   
-					$process = imagecreatetruecolor(round($new_width), round($new_height));			   
-					imagecopyresampled($process, $imagesrc, 0, 0, 0, 0, $new_width, $new_height, $width_orig, $height_orig);				
-					$square == true ? $thumb = imagecreatetruecolor($thumbwidth, $thumbheight) : $thumb = imagecreatetruecolor($new_width, $new_height); 					
+
+					$process = imagecreatetruecolor(round($new_width), round($new_height));
+					imagecopyresampled($process, $imagesrc, 0, 0, 0, 0, $new_width, $new_height, $width_orig, $height_orig);
+					$square == true ? $thumb = imagecreatetruecolor($thumbwidth, $thumbheight) : $thumb = imagecreatetruecolor($new_width, $new_height);
 					imagecopyresampled($thumb, $process, 0, 0, 0, 0, $thumbwidth, $thumbheight, $thumbwidth, $thumbheight);
-				
+
 					imagedestroy($process);
-					imagedestroy($imagesrc);			
-				
-					ob_start();imagejpeg($thumb,null,80);$thumb = ob_get_clean();	
+					imagedestroy($imagesrc);
+
+					ob_start();imagejpeg($thumb,null,80);$thumb = ob_get_clean();
 					$src = 'data:image/jpeg;base64,' .base64_encode($thumb);
-					
+
 					$image =
-					'<img' . 
+					'<img' .
 					' dir="'	. 'auto'                         	. '"' . // For the tool-tip
 					' src="'	. $src 								. '"' .
 					' alt="'	. strip_tags($media->getFullName()) . '"' .
 					' title="'	. strip_tags($media->getFullName()) . '"' .
 					'>';
-				
+
 				} else {
 					$src = $media->getHtmlUrlDirect('thumb');
 				}
-				
+
 				$image =
-					'<img' . 
+					'<img' .
 					' dir="'	. 'auto'                         	. '"' . // For the tool-tip
 					' src="'	. $src 								. '"' .
 					' alt="'	. strip_tags($media->getFullName()) . '"' .
 					' title="'	. strip_tags($media->getFullName()) . '"' .
 					'>';
-									
+
 				return
 						'<a' .
 						' class="'          . 'gallery'										. '"' .
@@ -313,10 +313,10 @@ function getJBThumb($person, $max_thumbsize, $square = '') {
 						' data-obje-note="' . htmlspecialchars($media->getNote())			. '"' .
 						' data-title="'     . WT_Filter::escapeHtml($media->getFullName())	. '"' .
 				'>' . $image . '</a>';
-			}	
+			}
 		} else { $noThumb = true; }
 	} else { $noThumb = true; }
-	
+
 	if ($noThumb == true) {
 		if ($USE_SILHOUETTE) {
 			return '<i class="icon-silhouette-' . $person->getSex() . '"></i>';
@@ -343,9 +343,9 @@ function getJBMessageTable() {
 				}
 				return false;
 			}
-			
+
 			var dataTable = jQuery(".user_messages_block");
-						
+
 			dataTable.removeClass("small_inner_block");
 			dataTable.find("table").removeClass("list_table");
 			dataTable.find("td").removeClass("list_value_wrap").addClass("wrap");
@@ -353,14 +353,14 @@ function getJBMessageTable() {
 			dataTable.find("tbody").before(jQuery(".user_messages_block thead"));
 			dataTable.find("tbody tr:odd").each(function(){
 				jQuery(this).find("div[id^=message]").appendTo("body");
-				jQuery(this).remove();			
+				jQuery(this).remove();
 			});
 			dataTable.find("tr:first").children("td").replaceWith(function(i, html) {
         		return "<th>" + html.replace(":", "") + "</th>";
       		});
 			dataTable.find("th:first a").replaceWith("<input type=\"checkbox\" name=\"select_all\" style=\"vertical-align:middle;margin:0 3px\">");
 			dataTable.find("th:first br").remove();
-			
+
 			dataTable.on("click", "input[name=select_all]", function(){
 				if (jQuery(this).is(":checked") == true) {
 					jQuery("input[id^=cb_message]").prop("checked", true);
@@ -368,13 +368,13 @@ function getJBMessageTable() {
 					jQuery("input[id^=cb_message]").prop("checked", false);
 				}
 			});
-			
+
 			dataTable.find("a[onclick*=expand_layer]").each(function(){
 				jQuery(this).attr("onclick",function(index,attr){
 					return attr.replace("expand_layer", "jb_expand_layer");
 				});
 			});
-			
+
 			dataTable.find("table").dataTable({
 				dom: \'<"H"pf<"dt-clear">irl>t<"F"pl>\',
 				'.WT_I18N::datatablesI18N().',
@@ -391,7 +391,7 @@ function getJBMessageTable() {
 				],
 				pageLength: 10,
 				pagingType: "full_numbers"
-			});					
+			});
 		');
 }
 
@@ -401,7 +401,7 @@ function getJBClippingsTable() {
 		->addExternalJavascript(WT_JQUERY_DATATABLES_URL)
 		->addInlineJavascript('
 			var dataTable = jQuery("table#mycart");
-			dataTable.find("tr:first").wrap("<thead>"); dataTable.find("tbody").before(jQuery("thead"));	
+			dataTable.find("tr:first").wrap("<thead>"); dataTable.find("tbody").before(jQuery("thead"));
 			jQuery.fn.dataTableExt.oSort["unicode-asc" ]=function(a,b) {return a.replace(/<[^<]*>/, "").localeCompare(b.replace(/<[^<]*>/, ""))};
 			jQuery.fn.dataTableExt.oSort["unicode-desc"]=function(a,b) {return b.replace(/<[^<]*>/, "").localeCompare(a.replace(/<[^<]*>/, ""))};
 			dataTable.dataTable({
@@ -411,12 +411,12 @@ function getJBClippingsTable() {
 				autoWidth:false,
 				processing: true,
 				filter: true,
-				columns: [				
+				columns: [
 					/* 0-Name/Description */	{},
 					/* 1-Delete */				{sortable: false, class: "center"}
 				],
 				pageLength: 10,
 				pagingType: "full_numbers"
-			});	
+			});
 		');
 }

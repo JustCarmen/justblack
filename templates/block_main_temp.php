@@ -37,14 +37,14 @@ if (!defined('WT_WEBTREES')) {
 $block_main_tpl = '	<div id="'.$id.'" class="block">
 						<div class="blockheader">'.$title.'</div>
 						<div class="blockcontent normal_inner_block '.$class.'">'.$content.'</div>
-					</div>';	
+					</div>';
 
 // don't show a logout block, there is already a logout link in the header
 if ($id == 'login_block'.$block_id && WT_USER_ID) {
 	$block = false;
-}	
+}
 
 // default template
 else {
-	echo $block_main_tpl; 	
+	echo $block_main_tpl;
 }

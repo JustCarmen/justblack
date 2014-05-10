@@ -27,7 +27,7 @@
 //=========================================================================================================
 
 function jb_modalDialog(url, title) {
-	'use strict';	
+	'use strict';
 	// initialize the dialog box
 	var $tempdialog = jQuery('<div><div class="loading-image"></div></div>')
 		.dialog({
@@ -113,24 +113,24 @@ function qstring(key, url) {
 function jb_expandbox(boxid, bstyle) {
 	'use strict';
 	var getBox = function () {
-		var result = jQuery.Deferred(); 	
-		
+		var result = jQuery.Deferred();
+
 		expandbox(boxid, bstyle);
 		jQuery(".person_box_zoom[data-id='"+boxid+"']").each(function(){
 			if (jQuery(this).html().indexOf("LOADING")>0) {
 				jQuery(this).hide();
 			}
-		});	
-		
+		});
+
 		setTimeout(function () {
 			result.resolve();
 		}, 500);
-		
+
 		return result;
-	},	
-	modifyBox = function () {	
+	},
+	modifyBox = function () {
 		jQuery(".person_box_zoom[data-id='"+boxid+"']").each(function(){
-			var obj = jQuery(this);			
+			var obj = jQuery(this);
 			obj.find(".field").contents().filter(function(){
 				return (this.nodeType === 3);
 			}).remove();
@@ -142,13 +142,13 @@ function jb_expandbox(boxid, bstyle) {
 				div.find(".field").each(function(){
 					if(jQuery.trim(jQuery(this).text()) === '') {
 						div.remove();
-					}		
-				});	
+					}
+				});
 			});
 			obj.show();
 		});
 	};
-	
+
 	jQuery(".person_box_zoom[data-id='"+boxid+"']").each(function(){
 		if (jQuery(this).html().indexOf("LOADING")>0) {
 			jQuery(this).parents(".shadow").css({'box-shadow' : 'none'});
@@ -161,7 +161,7 @@ function jb_expandbox(boxid, bstyle) {
 				jQuery(this).parents(".shadow").css({'box-shadow' : '6px 8px #171717'});
 			}
 		}
-	});	
+	});
 }
 
 //=========================================================================================================
@@ -266,7 +266,7 @@ jQuery(document).ready(function(){
 										}
 										jQuery('.cboxNote').click(function(e){
 											e.preventDefault();
-											jQuery(this).hide();										
+											jQuery(this).hide();
 										});
 								}
 								longTitles();
@@ -378,7 +378,7 @@ jQuery(document).ready(function(){
 	/********************************************* MAIN MENU ***********************************************/
 	jQuery('#main-menu').each(function(){
 		var dTime, li_height, height, maxHeight, i;
-		
+
 		jQuery(this).find('li').hover(function(){
 			//show submenu
 			jQuery(this).find('>ul').slideDown('slow');
@@ -435,10 +435,10 @@ jQuery(document).ready(function(){
 	/********************************************* FAV-MENU ******************************************/
 	var pageId = qstring('pid') || qstring('famid') || qstring('mid') || qstring('nid') || qstring('rid') || qstring('sid');
 	var submenu = jQuery('#fav-menu > ul ul');
-	
+
 	obj = submenu.find('li');
 	if (WT_USER_ID > 0 && pageId !== undefined) {
-		obj = submenu.find('li').not(':last');	
+		obj = submenu.find('li').not(':last');
 		submenu.find('li:last a').addClass('addFav');
 	}
 
@@ -460,13 +460,13 @@ jQuery(document).ready(function(){
 
 	/**************************************** MODAL DIALOG BOXES ********************************************/
 	// replace default function with our justblack theme function (better dialog boxes)
-	function jb_dialogBox() {		
+	function jb_dialogBox() {
 		jQuery('[onclick^="modalDialog"], [onclick^="return modalDialog"]').each(function(){
 			jQuery(this).attr('onclick',function(index,attr){
 				return attr.replace('modalDialog', 'jb_modalDialog');
 			});
 		});
-		
+
 		jQuery('[onclick^="helpDialog"]').each(function(){
 			jQuery(this).attr('onclick',function(index,attr){
 				return attr.replace('helpDialog', 'jb_helpDialog');
@@ -568,17 +568,17 @@ jQuery(document).ready(function(){
 		obj.find('span.field').each(function(){
 			if(jQuery.trim(jQuery(this).text()) === '') {
 				obj.remove();
-			}		
-		});		
+			}
+		});
 	});
-	
+
 	// replace the default function with our own to customize the zoomed personbox view
 	jQuery('[onclick^="expandbox"]').each(function(){
 		jQuery(this).attr('onclick',function(index,attr){
 			return attr.replace('expandbox', 'jb_expandbox');
-		});		
+		});
 	});
-	
+
 	/************************************************ HOURGLASS CHART *****************************************************/
 	function styleSB(){
 		jQuery('.person_box_template.style1').each(function(){
@@ -591,8 +591,8 @@ jQuery(document).ready(function(){
 			}
 		});
 	}
-	
-	if (WT_SCRIPT_NAME === 'hourglass.php' && qstring('show_spouse') === '1') {		
+
+	if (WT_SCRIPT_NAME === 'hourglass.php' && qstring('show_spouse') === '1') {
 		jQuery('a[onclick*=ChangeDis]').on('click', function(){
 			styleSB();
 		});
@@ -697,7 +697,7 @@ jQuery(document).ready(function(){
 		css.setAttribute("href", css_file);
 		html_doc.appendChild(css);
 	}
-	
+
 	if (WT_SCRIPT_NAME === 'individual.php' || qstring('mod_action') === 'treeview') {
 		include_css(WT_CSS_URL + 'treeview.css');
 	}
@@ -754,7 +754,7 @@ jQuery(document).ready(function(){
 	if (WT_SCRIPT_NAME === 'mediaviewer.php') {
 		jQuery('#media-tabs').find('.ui-widget-header').removeClass('ui-widget-header');
 		jQuery('#media-tabs ul').after('<div class="divider">');
-	}	
+	}
 
 	/************************************** CALENDAR PAGE ********************************************/
 	if (WT_SCRIPT_NAME === 'calendar.php') {
@@ -771,7 +771,7 @@ jQuery(document).ready(function(){
 		jQuery('.clippings-page .topbottombar').addClass('ui-state-default descriptionbox').removeClass('topbottombar');
 		jQuery('.clippings-page h2').parent('td').removeClass();
 		jQuery('.clippings-page input[type=submit]').parent('td').removeClass().css('text-align', 'right');
-		
+
 		if(jQuery('.clippings-page h3').length > 0) {
 			jQuery('.clippings-page').wrapInner('<div class="add-clippings">');
 		}
@@ -781,7 +781,7 @@ jQuery(document).ready(function(){
 	var searchForm = jQuery('#search-page form');
 	var searchResult;
 	var titleBtn = jQuery('#search-page h2').text();
-	
+
 	if (WT_SCRIPT_NAME === 'search.php') {
 		searchResult = jQuery('#search-result-tabs');
 		if (searchResult.length > 0) {

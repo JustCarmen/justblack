@@ -40,5 +40,5 @@ if (!defined('WT_WEBTREES')) {
 	</div>
 	<div class="blockcontent small_inner_block <?php echo $class; ?>">
 		<?php echo $content; ?>
-	</div>    
+	</div>
 </div>

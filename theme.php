@@ -34,7 +34,7 @@ $theme_name = "JustBlack";
 define('WT_CSS_URL', WT_THEME_URL . 'css-1.5.3/');
 
 // theme specific files.
-define('WT_THEME_JUSTBLACK', WT_THEME_URL . 'theme/'); 
+define('WT_THEME_JUSTBLACK', WT_THEME_URL . 'theme/');
 define('JUSTBLACK_JS_URL', WT_THEME_JUSTBLACK . 'justblack-1.5.3.js');
 
 require_once(WT_ROOT.WT_THEME_JUSTBLACK . 'functions.php');
@@ -60,10 +60,10 @@ $WT_IMAGES=array(
 	'search'         => WT_CSS_URL.'images/buttons/search.png',
 
 	// need different sizes before moving to CSS
-	
+
 	'default_image_M'=> WT_CSS_URL.'images/silhouette_male.png',
 	'default_image_F'=> WT_CSS_URL.'images/silhouette_female.png',
-	'default_image_U'=> WT_CSS_URL.'images/silhouette_unknown.png',	
+	'default_image_U'=> WT_CSS_URL.'images/silhouette_unknown.png',
 );
 
 //-- Variables for the Fan chart
