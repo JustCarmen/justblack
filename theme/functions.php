@@ -376,20 +376,21 @@ function getJBMessageTable() {
 			});
 			
 			dataTable.find("table").dataTable({
-				"sDom": \'<"H"pf<"dt-clear">irl>t<"F"pl>\',
+				dom: \'<"H"pf<"dt-clear">irl>t<"F"pl>\',
 				'.WT_I18N::datatablesI18N().',
-				"bJQueryUI": true,
-				"bAutoWidth":false,
-				"bProcessing": true,
-				"bFilter": true,
-				"aoColumns": [
-					/* 0-Delete */    		{"bSortable": false, "sClass": "center"},
-					/* 1-Subject */  		{"bSortable": false},
-					/* 2-Date_send */  		{"bSortable": false},
-					/* 3-User - email */    {"bSortable": false}
+				jQueryUI: true,
+				autoWidth:false,
+				processing: true,
+				filter: true,
+                                sort: false,
+				columns: [
+					/* 0-Delete */          {class: "center"},
+					/* 1-Subject */         {},
+					/* 2-Date_send */       {},
+					/* 3-User - email */	{}
 				],
-				"iDisplayLength": 10,
-				"sPaginationType": "full_numbers"
+				pageLength: 10,
+				pagingType: "full_numbers"
 			});					
 		');
 }
@@ -404,18 +405,18 @@ function getJBClippingsTable() {
 			jQuery.fn.dataTableExt.oSort["unicode-asc" ]=function(a,b) {return a.replace(/<[^<]*>/, "").localeCompare(b.replace(/<[^<]*>/, ""))};
 			jQuery.fn.dataTableExt.oSort["unicode-desc"]=function(a,b) {return b.replace(/<[^<]*>/, "").localeCompare(a.replace(/<[^<]*>/, ""))};
 			dataTable.dataTable({
-				"sDom": \'<"H"pf<"dt-clear">irl>t<"F"pl>\',
+				dom: \'<"H"pf<"dt-clear">irl>t<"F"pl>\',
 				'.WT_I18N::datatablesI18N().',
-				"bJQueryUI": true,
-				"bAutoWidth":false,
-				"bProcessing": true,
-				"bFilter": true,
-				"aoColumns": [				
-					/* 0-Name/Description */	{"bSortable": true},
-					/* 1-Delete */    			{"bSortable": false, "sClass": "center"}
+				jQueryUI: true,
+				autoWidth:false,
+				processing: true,
+				filter: true,
+				columns: [				
+					/* 0-Name/Description */	{},
+					/* 1-Delete */				{sortable: false, class: "center"}
 				],
-				"iDisplayLength": 10,
-				"sPaginationType": "full_numbers"
+				pageLength: 10,
+				pagingType: "full_numbers"
 			});	
 		');
 }

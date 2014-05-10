@@ -3318,6 +3318,10 @@ dd .editlink,dd .deletelink {
 	margin: 4px;
 }
 
+.dataTables_filter input {
+    margin-left: 4px;
+}
+
 .dataTables_info {
 	float: left;
 	margin: 5px;
@@ -3380,6 +3384,10 @@ dd .editlink,dd .deletelink {
 
 [dir=rtl] .dataTables_filter {
 	float: left;
+}
+
+[dir=rtl] .dataTables_filter input {
+    margin-right: 4px;
 }
 
 [dir=rtl] .dataTables_info {
