@@ -5887,10 +5887,11 @@ tr.classy0, tr.classy1 {
 
 #medialist-page .media_link_list {
 	margin-top: 15px;
+	margin-bottom: 5px;
 }
 
 #medialist-page a.media_link {
-	display: block;
+	display: inline-block;
 	height: 1.4em;
 	font-size: 11px;
 }
