@@ -234,7 +234,7 @@ jQuery(document).ready(function(){
 			slideshowAuto:	false,
 			slideshowSpeed: 3000,
 			onLoad:			function() {
-								jQuery(".cboxNote, .pdf-layer").remove(); // remove previous note or watermarks.
+								jQuery(".pdf-layer").remove(); // remove previous watermarks.
 							}
 		});
 
@@ -257,18 +257,7 @@ jQuery(document).ready(function(){
 									resizeImg();
 								}
 								jQuery(".cboxPhoto").wheelzoom();
-								jQuery(".cboxPhoto img").on("click", function(e) {e.preventDefault();});
-								var note = jQuery(this).data("obje-note");
-								if(note !== '') {
-										jQuery('#cboxContent').append('<div class="cboxNote"><a href="#">' + note);
-										if(jQuery('.cboxPhoto').innerHeight() > jQuery('#cboxContent').innerHeight()) {
-											jQuery('.cboxNote').css('width', jQuery('.cboxNote').width() - 27);
-										}
-										jQuery('.cboxNote').click(function(e){
-											e.preventDefault();
-											jQuery(this).hide();
-										});
-								}
+								jQuery(".cboxPhoto img").on("click", function(e) {e.preventDefault();});								
 								longTitles();
 							}
 		});
