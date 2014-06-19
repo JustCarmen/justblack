@@ -6644,10 +6644,6 @@ label[for=checkbox_rela_facts], label[for=checkbox_elder], label[for=checkbox_so
 	font-size: 11px;
 }
 
-#map_pane .infowindow #iwhead {
-	background-color: #272727;
-}
-
 #map_pane .infowindow #iwhead a {
 	color: #e2e2e2;
 }
