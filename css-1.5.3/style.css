@@ -6189,35 +6189,27 @@ tr.classy0, tr.classy1 {
 }
 
 /* Pedigree map page */
-#iwcontent_edit img {
-	margin: 4px !important;
+#iwcontent_edit {
+	background-color: #DDD !important;
 }
 
-.iwstyle {
+.gm-style .gm-style-iw,
+.gm-style .gm-style-iw a,
+.gm-style .gm-style-iw span,
+.gm-style .gm-style-iw label,
+.gm-style .gm-style-iw div {
 	color: #272727;
-	font-size: 10px;
-	line-height: 1.4em;
+	font-size: 11px;
+	font-family: Verdana,Arial,Helvetica,sans-serif;
+	line-height: 1.3em;
 }
 
-.iwstyle .date {
-	font-size: 10px;
-}
-
-.iwstyle a {
-	color: #272727 !important;
-	font-weight: bold;
-}
-
-.iwstyle a:hover {
+#iwcontent_edit a:hover {
 	color: #dd6900 !important;
 }
 
-table.tabs_table #side_bar a.gallery img, table.tabs_table #side_bar i[class^=icon] {
-	float: left;
-	margin-left: -60px;
-}
-
 table.tabs_table #side_bar a.gallery img {
+	display:block;
 	height: auto;
 	width: auto;
 	max-width: 50px;
@@ -6227,8 +6219,14 @@ table.tabs_table #side_bar div[id^=link] {
 	cursor: pointer;
 	font-size: 11px;
 	line-height: 1.4em;
-	margin-left: 60px;
 	margin-right: 10px;
+	padding:3px;
+}
+
+table.tabs_table #side_bar div[id^=link].person_box {
+	background:#fcde97;
+	border:none;
+	color:#272727;
 }
 
 table.tabs_table #side_bar img[src*=sq] {
@@ -6667,10 +6665,6 @@ label[for=checkbox_rela_facts], label[for=checkbox_elder], label[for=checkbox_so
 	background-color: #8E8E8E;
 	border: 1px solid #272727;
 	padding: 2px;
-}
-
-#iwcontent_edit {
-	background-color: #CCC !important;
 }
 
 /* Stories Tab */
