@@ -832,7 +832,24 @@ jQuery(document).ready(function(){
 			jQuery(this).find('#places-tabs ul.ui-tabs-nav').after('<div class="divider">');
 		});
 	}
-
+	
+	/************************************** PENDING CHANGES POP UP ***********************************************/
+	jQuery('#pending table:first').addClass('top').after('<hr style="margin-top:15px">');
+	jQuery('#pending table:last').addClass('bottom').before('<hr style="margin-bottom:15px">');
+	jQuery('#pending > table').not('.top, .bottom').addClass('data');
+	jQuery('#pending table.data td').addClass('box');
+	jQuery('#pending table.data td table td').removeClass('box'); // only this way works
+	jQuery('#pending .indent').removeClass();
+	jQuery('#pending .box b').wrap('<div class="indi_link">');
+	jQuery('#pending br').remove();
+	
+	// change the width of the popup screen
+	jQuery('[onclick*="edit_changes.php"]').each(function(){
+		jQuery(this).attr('onclick',function(index,attr){
+			return attr.replace('chan_window_specs', '\'width=850,height=600,left=100,top=100,resizable=1,scrollbars=1\'');
+		});
+	});
+	
 	/************************************* OTHER *******************************************/
 	// Correction. On default pdf opens on the same page. We do not want to force users to use the browser back button.
 	jQuery('#reportengine-page form').attr("onsubmit", "this.target='_blank'");

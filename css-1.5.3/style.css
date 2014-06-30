@@ -5615,6 +5615,42 @@ div.charts_block .person_box_template, #descendancy_chart .person_box_template, 
 	font-style: italic;
 }
 
+/* pending changes popup */
+#pending .list_table {
+	width:800px;
+}
+
+#pending .list_table table {
+	width:100%;
+}
+
+#pending .list_label,
+#pending .list_value {
+	padding: 5px 10px;
+}
+
+#pending .data {
+	padding:20px 0;
+}
+
+#pending .box {
+	border:none;
+	padding:10px 0 0;
+}
+
+#pending .box .indi_link {
+	padding-left: 3px;
+	padding-bottom:5px;
+}
+
+#pending .box .indi_link a {
+	color:#e2e2e2;
+}
+
+#pending .box .indi_link a:hover {
+	color:#767676;
+}
+
 /* Tag Cloud styles */
 .tag_cloud_table {
 	margin-left: auto;
