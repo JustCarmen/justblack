@@ -5260,7 +5260,8 @@ ul#reorder_list {
 }
 
 .fact_NOTE, .fact_SHARED_NOTE {
-	line-height:1.5em;
+	font-style: normal;
+	line-height: 1.5em;
 }
 
 #link_change_blocks a {
