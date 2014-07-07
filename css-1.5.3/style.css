@@ -6592,6 +6592,12 @@ label[for=checkbox_rela_facts], label[for=checkbox_elder], label[for=checkbox_so
 	overflow-x: auto;
 }
 
+#notes_content .icon-note {
+	background-image: url(images/icons/note.png);
+	height: 16px;
+	width: 24px;
+}
+
 /* Media Tab */
 #media_content .ui-widget-header {
 	font-size: 11px;
