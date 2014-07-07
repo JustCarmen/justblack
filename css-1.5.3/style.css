@@ -2990,7 +2990,8 @@ span.link_text {
 }
 
 #header_accordion1 {
-	margin-left: 130px;
+	overflow: hidden;
+	padding-left: 10px;
 }
 
 #indi_header h3.name_one {
@@ -4624,7 +4625,6 @@ a.icon-udarrow:hover {
 /* Silhouettes on individual pages */
 #indi_mainimage {
 	float: left;
-	width: 120px;
 }
 
 #indi_mainimage img {
