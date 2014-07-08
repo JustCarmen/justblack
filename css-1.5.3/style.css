@@ -2977,6 +2977,7 @@ span.link_text {
 	border: none;
 	overflow: hidden;
 	margin: 0 0 25px 1px;
+	width: 100%;
 }
 
 #indi_header h3 {
@@ -3579,12 +3580,12 @@ dd .editlink,dd .deletelink {
 }
 
 [dir=rtl] #separator {
-	background: #c3dfff url(images/indi_sprite.png) no-repeat -1px 100px;
+	background: #FF8C00 url(images/indi_sprite.png) no-repeat -1px 100px;
 	float: left;
 }
 
 [dir=rtl] .use-sidebar #separator {
-	background: #c3dfff url(images/indi_sprite.png) no-repeat -26px 100px;
+	background: #FF8C00 url(images/indi_sprite.png) no-repeat -26px 100px;
 }
 
 /* ============== Sidebar content items ==============   
@@ -4647,6 +4648,10 @@ a.icon-udarrow:hover {
 	width: 100px;
 	height: 97px;
 	background-image: url(images/silhouette_unknown.png);
+}
+
+[dir="rtl"] #indi_mainimage {
+	float: right;
 }
 
 /* Generic MIME types  */
