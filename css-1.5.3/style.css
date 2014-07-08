@@ -6696,8 +6696,6 @@ label[for=checkbox_rela_facts], label[for=checkbox_elder], label[for=checkbox_so
 
 /* Stories Tab */
 #stories {
-	border: #545454 1px solid;
-	margin: 10px 20px 0 20px;
 	line-height: 1.5em;
 }
 
@@ -6705,25 +6703,33 @@ label[for=checkbox_rela_facts], label[for=checkbox_elder], label[for=checkbox_so
 	padding-top: 20px;
 }
 
-.story_title {
-	background: none;
-	color: #e7e7e7;
-	padding-top: 12px;
-	font-size: 16px;
-	font-weight: 700;
+
+#stories .news_title {
+	padding: 6px;
+}
+
+#stories .news_title + div {
+	padding: 3px 8px;
+	font-style: italic;
+}
+
+.story_title,
+#stories .news_title {
+	border: 1px solid #545454;
+	background: #2e2e2e url(../jquery-ui-1.10.4/images/ui-bg_highlight-soft_50_2e2e2e_1x100.png) 50% 50% repeat-x;
+	color: #e2e2e2;
+	font-weight: bold;
 	opacity: 1;
 	text-align: left;
 }
 
-.story_body {
-	background: none;
-	border: none;
+.story_body,
+#stories .news_title + div {
+	background-color: #272727;
+	border-left: 1px solid #545454;
+	border-right: 1px solid #545454;
+	border-bottom: 1px solid #545454;
 	white-space: normal;
-}
-
-.story_body p:first-child {
-	margin-top: 0;
-	padding-top: 0;
 }
 
 .story_body a {
@@ -6731,10 +6737,8 @@ label[for=checkbox_rela_facts], label[for=checkbox_elder], label[for=checkbox_so
 }
 
 .story_edit {
-	border-top: #545454 1px solid;
-	margin-top: 10px;
 	padding-top: 10px;
-	text-align: center;
+	text-align: right;
 }
 
 .story_edit a {
@@ -6753,6 +6757,10 @@ label[for=checkbox_rela_facts], label[for=checkbox_elder], label[for=checkbox_so
 
 .story_edit a:active {
 	background-position: 50% -50px;
+}
+
+[dir=rtl] .story_edit {
+	text-align:left;
 }
 
 /* Sidebar */
