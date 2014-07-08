@@ -2977,7 +2977,6 @@ span.link_text {
 	border: none;
 	overflow: hidden;
 	margin: 0 0 25px 1px;
-	width: 100%;
 }
 
 #indi_header h3 {
@@ -3044,7 +3043,6 @@ span.link_text {
 
 .indi_name_details {
 	margin: 0;
-	overflow: hidden !important;
 	padding: 5px;
 }
 
@@ -3139,7 +3137,7 @@ dd .editlink,dd .deletelink {
 }
 
 [dir=rtl] #header_accordion1 {
-	float: left;
+	padding-right: 10px;
 }
 
 [dir=rtl] .indi_table {
@@ -3546,13 +3544,14 @@ dd .editlink,dd .deletelink {
 }
 
 .use-sidebar #indi_left {
-	width: 77%;
+	width: 77.5%;
 }
 
 #sidebar {
 	float:right;
 	border-color: #ddd;
 	display: none;
+	margin: 0 1px;
 	width: 20%;
 }
 
