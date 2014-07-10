@@ -67,26 +67,28 @@ function jb_modalDialog(url, title) {
 }
 
 function jb_helpDialog(topic, module) {
-	'use strict';
-	var url='help_text.php?help=' + topic + '&mod=' + module;
-	var $dialog = jQuery('<div style="max-height:375px; overflow-y:auto"><div><div class="loading-image"></div></div></div>')
-		.dialog({
-			width: 500,
-			height: 'auto',
-			maxHeight: 500,
-			modal: true,
-			position: ['center', 'center'],
-			autoOpen: true,
-			open: function(event, ui) {
-				jQuery('.ui-widget-overlay').on('click', function(){
-					$dialog.dialog('close');
-				});
-			}
-		}).load(url + ' .helpcontent', function() {
-			jQuery(this).dialog("option", "position", ['center', 'center'] );
-		});
+	jQuery.getJSON('help_text.php?help=' + topic + '&mod=' + module, function (json) {
+		jb_modalHelp(json.content, json.title);
+	});
+}
 
-	jQuery('.ui-dialog-title').load(url +' .helpheader');
+function jb_modalHelp(content, title) {
+	'use strict';
+	var $dialog = jQuery('<div style="max-height:375px; overflow-y:auto"><div></div></div>')
+			.html(content)
+			.dialog({
+				width: 500,
+				height: 'auto',
+				maxHeight: 500,
+				modal: true,
+				open: function() {
+					jQuery('.ui-widget-overlay').on('click', function(){
+						$dialog.dialog('close');
+					});
+				}		
+			});
+
+	jQuery('.ui-dialog-title').html(title);
 	return false;
 }
 
