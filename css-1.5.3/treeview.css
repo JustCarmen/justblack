@@ -23,6 +23,7 @@
 .tv_out {
 	border: none;
 	background-color: #FCDE97;
+	width:100%;
 }
 
 #tree-title {

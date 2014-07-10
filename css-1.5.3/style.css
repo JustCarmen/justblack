@@ -6658,11 +6658,6 @@ label[for=checkbox_rela_facts], label[for=checkbox_elder], label[for=checkbox_so
 	color: #8E8E8E;
 }
 
-/* Interactive tree tab */
-#tvTab_out.tv_out {
-	width:100%;
-}
-
 /* Google maps tab  */
 #googlemap_left > img {
 	display: none;
