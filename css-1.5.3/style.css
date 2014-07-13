@@ -6186,8 +6186,8 @@ tr.classy0, tr.classy1 {
 }
 
 #media-details #media-edit .facts_table:first-child {
-	margin-top: 15px;
-	width: auto;
+	margin: 15px auto;
+	width: 80%;
 }
 
 #media-details #media-tabs ul {
