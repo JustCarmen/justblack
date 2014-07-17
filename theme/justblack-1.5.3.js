@@ -852,6 +852,29 @@ jQuery(document).ready(function(){
 		});
 	});
 	
+	/********************************* HIDE MEDIA FACTS (OPTIONAL) ***********************************/	
+	function hideMediaFactsOpt() {
+		jQuery('.fact_FORM, .fact___IMAGE_SIZE__, .fact___FILE_SIZE__, .fact_TYPE, .fact__PRIM').hide();		
+	}
+	
+	if (hideMediaFacts === 1 && WT_SCRIPT_NAME !== 'mediaviewer.php') {
+		hideMediaFactsOpt();
+		
+		jQuery('#tabs a[title=media]').on('click', function(){		
+			jQuery.ajax({
+				complete:function(){
+					hideMediaFactsOpt();
+				}
+			});
+		});
+
+		if (jQuery('#tabs a[title=media]').parent('li').hasClass('ui-state-active')) {
+			setTimeout(function() {
+				jQuery('#tabs a[title=media]').trigger('click');
+			}, 10);
+		}
+	}
+	
 	/************************************* OTHER *******************************************/
 	// Correction. On default pdf opens on the same page. We do not want to force users to use the browser back button.
 	jQuery('#reportengine-page form').attr("onsubmit", "this.target='_blank'");

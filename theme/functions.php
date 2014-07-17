@@ -37,6 +37,7 @@ function getJBScriptVars() {
 	global $controller, $SHOW_NO_WATERMARK;
 	$useWatermark = WT_USER_ACCESS_LEVEL > $SHOW_NO_WATERMARK ? 1 : 0;
 	$useGviewer = getThemeOption('gviewer') ? getThemeOption('gviewer') : 0;
+	$hideMediaFacts = getThemeOption('hide_media_facts') ? getThemeOption('hide_media_facts') : 0;
 	$controller->addInlineJavascript('
 			// JustBlack Theme variables
 			var WT_SERVER_NAME = "'.WT_SERVER_NAME.'";
@@ -46,6 +47,7 @@ function getJBScriptVars() {
 			var WT_TREE_TITLE = "'.strip_tags(WT_TREE_TITLE).'";
 			var useWatermark  = '.$useWatermark.';
 			var useGviewer = '.$useGviewer.';
+			var hideMediaFacts = '.$hideMediaFacts.';
 			var fullPdfText = "'.WT_I18N::translate('Open this file in full browser window').'";
 	', WT_Controller_Base::JS_PRIORITY_HIGH);
 }
@@ -416,4 +418,8 @@ function getJBClippingsTable() {
 				pagingType: "full_numbers"
 			});
 		');
+}
+
+function hide_media_facts() {
+	
 }
