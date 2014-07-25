@@ -569,6 +569,13 @@ jQuery(document).ready(function(){
 			return attr.replace('expandbox', 'jb_expandbox');
 		});
 	});
+	
+	/************************************************ PEDIGREE CHART *****************************************************/
+	if (WT_SCRIPT_NAME === 'pedigree.php') {
+		jQuery("#content").each(function() {
+			jQuery(this).height(jQuery(this).height() + 80);
+		});	
+	}
 
 	/************************************************ HOURGLASS CHART *****************************************************/
 	function styleSB(){
