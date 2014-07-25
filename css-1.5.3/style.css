@@ -39,18 +39,8 @@
 		display: none;
 	}
 
-	#pedigree_chart {
-		right: auto;
-		left: -80px;
-	}
-
 	#header_accordion1 {
 		width: 500px!important;
-	}
-
-	[dir=rtl] #pedigree_chart {
-		left: auto;
-		right: -80px;
 	}
 
 	#familybook_chart h3 {
@@ -192,26 +182,20 @@ html[dir="rtl"] input:required:valid, html[dir="rtl"] textarea:required:valid, h
 
 /* ======= Main menu items ==========  */
 #topMenu {
-	float: left;
 	margin-bottom: 3px;
 	padding: 8px 0;
 	position: relative;
-	width: 100%;
 	height: 54px;
+	clear: both;
 }
 
 #main-menu {
-	clear: both;
-	float: right;
-	margin-top: 5px;
-	position: relative;
-	right: 50%;
-	z-index: 50;
+	margin:  5px auto 0;
+	display: table;
 }
 
 #main-menu,#main-menu ul {
 	list-style-type: none;
-	padding: 0;
 }
 
 #main-menu ul ul {
@@ -220,7 +204,6 @@ html[dir="rtl"] input:required:valid, html[dir="rtl"] textarea:required:valid, h
 
 #main-menu li {
 	float: left;
-	left: 50%;
 	position: relative;
 }
 
@@ -311,10 +294,6 @@ html[dir="rtl"] input:required:valid, html[dir="rtl"] textarea:required:valid, h
 }
 
 /* Reverse left and right on RTL pages  */
-[dir=rtl] #topMenu {
-	float: right;
-}
-
 [dir=rtl] #main-menu li {
 	float: right;
 }
@@ -861,6 +840,22 @@ li[id^=menu-report-] {
 
 [dir=rtl] #menu-indi-del {
 	background-position: right -713px;
+}
+
+#menu-indi-orderfam {
+	background-position: left -759px;
+}
+
+[dir=rtl] #menu-indi-orderfam {
+	background-position: right -759px;
+}
+
+#menu-indi-editraw {
+	background-position: left -690px;
+}
+
+[dir=rtl] #menu-indi-editraw {
+	background-position: right -690px;
 }
 
 #menu-indi-addfav {
