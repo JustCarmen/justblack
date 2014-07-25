@@ -1926,7 +1926,7 @@ img.block {
 	background-position: left top;
 	background-repeat: repeat-y;
 	list-style: none;
-	margin: 0 0 5px 15px;
+	margin: 10px 0 5px 15px;
 	padding-bottom: 0;
 	padding-right: 0;
 	padding-top: 0;
@@ -1934,17 +1934,32 @@ img.block {
 
 #descendancy_chart li {
 	list-style: none;
-	margin: 0 0 0 -15px;
+	margin: 10px 0 0 -15px;
 	padding-bottom: 0;
 	padding-right: 0;
 	padding-top: 0;
+}
+
+#descendancy_chart a.details1 div {
+	margin-left: 15px;
+}
+
+#descendancy_chart .details1 a.top {
+	margin-left: -7px;
 }
 
 /* descendancy chart rtl specific stylesheets */
 [dir=rtl] #descendancy_chart ul {
 	background-position: right top;
 	left: auto;
-	margin: 0 15px 0 0;
+}
+
+[dir=rtl] #descendancy_chart a.details1 div {
+	margin-right: 15px;
+}
+
+[dir=rtl] #descendancy_chart .details1 a.top {
+	margin-right: -7px;
 }
 
 /* ancestry chart specific stylesheets */
