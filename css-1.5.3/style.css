@@ -518,7 +518,7 @@ html[dir="rtl"] input:required:valid, html[dir="rtl"] textarea:required:valid, h
 }
 
 [dir=rtl] .icon_arrow {
-	background-position: 5% -920px;
+	background-position: 5% -918px;
 }
 									  
 /* Lists Icons */
@@ -7117,11 +7117,17 @@ label[for=checkbox_histo] {
 #menu-view > ul > li > a.icon_arrow span {
 	display: inline-block;
 	text-indent: 0;
+	margin-left: 0;
 	margin-right: 15px;
+}
+
+[dir=rtl] #menu-view > ul > li > a.icon_arrow {
+	background-position:10% -918px; // correction
 }
 
 [dir=rtl] #menu-view > ul > li > a.icon_arrow span {
 	margin-left: 15px;
+	margin-right: 0;
 }
 
 #menu-view-calendar {
@@ -7140,15 +7146,31 @@ label[for=checkbox_histo] {
 	background-position: left -483px;
 }
 
+[dir=rtl] #menu-view-calendar {
+	background-position: right -506px;
+}
+
+[dir=rtl] #menu-view-chart {
+	background-position: right -230px;
+}
+
+[dir=rtl] #menu-view-list {
+	background-position: right -943px;
+}
+
+[dir=rtl] #menu-view-report {
+	background-position: right -483px;
+}
+
 /* Media menu - Optional */
 #menu-media {
 	background-position: center -377px;
 }
 
-li[id^=menu-media-folder] {
+li[id^=menu-media] {
 	background-position: left -299px;
 }
 
-[dir=rtl] li[id^=menu-media-folder] {
+[dir=rtl] li[id^=menu-media] {
 	background-position: right -299px;
 }
