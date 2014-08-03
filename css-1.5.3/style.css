@@ -1213,12 +1213,6 @@ th {
 	width: 60px;
 }
 
-.gedcom_table {
-	border: 1px solid #ff8c00;
-	margin: 0;
-	width: 99%;
-}
-
 /* General person_box style */
 .person_box {
 	background-color: #545454;
@@ -1288,7 +1282,7 @@ th {
 }
 
 div.fact_SHARED_NOTE {
-	clear:both
+	clear: both;
 }
 
 .facts_label {
@@ -1393,7 +1387,6 @@ a:hover .nameZoom {
 	color: #e7e7e7;
 	font-size: 16px;
 	font-weight: bold;
-	letter-spacing: .2px;
 }
 
 .label {
@@ -1530,12 +1523,6 @@ html[dir="rtl"] .pedigree_image {
 .contact_links {
 	margin-top: 15px;
 	text-align: center;
-}
-
-.theme_form {
-	color: #808080;
-	font-size: 14px;
-	margin-top: 0;
 }
 
 .hit-counter {
@@ -2461,11 +2448,31 @@ html[dir="rtl"] dt {
 	text-align: center;
 }
 
-.gedcom_favorites_block .person_box .details2,.gedcom_favorites_block .person_boxF.details2,.gedcom_favorites_block .person_boxNN.details2 {
+/* ============= Theme select block ============ */
+.theme_form ul {
+	margin: -10px auto;
+}
+
+.theme_form li {
+	visibility: hidden;
+}
+
+.theme_form li ul li {
+	display: inline-block;
+	padding: 10px;
+	visibility: visible;
+}
+
+/* ======= Favourites block ========== */
+.gedcom_favorites_block .person_box .details2,
+.gedcom_favorites_block .person_boxF.details2,
+.gedcom_favorites_block .person_boxNN.details2 {
 	min-height: 40px;
 }
 
-.user_favorites_block .person_box .details2,.user_favorites_block .person_boxF.details2,.user_favorites_block .person_boxNN.details2 {
+.user_favorites_block .person_box .details2,
+.user_favorites_block .person_boxF.details2,
+.user_favorites_block .person_boxNN.details2 {
 	min-height: 40px;
 }
 
@@ -2934,10 +2941,6 @@ div.faq_body {
 	float: left;
 }
 
-td.descriptionbox a {
-	color: #e7e7e7;
-}
-
 td.descriptionbox a:hover {
 	color: #dd6900;
 }
@@ -2969,15 +2972,20 @@ span.link_text {
 }
 
 /* Indi header  */
-.field .editlink,.field .deletelink,.field .copylink {
+.field .editlink,
+.field .deletelink,
+.field .copylink {
 	float: right;
 }
 
-[dir=rtl] .editlink,[dir=rtl] .copylink,[dir=rtl] .deletelink {
+[dir=rtl] .editlink,
+[dir=rtl] .copylink,
+[dir=rtl] .deletelink {
 	float: right;
 }
 
-[dir=rtl].field .editlink,[dir=rtl].field .deletelink {
+[dir=rtl].field .editlink,
+[dir=rtl].field .deletelink {
 	float: left;
 }
 /* =========== end edit, copy, delete links ====================
