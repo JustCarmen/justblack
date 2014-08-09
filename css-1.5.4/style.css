@@ -103,11 +103,6 @@ body {
 	margin: 0;
 }
 
-[dir=rtl] body {
-	direction: rtl;
-	text-align: right;
-}
-
 a {
 	color: #dd6900;
 	text-decoration: none;
@@ -1294,7 +1289,7 @@ div.fact_SHARED_NOTE {
 	width: 20%;
 }
 
-.facts_label02,.facts_label03 {
+.facts_label03 {
 	background-color: #8e8e8e;
 	color: #e7e7e7;
 	font-size: 11px;
@@ -1306,13 +1301,6 @@ div.fact_SHARED_NOTE {
 .facts_value {
 	background-color: #303030;
 	border: solid #545454 1px;
-	color: #e7e7e7;
-	font-size: 11px;
-	padding: 4px;
-}
-
-.facts_value02 {
-	background-color: #f2f5f9;
 	color: #e7e7e7;
 	font-size: 11px;
 	padding: 4px;
@@ -3222,6 +3210,15 @@ dd .editlink,dd .deletelink {
 	clear: both;
 	font-size: 11px;
 	margin: 5px 3px 5px 0;
+}
+
+.facts_table .field em {
+	margin-top: 0;
+	padding-left: 5px;
+}
+
+.facts_table .field img {
+	vertical-align: middle;
 }
 
 .media-display {
