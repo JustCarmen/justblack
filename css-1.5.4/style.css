@@ -2230,11 +2230,13 @@ h4 {
 
 /* Change indicators  */
 .new {
-	outline: solid #dd6900 1px;
+	border: solid #dd6900 2px;
+	overflow: hidden;
 }
 
 .old {
-	outline: solid #767676 1px;
+	border: solid #F6F6F6 2px;
+	overflow: hidden;
 }
 
 a.showit {
