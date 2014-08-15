@@ -19,6 +19,8 @@
 // along with this program; if not, write to the Free Software
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
 
+use WT\Auth;
+
 if (!defined('WT_WEBTREES')) {
 	header('HTTP/1.0 403 Forbidden');
 	exit;
@@ -196,7 +198,7 @@ function getJBFlags() {
 
 function getJBLoginMenu() {
 	if (WT_USER_ID) {
-		$output = '<a class="link" href="edituser.php">' . WT_I18N::translate('Logged in as ') . WT_Filter::escapeHtml(\WT\Auth::user()->getUserName()) . '</a> | ';
+		$output = '<a class="link" href="edituser.php">' . WT_I18N::translate('Logged in as ') . WT_Filter::escapeHtml(Auth::user()->getUserName()) . '</a> | ';
 		if (WT_USER_CAN_ACCEPT && exists_pending_change()) {
 			$output .= '<a class="link" href="#" onclick="window.open(\'edit_changes.php\', \'_blank\', chan_window_specs); return false;">'. WT_I18N::translate('Pending changes').'</a>&nbsp;|&nbsp;';
 		}
