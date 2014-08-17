@@ -26,7 +26,7 @@ if (!defined('WT_WEBTREES')) {
 	exit;
 }
 
-// This theme comes with a optional module to set a few theme options
+// This theme comes with an optional module to set a few theme options
 function getThemeOption ($setting) {
 	if (array_key_exists('justblack_theme_options', WT_Module::getActiveModules())) {
 		$module = new justblack_theme_options_WT_Module;
@@ -100,7 +100,9 @@ function getJBheader() {
 				<div id="header-menu" style="'.$header_menu_style.'">'.$title.'
 					<div id="extra-menu">
 						<ul class="dropdown">'.WT_MenuBar::getThemeMenu();
-							if (!getThemeOption('flags')|| getThemeOption('flags') == 0) $html .= WT_MenuBar::getLanguageMenu();
+							if (!getThemeOption('flags')|| getThemeOption('flags') == 0) {
+								$html .= WT_MenuBar::getLanguageMenu();
+							}
 	$html .= '			</ul></div>
 					<div id="login-menu">'.getJBLoginMenu().'</div>
 				</div>
@@ -136,8 +138,9 @@ function getJBTopMenu() {
 						jQuery("li#menu-list-obje").hide();
 					');
 				} else {
-					if (method_exists('WT_MenuBar', $function))
+					if (method_exists('WT_MenuBar', $function)) {
 						$item = WT_MenuBar::$function();
+					}
 				}
 				$list[] = $item;
 			}
@@ -236,7 +239,9 @@ function getJBThumb($person, $max_thumbsize, $square = '') {
 				$type = $media->mimeType();
 				if($type == 'image/jpeg' || $type == 'image/png') {
 
-					if(!list($width_orig, $height_orig) = @getimagesize($mediasrc)) return $noThumb = true;;
+					if(!list($width_orig, $height_orig) = @getimagesize($mediasrc)) {
+						return $noThumb = true;
+					}
 
 					switch ($type) {
 						case 'image/jpeg':
