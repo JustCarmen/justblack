@@ -5954,6 +5954,13 @@ tr.classy0, tr.classy1 {
 	font-size: 11px;
 }
 
+#medialist-page .fact_FILE,
+#medialist-page .fact_FORM,
+#medialist-page .fact___IMAGE_SIZE__,
+#medialist-page .fact___FILE_SIZE__ {
+	display: none;
+}
+
 .lb-menu {
 	position: relative;
 	float: right;
@@ -6374,6 +6381,14 @@ table.tabs_table #side_bar a#alturl {
 	color: #767676;
 }
 
+#family-page .fact_FORM,
+#family-page .fact___IMAGE_SIZE__,
+#family-page .fact___FILE_SIZE__,
+#family-page .fact_TYPE,
+#family-page .fact__PRIM {
+	display:none;
+}
+
 /* Clippings Page */
 .clippings-page {
 	width: 50%;
@@ -6638,6 +6653,14 @@ label[for=checkbox_rela_facts], label[for=checkbox_elder], label[for=checkbox_so
 
 #media_content td.optionbox, #media_content td.facts_value {
 	padding: 10px;
+}
+
+#media_content .fact_FORM,
+#media_content .fact___IMAGE_SIZE__,
+#media_content .fact___FILE_SIZE__,
+#media_content .fact_TYPE,
+#media_content .fact__PRIM {
+	display:none;
 }
 
 /* Album Tab */
