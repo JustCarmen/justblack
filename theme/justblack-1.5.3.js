@@ -26,43 +26,33 @@
 //												FUNCTIONS
 //=========================================================================================================
 
+// Modal dialog boxes
 function jb_modalDialog(url, title) {
-	'use strict';
-	// initialize the dialog box
-	var $tempdialog = jQuery('<div><div class="loading-image"></div></div>')
+	var	$dialog = jQuery('<div id="config-dialog" style="max-height:550px; overflow-y:auto"><div title="'+title+'"><div></div>')
+		.load(url, function() {
+                jQuery(this).dialog("option", "position", ['center', 'center'] );
+         })
 		.dialog({
 			title: title,
-			width: 400,
+			width: 'auto',
+			maxWidth: 500,
 			height: 'auto',
-			autoOpen: true,
-			close: function(event, ui) {
-				$tempdialog.remove();
+			maxHeight: 500,
+			fluid: true,
+			modal: true,
+			resizable: false,
+			autoOpen: false,
+			open: function() {
+				jQuery('.ui-widget-overlay').on('click', function(){
+					$dialog.dialog('close');
+				});
 			}
-		}),
-		$dialog = jQuery('<div id="config-dialog" style="max-height:550px; overflow-y:auto"><div title="'+title+'"><div></div>')
-			.dialog({
-				title: title,
-				width: 'auto',
-				height: 'auto',
-				modal: true,
-				autoOpen: false,
-				open: function(event, ui) {
-					$tempdialog.dialog('close');
-					if (jQuery('textarea.html-edit').length > 0) {
-						$dialog.dialog( "option", "width", 700 );
-						$dialog.dialog( "option", "height", 550 );
-					}
-					jQuery('.ui-widget-overlay').on('click', function(){
-						$dialog.dialog('close');
-					});
-				}
-			}).load(url);
-
-	// open the dialog box after some time. This is needed for the dialogbox to get loaded in center position.
+		});
+	
+	// open the dialog box after some time. This is neccessary for the dialogbox to load in center position without page flickering.
 	setTimeout(function() {
 		$dialog.dialog('open');
 	}, 500);
-
 	return false;
 }
 
@@ -73,14 +63,16 @@ function jb_helpDialog(topic, module) {
 }
 
 function jb_modalHelp(content, title) {
-	'use strict';
 	var $dialog = jQuery('<div style="max-height:375px; overflow-y:auto"><div></div></div>')
 			.html(content)
 			.dialog({
-				width: 500,
+				width: 'auto',
+				maxWidth: 500,
 				height: 'auto',
 				maxHeight: 500,
 				modal: true,
+				fluid: true,
+				resizable: false,
 				open: function() {
 					jQuery('.ui-widget-overlay').on('click', function(){
 						$dialog.dialog('close');
@@ -92,10 +84,55 @@ function jb_modalHelp(content, title) {
 	return false;
 }
 
+jQuery(document).on("dialogopen", ".ui-dialog", function (event, ui) {	
+    fluidDialog();
+});
+
+// remove window resize namespace
+jQuery(document).on("dialogclose", ".ui-dialog", function (event, ui) {
+    jQuery(window).off("resize.responsive");
+});
+
 jQuery(window).resize(function() {
-	'use strict';
 	jQuery(".ui-dialog-content").dialog("option", "position", ['center', 'center']);
 });
+
+function fluidDialog() {
+    var $visible = jQuery(".ui-dialog:visible");
+    $visible.each(function () {
+        var $this = jQuery(this);
+		if ($this.find('textarea.html-edit').length > 0) {
+			$this.dialog( "option", "maxWidth", 700 );
+			$this.dialog( "option", "maxHeight", 550 );
+		}
+        var dialog = $this.find(".ui-dialog-content");
+		var maxWidth = dialog.dialog("option", "maxWidth");
+		var width = dialog.dialog("option", "width");
+		var fluid = dialog.dialog("option", "fluid");
+        // if fluid option == true
+        if (maxWidth && width) {
+            // fix maxWidth bug
+            $this.css("max-width", maxWidth);
+            //reposition dialog
+            dialog.dialog("option", "position", ['center', 'center']);
+        }
+
+        if (fluid) {
+            // namespace window resize
+            jQuery(window).on("resize.responsive", function () {
+                var wWidth = jQuery(window).width();
+                // check window width against dialog width
+                if (wWidth < maxWidth + 50) {
+                    // keep dialog from filling entire screen
+                    $this.css("width", "90%");
+
+                }
+              //reposition dialog
+              dialog.dialog("option", "position", ['center', 'center']);
+            });
+        }
+    });
+}
 
 function qstring(key, url) {
 	'use strict';
