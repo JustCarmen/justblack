@@ -2,15 +2,14 @@
 // Template for drawing person boxes
 // This template expects that the following variables will be set
 //  $pid, $boxID, $icons, $GEDCOM, $style,
-// $name, $classfacts, $genderImage, $BirthDeath, $isF, $outBoxAdd,
-// $addname, $showid, $float
+// $name, $outBoxAdd, $addname
 //
 // webtrees: Web based Family History software
 // Copyright (C) 2014 webtrees development team.
 // Copyright (C) 2014 JustCarmen.
 //
 // Derived from PhpGedView
-// Copyright (C) 2010  PGV Development Team.  All rights reserved.
+// Copyright (C) 2010 PGV Development Team.  All rights reserved.
 //
 // This program is free software; you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -31,32 +30,16 @@ if (!defined('WT_WEBTREES')) {
 	exit;
 }
 
-$JBthumbnail = getJBThumb($person, '50', true); // better thumbnail display for personboxes (overrides the default thumbnail).
-
-// note: removed part of the code, it is not neccessary to show name twice and added class person_box_zoom to inout div for styling purposes - JustCarmen
-
-echo '<div id="out-', $boxID ,'" ', $outBoxAdd, '>
+echo
+'<div data-pid="'. $pid . '"' , $outBoxAdd, '>
 	<div class="compact_view">',
-		//$thumbnail,
-		$JBthumbnail,
-		'<a onclick="event.cancelBubble=true;" href="individual.php?pid=', $pid, '&amp;ged=', rawurlencode($GEDCOM), '" title="',strip_tags($name.$addname),'">
-			<span id="namedef-',$boxID, '" class="name',$style,' ',$classfacts,'">', strip_tags($name.$addname), '</span>
+		getJBThumb($person, '50', true),
+		'<a href="individual.php?pid=', $pid, '&amp;ged=', rawurlencode($GEDCOM), '" title="',strip_tags($name.$addname),'">
+			<span class="namedef name',$style,'">', $shortname, '</span>
 		</a>
-		<p>', $person->getLifeSpan(), '</p>
-		<p>', $birthplace, '</p>
-	</div>';
-	//	details for zoom view
-		echo '<div id="fontdef-',$boxID,'" class="details',$style,'" style="display:none;">',
-			/*<br><hr>
-				<a onclick="event.cancelBubble=true;" href="individual.php?pid=', $pid, '&amp;ged=', rawurlencode($GEDCOM), '">',
-					'<span id="namedef-',$boxID, '.2" class="nameZoom',$classfacts,'">', strip_tags($name.$addname), '</span>
-					<span class="name',$style,'">',$genderImage,'</span>
-				</a>',*/
-			$BirthDeath,
-		'</div>
-		<div id="inout-',$boxID,'" class="person_box_zoom" style="display:none;">
-			<div id="LOADING-inout-',$boxID,'">',WT_I18N::translate('Loading...'),'</div>
-		</div>';
-	// end of zoom view
-echo '</div>';
-
+	</div>
+	<div class="inout2 details',$style,'">',
+		$person->getLifeSpan(), '
+	</div>
+	<div class="inout"></div>
+</div>';

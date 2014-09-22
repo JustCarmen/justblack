@@ -1,16 +1,15 @@
 <?php
 // Template for drawing person boxes
 // This template expects that the following variables will be set
-//  $pid, $boxID, $icons, $GEDCOM, $style,
-// $name, $classfacts, $genderImage, $BirthDeath, $isF, $outBoxAdd,
+// $pid, $boxID, $icons, $GEDCOM, $style,
+// $name, $genderImage, $BirthDeath, $outBoxAdd,
 // $addname
 //
 // webtrees: Web based Family History software
 // Copyright (C) 2014 webtrees development team.
-// Copyright (C) 2014 JustCarmen.
 //
 // Derived from PhpGedView
-// Copyright (C) 2010  PGV Development Team.  All rights reserved.
+// Copyright (C) 2010 PGV Development Team. All rights reserved.
 //
 // This program is free software; you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -19,7 +18,7 @@
 //
 // This program is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 // GNU General Public License for more details.
 //
 // You should have received a copy of the GNU General Public License
@@ -31,24 +30,22 @@ if (!defined('WT_WEBTREES')) {
 	exit;
 }
 
-$JBthumbnail = getJBThumb($person, '50', true); // better thumbnail display for personboxes (overrides the default thumbnail).
-$BirthDeath = trim(str_replace(array('—', '<span dir="auto"></span>'), '', $BirthDeath));
-
-// note: added class person_box_zoom to inout div for styling purposes - JustCarmen
-echo '<div id="out-',$boxID,'" ',$outBoxAdd,'>
-	<div class="noprint" id="icons-',$boxID,'" style="',$iconsStyleAdd,'">', $icons, '</div>',
+echo
+'<div data-pid="'. $pid . '" ',$outBoxAdd,'>
+	<div class="noprint icons">', $icons, '</div>',
 	'<div class="chart_textbox" style="max-height:', $bheight,'px;">',
-	//$thumbnail,
-	$JBthumbnail,
-	'<a onclick="event.cancelBubble=true;" href="individual.php?pid=', $pid, '&amp;ged=', rawurlencode($GEDCOM), '">
-		<span id="namedef-',$boxID, '" class="name',$style,' ',$classfacts,'">', $name.$addname,  '</span>
-		<span class="name',$style,'"> ',$genderImage,'</span>
-	</a>
-	<div id="fontdef-',$boxID,'" class="details',$style,'">
-		<div id="inout2-',$boxID,'" style="max-height:', ($bheight*.9),'px;">',$BirthDeath,'</div>
+		getJBThumb($person, '50', true),
+		'<a href="individual.php?pid=', $pid, '&amp;ged=', rawurlencode($GEDCOM), '">
+			<span class="namedef name',$style,'">',
+				$name,
+				$genderImage,'
+				<span class="details',$style,'">' . $LDSord . '</span>
+			</span>
+		</a>
+		<div class="namedef name',$style,'">',$addname,'</div>
+		<div class="inout2 details',$style,'">',
+			$BirthDeath,
+		'</div>
 	</div>
-	</div>
-	<div id="inout-',$boxID,'" class="person_box_zoom" style="display:none;" data-id="'.$boxID.'">
-		<div id="LOADING-inout-',$boxID,'">',WT_I18N::translate('Loading...'),'</div>
-	</div>
+	<div class="inout person_box_zoom"></div>
 </div>';
