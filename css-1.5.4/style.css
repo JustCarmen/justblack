@@ -1879,7 +1879,9 @@ img.block {
 	z-index: -1000;
 }
 
-#pedigree_chart #childarrow, #pedigree_chart #uparrow, #pedigree_chart .shadow {
+#pedigree_chart #childarrow,
+#pedigree_chart #uparrow,
+#pedigree_chart .shadow {
 	position: absolute;
 }
 
@@ -1968,6 +1970,68 @@ img.block {
 	left: auto;
 	margin: 0;
 	padding: 0 2px 0 0;
+}
+
+.fan_chart_menu {
+	position: absolute;
+	display:  none;
+	z-index:  100;
+}
+
+.fan_chart_menu .person_box {
+	background-color: #272727;
+	border: #545454 1px solid;
+	padding: 10px 5px;
+}
+
+#fan_chart ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+#fan_chart li {
+	display: block;
+	line-height: 16px;
+}
+
+#fan_chart_img {
+	text-align: center;
+}
+
+#fan_chart .name1 {
+	display: block;
+}
+
+#fan_chart .charts,
+#fan_chart .name1:first-child {
+	border-bottom: #545454 1px solid;
+	margin-bottom: 10px;
+	padding-bottom: 5px;
+}
+
+#fan_chart .children {
+	margin-left: 16px;
+}
+
+#fan_chart .children .name1 {	
+	font-size: 10px;
+	font-style: italic;
+	font-weight: normal;
+}
+
+#fan_chart div.name1 {
+	border-top: #545454 1px solid;
+	margin-top: 10px;
+	margin-left: 0;
+	padding-top: 5px;
+	padding-left: 5px;
+}
+
+#fan_chart .siblings .name1 {
+	border: none;
+	margin: 0;
+	padding: 0;
 }
 
 /* timeline chart specific styles */
@@ -5571,7 +5635,7 @@ div.charts_block .person_box_template, #descendancy_chart .person_box_template, 
 	border: #545454 1px solid;
 	padding: 15px 5px 10px 5px;
 	position: absolute;
-	visibility: hidden;
+	display: none;
 	width: 200px;
 	margin-top: 20px;
 }

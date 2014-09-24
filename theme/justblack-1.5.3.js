@@ -654,34 +654,10 @@ jQuery(document).ready(function(){
 
 	/************************************ FANCHART PAGE (POPUPS)***************************************/
 	if (WT_SCRIPT_NAME === 'fanchart.php') {
-		jQuery('table.person_box td').each(function(){
-			var content = jQuery(this).html();
-			jQuery(this).parents('table').before('<div class="fanchart_box">' + content + '</div>').remove();
-		});
-
-		jQuery('.fanchart_box').each(function(){
+		jQuery('.fan_chart_menu .person_box').each(function(){
 			var fanbox = jQuery(this);
-			fanbox.find('br').remove();
-			fanbox.wrapInner('<ul>');
-			fanbox.find('a').wrap('<li>');
-			fanbox.find('ul > span').wrap('<li class="fb_title">');
-			fanbox.find('a.name1').each(function(){
-				var sChar = '<';
-				var str = jQuery(this).text();
-				if (str.indexOf(sChar) > -1) {
-					var newStr = str.replace(sChar, '');
-					jQuery(this).text(newStr);
-					jQuery(this).parents('li').addClass('fb_child');
-				}
-			});
-			fanbox.find('li:first').addClass('fb_indi');
-			fanbox.find('.fb_child').prev('li').not('.fb_child').addClass('fb_parent');
-			fanbox.find('.fb_child').appendTo(jQuery('.fb_child').prev('.fb_parent'));
-			fanbox.find('.fb_parent').each(function(){
-				jQuery(this).find('.fb_child').wrapAll('<ul>');
-			});
-			fanbox.find(' > ul > li:not(.fb_title)').prepend('<span class="ui-icon ui-icon-triangle-1-e left">');
-			fanbox.find('.fb_child').prepend('<span class="ui-icon ui-icon-person left">');
+			fanbox.find('.name1:not(.children .name1, div.name1), .charts li').prepend('<span class="ui-icon ui-icon-triangle-1-e left">');
+			fanbox.find('.children li').prepend('<span class="ui-icon ui-icon-person left">');
 		});
 	}
 
