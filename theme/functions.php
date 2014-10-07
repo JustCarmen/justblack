@@ -199,7 +199,7 @@ function getJBFlags() {
 
 function getJBLoginMenu() {
 	if (WT_USER_ID) {
-		$output = '<a class="link" href="edituser.php">' . WT_I18N::translate('Logged in as ') . WT_Filter::escapeHtml(Auth::user()->getUserName()) . '</a> | ';
+		$output = '<a class="link" href="edituser.php">' . WT_I18N::translate('Logged in as ') . WT_Filter::escapeHtml(WT_USER_NAME) . '</a> | ';
 		if (WT_USER_CAN_ACCEPT && exists_pending_change()) {
 			$output .= '<a class="link" href="#" onclick="window.open(\'edit_changes.php\', \'_blank\', chan_window_specs); return false;">'. WT_I18N::translate('Pending changes').'</a>&nbsp;|&nbsp;';
 		}
