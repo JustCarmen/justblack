@@ -32,7 +32,7 @@ $this
 	->addExternalJavascript(WT_JQUERY_COLORBOX_URL)
 	->addExternalJavascript(WT_JQUERY_WHEELZOOM_URL)
 	// JustBlack
-	->addExternalJavascript(JUSTBLACK_JS_URL);
+	->addExternalJavascript(JB_THEME_URL . 'justblack.js');
 
 // extra dataTables
 if (WT_SCRIPT_NAME == 'index.php') getJBMessageTable();
@@ -50,8 +50,8 @@ echo
 	header_links($META_DESCRIPTION, $META_ROBOTS, $META_GENERATOR, $LINK_CANONICAL),
 	'<title>', WT_Filter::escapeHtml($title), '</title>',
 	'<link rel="icon" href="', WT_CSS_URL, 'favicon.png" type="image/png">',
-	'<link rel="stylesheet" type="text/css" href="', WT_THEME_URL, 'jquery-ui-1.10.4/jquery-ui-1.10.4.custom.min.css">',
-	'<link rel="stylesheet" type="text/css" href="', WT_THEME_URL, 'colorbox-1.5.9/colorbox.css', '">',
+	'<link rel="stylesheet" type="text/css" href="', JB_JQUERY_UI_CSS, '">',
+	'<link rel="stylesheet" type="text/css" href="', JB_COLORBOX_URL, 'colorbox.css">',
 	'<link rel="stylesheet" type="text/css" href="', WT_CSS_URL, 'style.css', '">',
 	'<!--[if IE]>',
 	'<link type="text/css" rel="stylesheet" href="', WT_CSS_URL, 'msie.css">',

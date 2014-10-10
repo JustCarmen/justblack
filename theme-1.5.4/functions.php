@@ -44,7 +44,7 @@ function getJBScriptVars() {
 			var WT_SERVER_NAME = "'.WT_SERVER_NAME.'";
 			var WT_SCRIPT_PATH = "'.WT_SCRIPT_PATH.'";
 			var WT_CSS_URL = "'.WT_CSS_URL.'";
-			var WT_THEME_JUSTBLACK = "'.WT_THEME_JUSTBLACK.'";
+			var JB_THEME_URL = "'.JB_THEME_URL.'";
 			var WT_TREE_TITLE = "'.strip_tags(WT_TREE_TITLE).'";
 			var useWatermark  = '.$useWatermark.';
 			var useGviewer = '.$useGviewer.';

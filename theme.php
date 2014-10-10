@@ -33,11 +33,12 @@ $theme_name = "JustBlack";
 // A version number in the path prevents browser-cache problems during upgrade
 define('WT_CSS_URL', WT_THEME_URL . 'css-1.5.4/');
 
-// theme specific files.
-define('WT_THEME_JUSTBLACK', WT_THEME_URL . 'theme/');
-define('JUSTBLACK_JS_URL', WT_THEME_JUSTBLACK . 'justblack-1.5.3.js');
+// theme specific files
+define('JB_COLORBOX_URL',	WT_THEME_URL . 'colorbox-1.5.9/');
+define('JB_THEME_URL',		WT_THEME_URL . 'theme-1.5.4/');
+define('JB_JQUERY_UI_CSS',	WT_THEME_URL . 'jquery-ui-1.10.4/jquery-ui-1.10.4.custom.min.css');
 
-require_once(WT_ROOT.WT_THEME_JUSTBLACK . 'functions.php');
+require_once(JB_THEME_URL . 'functions.php');
 
 $headerfile	= WT_THEME_DIR.'header.php';
 $footerfile	= WT_THEME_DIR.'footer.php';

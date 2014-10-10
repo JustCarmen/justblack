@@ -165,7 +165,7 @@ jQuery(document).ready(function(){
 		  xrefs.push(xref);
 		});
 		jQuery.ajax({
-			url: WT_THEME_JUSTBLACK + 'action.php?action=imagetype',
+			url: JB_THEME_URL + 'action.php?action=imagetype',
 			type: 'POST',
 			async: false,
 			data: {
@@ -270,7 +270,7 @@ jQuery(document).ready(function(){
 				scrolling:	false, // the gviewer has a scrollbar.
 				html:		function(){
 								var mid = qstring('mid', jQuery(this).attr("href"));
-								return '<iframe width="100%" height="100%" src="http://docs.google.com/viewer?url=' + WT_SERVER_NAME + WT_SCRIPT_PATH + WT_THEME_JUSTBLACK + 'pdfviewer.php?mid=' + mid + '&embedded=true"></iframe>';
+								return '<iframe width="100%" height="100%" src="http://docs.google.com/viewer?url=' + WT_SERVER_NAME + WT_SCRIPT_PATH + JB_THEME_URL + 'pdfviewer.php?mid=' + mid + '&embedded=true"></iframe>';
 							},
 				onComplete: function() {
 							longTitles();
