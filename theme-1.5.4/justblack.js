@@ -35,7 +35,7 @@ function jb_modalDialog(url, title) {
 		.dialog({
 			title: title,
 			width: 'auto',
-			maxWidth: 500,
+			maxWidth: '90%',
 			height: 'auto',
 			maxHeight: 500,
 			fluid: true,
@@ -101,10 +101,6 @@ function fluidDialog() {
     var $visible = jQuery(".ui-dialog:visible");
     $visible.each(function () {
         var $this = jQuery(this);
-		if ($this.find('textarea.html-edit').length > 0) {
-			$this.dialog( "option", "maxWidth", 700 );
-			$this.dialog( "option", "maxHeight", 550 );
-		}
         var dialog = $this.find(".ui-dialog-content");
 		var maxWidth = dialog.dialog("option", "maxWidth");
 		var width = dialog.dialog("option", "width");
