@@ -1912,12 +1912,16 @@ img.block {
 	padding-top: 0;
 }
 
-#descendancy_chart a.details1 div {
-	margin-left: 15px;
+#descendancy_chart a.details1 {
+	display: inline-flex;
 }
 
 #descendancy_chart .details1 a.top {
 	margin-left: -7px;
+}
+
+#descendancy_chart td.details1 {
+	padding: 5px 10px 0;
 }
 
 /* descendancy chart rtl specific stylesheets */
@@ -1966,6 +1970,15 @@ img.block {
 
 #ancestry_chart .popup ul {
 	padding: 5px;
+}
+
+#ancestry_chart li > span.details1 {
+	display: block;
+	margin: 12px 0;
+}
+
+#ancestry_chart a.details1 {
+	display: inline-flex;
 }
 
 /* ancestry chart rtl specific stylesheets */
