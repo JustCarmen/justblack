@@ -32,7 +32,8 @@ $this
 	->addExternalJavascript(WT_JQUERY_COLORBOX_URL)
 	->addExternalJavascript(WT_JQUERY_WHEELZOOM_URL)
 	// JustBlack
-	->addExternalJavascript(JB_THEME_URL . 'justblack.js');
+	->addExternalJavascript(JB_THEME_URL . 'justblack.js')
+	->addExternalJavascript(JB_COLORBOX_URL . 'justblack.colorbox.js');
 
 // extra dataTables
 if (WT_SCRIPT_NAME == 'index.php') getJBMessageTable();
