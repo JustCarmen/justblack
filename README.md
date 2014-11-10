@@ -1,9 +1,7 @@
 JustBlack Theme for webtrees
 ============================
 
-The development version of this theme requires [webtrees 1.6.1](https://github.com/fisharebest/webtrees).
-
-Download the latest stable release for webtrees 1.6.0 here: https://github.com/JustCarmen/justblack/releases/tag/1.6.0
+This module requires [webtrees 1.6.1](https://github.com/fisharebest/webtrees). Download the latest stable release [here](https://github.com/JustCarmen/justblack/releases/tag/1.6.1).
 
 Download the latest stable relase for webtrees 1.4.x here: https://github.com/JustCarmen/justblack/releases/tag/1.4.4
 
