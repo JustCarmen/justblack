@@ -31,11 +31,11 @@ if (!defined('WT_WEBTREES')) {
 $theme_name = "JustBlack";
 
 // A version number in the path prevents browser-cache problems during upgrade
-define('WT_CSS_URL', WT_THEME_URL . 'css-1.6.0/');
+define('WT_CSS_URL', WT_THEME_URL . 'css-1.6.1/');
 
 // theme specific files
 define('JB_COLORBOX_URL',	WT_THEME_URL . 'colorbox-1.5.9/');
-define('JB_THEME_URL',		WT_THEME_URL . 'theme-1.6.0/');
+define('JB_THEME_URL',		WT_THEME_URL . 'theme-1.6.1/');
 define('JB_JQUERY_UI_CSS',	WT_THEME_URL . 'jquery-ui-1.10.4/jquery-ui-1.10.4.custom.min.css');
 
 require_once(JB_THEME_URL . 'functions.php');
