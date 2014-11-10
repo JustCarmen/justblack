@@ -181,9 +181,6 @@ function getJBFlags() {
 				if ($submenu) {
 					$link = '';
 					if ($submenu->link) {
-						if ($submenu->target !== null) {
-							$link .= ' target="'.$submenu->target.'"';
-						}
 						if ($submenu->link=='#' && $submenu->onclick !== null) {
 								$link .= ' onclick="'.$submenu->onclick.'"';
 						}
