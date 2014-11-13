@@ -41,15 +41,16 @@ function getJBScriptVars() {
 	$useGviewer = getThemeOption('gviewer') ? getThemeOption('gviewer') : 0;
 	$controller->addInlineJavascript('
 			// JustBlack Theme variables
-			var WT_SERVER_NAME = "'.WT_SERVER_NAME.'";
-			var WT_SCRIPT_PATH = "'.WT_SCRIPT_PATH.'";
-			var WT_CSS_URL = "'.WT_CSS_URL.'";
-			var JB_THEME_URL = "'.JB_THEME_URL.'";
-			var JB_COLORBOX_URL = "'. JB_COLORBOX_URL .'";
-			var WT_TREE_TITLE = "'.strip_tags(WT_TREE_TITLE).'";
-			var useWatermark  = '.$useWatermark.';
-			var useGviewer = '.$useGviewer.';
-			var fullPdfText = "'.WT_I18N::translate('Open this file in full browser window').'";
+			var WT_SERVER_NAME	= "' . WT_SERVER_NAME . '";
+			var WT_SCRIPT_PATH	= "' . WT_SCRIPT_PATH . '";
+			var WT_CSS_URL		= "' . WT_CSS_URL . '";
+			var JB_THEME_URL	= "' . JB_THEME_URL . '";
+			var JB_COLORBOX_URL	= "' . JB_COLORBOX_URL . '";
+			var WT_TREE_TITLE	= "' . strip_tags(WT_TREE_TITLE) . '";
+			var authID	        = "' . Auth::id() . '";
+			var useWatermark	= ' . $useWatermark . ';
+			var useGviewer		= ' . $useGviewer . ';
+			var fullPdfText		= "' . WT_I18N::translate('Open this file in full browser window') . '";
 	', WT_Controller_Base::JS_PRIORITY_HIGH);
 }
 
@@ -196,7 +197,7 @@ function getJBFlags() {
 }
 
 function getJBLoginMenu() {
-	if (WT_USER_ID) {
+	if (Auth::check()) {
 		$output = '<a class="link" href="edituser.php">' . WT_I18N::translate('Logged in as ') . WT_Filter::escapeHtml(WT_USER_NAME) . '</a> | ';
 		if (WT_USER_CAN_ACCEPT && exists_pending_change()) {
 			$output .= '<a class="link" href="#" onclick="window.open(\'edit_changes.php\', \'_blank\', chan_window_specs); return false;">'. WT_I18N::translate('Pending changes').'</a>&nbsp;|&nbsp;';

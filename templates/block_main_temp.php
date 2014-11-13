@@ -33,6 +33,8 @@ if (!defined('WT_WEBTREES')) {
 	exit;
 }
 
+use WT\Auth;
+
 // Default Main Block
 $block_main_tpl = '	<div id="'.$id.'" class="block">
 						<div class="blockheader">'.$title.'</div>
@@ -40,7 +42,7 @@ $block_main_tpl = '	<div id="'.$id.'" class="block">
 					</div>';
 
 // don't show a logout block, there is already a logout link in the header
-if ($id == 'login_block'.$block_id && WT_USER_ID) {
+if ($id == 'login_block'.$block_id && Auth::check()) {
 	$block = false;
 }
 

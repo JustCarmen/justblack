@@ -253,7 +253,7 @@ jQuery(document).ready(function(){
 	var submenu = jQuery('#fav-menu > ul ul');
 
 	obj = submenu.find('li');
-	if (WT_USER_ID > 0 && pageId !== undefined) {
+	if (authID && pageId !== undefined) {
 		obj = submenu.find('li').not(':last');
 		submenu.find('li:last a').addClass('addFav');
 	}
