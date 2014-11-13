@@ -273,6 +273,9 @@ jQuery(document).ready(function(){
 	});
 
 	sortMenu('#fav-menu');
+	
+	// place the addFav-link at the bottom of the list after sorting has taken place
+	jQuery(".addFav").parent().appendTo("#menu-favorites ul")
 
 	/**************************************** MODAL DIALOG BOXES ********************************************/
 	// replace default function with our justblack theme function (better dialog boxes)
