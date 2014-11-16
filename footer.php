@@ -36,7 +36,7 @@ if ($view!='simple') {
 	echo '<a href="', WT_WEBTREES_URL, '" target="_blank" class="icon-webtrees" title="', WT_WEBTREES, ' ', WT_VERSION, '"></a>';
 	echo '<br><a href="http://www.justcarmen.nl" target="_blank">Design: justcarmen.nl</a>';
 	echo '</p>';
-	if (WT_DEBUG || $WT_TREE->getPreference('SHOW_STATS')) {
+	if ($WT_TREE && $WT_TREE->getPreference('SHOW_STATS')) {
 		echo execution_stats();
 	}
 	if (exists_pending_change()) {
