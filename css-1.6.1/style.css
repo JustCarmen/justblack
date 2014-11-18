@@ -4694,6 +4694,11 @@ a.icon-udarrow:hover {
 	width: 16px;
 }
 
+/* ios on click workaround */
+.iconz {
+	cursor: pointer;
+}
+
 .icon-zoomin {
 	background-image: url(images/icons/zoomin.png);
 	cursor: pointer;
