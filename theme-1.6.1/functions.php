@@ -36,9 +36,7 @@ function getThemeOption ($setting) {
 
 // variables needed in justblack.js
 function getJBScriptVars() {
-	global $controller, $SHOW_NO_WATERMARK;
-	$useWatermark = WT_USER_ACCESS_LEVEL > $SHOW_NO_WATERMARK ? 1 : 0;
-	$useGviewer = getThemeOption('gviewer') ? getThemeOption('gviewer') : 0;
+	global $controller;
 	$controller->addInlineJavascript('
 			// JustBlack Theme variables
 			var WT_SERVER_NAME	= "' . WT_SERVER_NAME . '";
@@ -48,9 +46,6 @@ function getJBScriptVars() {
 			var JB_COLORBOX_URL	= "' . JB_COLORBOX_URL . '";
 			var WT_TREE_TITLE	= "' . strip_tags(WT_TREE_TITLE) . '";
 			var authID	        = "' . Auth::id() . '";
-			var useWatermark	= ' . $useWatermark . ';
-			var useGviewer		= ' . $useGviewer . ';
-			var fullPdfText		= "' . WT_I18N::translate('Open this file in full browser window') . '";
 	', WT_Controller_Base::JS_PRIORITY_HIGH);
 }
 

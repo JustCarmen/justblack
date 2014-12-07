@@ -78,13 +78,10 @@ jQuery("body").one('click', 'a.gallery', function(event) {
 		current:		"",
 		slideshow:		true,
 		slideshowAuto:	false,
-		slideshowSpeed: 3000,
-		onLoad:			function() {
-							jQuery(".pdf-layer").remove(); // remove previous watermarks.
-						}
+		slideshowSpeed: 3000
 	});
 
-	// Add colorbox to images
+	// Image settings
 	jQuery("a[type^=image].gallery").colorbox({
 		photo:			true,
 		scalePhotos:	function(){
@@ -108,59 +105,18 @@ jQuery("body").one('click', 'a.gallery', function(event) {
 						}
 	});
 
-	// default settings for all pdf's
+	// PDF settings
 	jQuery("a[type$=pdf].gallery").colorbox({
 		width:		"75%",
 		height:		"90%",
 		fixed:		true,
+		iframe:		true,
 		title:		function(){
 						var pdf_title = jQuery(this).data("title");
-						pdf_title = '<div class="title">' + pdf_title;
-						if(useWatermark === 0) {
-							pdf_title += ' &diams; <a href="' + jQuery(this).attr("href") + '" target="_blank">' + fullPdfText + '</a>';
-						}
-						pdf_title += '</div>';
-						return pdf_title;
+						return '<div class="title">' + pdf_title + '</div>';
 					},
 		onComplete: function() { longTitles(); }
 	});
-
-	// use Google Docs Viewer for pdf's if theme option is set.
-	if(useGviewer === 1) {
-		jQuery("a[type$=pdf].gallery").colorbox({
-			scrolling:	false, // the gviewer has a scrollbar.
-			html:		function(){
-							var mid = qstring('mid', jQuery(this).attr("href"));
-							return '<iframe width="100%" height="100%" src="http://docs.google.com/viewer?url=' + WT_SERVER_NAME + WT_SCRIPT_PATH + JB_COLORBOX_URL + 'pdfviewer.php?mid=' + mid + '&embedded=true"></iframe>';
-						},
-			onComplete: function() {
-						longTitles();
-						if(useWatermark === 1) {
-							var layerHeight = jQuery('#cboxContent iframe').height();
-							var layerWidth = jQuery('#cboxContent iframe').width();
-							jQuery('#cboxLoadedContent')
-								.append('<div class="pdf-menu"></div>' +
-										'<div class="pdf-body">' +
-											'<div class="pdf-watermark"><span class="text-right">' + WT_TREE_TITLE + '</span></div>' +
-										'</div>');
-							jQuery('.pdf-menu').css({
-								 'width'	: layerWidth + 'px'
-							});
-							jQuery('.pdf-body').css({
-								 'height'	: layerHeight - 37 +'px',
-								 'width'	: layerWidth - 17 + 'px'
-							});
-							jQuery('.pdf-watermark').css({
-								 'margin-top'	: ((layerHeight - 37)/2) - 48 +'px'
-							});
-						}
-					}
-		});
-	}
-	// use browsers default pdf viewer
-	else {
-		jQuery("a[type$=pdf].gallery").colorbox({iframe:	true});
-	}
 
 	// Do not open the gallery when clicking on the mainimage on the individual page
 	jQuery('a.gallery').each(function(){
