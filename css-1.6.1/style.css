@@ -3971,7 +3971,7 @@ dd .editlink,dd .deletelink {
 }
 
 .find-media-media li:before {
-	background: url(../jquery-ui-1.10.4/images/ui-icons_e2e2e2_256x240.png) no-repeat -32px -16px;
+	background: url(../jquery-ui-1.11.2/images/ui-icons_e2e2e2_256x240.png) no-repeat -32px -16px;
 	width: 16px;
 	height: 16px;
 	display: block;
@@ -5049,7 +5049,7 @@ a.icon-udarrow:hover {
 	position: fixed;
 	bottom: 0;
 	left: 0;
-	background: url(../jquery-ui-1.10.4/images/ui-bg_glass_40_ffc73d_1x400.png) repeat;
+	background: url(../jquery-ui-1.11.2/images/ui-bg_glass_40_ffc73d_1x400.png) repeat;
 	width: 100%;
 }
 
@@ -5603,7 +5603,7 @@ div.charts_block .person_box_template, #descendancy_chart .person_box_template, 
 }
 
 .popup ul > li > a:first-child::before {
-	background: url(../jquery-ui-1.10.4/images/ui-icons_e2e2e2_256x240.png) no-repeat -32px -16px;
+	background: url(../jquery-ui-1.11.2/images/ui-icons_e2e2e2_256x240.png) no-repeat -32px -16px;
 	width: 16px;
 	height: 16px;
 	display: block;
@@ -5612,7 +5612,7 @@ div.charts_block .person_box_template, #descendancy_chart .person_box_template, 
 }
 
 .popup > ul > li li > a:first-child::before {
-	background: url(../jquery-ui-1.10.4/images/ui-icons_e2e2e2_256x240.png) no-repeat -144px -96px;
+	background: url(../jquery-ui-1.11.2/images/ui-icons_e2e2e2_256x240.png) no-repeat -144px -96px;
 	width: 16px;
 	height: 16px;
 	display: block;
@@ -5767,17 +5767,13 @@ div.charts_block .person_box_template, #descendancy_chart .person_box_template, 
     padding: 0;
 }
 
-.ui-tabs .ui-tabs-nav .ui-tabs-anchor, .ui-tabs .ui-tabs-nav .ui-tabs-anchor li a {
-	padding: 0;
-}
-
 .ui-tabs .ui-tabs-nav li a span {
 	display: block;
 	padding: .5em 1em;
 }
 
 .ui-tabs .ui-tabs-panel {
-    padding: 1em 0;
+    padding: 0;
 }
 
 .ui-widget-content {
@@ -6108,7 +6104,7 @@ tr.classy0, tr.classy1 {
 }
 
 .lb-menu .popup li > a:first-child::before {
-	background: url(../jquery-ui-1.10.4/images/ui-icons_dd6900_256x240.png) no-repeat -32px -16px;
+	background: url(../jquery-ui-1.11.2/images/ui-icons_dd6900_256x240.png) no-repeat -32px -16px;
 }
 
 .lb-menu .popup a {
@@ -6163,7 +6159,7 @@ tr.classy0, tr.classy1 {
 }
 
 #stats-details td.facts_label {
-	background: url(../jquery-ui-1.10.4/images/ui-bg_highlight-soft_50_2e2e2e_1x100.png) repeat-x scroll 50% 50% #2E2E2E;
+	background: url(../jquery-ui-1.11.2/images/ui-bg_highlight-soft_50_2e2e2e_1x100.png) repeat-x scroll 50% 50% #2E2E2E;
 	border: 1px solid #545454;
 	color: #E2E2E2;
 	font-weight: bold;
@@ -6197,7 +6193,7 @@ tr.classy0, tr.classy1 {
 }
 
 #stats-details .facts_value ul li:before {
-	background: url(../jquery-ui-1.10.4/images/ui-icons_e2e2e2_256x240.png) no-repeat -32px -16px;
+	background: url(../jquery-ui-1.11.2/images/ui-icons_e2e2e2_256x240.png) no-repeat -32px -16px;
 	width: 16px;
 	height: 16px;
 	display: block;
@@ -6552,7 +6548,7 @@ table.tabs_table #side_bar a#alturl {
 }
 
 #calendar-page .topbottombar {
-	background: url(../jquery-ui-1.10.4/ui-bg_highlight-soft_40_474747_1x100.png);
+	background: url(../jquery-ui-1.11.2/ui-bg_highlight-soft_40_474747_1x100.png);
 	padding-top: 40px;
 }
 
@@ -6622,7 +6618,7 @@ form[name=messageform] input, form[name=messageform] textarea {
 
 #tabs tr:first-child td.rela {
 	border: 1px solid #545454;
-	background: #2e2e2e url(../jquery-ui-1.10.4/images/ui-bg_highlight-soft_50_2e2e2e_1x100.png) 50% 50% repeat-x;
+	background: #2e2e2e url(../jquery-ui-1.11.2/images/ui-bg_highlight-soft_50_2e2e2e_1x100.png) 50% 50% repeat-x;
 	color: #e2e2e2;
 	font-weight: bold;
 }
@@ -6866,7 +6862,7 @@ label[for=checkbox_rela_facts], label[for=checkbox_elder], label[for=checkbox_so
 .story_title,
 #stories .news_title {
 	border: 1px solid #545454;
-	background: #2e2e2e url(../jquery-ui-1.10.4/images/ui-bg_highlight-soft_50_2e2e2e_1x100.png) 50% 50% repeat-x;
+	background: #2e2e2e url(../jquery-ui-1.11.2/images/ui-bg_highlight-soft_50_2e2e2e_1x100.png) 50% 50% repeat-x;
 	color: #e2e2e2;
 	font-weight: bold;
 	opacity: 1;
