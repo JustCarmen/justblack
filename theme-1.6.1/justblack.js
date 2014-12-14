@@ -506,21 +506,6 @@ jQuery(document).ready(function(){
 		});
 	}
 
-	/************************************** TREE VIEW ***********************************************/
-	// load custom treeview stylesheet. Be sure it is loaded after treeview.css
-	function include_css(css_file) {
-		var html_doc = document.getElementsByTagName("head")[0];
-		var css = document.createElement("link");
-		css.setAttribute("rel", "stylesheet");
-		css.setAttribute("type", "text/css");
-		css.setAttribute("href", css_file);
-		html_doc.appendChild(css);
-	}
-
-	if (WT_SCRIPT_NAME === 'individual.php' || qstring('mod_action') === 'treeview') {
-		include_css(WT_CSS_URL + 'treeview.css');
-	}
-
 	/************************************** MEDIALIST PAGE ********************************************/
 	if (WT_SCRIPT_NAME === 'medialist.php') {
 		// Medialist Menu

@@ -55,6 +55,7 @@ echo
 	'<link rel="stylesheet" type="text/css" href="', JB_JQUERY_UI_CSS, '">',
 	'<link rel="stylesheet" type="text/css" href="', JB_COLORBOX_URL, 'colorbox.css">',
 	'<link rel="stylesheet" type="text/css" href="', WT_CSS_URL, 'style.css', '">',
+	'<link rel="stylesheet" type="text/css" href="', WT_CSS_URL, 'treeview.css', '">',
 	'<!--[if IE]>',
 	'<link type="text/css" rel="stylesheet" href="', WT_CSS_URL, 'msie.css">',
 	'<![endif]-->';

@@ -20,50 +20,50 @@
 * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
 */
 
-.tv_out {
+#content .tv_out {
 	border: none;
 	background-color: #FCDE97;
 	width:100%;
 }
 
-#tree-title {
+#content #tree-title {
 	color: #272727;
 }
 
-#tv_tree div.tv_box img.tv_treelink {
+#content .charts_block #tree-title {
+	display: none;
+}
+
+#content #tv_tree div.tv_box img.tv_treelink {
 	height: 25px;
 	width: 25px;
 }
 
-.charts_block h2#tree-title {
-	visibility: hidden;
-}
-
 /* Person or couple(s) box style */
-#tv_tree div.tv_box {
+#content #tv_tree div.tv_box {
 	border: thin outset #6f2f00;
 	border-radius: 0;
 	box-shadow: 1px 1px 2px #cfcf8f;
 	filter: progid:DXImageTransform.Microsoft.dropShadow(color=#cfcf8f,offX=1,offY=1,positive=true);
 }
 
-#tv_tree div.tv_box div.tvM {
+#content #tv_tree div.tv_box div.tvM {
 	font-family: Times new Roman, Times, serif;
 	font-size: 120%;
 	border-radius: 0;
-	background: url(../jquery-ui-1.10.4/images/ui-bg_inset-soft_30_dd6900_1x100.png) repeat;
+	background: url(images/tree_bg_soft.png) repeat;
 	color: #272727;
 }
 
-#tv_tree div.tv_box div.tvF {
+#content #tv_tree div.tv_box div.tvF {
 	font-family: Times new Roman, Times, serif;
 	font-size: 120%;
 	border-radius: 0;
-	background: url(../jquery-ui-1.10.4/images/ui-bg_glass_40_ffc73d_1x400.png) repeat;
+	background: url(images/tree_bg_glass.png) repeat;
 	color: #272727;
 }
 
-#tv_tree div.tv_box div.tvU {
+#content #tv_tree div.tv_box div.tvU {
 	font-family: Times new Roman, Times, serif;
 	font-size: 120%;
 	border-radius: 0;
@@ -72,24 +72,24 @@
 	padding:0 4px;
 }
 
-#tv_tree div.tv_box div.tv_person_expanded a {
+#content #tv_tree div.tv_box div.tv_person_expanded a {
 	color: #272727;
 	text-decoration: underline;
 }
 
 /* horizontal and vertical lines color */
-#tv_tree div.tv_vline,#tv_tree div.tv_hline {
+#content #tv_tree div.tv_vline,#tv_tree div.tv_hline {
 	background-color: #272727;
 }
 
-#tv_tree table.tv_tree td.tv_vline_h {
+#content #tv_tree table.tv_tree td.tv_vline_h {
 	background-image: url(images/tree_vline.jpg);
 }
 
-#tv_tree table.tv_tree td.tv_vline_t {
+#content #tv_tree table.tv_tree td.tv_vline_t {
 	background-image: url(images/tree_vline_t.gif);
 }
 
-#tv_tree table.tv_tree td.tv_vline_b {
+#content #tv_tree table.tv_tree td.tv_vline_b {
 	background-image: url(images/tree_vline_b.gif);
 }
