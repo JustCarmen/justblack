@@ -110,10 +110,11 @@ function getJBheader() {
 
 // Menus
 function getJBTopMenu() {
-	global $controller;
-	$menus = getThemeOption('menu');
+	global $controller, $SEARCH_SPIDER;
 
-	if($menus) {
+	$menus = getThemeOption('menu');
+	
+	if($menus && WT_GED_ID && !$SEARCH_SPIDER) {
 		$jb_controller = new justblack_theme_options_WT_Module;
 		$menus = $jb_controller->checkModule($menus);
 		$list = null;
