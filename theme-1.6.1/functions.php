@@ -176,14 +176,8 @@ function getJBFlags() {
 			$output ='<div id="lang-menu"><ul>';
 			foreach ($menu->submenus as $submenu) {
 				if ($submenu) {
-					$link = '';
-					if ($submenu->link) {
-						if ($submenu->link=='#' && $submenu->onclick !== null) {
-								$link .= ' onclick="'.$submenu->onclick.'"';
-						}
-						$output .= '<li id="'.$submenu->id.'" title="'.$submenu->label.'">
-									<a class="'.$submenu->iconclass.'" href="'.$submenu->link.'"'.$link.'></a></li>';
-					}
+					$output .= '<li id="'.$submenu->id.'" title="'.$submenu->label.'">
+								<a class="'.$submenu->iconclass.'" href="'.$submenu->link.'"></a></li>';
 				}
 			}
 			$output .='</ul></div>';
