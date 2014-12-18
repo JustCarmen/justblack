@@ -169,18 +169,18 @@ function getJBSearch () {
 }
 
 function getJBFlags() {
-	if (getThemeOption('flags') == 1) {
-		$menu=WT_MenuBar::getLanguageMenu();
+	if (getThemeOption('flags') === 1) {
+		$menu = WT_MenuBar::getLanguageMenu();
 		
-		if ($menu && $menu->submenus) {
+		if ($menu && $menu->getSubmenus()) {
 			$output ='<div id="lang-menu"><ul>';
-			foreach ($menu->submenus as $submenu) {
+			foreach ($menu->getSubmenus() as $submenu) {
 				if ($submenu) {
-					$output .= '<li id="'.$submenu->id.'" title="'.$submenu->label.'">
-								<a class="'.$submenu->iconclass.'" href="'.$submenu->link.'"></a></li>';
+					$output .= '<li id="' . $submenu->getId().'" title="' . $submenu->getLabel() . '">
+								<a href="' . $submenu->getLink() . '"></a></li>';
 				}
 			}
-			$output .='</ul></div>';
+			$output .= '</ul></div>';
 		return $output;
 		}
 	}
