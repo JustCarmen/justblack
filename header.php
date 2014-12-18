@@ -53,8 +53,8 @@ if (WT_Filter::get('mod') == 'clippings') getJBClippingsTable();
 	<link rel="stylesheet" type="text/css" href="<?php echo JB_COLORBOX_URL; ?>colorbox.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo WT_CSS_URL; ?>style.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo WT_CSS_URL; ?>treeview.css">
-	<!--[if IE]>
-	<link type="text/css" rel="stylesheet" href="', WT_CSS_URL, 'msie.css">
+	<!--[if IE 8]>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
 	<![endif]-->
 </head>
 
