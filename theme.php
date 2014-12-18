@@ -6,7 +6,7 @@
 // Copyright (C) 2014 JustCarmen.
 //
 // Derived from PhpGedView
-// Copyright (C) 2002 to 2010  PGV Development Team.  All rights reserved.
+// Copyright (C) 2002 to 2010 PGV Development Team.
 //
 // This program is free software; you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -28,7 +28,7 @@ if (!defined('WT_WEBTREES')) {
 }
 
 // Theme name - this needs double quotes, as file is scanned/parsed by script
-$theme_name = "JustBlack";
+$theme_name = "JustBlack"; /* I18N: Name of a theme. */ WT_I18N::translate('JustBlack');
 
 // A version number in the path prevents browser-cache problems during upgrade
 define('WT_CSS_URL', WT_THEME_URL . 'css-1.6.1/');
