@@ -6,7 +6,7 @@
 // Copyright (C) 2014 JustCarmen.
 //
 // Derived from PhpGedView
-// Copyright (C) 2002 to 2009  PGV Development Team.  All rights reserved.
+// Copyright (C) 2002 to 2009  PGV Development Team.
 //
 // This program is free software; you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -40,54 +40,48 @@ $this
 if (WT_SCRIPT_NAME == 'index.php') getJBMessageTable();
 if (WT_Filter::get('mod') == 'clippings') getJBClippingsTable();
 
-ob_start();
-echo
-	'<!DOCTYPE html>',
-	'<html ', WT_I18N::html_markup(), '>',
-	'<head>';
+?>
+<!DOCTYPE html>
+<html <?php echo WT_I18N::html_markup(); ?>>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<?php echo header_links($META_DESCRIPTION, $META_ROBOTS, $META_GENERATOR, $LINK_CANONICAL) ?>
+	<title><?php echo WT_Filter::escapeHtml($title) ?></title>
+	<link rel="icon" href="<?php echo WT_CSS_URL; ?>favicon.png" type="image/png">
+	<link rel="stylesheet" type="text/css" href="<?php echo JB_JQUERY_UI_CSS; ?>">
+	<link rel="stylesheet" type="text/css" href="<?php echo JB_COLORBOX_URL; ?>colorbox.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo WT_CSS_URL; ?>style.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo WT_CSS_URL; ?>treeview.css">
+	<!--[if IE]>
+	<link type="text/css" rel="stylesheet" href="', WT_CSS_URL, 'msie.css">
+	<![endif]-->
+</head>
 
-echo
-	'<meta charset="UTF-8">',
-	'<meta http-equiv="X-UA-Compatible" content="IE=edge">',
-	header_links($META_DESCRIPTION, $META_ROBOTS, $META_GENERATOR, $LINK_CANONICAL),
-	'<title>', WT_Filter::escapeHtml($title), '</title>',
-	'<link rel="icon" href="', WT_CSS_URL, 'favicon.png" type="image/png">',
-	'<link rel="stylesheet" type="text/css" href="', JB_JQUERY_UI_CSS, '">',
-	'<link rel="stylesheet" type="text/css" href="', JB_COLORBOX_URL, 'colorbox.css">',
-	'<link rel="stylesheet" type="text/css" href="', WT_CSS_URL, 'style.css', '">',
-	'<link rel="stylesheet" type="text/css" href="', WT_CSS_URL, 'treeview.css', '">',
-	'<!--[if IE]>',
-	'<link type="text/css" rel="stylesheet" href="', WT_CSS_URL, 'msie.css">',
-	'<![endif]-->';
-
+<?php
 if ($view=='simple') {
 	// Popup windows need space for the save/close buttons
 	echo '<style>body{margin-bottom:50px;}</style>';
 }
+?>
 
-echo
-	'</head>',
-	'<body id="body">';
-
-if ($view!='simple') { // no headers for dialogs
-		getJBScriptVars();
-		// begin header section
-		echo getJBheader();
-
-		echo
-		'<div id="optionsmenu">',
-			'<div id="fav-menu"><ul class="dropdown">', WT_MenuBar::getFavoritesMenu(), '</ul></div>',
-			'<div id="search-menu">', getJBSearch(), '</div>', getJBFlags(),
-		'</div>',
-		'<div class="clearfloat"></div>';
-
-		// Print the TopMenu
-		echo
-		'<div id="topMenu">'.getJBTopMenu().'</div>',
-	    '<div class="divider"></div>';
-}
-
-echo
-	$javascript,
-	WT_FlashMessages::getHtmlMessages(), // Feedback from asynchronous actions
-	'<div id="content">';
+<body id="body">
+	<?php if ($view!='simple'): ?>
+	<?php getJBScriptVars(); ?>
+	<header>
+		<?php echo getJBheader(); ?>
+		<div id="optionsmenu">
+			<div id="fav-menu">
+				<ul class="dropdown"><?php echo WT_MenuBar::getFavoritesMenu(); ?></ul>
+			</div>
+			<div id="search-menu"><?php echo getJBSearch(); ?></div>'
+			<?php echo getJBFlags(); ?>
+		</div>
+		<div class="clearfloat"></div>
+		<div id="topMenu"><?php echo getJBTopMenu(); ?></div>
+		<div class="divider"></div>
+	</header>
+	<?php endif; ?>
+	
+	<?php echo WT_FlashMessages::getHtmlMessages() ?>
+	<main id="content">

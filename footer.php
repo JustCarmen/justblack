@@ -26,27 +26,28 @@ if (!defined('WT_WEBTREES')) {
 	header('HTTP/1.0 403 Forbidden');
 	exit;
 }
+?>
 
-echo '</div>'; // <div id="content">
-if ($view!='simple') {
-	echo '<div class="divider"></div>';
-	echo '<div id="footer" class="', $TEXT_DIRECTION, ' width99 center">';
-	echo contact_links();
-	echo '<p class="logo">';
-	echo '<a href="', WT_WEBTREES_URL, '" target="_blank" class="icon-webtrees" title="', WT_WEBTREES, ' ', WT_VERSION, '"></a>';
-	echo '<br><a href="http://www.justcarmen.nl" target="_blank">Design: justcarmen.nl</a>';
-	echo '</p>';
+</main>
+<?php if ($view!='simple'): ?>
+	<div class="divider"></div>
+	<footer id="footer" class="<?php echo $TEXT_DIRECTION; ?> width99 center">
+	<?php echo contact_links() ?>
+	<p class="logo">
+		<a href="<?php echo WT_WEBTREES_URL; ?>" target="_blank" class="icon-webtrees" title="<?php echo WT_WEBTREES, ' ', WT_VERSION; ?>"></a>
+		<br><a href="http://www.justcarmen.nl" target="_blank">Design: justcarmen.nl</a>
+	</p>
+	
+	<?php
 	if ($WT_TREE && $WT_TREE->getPreference('SHOW_STATS')) {
 		echo execution_stats();
 	}
-	if (exists_pending_change()) {
-		echo '<a href="#" onclick="window.open(\'edit_changes.php\', \'_blank\', chan_window_specs); return false;">';
-		echo '<p class="error center">', WT_I18N::translate('There are pending changes for you to moderate.'), '</p>';
-		echo '</a>';
-	}
-	echo '</div>'; // <div id="footer">
-}
-
-$output = ob_get_contents();
-ob_end_clean();
-echo $output;
+	?>
+	
+	<?php if (exists_pending_change()) { ?>
+		<a href="#" onclick="window.open('edit_changes.php', '_blank', chan_window_specs); return false;">
+			<p class="error center"><?php echo WT_I18N::translate('There are pending changes for you to moderate.'); ?></p>
+		</a>
+	<?php } ?>
+	</footer>
+<?php endif; ?>
