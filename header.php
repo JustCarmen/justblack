@@ -59,14 +59,14 @@ if (WT_Filter::get('mod') == 'clippings') getJBClippingsTable();
 </head>
 
 <?php
-if ($view=='simple') {
+if ($view == 'simple') {
 	// Popup windows need space for the save/close buttons
 	echo '<style>body{margin-bottom:50px;}</style>';
 }
 ?>
 
 <body id="body">
-	<?php if ($view!='simple'): ?>
+	<?php if ($view != 'simple'): ?>
 	<?php getJBScriptVars(); ?>
 	<header>
 		<?php echo getJBheader(); ?>
