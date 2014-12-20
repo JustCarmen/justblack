@@ -1,26 +1,26 @@
 /*
-* JustBlack script for the JustBlack theme
-*
-* webtrees: Web based Family History software
-* Copyright (C) 2014 JustCarmen
-*
-* Derived from PhpGedView
-* Copyright (C) 2002 to 2009  PGV Development Team.  All rights reserved.
-*
-* This program is free software; you can redistribute it and/or modify
-* it under the terms of the GNU General Public License as published by
-* the Free Software Foundation; either version 2 of the License, or
-* (at your option) any later version.
-*
-* This program is distributed in the hope that it will be useful,
-* but WITHOUT ANY WARRANTY; without even the implied warranty of
-* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-* GNU General Public License for more details.
-*
-* You should have received a copy of the GNU General Public License
-* along with this program; if not, write to the Free Software
-* Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
-*/
+ * JustBlack script for the JustBlack theme
+ *
+ * webtrees: Web based Family History software
+ * Copyright (C) 2014 JustCarmen
+ *
+ * Derived from PhpGedView
+ * Copyright (C) 2002 to 2009  PGV Development Team.  All rights reserved.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
+ */
 
 //=========================================================================================================
 //												FUNCTIONS
@@ -28,27 +28,25 @@
 
 // Modal dialog boxes
 function jb_modalDialog(url, title) {
-	var	$dialog = jQuery('<div id="config-dialog" style="max-height:550px; overflow-y:auto"><div title="'+title+'"><div></div>')
-		.load(url, function() {
-                jQuery(this).dialog("option", "position", ['center', 'center'] );
-         })
-		.dialog({
-			title: title,
-			width: 'auto',
-			maxWidth: '90%',
-			height: 'auto',
-			maxHeight: 500,
-			fluid: true,
-			modal: true,
-			resizable: false,
-			autoOpen: false,
-			open: function() {
-				jQuery('.ui-widget-overlay').on('click', function(){
-					$dialog.dialog('close');
-				});
-			}
-		});
-	
+	var $dialog = jQuery('<div id="config-dialog" style="max-height:550px; overflow-y:auto"><div title="' + title + '"><div></div>').load(url, function() {
+		jQuery(this).dialog("option", "position", ['center', 'center']);
+	}).dialog({
+		title: title,
+		width: 'auto',
+		maxWidth: '90%',
+		height: 'auto',
+		maxHeight: 500,
+		fluid: true,
+		modal: true,
+		resizable: false,
+		autoOpen: false,
+		open: function() {
+			jQuery('.ui-widget-overlay').on('click', function() {
+				$dialog.dialog('close');
+			});
+		}
+	});
+
 	// open the dialog box after some time. This is neccessary for the dialogbox to load in center position without page flickering.
 	setTimeout(function() {
 		$dialog.dialog('open');
@@ -57,40 +55,38 @@ function jb_modalDialog(url, title) {
 }
 
 function jb_helpDialog(topic, module) {
-	jQuery.getJSON('help_text.php?help=' + topic + '&mod=' + module, function (json) {
+	jQuery.getJSON('help_text.php?help=' + topic + '&mod=' + module, function(json) {
 		jb_modalHelp(json.content, json.title);
 	});
 }
 
 function jb_modalHelp(content, title) {
-	var $dialog = jQuery('<div style="max-height:375px; overflow-y:auto"><div></div></div>')
-			.html(content)
-			.dialog({
-				width: 'auto',
-				maxWidth: 500,
-				height: 'auto',
-				maxHeight: 500,
-				modal: true,
-				fluid: true,
-				resizable: false,
-				open: function() {
-					jQuery('.ui-widget-overlay').on('click', function(){
-						$dialog.dialog('close');
-					});
-				}		
+	var $dialog = jQuery('<div style="max-height:375px; overflow-y:auto"><div></div></div>').html(content).dialog({
+		width: 'auto',
+		maxWidth: 500,
+		height: 'auto',
+		maxHeight: 500,
+		modal: true,
+		fluid: true,
+		resizable: false,
+		open: function() {
+			jQuery('.ui-widget-overlay').on('click', function() {
+				$dialog.dialog('close');
 			});
+		}
+	});
 
 	jQuery('.ui-dialog-title').html(title);
 	return false;
 }
 
-jQuery(document).on("dialogopen", ".ui-dialog", function (event, ui) {	
-    fluidDialog();
+jQuery(document).on("dialogopen", ".ui-dialog", function(event, ui) {
+	fluidDialog();
 });
 
 // remove window resize namespace
-jQuery(document).on("dialogclose", ".ui-dialog", function (event, ui) {
-    jQuery(window).off("resize.responsive");
+jQuery(document).on("dialogclose", ".ui-dialog", function(event, ui) {
+	jQuery(window).off("resize.responsive");
 });
 
 jQuery(window).resize(function() {
@@ -98,36 +94,36 @@ jQuery(window).resize(function() {
 });
 
 function fluidDialog() {
-    var $visible = jQuery(".ui-dialog:visible");
-    $visible.each(function () {
-        var $this = jQuery(this);
-        var dialog = $this.find(".ui-dialog-content");
+	var $visible = jQuery(".ui-dialog:visible");
+	$visible.each(function() {
+		var $this = jQuery(this);
+		var dialog = $this.find(".ui-dialog-content");
 		var maxWidth = dialog.dialog("option", "maxWidth");
 		var width = dialog.dialog("option", "width");
 		var fluid = dialog.dialog("option", "fluid");
-        // if fluid option == true
-        if (maxWidth && width) {
-            // fix maxWidth bug
-            $this.css("max-width", maxWidth);
-            //reposition dialog
-            dialog.dialog("option", "position", ['center', 'center']);
-        }
+		// if fluid option == true
+		if (maxWidth && width) {
+			// fix maxWidth bug
+			$this.css("max-width", maxWidth);
+			//reposition dialog
+			dialog.dialog("option", "position", ['center', 'center']);
+		}
 
-        if (fluid) {
-            // namespace window resize
-            jQuery(window).on("resize.responsive", function () {
-                var wWidth = jQuery(window).width();
-                // check window width against dialog width
-                if (wWidth < maxWidth + 50) {
-                    // keep dialog from filling entire screen
-                    $this.css("width", "90%");
+		if (fluid) {
+			// namespace window resize
+			jQuery(window).on("resize.responsive", function() {
+				var wWidth = jQuery(window).width();
+				// check window width against dialog width
+				if (wWidth < maxWidth + 50) {
+					// keep dialog from filling entire screen
+					$this.css("width", "90%");
 
-                }
-              //reposition dialog
-              dialog.dialog("option", "position", ['center', 'center']);
-            });
-        }
-    });
+				}
+				//reposition dialog
+				dialog.dialog("option", "position", ['center', 'center']);
+			});
+		}
+	});
 }
 
 function qstring(key, url) {
@@ -148,33 +144,33 @@ function qstring(key, url) {
 //=========================================================================================================
 //												GENERAL
 //=========================================================================================================
-jQuery(document).ready(function(){
+jQuery(document).ready(function() {
 	'use strict';
 	var obj, title;
 	/********************************************* TOOLTIPS ***********************************************/
 	// Tooltips for all title attributes
 	function add_tooltips() {
 		jQuery('*[title]').each(function() {
-            title = jQuery(this).attr('title');
-			jQuery(this).on('click', function(){
-				jQuery(this).attr('title', title);	// some functions need the title attribute. Make sure it is filled when clicking the item.
+			title = jQuery(this).attr('title');
+			jQuery(this).on('click', function() {
+				jQuery(this).attr('title', title); // some functions need the title attribute. Make sure it is filled when clicking the item.
 			});
-        });
+		});
 
 		jQuery(document).tooltip({
 			items: '*[title]:not(.ui-dialog-titlebar-close)'
 		});
 	}
 
-	add_tooltips();	// needed when no ajaxcall is made on the particular page.
+	add_tooltips(); // needed when no ajaxcall is made on the particular page.
 	jQuery(document).ajaxComplete(function() { // be sure the tooltip is activated after a ajax call is made.
 		add_tooltips();
 	});
 
 	/******************************************* DROPDOWN MENU *********************************************/
-	jQuery('.dropdown > li').hover(function(){
+	jQuery('.dropdown > li').hover(function() {
 		jQuery(this).find('ul').show();
-	}, function(){
+	}, function() {
 		jQuery(this).find('ul').hide();
 	});
 
@@ -192,34 +188,38 @@ jQuery(document).ready(function(){
 	}
 
 	/********************************************* MAIN MENU ***********************************************/
-	jQuery('#main-menu').each(function(){
+	jQuery('#main-menu').each(function() {
 		var dTime, li_height, height, maxHeight, i;
 
-		jQuery(this).find('li').hover(function(){
+		jQuery(this).find('li').hover(function() {
 			//show submenu
 			jQuery(this).find('>ul').slideDown('slow');
-		},function () {
+		}, function() {
 			//hide submenu
 			jQuery(this).find('>ul').hide();
 		});
 
 		dTime = 1200;
-		jQuery(this).find('ul').each(function(){
+		jQuery(this).find('ul').each(function() {
 			jQuery(this).find('li').hover(function() {
-				jQuery(this).stop().animate({backgroundColor: '#808080'}, dTime);
-			}, function(){
-				jQuery(this).stop().animate({backgroundColor: '#272727'}, dTime);
+				jQuery(this).stop().animate({
+					backgroundColor: '#808080'
+				}, dTime);
+			}, function() {
+				jQuery(this).stop().animate({
+					backgroundColor: '#272727'
+				}, dTime);
 			});
 		});
 
 		// dynamic height of menubar
 		li_height = jQuery(this).find('> li').height();
-		height = jQuery(this).find('> li > a').map(function(){
-   			return jQuery(this).height();
+		height = jQuery(this).find('> li > a').map(function() {
+			return jQuery(this).height();
 		});
-		maxHeight=height[0];
-		for (i = 0; i<height.length; i++) {
-		 	maxHeight = Math.max(maxHeight, height[i]);
+		maxHeight = height[0];
+		for (i = 0; i < height.length; i++) {
+			maxHeight = Math.max(maxHeight, height[i]);
 		}
 		jQuery('#topMenu').css('height', li_height + maxHeight);
 
@@ -229,19 +229,19 @@ jQuery(document).ready(function(){
 		}
 
 		// open admin in new browsertab
-		jQuery(this).find('ul li#menu-admin a').attr('target','blank');
+		jQuery(this).find('ul li#menu-admin a').attr('target', 'blank');
 	});
 
 	/********************************************* LANGUAGE (FLAGS) MENU ******************************************/
-	jQuery('#optionsmenu #lang-menu').each(function(){
-		jQuery(this).find('li').each(function(){
+	jQuery('#optionsmenu #lang-menu').each(function() {
+		jQuery(this).find('li').each(function() {
 			jQuery(this).tooltip({
 				position: {
 					my: "center top-40",
 					at: "center center"
 				}
 			});
-			jQuery(this).click(function(){
+			jQuery(this).click(function() {
 				location.href = jQuery(this).find('a').attr('href');
 			});
 			jQuery(this).find('a.lang-active').removeClass().parent('li').addClass('lang-active');
@@ -258,7 +258,7 @@ jQuery(document).ready(function(){
 		submenu.find('li:last a').addClass('addFav');
 	}
 
-	obj.each(function(){
+	obj.each(function() {
 		var url = jQuery(this).find('a').attr('href');
 		var id = qstring('pid', url) || qstring('famid', url) || qstring('mid', url) || qstring('nid', url) || qstring('rid', url) || qstring('sid', url);
 		if (id === pageId) {
@@ -268,26 +268,26 @@ jQuery(document).ready(function(){
 		}
 	});
 
-	obj.click(function(){
+	obj.click(function() {
 		jQuery('#menu-favorites > a').replaceWith(jQuery(this).html());
 	});
 
 	sortMenu('#fav-menu');
-	
+
 	// place the addFav-link at the bottom of the list after sorting has taken place
 	jQuery(".addFav").parent().appendTo("#menu-favorites ul")
 
 	/**************************************** MODAL DIALOG BOXES ********************************************/
 	// replace default function with our justblack theme function (better dialog boxes)
 	function jb_dialogBox() {
-		jQuery('[onclick^="modalDialog"], [onclick^="return modalDialog"]').each(function(){
-			jQuery(this).attr('onclick',function(index,attr){
+		jQuery('[onclick^="modalDialog"], [onclick^="return modalDialog"]').each(function() {
+			jQuery(this).attr('onclick', function(index, attr) {
 				return attr.replace('modalDialog', 'jb_modalDialog');
 			});
 		});
 
-		jQuery('[onclick^="helpDialog"]').each(function(){
-			jQuery(this).attr('onclick',function(index,attr){
+		jQuery('[onclick^="helpDialog"]').each(function() {
+			jQuery(this).attr('onclick', function(index, attr) {
 				return attr.replace('helpDialog', 'jb_helpDialog');
 			});
 		});
@@ -326,7 +326,7 @@ jQuery(document).ready(function(){
 		jQuery('#login-register-page .error').removeAttr('class');
 		jQuery('#login-register-page #register-text, #login-register-page #register-box').wrapAll('<div id="register-page-block">');
 
-		jQuery('#login-register-page #register-form label').each(function(){
+		jQuery('#login-register-page #register-form label').each(function() {
 			jQuery(this).after(jQuery(this).find('input'));
 			jQuery(this).after(jQuery(this).find('select'));
 			jQuery(this).after(jQuery(this).find('textarea'));
@@ -340,7 +340,7 @@ jQuery(document).ready(function(){
 		jQuery('#edituser-page h2').remove();
 		jQuery('<div id="edituser-page-title" class="subheaders ui-state-default">' + title + '</div>').prependTo('#edituser-page');
 		jQuery('#edituser_submit').before('<hr class="clearfloat">');
-		jQuery('#edituser-table input:first[type=password]').each(function(){
+		jQuery('#edituser-table input:first[type=password]').each(function() {
 			jQuery(this).parent().wrapInner('<span class="pw-info">');
 			jQuery(this).prependTo(jQuery(this).parents('.value'));
 		});
@@ -361,7 +361,7 @@ jQuery(document).ready(function(){
 	block.find('a').css('font-size', '11px');
 
 	// gedcom and user favorites block
-	jQuery('.block .gedcom_favorites_block .action_header, .block .gedcom_favorites_block .action_headerF, .block .user_favorites_block .action_header, .block .user_favorites_block .action_headerF').each(function(){
+	jQuery('.block .gedcom_favorites_block .action_header, .block .gedcom_favorites_block .action_headerF, .block .user_favorites_block .action_header, .block .user_favorites_block .action_headerF').each(function() {
 		jQuery(this).removeClass('person_box');
 	});
 
@@ -370,7 +370,7 @@ jQuery(document).ready(function(){
 
 		// General
 		jQuery('<div class="divider">').appendTo('#tabs ul:first');
-		jQuery('#tabs li').each(function(){
+		jQuery('#tabs li').each(function() {
 			jQuery(this).tooltip({
 				position: {
 					my: "center top+25",
@@ -386,57 +386,55 @@ jQuery(document).ready(function(){
 		var obj = jQuery(".person_box_template .inout2");
 		modifybox(obj);
 	}
-	
+
 	function modifybox(obj) {
-		obj.find(".field").contents().filter(function(){
+		obj.find(".field").contents().filter(function() {
 			return (this.nodeType === 3);
 		}).remove();
-		obj.find(".field span").filter(function(){
+		obj.find(".field span").filter(function() {
 			return jQuery(this).text().trim().length === 0;
 		}).remove();
-		obj.find("div[class^=fact_]").each(function(){
+		obj.find("div[class^=fact_]").each(function() {
 			var div = jQuery(this);
-			div.find(".field").each(function(){
-				if(jQuery.trim(jQuery(this).text()) === '') {
+			div.find(".field").each(function() {
+				if (jQuery.trim(jQuery(this).text()) === '') {
 					div.remove();
 				}
 			});
 		});
-		
+
 	}
-	
+
 	personbox_default();
-	
+
 	jQuery(document).ajaxComplete(function() {
-		setTimeout(function () {
+		setTimeout(function() {
 			personbox_default();
-		}, 500);		
+		}, 500);
 		var obj = jQuery(".person_box_zoom");
 		modifybox(obj);
 	});
-	
+
 	/************************************************ PEDIGREE CHART *****************************************************/
 	if (WT_SCRIPT_NAME === 'pedigree.php') {
 		jQuery("#content").each(function() {
 			jQuery(this).height(jQuery(this).height() + 80);
-		});	
+		});
 	}
 
 	/************************************************ HOURGLASS CHART *****************************************************/
-	function styleSB(){
-		jQuery('.person_box_template.style1').each(function(){
+	function styleSB() {
+		jQuery('.person_box_template.style1').each(function() {
 			var width = jQuery(this).width();
-			if(width < 250) { // spouses boxes are smaller then the default ones.
-				jQuery(this)
-					.addClass('spouse_box')
-					.removeAttr('style') // css styling
+			if (width < 250) { // spouses boxes are smaller then the default ones.
+				jQuery(this).addClass('spouse_box').removeAttr('style') // css styling
 					.closest('table').find('tr:first .person_box_template').css('border-bottom-style', 'dashed');
 			}
 		});
 	}
 
 	if (WT_SCRIPT_NAME === 'hourglass.php' && qstring('show_spouse') === '1') {
-		jQuery('a[onclick*=ChangeDis]').on('click', function(){
+		jQuery('a[onclick*=ChangeDis]').on('click', function() {
 			styleSB();
 		});
 		styleSB();
@@ -444,19 +442,19 @@ jQuery(document).ready(function(){
 
 	/****************************** CHILDBOX (ON PEDIGREE CHART AND HOURGLASS CHART)***************************************/
 	if (WT_SCRIPT_NAME === 'pedigree.php' || WT_SCRIPT_NAME === 'hourglass.php') {
-		jQuery('#hourglass_chart #childbox .name1').each(function(){
+		jQuery('#hourglass_chart #childbox .name1').each(function() {
 			jQuery(this).appendTo(jQuery(this).parents('#childbox'));
 		});
 		jQuery('#hourglass_chart #childbox table').remove();
 		jQuery('#hourglass_chart #childbox').removeAttr('style');
 
-		jQuery('#childbox').each(function(){
+		jQuery('#childbox').each(function() {
 			var childbox = jQuery(this);
 			childbox.find('br').remove();
 			childbox.wrapInner('<ul>');
 			childbox.find('a').wrap('<li>');
 			childbox.find('ul > span').wrap('<li class="cb_title">');
-			childbox.find('span.name1').each(function(){
+			childbox.find('span.name1').each(function() {
 				var sChar = '<';
 				var str = jQuery(this).text();
 				if (str.indexOf(sChar) > -1) {
@@ -467,9 +465,9 @@ jQuery(document).ready(function(){
 			});
 
 			var li_child = jQuery('#hourglass_chart #childbox').parent().prev('table').find('.popup li.cb_child');
-			li_child.each(function(){
+			li_child.each(function() {
 				var child = jQuery(this).text();
-				jQuery('#hourglass_chart #childbox li').each(function(){
+				jQuery('#hourglass_chart #childbox li').each(function() {
 					var str = jQuery(this).text();
 					if (str === child) {
 						jQuery(this).addClass('cb_child');
@@ -485,7 +483,7 @@ jQuery(document).ready(function(){
 			childbox.find('.cb_child').prepend('<span class="ui-icon ui-icon-person left">');
 		});
 
-		if(jQuery('#hourglass_chart #childbox').length > 0) {
+		if (jQuery('#hourglass_chart #childbox').length > 0) {
 			var fTop = jQuery('#footer').offset().top;
 			var cTop = jQuery('#hourglass_chart #childbox').offset().top;
 			var cHeight = jQuery('#hourglass_chart #childbox').outerHeight();
@@ -499,7 +497,7 @@ jQuery(document).ready(function(){
 
 	/************************************ FANCHART PAGE (POPUPS)***************************************/
 	if (WT_SCRIPT_NAME === 'fanchart.php') {
-		jQuery('.fan_chart_menu .person_box').each(function(){
+		jQuery('.fan_chart_menu .person_box').each(function() {
 			var fanbox = jQuery(this);
 			fanbox.find('.name1:not(.children .name1, div.name1), .charts li').prepend('<span class="ui-icon ui-icon-triangle-1-e left">');
 			fanbox.find('.children li').prepend('<span class="ui-icon ui-icon-person left">');
@@ -509,20 +507,19 @@ jQuery(document).ready(function(){
 	/************************************** MEDIALIST PAGE ********************************************/
 	if (WT_SCRIPT_NAME === 'medialist.php') {
 		// Medialist Menu
-		jQuery('.lightbox-menu').parent('td').each(function(){
+		jQuery('.lightbox-menu').parent('td').each(function() {
 			jQuery(this).wrapInner('<div class="lb-image_info">');
 			jQuery(this).find('.lightbox-menu').prependTo(jQuery(this));
 		});
 
 		jQuery('.lightbox-menu .lb-menu li ul').wrap('<div class="popup">');
 
-		jQuery('.lightbox-menu .lb-menu > li > a').each(function(){
+		jQuery('.lightbox-menu .lb-menu > li > a').each(function() {
 			var tooltip, pos;
-			tooltip	= jQuery(this).text();
-			if(jQuery(this).hasClass('lb-image_link')) {
+			tooltip = jQuery(this).text();
+			if (jQuery(this).hasClass('lb-image_link')) {
 				jQuery(this).parent().find('.popup ul').prepend('<li class="lb-pop-title">' + tooltip);
-			}
-			else {
+			} else {
 				if (jQuery(this).hasClass('lb-image_edit')) {
 					pos = "right-18";
 				}
@@ -540,15 +537,14 @@ jQuery(document).ready(function(){
 			jQuery(this).text('');
 		});
 
-		jQuery('.lb-menu .lb-image_link').parent().hover(function(){
+		jQuery('.lb-menu .lb-image_link').parent().hover(function() {
 			jQuery(this).find('.popup').fadeIn('slow');
-		},
-		function(){
+		}, function() {
 			jQuery(this).find('.popup').fadeOut('slow');
 		});
 
 		// media link list
-		jQuery(".lb-image_info").each(function(){
+		jQuery(".lb-image_info").each(function() {
 			jQuery(this).find('> a').addClass("media_link").next('br').remove();
 			jQuery(this).find('.media_link').wrapAll('<div class="media_link_list">');
 		});
@@ -569,14 +565,14 @@ jQuery(document).ready(function(){
 	}
 
 	/************************************** CLIPPINGS PAGE ********************************************/
-	if(qstring('mod') === 'clippings') {
+	if (qstring('mod') === 'clippings') {
 		jQuery('#content').addClass('clippings-page');
 		jQuery('.clippings-page li').prepend('<span class="ui-icon ui-icon-triangle-1-e left">');
 		jQuery('.clippings-page .topbottombar').addClass('ui-state-default descriptionbox').removeClass('topbottombar');
 		jQuery('.clippings-page h2').parent('td').removeClass();
 		jQuery('.clippings-page input[type=submit]').parent('td').removeClass().css('text-align', 'right');
 
-		if(jQuery('.clippings-page h3').length > 0) {
+		if (jQuery('.clippings-page h3').length > 0) {
 			jQuery('.clippings-page').wrapInner('<div class="add-clippings">');
 		}
 	}
@@ -590,19 +586,19 @@ jQuery(document).ready(function(){
 		searchResult = jQuery('#search-result-tabs');
 		if (searchResult.length > 0) {
 			searchForm.hide();
-			searchResult.each(function(){
+			searchResult.each(function() {
 				jQuery(this).find('ul').append('<li id="search-btn" class="ui-state-default ui-corner-top"><a href="#search"><span>' + titleBtn);
 				jQuery(this).find('.ui-tabs-nav, .fg-toolbar').removeClass('ui-widget-header');
 			});
 
 			jQuery('li#search-btn').on({
-				mouseenter: function(){
+				mouseenter: function() {
 					jQuery(this).addClass('ui-state-hover');
 				},
-				mouseleave: function(){
+				mouseleave: function() {
 					jQuery(this).removeClass('ui-state-hover');
 				},
-				click: function(){
+				click: function() {
 					jQuery(this).addClass('ui-state-active');
 					searchResult.fadeOut('slow');
 					searchForm.fadeIn('slow');
@@ -614,12 +610,12 @@ jQuery(document).ready(function(){
 	if (WT_SCRIPT_NAME === 'search_advanced.php') {
 		jQuery('#search-page a[onclick^=addFields]').attr('onclick', 'addFields();return false;');
 		searchResult = jQuery('#search-page .indi-list');
-		if(searchResult.length > 0) {
+		if (searchResult.length > 0) {
 			searchForm.hide();
 			searchResult.find('div[class^=filtersH]').append('<button id="search-btn" class="ui-state-default" type="button">' + titleBtn);
 
 			jQuery('#search-btn').on({
-				click: function(){
+				click: function() {
 					searchResult.fadeOut('slow');
 					searchForm.fadeIn('slow');
 				}
@@ -638,7 +634,7 @@ jQuery(document).ready(function(){
 
 	/************************************* PLACELIST PAGE *******************************************/
 	if (WT_SCRIPT_NAME === 'placelist.php') {
-		jQuery('#place-hierarchy').each(function(){
+		jQuery('#place-hierarchy').each(function() {
 			jQuery(this).find('.list_label').addClass('ui-state-default');
 			jQuery(this).find('.icon-place').remove();
 			jQuery(this).find('.list_table li a').before('<span class="ui-icon ui-icon-triangle-1-e left">');
@@ -647,7 +643,7 @@ jQuery(document).ready(function(){
 			jQuery(this).find('#places-tabs ul.ui-tabs-nav').after('<div class="divider">');
 		});
 	}
-	
+
 	/************************************** PENDING CHANGES POP UP ***********************************************/
 	jQuery('#pending table:first').addClass('top').after('<hr style="margin-top:15px">');
 	jQuery('#pending table:last').addClass('bottom').before('<hr style="margin-bottom:15px">');
@@ -657,38 +653,46 @@ jQuery(document).ready(function(){
 	jQuery('#pending .indent').removeClass();
 	jQuery('#pending .box b').wrap('<div class="indi_link">');
 	jQuery('#pending br').remove();
-	
+
 	// change the width of the popup screen
-	jQuery('[onclick*="edit_changes.php"]').each(function(){
-		jQuery(this).attr('onclick',function(index,attr){
+	jQuery('[onclick*="edit_changes.php"]').each(function() {
+		jQuery(this).attr('onclick', function(index, attr) {
 			return attr.replace('chan_window_specs', '\'width=850,height=600,left=100,top=100,resizable=1,scrollbars=1\'');
 		});
 	});
-	
+
 	/************************************* OTHER *******************************************/
 	// Correction. On default pdf opens on the same page. We do not want to force users to use the browser back button.
 	jQuery('#reportengine-page form').attr("onsubmit", "this.target='_blank'");
 
-		// styling of the lifespan module
-	jQuery('.lifespan_people .icon-sex_m_9x9').parents('#inner div[id^="bar"]').css({'background-color':'#545454', 'border':'#dd6900 1px solid'});
-	jQuery('.lifespan_people .icon-sex_f_9x9').parents('#inner div[id^="bar"]').css({'background-color':'#8E8E8E', 'border':'#dd6900 1px solid'});
+	// styling of the lifespan module
+	jQuery('.lifespan_people .icon-sex_m_9x9').parents('#inner div[id^="bar"]').css({
+		'background-color': '#545454',
+		'border': '#dd6900 1px solid'
+	});
+	jQuery('.lifespan_people .icon-sex_f_9x9').parents('#inner div[id^="bar"]').css({
+		'background-color': '#8E8E8E',
+		'border': '#dd6900 1px solid'
+	});
 	jQuery('.lifespan_people a.showit i.icon-sex_m_9x9, .lifespan_people a.showit i.icon-sex_f_9x9').hide();
 
 	// scroll to anchors
-	jQuery(".scroll").click(function(event){
+	jQuery(".scroll").click(function(event) {
 		var id = jQuery(this).attr("href");
 		var offset = 60;
 		var target = jQuery(id).offset().top - offset;
-		jQuery("html, body").animate({scrollTop:target}, 1000);
+		jQuery("html, body").animate({
+			scrollTop: target
+		}, 1000);
 		event.preventDefault();
 	});
 
 	// open all external links in new window/tab - Not sure if this function is still neccessary. See WT_Filter::expandUrls
-	jQuery("a[href^=http]").each(function(){
-      if(this.href.indexOf(location.hostname) === -1) {
-         jQuery(this).attr({
-            target: "_blank"
-         });
-      }
-   });
+	jQuery("a[href^=http]").each(function() {
+		if (this.href.indexOf(location.hostname) === -1) {
+			jQuery(this).attr({
+				target: "_blank"
+			});
+		}
+	});
 });

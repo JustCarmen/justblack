@@ -1,4 +1,5 @@
 <?php
+
 // Template for drawing the main blocks on the portal pages
 //
 // This template expects that the following variables will be set
@@ -36,13 +37,13 @@ if (!defined('WT_WEBTREES')) {
 use WT\Auth;
 
 // Default Main Block
-$block_main_tpl = '	<div id="'.$id.'" class="block">
-						<div class="blockheader">'.$title.'</div>
-						<div class="blockcontent normal_inner_block '.$class.'">'.$content.'</div>
+$block_main_tpl = '	<div id="' . $id . '" class="block">
+						<div class="blockheader">' . $title . '</div>
+						<div class="blockcontent normal_inner_block ' . $class . '">' . $content . '</div>
 					</div>';
 
 // don't show a logout block, there is already a logout link in the header
-if ($id == 'login_block'.$block_id && Auth::check()) {
+if ($id == 'login_block' . $block_id && Auth::check()) {
 	$block = false;
 }
 

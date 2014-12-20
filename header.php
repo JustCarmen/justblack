@@ -37,51 +37,52 @@ $this
 	->addExternalJavascript(JB_COLORBOX_URL . 'justblack.colorbox.js');
 
 // extra dataTables
-if (WT_SCRIPT_NAME == 'index.php') getJBMessageTable();
-if (WT_Filter::get('mod') == 'clippings') getJBClippingsTable();
-
+if (WT_SCRIPT_NAME == 'index.php')
+	getJBMessageTable();
+if (WT_Filter::get('mod') == 'clippings')
+	getJBClippingsTable();
 ?>
 <!DOCTYPE html>
 <html <?php echo WT_I18N::html_markup(); ?>>
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<?php echo header_links($META_DESCRIPTION, $META_ROBOTS, $META_GENERATOR, $LINK_CANONICAL) ?>
-	<title><?php echo WT_Filter::escapeHtml($title) ?></title>
-	<link rel="icon" href="<?php echo WT_CSS_URL; ?>favicon.png" type="image/png">
-	<link rel="stylesheet" type="text/css" href="<?php echo JB_JQUERY_UI_CSS; ?>">
-	<link rel="stylesheet" type="text/css" href="<?php echo JB_COLORBOX_URL; ?>colorbox.css">
-	<link rel="stylesheet" type="text/css" href="<?php echo WT_CSS_URL; ?>style.css">
-	<link rel="stylesheet" type="text/css" href="<?php echo WT_CSS_URL; ?>treeview.css">
-	<!--[if IE 8]>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-	<![endif]-->
-</head>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<?php echo header_links($META_DESCRIPTION, $META_ROBOTS, $META_GENERATOR, $LINK_CANONICAL) ?>
+		<title><?php echo WT_Filter::escapeHtml($title) ?></title>
+		<link rel="icon" href="<?php echo WT_CSS_URL; ?>favicon.png" type="image/png">
+		<link rel="stylesheet" type="text/css" href="<?php echo JB_JQUERY_UI_CSS; ?>">
+		<link rel="stylesheet" type="text/css" href="<?php echo JB_COLORBOX_URL; ?>colorbox.css">
+		<link rel="stylesheet" type="text/css" href="<?php echo WT_CSS_URL; ?>style.css">
+		<link rel="stylesheet" type="text/css" href="<?php echo WT_CSS_URL; ?>treeview.css">
+		<!--[if IE 8]>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+		<![endif]-->
+	</head>
 
-<?php
-if ($view == 'simple') {
-	// Popup windows need space for the save/close buttons
-	echo '<style>body{margin-bottom:50px;}</style>';
-}
-?>
+	<?php
+	if ($view == 'simple') {
+		// Popup windows need space for the save/close buttons
+		echo '<style>body{margin-bottom:50px;}</style>';
+	}
+	?>
 
-<body id="body">
-	<?php if ($view != 'simple'): ?>
-	<?php getJBScriptVars(); ?>
-	<header>
-		<?php echo getJBheader(); ?>
-		<div id="optionsmenu">
-			<div id="fav-menu">
-				<ul class="dropdown"><?php echo WT_MenuBar::getFavoritesMenu(); ?></ul>
-			</div>
-			<div id="search-menu"><?php echo getJBSearch(); ?></div>'
-			<?php echo getJBFlags(); ?>
-		</div>
-		<div class="clearfloat"></div>
-		<div id="topMenu"><?php echo getJBTopMenu(); ?></div>
-		<div class="divider"></div>
-	</header>
-	<?php endif; ?>
-	
-	<?php echo WT_FlashMessages::getHtmlMessages() ?>
-	<main id="content">
+	<body id="body">
+		<?php if ($view != 'simple'): ?>
+			<?php getJBScriptVars(); ?>
+			<header>
+				<?php echo getJBheader(); ?>
+				<div id="optionsmenu">
+					<div id="fav-menu">
+						<ul class="dropdown"><?php echo WT_MenuBar::getFavoritesMenu(); ?></ul>
+					</div>
+					<div id="search-menu"><?php echo getJBSearch(); ?></div>'
+					<?php echo getJBFlags(); ?>
+				</div>
+				<div class="clearfloat"></div>
+				<div id="topMenu"><?php echo getJBTopMenu(); ?></div>
+				<div class="divider"></div>
+			</header>
+		<?php endif; ?>
+
+		<?php echo WT_FlashMessages::getHtmlMessages() ?>
+		<main id="content">

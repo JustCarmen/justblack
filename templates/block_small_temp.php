@@ -32,7 +32,6 @@ if (!defined('WT_WEBTREES')) {
 	header('HTTP/1.0 403 Forbidden');
 	exit;
 }
-
 ?>
 <div id="<?php echo $id; ?>" class="block" >
 	<div class="blockheader">

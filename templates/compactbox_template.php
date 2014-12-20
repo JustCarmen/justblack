@@ -1,4 +1,5 @@
 <?php
+
 // Template for drawing person boxes
 // This template expects that the following variables will be set
 //  $pid, $boxID, $icons, $GEDCOM, $style,
@@ -31,15 +32,15 @@ if (!defined('WT_WEBTREES')) {
 }
 
 echo
-'<div data-pid="'. $pid . '"' , $outBoxAdd, '>
+'<div data-pid="' . $pid . '"', $outBoxAdd, '>
 	<div class="compact_view">',
-		getJBThumb($person, '50', true),
-		'<a href="individual.php?pid=', $pid, '&amp;ged=', rawurlencode($GEDCOM), '" title="',strip_tags($name.$addname),'">
-			<span class="namedef name',$style,'">', $shortname, '</span>
+ getJBThumb($person, '50', true),
+ '<a href="individual.php?pid=', $pid, '&amp;ged=', rawurlencode($GEDCOM), '" title="', strip_tags($name . $addname), '">
+			<span class="namedef name', $style, '">', $shortname, '</span>
 		</a>
 	</div>
-	<div class="inout2 details',$style,'">',
-		$person->getLifeSpan(), '
+	<div class="inout2 details', $style, '">',
+ $person->getLifeSpan(), '
 	</div>
 	<div class="inout"></div>
 </div>';
