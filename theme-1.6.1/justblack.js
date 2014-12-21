@@ -244,7 +244,6 @@ jQuery(document).ready(function() {
 			jQuery(this).click(function() {
 				location.href = jQuery(this).find('a').attr('href');
 			});
-			jQuery(this).find('a.lang-active').removeClass().parent('li').addClass('lang-active');
 		});
 	});
 

@@ -174,7 +174,12 @@ function getJBFlags() {
 			$output = '<div id="lang-menu"><ul>';
 			foreach ($menu->getSubmenus() as $submenu) {
 				if ($submenu) {
-					$output .= '<li id="' . $submenu->getId() . '" title="' . $submenu->getLabel() . '">
+					$lang = explode('-', $submenu->getId());
+					$class='';
+					if (WT_LOCALE == $lang[2]) {
+						$class = ' class="lang-active" ';
+					}
+					$output .= '<li id="' . $submenu->getId() . '"' . $class . 'title="' . $submenu->getLabel() . '">
 								<a href="' . $submenu->getLink() . '"></a></li>';
 				}
 			}
