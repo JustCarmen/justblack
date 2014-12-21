@@ -27,11 +27,11 @@
 */
 
 @media print {
-	#topMenu, #header, #optionsmenu, #header select, #header input, #footer select, #backprint, #sidebar, #separator {
+	#topMenu, header, #optionsmenu, header select, header input, footer select, #backprint, #sidebar, #separator {
 		display: none;
 	}
 
-	#header, #footer, .noprint {
+	header, footer, .noprint {
 		display: none !important;
 	}
 
@@ -146,7 +146,7 @@ html[dir="rtl"] input:required:valid, html[dir="rtl"] textarea:required:valid, h
 	height: 150px;
 }
 
-#header h1 {	
+header h1 {	
 	font-family: '@Comfortaa',Verdana,Arial,Helvetica,sans-serif;
 	font-size: 20px;
 	color: #e7e7e7;
@@ -160,7 +160,7 @@ html[dir="rtl"] input:required:valid, html[dir="rtl"] textarea:required:valid, h
 	z-index: 1;
 }
 
-#header h1 a {
+header h1 a {
 	color: #e7e7e7;
 }
 
@@ -1652,7 +1652,7 @@ html[dir="rtl"] .pedigree_image {
 	padding: 20px;
 }
 
-#footer {
+footer {
 	clear: both;
 	color: #e7e7e7;
 	font-size: 12px;

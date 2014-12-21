@@ -91,8 +91,7 @@ function getJBheader() {
 			break;
 	}
 
-	$html = '<div id="header">
-				<div id="header-image" style="' . $header_image_style . '"></div>
+	$html = '	<div id="header-image" style="' . $header_image_style . '"></div>
 				<div id="header-menu" style="' . $header_menu_style . '">' . $title . '
 					<div id="extra-menu">
 						<ul class="dropdown">' . WT_MenuBar::getThemeMenu();
@@ -101,8 +100,7 @@ function getJBheader() {
 	}
 	$html .= '			</ul></div>
 					<div id="login-menu">' . getJBLoginMenu() . '</div>
-				</div>
-			</div>';
+				</div>';
 
 	return $html;
 }

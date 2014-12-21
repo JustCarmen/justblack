@@ -31,7 +31,7 @@ if (!defined('WT_WEBTREES')) {
 </main>
 <?php if ($view != 'simple'): ?>
 	<div class="divider"></div>
-	<footer id="footer" class="<?php echo $TEXT_DIRECTION; ?> width99 center">
+	<footer>
 		<?php echo contact_links() ?>
 		<p class="logo">
 			<a href="<?php echo WT_WEBTREES_URL; ?>" target="_blank" class="icon-webtrees" title="<?php echo WT_WEBTREES, ' ', WT_VERSION; ?>"></a>
