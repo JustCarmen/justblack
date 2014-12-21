@@ -167,7 +167,7 @@ function getJBSearch() {
 }
 
 function getJBFlags() {
-	if (getThemeOption('flags') === 1) {
+	if (getThemeOption('flags') == 1) {
 		$menu = WT_MenuBar::getLanguageMenu();
 
 		if ($menu && $menu->getSubmenus()) {

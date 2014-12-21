@@ -75,7 +75,7 @@ if (WT_Filter::get('mod') == 'clippings')
 					<div id="fav-menu">
 						<ul class="dropdown"><?php echo WT_MenuBar::getFavoritesMenu(); ?></ul>
 					</div>
-					<div id="search-menu"><?php echo getJBSearch(); ?></div>'
+					<div id="search-menu"><?php echo getJBSearch(); ?></div>
 					<?php echo getJBFlags(); ?>
 				</div>
 				<div class="clearfloat"></div>
