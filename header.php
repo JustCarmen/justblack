@@ -47,8 +47,9 @@ if (WT_Filter::get('mod') == 'clippings')
 	<head>
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<?php echo header_links($META_DESCRIPTION, $META_ROBOTS, $META_GENERATOR, $LINK_CANONICAL) ?>
-		<title><?php echo WT_Filter::escapeHtml($title) ?></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<?php echo header_links($META_DESCRIPTION, $META_ROBOTS, $META_GENERATOR, $LINK_CANONICAL); ?>
+		<title><?php echo WT_Filter::escapeHtml($title); ?></title>
 		<link rel="icon" href="<?php echo WT_CSS_URL; ?>favicon.png" type="image/png">
 		<link rel="stylesheet" type="text/css" href="<?php echo JB_JQUERY_UI_CSS; ?>">
 		<link rel="stylesheet" type="text/css" href="<?php echo JB_COLORBOX_URL; ?>colorbox.css">
