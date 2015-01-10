@@ -49,68 +49,34 @@ function getJBScriptVars() {
 	', WT_Controller_Base::JS_PRIORITY_HIGH);
 }
 
-// Theme setting for the header section
-function getJBheader() {
-	switch (getThemeOption('header')) {
-		case '1':
-			$image = WT_DATA_DIR . getThemeOption('image');
-			if (file_exists($image)) {
-				$bg = file_get_contents($image); // The data dir is a protected directory.
-				$type = @getimagesize($image);
-				$header_image_style = 'background-image:url(data:' . $type['mime'] . ';base64,' . base64_encode($bg) . '); height: ' . getThemeOption('headerheight') . 'px';
-				$header_menu_style = 'height: ' . getThemeOption('headerheight') . 'px';
-			} else {
-				$header_image_style = 'background-image:url(' . WT_CSS_URL . 'images/header.jpg)';
-				$header_menu_style = '';
-			}
-			break;
-		case '2':
-			$header_image_style = 'height: ' . getThemeOption('headerheight') . 'px';
-			$header_menu_style = $header_image_style;
-			break;
-		default:
-			$header_image_style = 'background-image:url(' . WT_CSS_URL . 'images/header.jpg)';
-			$header_menu_style = '';
-			break;
+// Theme settings for the header section
+function JBheaderTopStyle () {
+	$image = WT_DATA_DIR . getThemeOption('image');
+	if(getThemeOption('header') === '1' && file_exists($image)) {
+		$bg = file_get_contents($image); // The data dir is a protected directory.
+		$type = @getimagesize($image);
+		return 'background-image:url(data:' . $type['mime'] . ';base64,' . base64_encode($bg) . '); height: ' . getThemeOption('headerheight') . 'px;';		
+	} elseif (getThemeOption('header') === '2') {
+		return 'height: ' . getThemeOption('headerheight') . 'px;';
+	} else {
+		return 'background-image:url(' . WT_CSS_URL . 'images/header.jpg)';
 	}
+}
 
-	switch (getThemeOption('treetitle')) {
-		case '0':
-			$title = '';
-			break;
-		case '1':
-			$pos = getThemeOption('titlepos');
-			$posV = 'top:' . $pos['V']['size'] . $pos['V']['fmt'];
-			$posH = $pos['H']['pos'] . ':' . $pos['H']['size'] . $pos['H']['fmt'];
-			$posH = $pos['H']['pos'] == 'left' ? 'right:auto;' . $posH : 'left:auto;' . $posH;
-			$font_size = 'font-size:' . getThemeOption('titlesize') . 'px';
-			$title = '<h1 style="' . $font_size . ';' . $posV . ';' . $posH . '"><a href="index.php">' . WT_TREE_TITLE . '</a></h1>';
-			break;
-		default:
-			$title = '<h1><a href="index.php">' . WT_TREE_TITLE . '</a></h1>';
-			break;
-	}
-
-	$html = '	<div id="header-image" style="' . $header_image_style . '"></div>
-				<div id="header-menu" style="' . $header_menu_style . '">' . $title . '
-					<div id="extra-menu">
-						<ul class="dropdown">' . WT_MenuBar::getThemeMenu();
-	if (!getThemeOption('flags') || getThemeOption('flags') == 0) {
-		$html .= WT_MenuBar::getLanguageMenu();
-	}
-	$html .= '			</ul></div>
-					<div id="login-menu">' . getJBLoginMenu() . '</div>
-				</div>';
-
-	return $html;
+function JBheaderTitleStyle(){
+	$pos = getThemeOption('titlepos');
+	$posV = 'top:' . $pos['V']['size'] . $pos['V']['fmt'];
+	$posH = $pos['H']['pos'] . ':' . $pos['H']['size'] . $pos['H']['fmt'];
+	$posH = $pos['H']['pos'] == 'left' ? 'right:auto;' . $posH : 'left:auto;' . $posH;
+	$font_size = 'font-size:' . getThemeOption('titlesize') . 'px';
+	return $font_size . ';' . $posV . ';' . $posH . ';';
 }
 
 // Menus
-function getJBTopMenu() {
+function getJBNavMenu() {
 	global $controller, $SEARCH_SPIDER;
 
 	$menus = getThemeOption('menu');
-
 	if ($menus && WT_GED_ID && !$SEARCH_SPIDER) {
 		$jb_controller = new justblack_theme_options_WT_Module;
 		$menus = $jb_controller->checkModule($menus);
@@ -140,9 +106,10 @@ function getJBTopMenu() {
 				$list[] = $item;
 			}
 		}
-		$output = implode('', $list);
+		return implode('', $list);
 	} else {
-		$output = WT_MenuBar::getGedcomMenu() .
+		return 
+			WT_MenuBar::getGedcomMenu() .
 			WT_MenuBar::getMyPageMenu() .
 			WT_MenuBar::getChartsMenu() .
 			WT_MenuBar::getListsMenu() .
@@ -151,7 +118,6 @@ function getJBTopMenu() {
 			WT_MenuBar::getSearchMenu() .
 			implode('', WT_MenuBar::getModuleMenus());
 	}
-	return '<ul id="main-menu">' . $output . '</ul>';
 }
 
 function getJBSearch() {
@@ -165,25 +131,22 @@ function getJBSearch() {
 }
 
 function getJBFlags() {
-	if (getThemeOption('flags') == 1) {
-		$menu = WT_MenuBar::getLanguageMenu();
-
-		if ($menu && $menu->getSubmenus()) {
-			$output = '<div id="lang-menu"><ul>';
-			foreach ($menu->getSubmenus() as $submenu) {
-				if ($submenu) {
-					$lang = explode('-', $submenu->getId());
-					$class = '';
-					if (WT_LOCALE == $lang[2]) {
-						$class = ' class="lang-active" ';
-					}
-					$output .= '<li id="' . $submenu->getId() . '"' . $class . 'title="' . $submenu->getLabel() . '">
-								<a href="' . $submenu->getLink() . '"></a></li>';
+	$menu = WT_MenuBar::getLanguageMenu();
+	
+	$flags = '';
+	if ($menu && $menu->getSubmenus()) {
+		foreach ($menu->getSubmenus() as $submenu) {
+			if ($submenu) {
+				$lang = explode('-', $submenu->getId());
+				$class = '';
+				if (WT_LOCALE == $lang[2]) {
+					$class = ' class="lang-active" ';
 				}
+				$flags .= '<li id="' . $submenu->getId() . '"' . $class . 'title="' . $submenu->getLabel() . '">
+							<a href="' . $submenu->getLink() . '"></a></li>';
 			}
-			$output .= '</ul></div>';
-			return $output;
 		}
+		return $flags;
 	}
 }
 

@@ -188,7 +188,7 @@ jQuery(document).ready(function() {
 	}
 
 	/********************************************* MAIN MENU ***********************************************/
-	jQuery('#main-menu').each(function() {
+	jQuery('.primary-menu').each(function() {
 		var dTime, li_height, height, maxHeight, i;
 
 		jQuery(this).find('li').hover(function() {
@@ -221,7 +221,7 @@ jQuery(document).ready(function() {
 		for (i = 0; i < height.length; i++) {
 			maxHeight = Math.max(maxHeight, height[i]);
 		}
-		jQuery('#topMenu').css('height', li_height + maxHeight);
+		jQuery('nav').css('height', li_height + maxHeight);
 
 		// No Gedcom submenu if there is just one gedcom
 		if (jQuery('#menu-tree ul li').length === 1) {
@@ -233,7 +233,7 @@ jQuery(document).ready(function() {
 	});
 
 	/********************************************* LANGUAGE (FLAGS) MENU ******************************************/
-	jQuery('#optionsmenu #lang-menu').each(function() {
+	jQuery('.header-flags').each(function() {
 		jQuery(this).find('li').each(function() {
 			jQuery(this).tooltip({
 				position: {
@@ -249,12 +249,12 @@ jQuery(document).ready(function() {
 
 	/********************************************* FAV-MENU ******************************************/
 	var pageId = qstring('pid') || qstring('famid') || qstring('mid') || qstring('nid') || qstring('rid') || qstring('sid');
-	var submenu = jQuery('#fav-menu > ul ul');
+	var submenu = jQuery('.header-favorites > ul ul');
 
 	obj = submenu.find('li');
 	if (authID && pageId !== undefined) {
 		obj = submenu.find('li').not(':last');
-		submenu.find('li:last a').addClass('addFav');
+		submenu.find('li:last a').addClass('add-favorite');
 	}
 
 	obj.each(function() {
@@ -263,7 +263,7 @@ jQuery(document).ready(function() {
 		if (id === pageId) {
 			jQuery(this).addClass('active');
 			jQuery('#menu-favorites > a').replaceWith(jQuery(this).html());
-			jQuery('.addFav').parent('li').remove();
+			jQuery('.add-favorite').parent('li').remove();
 		}
 	});
 
@@ -271,10 +271,10 @@ jQuery(document).ready(function() {
 		jQuery('#menu-favorites > a').replaceWith(jQuery(this).html());
 	});
 
-	sortMenu('#fav-menu');
+	sortMenu('.header-favorites');
 
-	// place the addFav-link at the bottom of the list after sorting has taken place
-	jQuery(".addFav").parent().appendTo("#menu-favorites ul")
+	// place the add-favorite-link at the bottom of the list after sorting has taken place
+	jQuery(".add-favorite").parent().appendTo("#menu-favorites ul")
 
 	/**************************************** MODAL DIALOG BOXES ********************************************/
 	// replace default function with our justblack theme function (better dialog boxes)

@@ -67,20 +67,43 @@ if (WT_Filter::get('mod') == 'clippings')
 	}
 	?>
 
-	<body id="body">
+	<body>
 		<?php if ($view != 'simple'): ?>
 			<?php getJBScriptVars(); ?>
 			<header>
-				<?php echo getJBheader(); ?>
-				<div id="optionsmenu">
-					<div id="fav-menu">
+				<div class="header-top" style="<?php echo JBheaderTopStyle(); ?>">			
+					<?php if (getThemeOption('treetitle') === '1'): ?>
+					<h1 style="<?php echo JBheaderTitleStyle(); ?>">
+						<a href="index.php"><?php echo WT_TREE_TITLE; ?></a>
+					</h1>
+					<?php endif; ?>
+					<div class="header-topmenu">
+						<ul class="dropdown" role="menubar">
+							<?php 
+							echo WT_MenuBar::getThemeMenu();
+							if (!getThemeOption('flags')) {
+								echo WT_MenuBar::getLanguageMenu();
+							}
+							?>
+						</ul>
+					</div>
+					<div class="header-login"><?php echo getJBLoginMenu(); ?></div>					
+				</div>
+				<div class="header-bottom">
+					<div class="header-favorites">
 						<ul class="dropdown"><?php echo WT_MenuBar::getFavoritesMenu(); ?></ul>
 					</div>
-					<div id="search-menu"><?php echo getJBSearch(); ?></div>
-					<?php echo getJBFlags(); ?>
+					<div class="header-search"><?php echo getJBSearch(); ?></div>
+					<?php
+					if (getThemeOption('flags') === '1'): ?>
+						<div class="header-flags">
+							<ul role="menubar"><?php echo getJBFlags(); ?></ul>
+						</div>
+					<?php endif; ?>
 				</div>
-				<div class="clearfloat"></div>
-				<div id="topMenu"><?php echo getJBTopMenu(); ?></div>
+				<nav>
+					<ul class="primary-menu" role="menubar"><?php echo getJBNavMenu(); ?></ul>
+				</nav>
 				<div class="divider"></div>
 			</header>
 		<?php endif; ?>
