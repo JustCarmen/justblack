@@ -473,14 +473,6 @@ header h1 a {
 	background-position: right -230px;
 }
 
-#menu-chart-relationship li {
-	background-position: left -230px;
-}
-
-[dir=rtl] #menu-chart-relationship li {
-	background-position: right -230px;
-}
-
 #menu-chart-statistics {
 	background-position: left -253px;
 }
