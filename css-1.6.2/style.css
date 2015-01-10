@@ -103,6 +103,10 @@ body {
 	margin: 0;
 }
 
+main {
+	display: block;
+}
+
 a {
 	color: #dd6900;
 	text-decoration: none;
