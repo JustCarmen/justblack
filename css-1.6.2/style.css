@@ -27,15 +27,14 @@
 */
 
 @media print {
-	header, nav, .header-bottom, header select, header input, footer select, #backprint, #sidebar, #separator {
-		display: none;
-	}
-
-	header, footer, .noprint {
-		display: none !important;
-	}
-
-	form, button, input {
+	header,
+	footer,
+	form,
+	button,
+	input,
+	#sidebar, 
+	#separator,
+	.noprint {
 		display: none;
 	}
 
@@ -61,10 +60,6 @@
 		left: -10px;
 		top: -60px;
 		z-index: 1;
-	}
-
-	#CB_All {
-		display: none;
 	}
 }
 
