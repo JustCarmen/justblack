@@ -5369,7 +5369,7 @@ input[type="search"] {
 	height: 18px;
 	border: #545454 1px inset;
 	position: relative;
-	z-index: 999;
+	z-index: 99;
 }
 
 .dropdown > li {
