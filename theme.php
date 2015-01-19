@@ -3,11 +3,8 @@
 // JustBlack theme
 //
 // webtrees: Web based Family History software
-// Copyright (C) 2014 webtrees development team.
-// Copyright (C) 2014 JustCarmen.
-//
-// Derived from PhpGedView
-// Copyright (C) 2002 to 2010 PGV Development Team.
+// Copyright (C) 2015 webtrees development team.
+// Copyright (C) 2015 JustCarmen
 //
 // This program is free software; you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -23,93 +20,685 @@
 // along with this program; if not, write to the Free Software
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
 
-if (!defined('WT_WEBTREES')) {
-	header('HTTP/1.0 403 Forbidden');
-	exit;
+use WT\Auth;
+
+class JustBlackTheme extends WT\Theme\BaseTheme {
+
+	/** @var string the location of this theme */
+	private $theme_dir;
+
+	/** @var string the location of the jquery-ui files */
+	private $jquery_ui_url;
+
+	/** @var string the location of the colorbox files */
+	private $colorbox_url;
+	
+	/** {@inheritdoc} */
+	public function assetUrl() {
+		return 'themes/justblack/css-1.7.0/';
+	}
+
+	/** {@inheritdoc} */
+	public function bodyHeader() {
+		try {
+			return
+				'<body>' .
+				'<header>' .
+				$this->headerContent() .
+				$this->primaryMenuContainer($this->primaryMenu()) .
+				'</header>' .
+				'<div class="divider"></div>' .
+				'<main id="content" role="main">' .
+				$this->flashMessagesContainer(WT_FlashMessages::getMessages());
+		} catch (Exception $ex) {
+			parent::bodyHeader();
+		}
+	}	
+
+	/** {@inheritdoc} */
+	public function favicon() {
+		return '<link rel="icon" href="' . $this->assetUrl() . 'favicon.png" type="image/png">';
+	}
+
+	/** {@inheritdoc} */
+	public function footerContainer() {
+		try {
+			return
+				'</main>' .
+				'<div class="divider"></div>' .
+				'<footer>' . $this->footerContent() . '</footer>';
+		} catch (Exception $ex) {
+			parent::footerContainer();
+		}
+	}
+
+	private function formatFavoritesMenu() {
+		return
+			'<div class="header-favorites">' .
+			'<ul class="dropdown" role="menubar">' .
+			$this->menuFavorites() .
+			'</ul>' .
+			'</div>';
+	}
+
+	private function formatFlagsMenu() {
+		if ($this->themeOption('flags') === '1') {
+			return
+				'<div class="header-flags">' .
+				'<ul role="menubar">' . $this->menuFlags() . '</ul>' .
+				'</div>';
+		}
+	}
+
+	private function formatTopMenu() {
+		return
+			'<div class="header-topmenu">' .
+			'<ul class="dropdown" role="menubar">' .
+			implode('', $this->topMenu()) .
+			'</ul>' .
+			'</div>';
+	}
+
+	/** (@inheritdoc) */
+	public function formatTreeTitle() {
+		try {
+			if ($this->themeOption('treetitle') === '1') {
+				return '
+				<h1 style="' . $this->headerTitleStyle() . '">
+				<a href="index.php">' . $this->tree->tree_title_html . '</a>
+				</h1>';
+			}
+		} catch (Exception $ex) {
+			return parent::formatTreeTitle();
+		}
+	}
+
+	/** {@inheritdoc} */
+	public function headerContent() {
+		try {
+			return
+				'<div class="header-top" style="' . $this->headerTopStyle() . '">' .
+				$this->formatTreeTitle() .
+				$this->formatTopMenu() .
+				$this->formatSecondaryMenu() .
+				'</div>' .
+				'<div class="header-bottom">' .
+				$this->formatFavoritesMenu() .
+				$this->formQuickSearch() .
+				$this->formatFlagsMenu() .
+				'</div>';
+		} catch (Exception $ex) {
+			return parent::headerContent();
+		}
+	}
+
+	// Theme setting for the tree title
+	private function headerTitleStyle() {
+		$pos = $this->themeOption('titlepos');
+		$posV = $pos['V']['pos'] . ':' . $pos['V']['size'] . $pos['V']['fmt'];
+		$posH = $pos['H']['pos'] . ':' . $pos['H']['size'] . $pos['H']['fmt'];
+		$posH = $pos['H']['pos'] == 'left' ? 'right:auto;' . $posH : 'left:auto;' . $posH;
+		$font_size = 'font-size:' . $this->themeOption('titlesize') . 'px';
+		return $font_size . ';' . $posV . ';' . $posH . ';';
+	}
+
+	// Theme settings for the header top section
+	private function headerTopStyle() {
+		$image = WT_DATA_DIR . $this->themeOption('image');
+		if ($this->themeOption('header') === '1' && file_exists($image)) {
+			$bg = file_get_contents($image); // The data dir is a protected directory.
+			$type = @getimagesize($image);
+			return 'background-image:url(data:' . $type['mime'] . ';base64,' . base64_encode($bg) . '); height: ' . $this->themeOption('headerheight') . 'px;';
+		} elseif ($this->themeOption('header') === '2') {
+			return 'height: ' . $this->themeOption('headerheight') . 'px;';
+		} else {
+			return 'background-image:url(' . $this->assetUrl() . 'images/header.jpg)';
+		}
+	}
+
+	/** {@inheritdoc} */
+	public function hookAfterInit() {
+		try {
+			// Put a version number in the URL, to prevent browsers from caching old versions.
+			$this->theme_dir = 'themes/justblack/';
+			$this->jquery_ui_url = $this->theme_dir . 'jquery-ui-1.11.2/';
+			$this->colorbox_url = $this->theme_dir . 'colorbox-1.5.14/';
+		} catch (Exception $ex) {
+			return parent::hookAfterInit();
+		}
+	}
+
+	/** {@inheritdoc} */
+	public function hookFooterExtraJavascript() {
+		try {
+			return
+				$this->scriptVars() .
+				'<script src="' . WT_JQUERY_COLORBOX_URL . '"></script>' .
+				'<script src="' . WT_JQUERY_WHEELZOOM_URL . '"></script>' .
+				'<script src="' . $this->jquery_ui_url . 'jquery-ui-effects.min.js"></script>' .
+				'<script src="' . $this->theme_dir . 'justblack.js"></script>' .
+				'<script src="' . $this->colorbox_url . 'justblack.colorbox.js"></script>' .
+				$this->tableMessages() .
+				$this->tableClippings();
+		} catch (Exception $ex) {
+			return parent::hookFooterExtraJavascript();
+		}
+	}
+
+	/** {@inheritdoc} */
+	public function hookHeaderExtraContent() {
+		try {
+			$html = '';
+			if ($this->themeOption('css')) {
+				$html .= '<link rel="stylesheet" type="text/css" href="' . $this->themeOption('css') . '">';
+			}
+			if (WT_SCRIPT_NAME == 'individual.php' || WT_Filter::get('mod_action') === 'treeview') {
+				$html .= '<link rel="stylesheet" type="text/css" href="' . $this->assetUrl() . 'treeview.css">';
+			}
+			return $html;
+		} catch (Exception $ex) {
+			return parent::hookHeaderExtraContent();
+		}
+	}
+
+	/** {@inheritdoc} */
+	public function individualBox(WT_Individual $individual) {
+		try {
+			$personBoxClass = array_search($individual->getSex(), array('person_box' => 'M', 'person_boxF' => 'F', 'person_boxNN' => 'U'));
+			if ($this->tree->getPreference('SHOW_HIGHLIGHT_IMAGES')) {
+				$thumbnail = $this->thumbnail($individual);
+			} else {
+				$thumbnail = '';
+			}
+
+			return
+				'<div data-pid="' . $individual->getXref() . '" class="person_box_template ' . $personBoxClass . ' box-style1" style="width: ' . $this->parameter('chart-box-x') . 'px; min-height: ' . $this->parameter('chart-box-y') . 'px">' .
+				'<div class="noprint icons">' .
+				'<span class="iconz icon-zoomin" title="' . WT_I18N::translate('Zoom in/out on this box.') . '"></span>' .
+				'<div class="itr"><i class="icon-pedigree"></i><div class="popup">' .
+				'<ul class="' . $personBoxClass . '">' . implode('', $this->individualBoxMenu($individual)) . '</ul>' .
+				'</div>' .
+				'</div>' .
+				'</div>' .
+				'<div class="chart_textbox" style="max-height:' . $this->parameter('chart-box-y') . 'px;">' .
+				$thumbnail .
+				'<a href="' . $individual->getHtmlUrl() . '">' .
+				'<span class="namedef name1">' . $individual->getFullName() . '</span>' .
+				'</a>' .
+				'<div class="namedef name1">' . $individual->getAddName() . '</div>' .
+				'<div class="inout2 details1">' . $this->individualBoxFacts($individual) . '</div>' .
+				'</div>' .
+				'<div class="inout"></div>' .
+				'</div>';
+		} catch (Exception $ex) {
+			return parent::individualBox($individual);
+		}
+	}
+
+	/** {@inheritdoc} */
+	public function individualBoxLarge(WT_Individual $individual) {
+		try {
+			$personBoxClass = array_search($individual->getSex(), array('person_box' => 'M', 'person_boxF' => 'F', 'person_boxNN' => 'U'));
+			if ($this->tree->getPreference('SHOW_HIGHLIGHT_IMAGES')) {
+				$thumbnail = $this->thumbnail($individual);
+			} else {
+				$thumbnail = '';
+			}
+
+			return
+				'<div data-pid="' . $individual->getXref() . '" class="person_box_template ' . $personBoxClass . ' box-style2">' .
+				'<div class="noprint icons">' .
+				'<span class="iconz icon-zoomin" title="' . WT_I18N::translate('Zoom in/out on this box.') . '"></span>' .
+				'<div class="itr"><i class="icon-pedigree"></i><div class="popup">' .
+				'<ul class="' . $personBoxClass . '">' . implode('', $this->individualBoxMenu($individual)) . '</ul>' .
+				'</div>' .
+				'</div>' .
+				'</div>' .
+				'<div class="chart_textbox" style="max-height:' . $this->parameter('chart-box-y') . 'px;">' .
+				$thumbnail .
+				'<a href="' . $individual->getHtmlUrl() . '">' .
+				'<span class="namedef name2">' . $individual->getFullName() . '</span>' .
+				'</a>' .
+				'<div class="namedef name2">' . $individual->getAddName() . '</div>' .
+				'<div class="inout2 details2">' . $this->individualBoxFacts($individual) . '</div>' .
+				'</div>' .
+				'<div class="inout"></div>' .
+				'</div>';
+		} catch (Exception $ex) {
+			return parent::individualBoxLarge($individual);
+		}
+	}
+
+	public function individualBoxSmall(WT_Individual $individual) {
+		try {
+			$personBoxClass = array_search($individual->getSex(), array('person_box' => 'M', 'person_boxF' => 'F', 'person_boxNN' => 'U'));
+			if ($this->tree->getPreference('SHOW_HIGHLIGHT_IMAGES')) {
+				$thumbnail = $this->thumbnail($individual);
+			} else {
+				$thumbnail = '';
+			}
+
+			return
+				'<div data-pid="' . $individual->getXref() . '" class="person_box_template ' . $personBoxClass . ' box-style0" style="width: ' . $this->parameter('compact-chart-box-x') . 'px; min-height: ' . $this->parameter('compact-chart-box-y') . 'px">' .
+				'<div class="compact_view">' .
+				$thumbnail .
+				'<a href="' . $individual->getHtmlUrl() . '">' .
+				'<span class="namedef name0">' . $individual->getFullName() . '</span>' .
+				'</a>' .
+				'<div class="inout2 details0">' . $individual->getLifeSpan() . '</div>' .
+				'</div>' .
+				'<div class="inout"></div>' .
+				'</div>';
+		} catch (Exception $ex) {
+			return parent::individualBoxSmall($individual);
+		}
+	}
+
+	/** {@inheritdoc} */
+	public function logoPoweredBy() {
+		try {
+			return
+				parent::logoPoweredBy() .
+				'<a class="link" href="http://www.justcarmen.nl" target="_blank">Design: justcarmen.nl</a>';
+		} catch (Exception $ex) {
+			return parent::logoPoweredBy();
+		}
+	}
+
+	private function menuCompact(WT_Individual $individual) {
+		$menu = new WT_Menu(WT_I18N::translate('View'), '#', 'menu-view');
+
+		$menu->addSubmenu($this->menuChart($individual));
+		$menu->addSubmenu($this->menuLists());
+		if ($this->themeOption('compact_menu_reports')) {
+			$menu->addSubmenu($this->menuReports());
+		}
+		$menu->addSubmenu($this->menuCalendar());
+		
+		foreach ($menu->getSubmenus() as $submenu) {
+			$id = explode("-", $submenu->getId());
+			$new_id = implode("-", array($id[0], 'view', $id[1]));
+			$submenu->setId($new_id);
+		}
+
+		return $menu;
+	}
+
+	private function menuFlags() {
+		$menu = $this->menuLanguages();
+
+		$flags = '';
+		if ($menu && $menu->getSubmenus()) {
+			foreach ($menu->getSubmenus() as $submenu) {
+				if ($submenu) {
+					$lang = explode('-', $submenu->getId());
+					$class = '';
+					if (WT_LOCALE == $lang[2]) {
+						$class = ' class="lang-active" ';
+					}
+					$flags .= '<li id="' . $submenu->getId() . '"' . $class . 'title="' . $submenu->getLabel() . '">
+								<a href="' . $submenu->getLink() . '"></a></li>';
+				}
+			}
+			return $flags;
+		}
+	}
+
+	public function menuLists() {
+		try {
+			$menu = parent::menuLists();
+			if ($this->themeOption('media_menu')) {
+				$submenus = array_filter($menu->getSubmenus(), function (WT_Menu $menu) {
+					return $menu->getId() !== 'menu-list-obje';
+				});
+				$menu->setSubmenus($submenus);
+			}
+		} catch (Exception $ex) {
+			return parent::menuLists();
+		}
+		return $menu;
+	}
+
+	private function menuMedia() {
+		global $MEDIA_DIRECTORY;
+
+		$mainfolder = $this->themeOption('media_link') == $MEDIA_DIRECTORY ? '' : '&amp;folder=' . rawurlencode($this->themeOption('media_link'));
+		$subfolders = $this->themeOption('subfolders') ? '&amp;subdirs=on' : '';
+
+		$menu = new WT_Menu(/* I18N: Main media menu */ WT_I18N::translate('Media'), 'medialist.php?action=filter&amp;search=no' . $mainfolder . '&amp;sortby=title&amp;' . $subfolders . '&amp;max=20&amp;columns=2', 'menu-media');
+
+		$folders = $this->themeOption('mediafolders'); $i = 0;
+		foreach ($folders as $key => $folder) {
+			if ($key !== $MEDIA_DIRECTORY) {
+				$submenu = new WT_Menu(ucfirst($folder), 'medialist.php?action=filter&amp;search=no&amp;folder=' . rawurlencode($key) . '&amp;sortby=title&amp;' . $subfolders . '&amp;max=20&amp;columns=2', 'menu-media-' . $i);
+				$menu->addSubmenu($submenu);
+			}
+			$i++;
+		}
+		return $menu;
+	}
+
+	/** {@inheritdoc} */
+	public function parameter($parameter_name) {
+		$parameters = array(
+			'chart-background-f'			 => 'ffeeb0',
+			'chart-background-m'			 => 'ff8c00',
+			'chart-background-u'			 => 'ffffde',
+			'chart-font-color'				 => '2e2e2e',
+			'chart-font-size'				 => 9,
+			'chart-spacing-x'				 => 5,
+			'chart-spacing-y'				 => 40,
+			'compact-chart-box-y'			 => 55,
+			'distribution-chart-high-values' => 'ff8c00',
+			'distribution-chart-low-values'	 => 'ffeeb0',
+			'line-width'					 => 1,
+			'shadow-blur'					 => 12,
+			'shadow-color'					 => '171717',
+			'shadow-offset-x'				 => 2,
+			'shadow-offset-y'				 => 2,
+		);
+
+		if (array_key_exists($parameter_name, $parameters)) {
+			return $parameters[$parameter_name];
+		} else {
+			return parent::parameter($parameter_name);
+		}
+	}
+
+	/** {@inheritdoc} */
+	public function primaryMenu() {
+		try {
+			global $controller;
+			
+			$menus = $this->themeOption('menu');
+			if ($this->tree && $menus) {
+				$individual = $controller->getSignificantIndividual();
+				
+				$modules = WT_Module::getActiveMenus();
+				foreach ($menus as $menu) {
+					$label = $menu['label'];
+					$sort = $menu['sort'];
+					$function = $menu['function'];
+					if ($sort > 0) {
+						if ($function == 'menuCompact') {
+							$menubar[] = $this->menuCompact($individual);
+						} elseif ($function == 'menuMedia') {
+							$menubar[] = $this->menuMedia();
+						} elseif ($function == 'menuChart') {
+							$menubar[] = $this->menuChart($individual);
+						} elseif ($function == 'menuModules') {
+							$menubar[] = $modules[$label]->getMenu();
+						} else {
+							$menubar[] = $this->{$function}();
+						}
+					}
+				}
+				return array_filter($menubar);
+			} else {
+				return parent::primaryMenu();
+			}
+		} catch (Exception $ex) {
+			return parent::primaryMenu();
+		}
+	}
+
+	// This theme uses variables from php files in the javascript files
+	private function scriptVars() {
+		return '<script>' .
+			'var WT_SERVER_NAME = "' . WT_SERVER_NAME . '";' .
+			'var WT_SCRIPT_PATH = "' . WT_SCRIPT_PATH . '";' .
+			'var WT_CSS_URL = "' . $this->assetUrl() . '";' .
+			'var WT_TREE_TITLE = "' . $this->tree->tree_title . '";' .
+			'var JB_THEME_URL = "' . $this->theme_dir . '";' .
+			'var JB_COLORBOX_URL = "' . $this->colorbox_url . '";' .
+			'var authID = "' . Auth::id() . '";' .
+			'</script>';
+	}
+
+	public function secondaryMenu() {
+		try {
+			return array_filter(array(
+				$this->menuLogin(),
+				$this->menuMyAccount(),
+				$this->menuLogout(),
+				$this->menuPendingChanges()
+			));
+		} catch (Exception $ex) {
+			return parent::secondaryMenu();
+		}
+	}
+
+	/** {@inheritdoc} */
+	public function stylesheets() {
+		return array(
+			$this->jquery_ui_url . 'jquery-ui.min.css',
+			$this->colorbox_url . 'colorbox.css',
+			$this->assetUrl() . 'style.css',
+		);
+	}
+
+	private function tableClippings() {
+		if (WT_Filter::get('mod') == 'clippings') {
+			return
+				'<script src="' . WT_JQUERY_DATATABLES_URL . '"></script>' .
+				'<script>
+				var dataTable = jQuery("table#mycart");
+				dataTable.find("tr:first").wrap("<thead>"); dataTable.find("tbody").before(jQuery("thead"));
+				jQuery.fn.dataTableExt.oSort["unicode-asc" ]=function(a,b) {return a.replace(/<[^<]*>/, "").localeCompare(b.replace(/<[^<]*>/, ""))};
+				jQuery.fn.dataTableExt.oSort["unicode-desc"]=function(a,b) {return b.replace(/<[^<]*>/, "").localeCompare(a.replace(/<[^<]*>/, ""))};
+				dataTable.dataTable({
+					dom: \'<"H"pf<"dt-clear">irl>t<"F"pl>\',
+					' . WT_I18N::datatablesI18N() . ',
+					jQueryUI: true,
+					autoWidth:false,
+					processing: true,
+					filter: true,
+					columns: [
+						/* 0-Name/Description */	{},
+						/* 1-Delete */				{sortable: false, class: "center"}
+					],
+					pageLength: 10,
+					pagingType: "full_numbers"
+				});
+				</script>';
+		}
+	}
+
+	private function tableMessages() {
+		if (WT_SCRIPT_NAME == 'index.php') {
+			return
+				'<script src="' . WT_JQUERY_DATATABLES_URL . '"></script>' .
+				'<script>
+				function jb_expand_layer(sid) {
+					var obj = jQuery("#"+sid+"_img");
+					if (obj.hasClass("icon-plus")) {
+						obj.removeClass("icon-plus").addClass("icon-minus");
+						var $class = obj.parents("tr").attr("class");
+						obj.parents("tr").after("<tr class=\"" + $class + "\"><td class=\"wrap\" colspan=\"4\">" + jQuery("#"+sid).html());
+					} else {
+						obj.removeClass("icon-minus").addClass("icon-plus");
+						obj.parents("tr").next().remove();
+					}
+					return false;
+				}
+
+				var dataTable = jQuery(".user_messages_block");
+
+				dataTable.removeClass("small_inner_block");
+				dataTable.find("table").removeClass("list_table");
+				dataTable.find("td").removeClass("list_value_wrap").addClass("wrap");
+				dataTable.find("table tr:first").wrap("<thead>");
+				dataTable.find("tbody").before(jQuery(".user_messages_block thead"));
+				dataTable.find("tbody tr:odd").each(function(){
+					jQuery(this).find("div[id^=message]").appendTo("body");
+					jQuery(this).remove();
+				});
+				dataTable.find("tr:first").children("td").replaceWith(function(i, html) {
+					return "<th>" + html.replace(":", "") + "</th>";
+				});
+				dataTable.find("th:first a").replaceWith("<input type=\"checkbox\" name=\"select_all\" style=\"vertical-align:middle;margin:0 3px\">");
+				dataTable.find("th:first br").remove();
+
+				dataTable.on("click", "input[name=select_all]", function(){
+					if (jQuery(this).is(":checked") == true) {
+						jQuery("input[id^=cb_message]").prop("checked", true);
+					} else {
+						jQuery("input[id^=cb_message]").prop("checked", false);
+					}
+				});
+
+				dataTable.find("a[onclick*=expand_layer]").each(function(){
+					jQuery(this).attr("onclick",function(index,attr){
+						return attr.replace("expand_layer", "jb_expand_layer");
+					});
+				});
+
+				dataTable.find("table").dataTable({
+					dom: \'<"H"pf<"dt-clear">irl>t<"F"pl>\',
+					' . WT_I18N::datatablesI18N() . ',
+					jQueryUI: true,
+					autoWidth:false,
+					processing: true,
+					filter: true,
+									sort: false,
+					columns: [
+						/* 0-Delete */          {class: "center"},
+						/* 1-Subject */         {},
+						/* 2-Date_send */       {},
+						/* 3-User - email */	{}
+					],
+					pageLength: 10,
+					pagingType: "full_numbers"
+				});
+				</script>';
+		}
+	}
+
+	/** {@inheritdoc} */
+	public function themeId() {
+		return 'justblack';
+	}
+
+	/** {@inheritdoc} */
+	public function themeName() {
+		return /* I18N: Name of a theme. */ WT_I18N::translate('JustBlack');
+	}
+
+	// This theme comes with an optional module to set a few theme options
+	private function themeOption($setting) {
+		if (array_key_exists('justblack_theme_options', WT_Module::getActiveModules())) {
+			$module = new justblack_theme_options_WT_Module;
+			return $module->options($setting);
+		}
+	}
+
+	private function thumbnail($individual) {
+		global $USE_SILHOUETTE;
+
+		$media = $individual->findHighlightedMedia();
+		if ($media) {
+			$mediasrc = $media->getServerFilename();
+			if (file_exists($mediasrc) && $data = getimagesize($mediasrc)) { // extra check to be sure the thumb can be created.
+				// Thumbnail exists - use it.
+				if ($media->isExternal()) {
+					// Use an icon
+					$mime_type = str_replace('/', '-', $media->mimeType());
+					$image = '<i' .
+						' dir="' . 'auto' . '"' . // For the tool-tip
+						' class="' . 'icon-mime-' . $mime_type . '"' .
+						' title="' . strip_tags($media->getFullName()) . '"' .
+						'></i>';
+				} else {
+					// Create a thumbnail image
+					$type = $media->mimeType();
+					if ($type == 'image/jpeg' || $type == 'image/png') {
+
+						if (!list($width_orig, $height_orig) = @getimagesize($mediasrc)) {
+							return $no_thumbnail = true;
+						}
+
+						switch ($type) {
+							case 'image/jpeg':
+								$imagesrc = @imagecreatefromjpeg($mediasrc);
+								break;
+							case 'image/png':
+								$imagesrc = @imagecreatefrompng($mediasrc);
+								break;
+						}
+
+						$ratio_orig = $width_orig / $height_orig;
+						$thumbwidth = $thumbheight = '50';
+
+
+						if ($thumbwidth / $thumbheight > $ratio_orig) {
+							$new_height = $thumbwidth / $ratio_orig;
+							$new_width = $thumbwidth;
+						} else {
+							$new_width = $thumbheight * $ratio_orig;
+							$new_height = $thumbheight;
+						}
+
+						$process = imagecreatetruecolor(round($new_width), round($new_height));
+						imagecopyresampled($process, $imagesrc, 0, 0, 0, 0, $new_width, $new_height, $width_orig, $height_orig);
+						$thumb = imagecreatetruecolor($thumbwidth, $thumbheight);
+						imagecopyresampled($thumb, $process, 0, 0, 0, 0, $thumbwidth, $thumbheight, $thumbwidth, $thumbheight);
+
+						imagedestroy($process);
+						imagedestroy($imagesrc);
+
+						ob_start(); imagejpeg($thumb, null, 80); $thumb = ob_get_clean();
+						$src = 'data:image/jpeg;base64,' . base64_encode($thumb);
+
+						$image = '<img' .
+							' dir="' . 'auto' . '"' . // For the tool-tip
+							' src="' . $src . '"' .
+							' alt="' . strip_tags($media->getFullName()) . '"' .
+							' title="' . strip_tags($media->getFullName()) . '"' .
+							'>';
+					} else {
+						$src = $media->getHtmlUrlDirect('thumb');
+					}
+
+					$image = '<img' .
+						' dir="' . 'auto' . '"' . // For the tool-tip
+						' src="' . $src . '"' .
+						' alt="' . strip_tags($media->getFullName()) . '"' .
+						' title="' . strip_tags($media->getFullName()) . '"' .
+						'>';
+
+					return
+						'<a' .
+						' class="' . 'gallery' . '"' .
+						' href="' . $media->getHtmlUrlDirect('main') . '"' .
+						' type="' . $media->mimeType() . '"' .
+						' data-obje-url="' . $media->getHtmlUrl() . '"' .
+						' data-obje-note="' . htmlspecialchars($media->getNote()) . '"' .
+						' data-title="' . WT_Filter::escapeHtml($media->getFullName()) . '"' .
+						'>' . $image . '</a>';
+				}
+			} else {
+				$no_thumbnail = true;
+			}
+		} else {
+			$no_thumbnail = true;
+		}
+
+		if ($no_thumbnail == true) {
+			if ($USE_SILHOUETTE) {
+				return '<i class="icon-silhouette-' . $individual->getSex() . '"></i>';
+			} else {
+				return '';
+			}
+		}
+	}
+
+	private function topMenu() {
+		return array_filter(array(
+			$this->menuThemes(),
+			!$this->themeOption('flags') ? $this->menuLanguages() : ''
+		));
+	}
+
 }
 
-// Theme name - this needs double quotes, as file is scanned/parsed by script
-$theme_name = "JustBlack"; /* I18N: Name of a theme. */ WT_I18N::translate('JustBlack');
-
-// A version number in the path prevents browser-cache problems during upgrade
-define('WT_CSS_URL', WT_THEME_URL . 'css-1.6.2/');
-
-// theme specific files
-define('JB_COLORBOX_URL', WT_THEME_URL . 'colorbox-1.5.14/');
-define('JB_THEME_URL', WT_THEME_URL . 'theme-1.6.2/');
-define('JB_JQUERY_UI_CSS', WT_THEME_URL . 'jquery-ui-1.11.2/jquery-ui.min.css');
-
-require_once(JB_THEME_URL . 'functions.php');
-
-$headerfile	 = WT_THEME_DIR . 'header.php';
-$footerfile	 = WT_THEME_DIR . 'footer.php';
-
-// Legacy icons.
-$WT_IMAGES = array(
-	// used to draw charts
-	'dline'				 => WT_CSS_URL . 'images/dline.png',
-	'dline2'			 => WT_CSS_URL . 'images/dline2.png',
-	'hline'				 => WT_CSS_URL . 'images/hline.png',
-	'spacer'			 => WT_CSS_URL . 'images/spacer.png',
-	'vline'				 => WT_CSS_URL . 'images/vline.png',
-	// used in button images and javascript
-	'add'				 => WT_CSS_URL . 'images/icons/add.png',
-	'button_family'		 => WT_CSS_URL . 'images/buttons/sfamily.png',
-	'minus'				 => WT_CSS_URL . 'images/icons/minus.png',
-	'plus'				 => WT_CSS_URL . 'images/icons/plus.png',
-	'remove'			 => WT_CSS_URL . 'images/icons/remove.png',
-	'search'			 => WT_CSS_URL . 'images/buttons/search.png',
-	// need different sizes before moving to CSS
-	'default_image_M'	 => WT_CSS_URL . 'images/silhouette_male.png',
-	'default_image_F'	 => WT_CSS_URL . 'images/silhouette_female.png',
-	'default_image_U'	 => WT_CSS_URL . 'images/silhouette_unknown.png',
-);
-
-//-- Variables for the Fan chart
-$fanChart = array(
-	'font'		 => WT_ROOT . 'includes/fonts/DejaVuSans.ttf',
-	'size'		 => '9px',
-	'color'		 => '#2e2e2e',
-	'bgColor'	 => '#FFFFDE',
-	'bgMColor'	 => '#FF8C00',
-	'bgFColor'	 => '#FFEEB0'
-);
-
-//-- pedigree chart variables
-$bwidth			 = 250;   // width of boxes on pedigree chart
-$bheight		 = 80;   // height of boxes on pedigree chart
-$baseyoffset	 = 10;   // position the entire pedigree tree relative to the top of the page
-$basexoffset	 = 10;   // position the entire pedigree tree relative to the left of the page
-$bxspacing		 = 5;   // horizontal spacing between boxes on the pedigree chart
-$byspacing		 = 40;   // vertical spacing between boxes on the pedigree chart
-$brborder		 = 1;   // box right border thickness
-$linewidth		 = 1;   // width of joining lines
-$shadowcolor	 = "#171717"; // shadow color for joining lines
-$shadowblur		 = 12;   // shadow blur for joining lines
-$shadowoffsetX	 = 2;   // shadowOffsetX for joining lines
-$shadowoffsetY	 = 2;   // shadowOffsetY for joining lines
-// descendancy - relationship chart variables
-$Dbaseyoffset	 = 20;   // position the entire descendancy tree relative to the top of the page
-$Dbasexoffset	 = 20;   // position the entire descendancy tree relative to the left of the page
-$Dbxspacing		 = 5; // horizontal spacing between boxes
-$Dbyspacing		 = 10; // vertical spacing between boxes
-$Dbwidth		 = 260; // width of DIV layer boxes
-$Dbheight		 = 80; // height of DIV layer boxes
-$Dindent		 = 15; // width to indent descendancy boxes
-$Darrowwidth	 = 30; // additional width to include for the up arrows
-// -- Dimensions for compact version of chart displays
-$cbwidth		 = 240;
-$cbheight		 = 55;
-
-// --  The largest possible area for charts is 300,000 pixels. As the maximum height or width is 1000 pixels
-$WT_STATS_S_CHART_X	 = 440;
-$WT_STATS_S_CHART_Y	 = 125;
-$WT_STATS_L_CHART_X	 = 900;
-
-// --  For map charts, the maximum size is 440 pixels wide by 220 pixels high
-$WT_STATS_MAP_X	 = 440;
-$WT_STATS_MAP_Y	 = 220;
-
-$WT_STATS_CHART_COLOR1	 = "ffffff";
-$WT_STATS_CHART_COLOR2	 = "ff8c00";
-$WT_STATS_CHART_COLOR3	 = "ffeeb0";
+return new JustBlackTheme;

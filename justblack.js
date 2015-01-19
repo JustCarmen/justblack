@@ -2,10 +2,7 @@
  * JustBlack script for the JustBlack theme
  *
  * webtrees: Web based Family History software
- * Copyright (C) 2014 JustCarmen
- *
- * Derived from PhpGedView
- * Copyright (C) 2002 to 2009  PGV Development Team.  All rights reserved.
+ * Copyright (C) 2015 JustCarmen
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -212,7 +209,7 @@ jQuery(document).ready(function() {
 
 		dTime = 1200;
 		jQuery(this).find('ul').each(function() {
-			jQuery(this).find('li').hover(function() {
+			jQuery(this).children().hover(function() {
 				jQuery(this).stop().animate({
 					backgroundColor: '#808080'
 				}, dTime);
