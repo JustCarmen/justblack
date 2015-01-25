@@ -1298,26 +1298,51 @@ tr.classy0, tr.classy1 {
 	margin: 0 auto;
 }
 
+/* ======== medialist.php ==== */
+#medialist-page {
+	width: 75%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#medialist-page form + div > p {
+	text-align: center;
+}
+
+#medialist-page div .list_table {
+	border: none;
+	border-spacing: 10px;
+    border-collapse: separate;
+	width: 100%;
+}
+
 #medialist-page .list_table_controls {
 	width: 100%;
+}
+
+#medialist-page .media-col {
+	border: none;
+	width: 100%;
+}
+
+#medialist-page .media-col2 {
+	width: 50%;
 }
 
 .list_table_controls td {
 	min-width: 40px;
 }
 
-.list_table_controls td:nth-child(2) {
+.list_table_controls td {
 	text-align: center;
 }
 
-.list_table_controls td:nth-child(3) {
-	text-align: right;
+.list_table_controls td:first-child {
+	text-align: left;
 }
-/* ======== medialist.php ==== */
-#medialist-page {
-	width: 75%;
-	margin-left: auto;
-	margin-right: auto;
+
+.list_table_controls td:last-child {
+	text-align: right;
 }
 
 #medialist-page .media_link_list {
