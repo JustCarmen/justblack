@@ -480,7 +480,7 @@ class JustBlackTheme extends WT\Theme\BaseTheme {
 	private function tableClippings() {
 		if (WT_Filter::get('mod') == 'clippings') {
 			return
-				'<script src="' . WT_JQUERY_DATATABLES_URL . '"></script>' .
+				'<script src="' . WT_JQUERY_DATATABLES_JS_URL . '"></script>' .
 				'<script>
 				var dataTable = jQuery("table#mycart");
 				dataTable.find("tr:first").wrap("<thead>"); dataTable.find("tbody").before(jQuery("thead"));
@@ -507,7 +507,7 @@ class JustBlackTheme extends WT\Theme\BaseTheme {
 	private function tableMessages() {
 		if (WT_SCRIPT_NAME == 'index.php') {
 			return
-				'<script src="' . WT_JQUERY_DATATABLES_URL . '"></script>' .
+				'<script src="' . WT_JQUERY_DATATABLES_JS_URL . '"></script>' .
 				'<script>
 				function jb_expand_layer(sid) {
 					var obj = jQuery("#"+sid+"_img");
