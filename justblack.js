@@ -692,14 +692,5 @@ jQuery(document).ready(function() {
 			scrollTop: target
 		}, 1000);
 		event.preventDefault();
-	});
-
-	// open all external links in new window/tab - Not sure if this function is still neccessary. See WT_Filter::expandUrls
-	jQuery("a[href^=http]").each(function() {
-		if (this.href.indexOf(location.hostname) === -1) {
-			jQuery(this).attr({
-				target: "_blank"
-			});
-		}
-	});
+	});	
 });
