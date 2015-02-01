@@ -105,7 +105,7 @@ class JustBlackTheme extends WT\Theme\BaseTheme {
 			if ($this->themeOption('treetitle') === '1') {
 				return '
 				<h1 style="' . $this->headerTitleStyle() . '">
-				<a href="index.php">' . $this->tree->tree_title_html . '</a>
+				<a href="index.php">' . $this->tree->titleHtml() . '</a>
 				</h1>';
 			}
 		} catch (Exception $ex) {
@@ -445,10 +445,8 @@ class JustBlackTheme extends WT\Theme\BaseTheme {
 	// This theme uses variables from php files in the javascript files
 	private function scriptVars() {
 		return '<script>' .
-			'var WT_SERVER_NAME = "' . WT_SERVER_NAME . '";' .
-			'var WT_SCRIPT_PATH = "' . WT_SCRIPT_PATH . '";' .
 			'var WT_CSS_URL = "' . $this->assetUrl() . '";' .
-			'var WT_TREE_TITLE = "' . $this->tree->tree_title . '";' .
+			'var WT_TREE_TITLE = "' . $this->tree->name() . '";' .
 			'var JB_THEME_URL = "' . $this->theme_dir . '";' .
 			'var JB_COLORBOX_URL = "' . $this->colorbox_url . '";' .
 			'var authID = "' . Auth::id() . '";' .
@@ -459,7 +457,7 @@ class JustBlackTheme extends WT\Theme\BaseTheme {
 		try {
 			return array_filter(array(
 				$this->menuLogin(),
-				$this->menuMyAccount(),
+				$this->menuMyPages(),
 				$this->menuLogout(),
 				$this->menuPendingChanges()
 			));
