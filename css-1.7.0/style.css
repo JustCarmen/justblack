@@ -6104,6 +6104,17 @@ header h1 a {
 	float: right;
 }
 
+/* ====== User menu ======= */
+.user-menu {
+	left: auto;
+	right: 0;
+}
+
+[dir=rtl] .user-menu {
+	left: 0;
+	right: auto;
+}
+
 /* ====== Header bottom menu ======= */
 .header-bottom {
 	background-image: url(images/bar.png);

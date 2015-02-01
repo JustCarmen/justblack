@@ -32,7 +32,7 @@ class JustBlackTheme extends WT\Theme\BaseTheme {
 
 	/** @var string the location of the colorbox files */
 	private $colorbox_url;
-	
+
 	/** {@inheritdoc} */
 	public function assetUrl() {
 		return 'themes/justblack/css-1.7.0/';
@@ -53,7 +53,7 @@ class JustBlackTheme extends WT\Theme\BaseTheme {
 		} catch (Exception $ex) {
 			parent::bodyHeader();
 		}
-	}	
+	}
 
 	/** {@inheritdoc} */
 	public function favicon() {
@@ -90,6 +90,13 @@ class JustBlackTheme extends WT\Theme\BaseTheme {
 		}
 	}
 
+	private function formatUserMenu() {
+		return
+			'<ul class="secondary-menu user-menu">' .
+			implode('', $this->userMenu()) .
+			'</ul>';
+	}
+
 	private function formatTopMenu() {
 		return
 			'<div class="header-topmenu">' .
@@ -121,6 +128,7 @@ class JustBlackTheme extends WT\Theme\BaseTheme {
 				$this->formatTreeTitle() .
 				$this->formatTopMenu() .
 				$this->formatSecondaryMenu() .
+				$this->formatUserMenu() .
 				'</div>' .
 				'<div class="header-bottom">' .
 				$this->formatFavoritesMenu() .
@@ -314,7 +322,7 @@ class JustBlackTheme extends WT\Theme\BaseTheme {
 			$menu->addSubmenu($this->menuReports());
 		}
 		$menu->addSubmenu($this->menuCalendar());
-		
+
 		foreach ($menu->getSubmenus() as $submenu) {
 			$id = explode("-", $submenu->getId());
 			$new_id = implode("-", array($id[0], 'view', $id[1]));
@@ -409,11 +417,11 @@ class JustBlackTheme extends WT\Theme\BaseTheme {
 	public function primaryMenu() {
 		try {
 			global $controller;
-			
+
 			$menus = $this->themeOption('menu');
 			if ($this->tree && $menus) {
 				$individual = $controller->getSignificantIndividual();
-				
+
 				$modules = WT_Module::getActiveMenus();
 				foreach ($menus as $menu) {
 					$label = $menu['label'];
@@ -453,13 +461,27 @@ class JustBlackTheme extends WT\Theme\BaseTheme {
 			'</script>';
 	}
 
+	/** {@inheritdoc} */
 	public function secondaryMenu() {
 		try {
 			return array_filter(array(
+				$this->menuMyPage(),
+				$this->menuMyIndividualRecord(),
+				$this->menuMyPedigree(),
+			));
+		} catch (Exception $ex) {
+			return parent::secondaryMenu();
+		}
+	}
+
+	private function userMenu() {
+		try {
+			return array_filter(array(
 				$this->menuLogin(),
-				$this->menuMyPages(),
+				$this->menuMyAccount(),
+				$this->menuControlPanel(),
 				$this->menuLogout(),
-				$this->menuPendingChanges()
+				$this->menuPendingChanges(),
 			));
 		} catch (Exception $ex) {
 			return parent::secondaryMenu();
