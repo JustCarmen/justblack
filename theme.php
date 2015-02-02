@@ -464,11 +464,18 @@ class JustBlackTheme extends WT\Theme\BaseTheme {
 	/** {@inheritdoc} */
 	public function secondaryMenu() {
 		try {
-			return array_filter(array(
-				$this->menuMyPage(),
-				$this->menuMyIndividualRecord(),
-				$this->menuMyPedigree(),
-			));
+			if (Auth::id()) {
+				return array_filter(array(
+					$this->menuMyPage(),
+					$this->menuMyIndividualRecord(),
+					$this->menuMyPedigree(),
+				));
+			} else {
+				// It is just a visitor
+				return array(
+					$this->menuLogin(),
+				);
+			}
 		} catch (Exception $ex) {
 			return parent::secondaryMenu();
 		}
@@ -477,7 +484,6 @@ class JustBlackTheme extends WT\Theme\BaseTheme {
 	private function userMenu() {
 		try {
 			return array_filter(array(
-				$this->menuLogin(),
 				$this->menuMyAccount(),
 				$this->menuControlPanel(),
 				$this->menuLogout(),
