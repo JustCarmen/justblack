@@ -1,28 +1,25 @@
 <?php
+namespace Webtrees;
 
-// JustBlack theme
-//
-// webtrees: Web based Family History software
-// Copyright (C) 2015 webtrees development team.
-// Copyright (C) 2015 JustCarmen
-//
-// This program is free software; you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation; either version 2 of the License, or
-// (at your option) any later version.
-//
-// This program is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with this program; if not, write to the Free Software
-// Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
+/** 
+ * JustBlack Theme
+ * 
+ * webtrees: online genealogy
+ * Copyright (C) 2015 webtrees development team
+ * Copyright (C) 2015 JustCarmen
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ * You should have received a copy of the GNU General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
 
-use WT\Auth;
-
-class JustBlackTheme extends WT\Theme\BaseTheme {
+class JustBlackTheme extends BaseTheme {
 
 	/** @var string the location of this theme */
 	private $theme_dir;
@@ -49,7 +46,7 @@ class JustBlackTheme extends WT\Theme\BaseTheme {
 				'</header>' .
 				'<div class="divider"></div>' .
 				'<main id="content" role="main">' .
-				$this->flashMessagesContainer(WT_FlashMessages::getMessages());
+				$this->flashMessagesContainer(FlashMessages::getMessages());
 		} catch (Exception $ex) {
 			parent::bodyHeader();
 		}
@@ -200,7 +197,7 @@ class JustBlackTheme extends WT\Theme\BaseTheme {
 			if ($this->themeOption('css')) {
 				$html .= '<link rel="stylesheet" type="text/css" href="' . $this->themeOption('css') . '">';
 			}
-			if (WT_SCRIPT_NAME == 'individual.php' || WT_Filter::get('mod_action') === 'treeview') {
+			if (WT_SCRIPT_NAME == 'individual.php' || Filter::get('mod_action') === 'treeview') {
 				$html .= '<link rel="stylesheet" type="text/css" href="' . $this->assetUrl() . 'treeview.css">';
 			}
 			return $html;
@@ -210,7 +207,7 @@ class JustBlackTheme extends WT\Theme\BaseTheme {
 	}
 
 	/** {@inheritdoc} */
-	public function individualBox(WT_Individual $individual) {
+	public function individualBox(Individual $individual) {
 		try {
 			$personBoxClass = array_search($individual->getSex(), array('person_box' => 'M', 'person_boxF' => 'F', 'person_boxNN' => 'U'));
 			if ($this->tree->getPreference('SHOW_HIGHLIGHT_IMAGES')) {
@@ -222,7 +219,7 @@ class JustBlackTheme extends WT\Theme\BaseTheme {
 			return
 				'<div data-pid="' . $individual->getXref() . '" class="person_box_template ' . $personBoxClass . ' box-style1" style="width: ' . $this->parameter('chart-box-x') . 'px; min-height: ' . $this->parameter('chart-box-y') . 'px">' .
 				'<div class="noprint icons">' .
-				'<span class="iconz icon-zoomin" title="' . WT_I18N::translate('Zoom in/out on this box.') . '"></span>' .
+				'<span class="iconz icon-zoomin" title="' . I18N::translate('Zoom in/out on this box.') . '"></span>' .
 				'<div class="itr"><i class="icon-pedigree"></i><div class="popup">' .
 				'<ul class="' . $personBoxClass . '">' . implode('', $this->individualBoxMenu($individual)) . '</ul>' .
 				'</div>' .
@@ -244,7 +241,7 @@ class JustBlackTheme extends WT\Theme\BaseTheme {
 	}
 
 	/** {@inheritdoc} */
-	public function individualBoxLarge(WT_Individual $individual) {
+	public function individualBoxLarge(Individual $individual) {
 		try {
 			$personBoxClass = array_search($individual->getSex(), array('person_box' => 'M', 'person_boxF' => 'F', 'person_boxNN' => 'U'));
 			if ($this->tree->getPreference('SHOW_HIGHLIGHT_IMAGES')) {
@@ -256,7 +253,7 @@ class JustBlackTheme extends WT\Theme\BaseTheme {
 			return
 				'<div data-pid="' . $individual->getXref() . '" class="person_box_template ' . $personBoxClass . ' box-style2">' .
 				'<div class="noprint icons">' .
-				'<span class="iconz icon-zoomin" title="' . WT_I18N::translate('Zoom in/out on this box.') . '"></span>' .
+				'<span class="iconz icon-zoomin" title="' . I18N::translate('Zoom in/out on this box.') . '"></span>' .
 				'<div class="itr"><i class="icon-pedigree"></i><div class="popup">' .
 				'<ul class="' . $personBoxClass . '">' . implode('', $this->individualBoxMenu($individual)) . '</ul>' .
 				'</div>' .
@@ -277,7 +274,7 @@ class JustBlackTheme extends WT\Theme\BaseTheme {
 		}
 	}
 
-	public function individualBoxSmall(WT_Individual $individual) {
+	public function individualBoxSmall(Individual $individual) {
 		try {
 			$personBoxClass = array_search($individual->getSex(), array('person_box' => 'M', 'person_boxF' => 'F', 'person_boxNN' => 'U'));
 			if ($this->tree->getPreference('SHOW_HIGHLIGHT_IMAGES')) {
@@ -313,8 +310,8 @@ class JustBlackTheme extends WT\Theme\BaseTheme {
 		}
 	}
 
-	private function menuCompact(WT_Individual $individual) {
-		$menu = new WT_Menu(WT_I18N::translate('View'), '#', 'menu-view');
+	private function menuCompact(Individual $individual) {
+		$menu = new Menu(I18N::translate('View'), '#', 'menu-view');
 
 		$menu->addSubmenu($this->menuChart($individual));
 		$menu->addSubmenu($this->menuLists());
@@ -356,7 +353,7 @@ class JustBlackTheme extends WT\Theme\BaseTheme {
 		try {
 			$menu = parent::menuLists();
 			if ($this->themeOption('media_menu')) {
-				$submenus = array_filter($menu->getSubmenus(), function (WT_Menu $menu) {
+				$submenus = array_filter($menu->getSubmenus(), function (Menu $menu) {
 					return $menu->getId() !== 'menu-list-obje';
 				});
 				$menu->setSubmenus($submenus);
@@ -373,12 +370,12 @@ class JustBlackTheme extends WT\Theme\BaseTheme {
 		$mainfolder = $this->themeOption('media_link') == $MEDIA_DIRECTORY ? '' : '&amp;folder=' . rawurlencode($this->themeOption('media_link'));
 		$subfolders = $this->themeOption('subfolders') ? '&amp;subdirs=on' : '';
 
-		$menu = new WT_Menu(/* I18N: Main media menu */ WT_I18N::translate('Media'), 'medialist.php?action=filter&amp;search=no' . $mainfolder . '&amp;sortby=title&amp;' . $subfolders . '&amp;max=20&amp;columns=2', 'menu-media');
+		$menu = new Menu(/* I18N: Main media menu */ I18N::translate('Media'), 'medialist.php?action=filter&amp;search=no' . $mainfolder . '&amp;sortby=title&amp;' . $subfolders . '&amp;max=20&amp;columns=2', 'menu-media');
 
 		$folders = $this->themeOption('mediafolders'); $i = 0;
 		foreach ($folders as $key => $folder) {
 			if ($key !== $MEDIA_DIRECTORY) {
-				$submenu = new WT_Menu(ucfirst($folder), 'medialist.php?action=filter&amp;search=no&amp;folder=' . rawurlencode($key) . '&amp;sortby=title&amp;' . $subfolders . '&amp;max=20&amp;columns=2', 'menu-media-' . $i);
+				$submenu = new Menu(ucfirst($folder), 'medialist.php?action=filter&amp;search=no&amp;folder=' . rawurlencode($key) . '&amp;sortby=title&amp;' . $subfolders . '&amp;max=20&amp;columns=2', 'menu-media-' . $i);
 				$menu->addSubmenu($submenu);
 			}
 			$i++;
@@ -422,7 +419,7 @@ class JustBlackTheme extends WT\Theme\BaseTheme {
 			if ($this->tree && $menus) {
 				$individual = $controller->getSignificantIndividual();
 
-				$modules = WT_Module::getActiveMenus();
+				$modules = Module::getActiveMenus();
 				foreach ($menus as $menu) {
 					$label = $menu['label'];
 					$sort = $menu['sort'];
@@ -504,7 +501,7 @@ class JustBlackTheme extends WT\Theme\BaseTheme {
 	}
 
 	private function tableClippings() {
-		if (WT_Filter::get('mod') == 'clippings') {
+		if (Filter::get('mod') == 'clippings') {
 			return
 				'<script src="' . WT_JQUERY_DATATABLES_JS_URL . '"></script>' .
 				'<script>
@@ -514,7 +511,7 @@ class JustBlackTheme extends WT\Theme\BaseTheme {
 				jQuery.fn.dataTableExt.oSort["unicode-desc"]=function(a,b) {return b.replace(/<[^<]*>/, "").localeCompare(a.replace(/<[^<]*>/, ""))};
 				dataTable.dataTable({
 					dom: \'<"H"pf<"dt-clear">irl>t<"F"pl>\',
-					' . WT_I18N::datatablesI18N() . ',
+					' . I18N::datatablesI18N() . ',
 					jQueryUI: true,
 					autoWidth:false,
 					processing: true,
@@ -581,7 +578,7 @@ class JustBlackTheme extends WT\Theme\BaseTheme {
 
 				dataTable.find("table").dataTable({
 					dom: \'<"H"pf<"dt-clear">irl>t<"F"pl>\',
-					' . WT_I18N::datatablesI18N() . ',
+					' . I18N::datatablesI18N() . ',
 					jQueryUI: true,
 					autoWidth:false,
 					processing: true,
@@ -607,12 +604,12 @@ class JustBlackTheme extends WT\Theme\BaseTheme {
 
 	/** {@inheritdoc} */
 	public function themeName() {
-		return /* I18N: Name of a theme. */ WT_I18N::translate('JustBlack');
+		return /* I18N: Name of a theme. */ I18N::translate('JustBlack');
 	}
 
 	// This theme comes with an optional module to set a few theme options
 	private function themeOption($setting) {
-		if (array_key_exists('justblack_theme_options', WT_Module::getActiveModules())) {
+		if (array_key_exists('justblack_theme_options', Module::getActiveModules())) {
 			$module = new justblack_theme_options_WT_Module;
 			return $module->options($setting);
 		}
@@ -699,7 +696,7 @@ class JustBlackTheme extends WT\Theme\BaseTheme {
 						' type="' . $media->mimeType() . '"' .
 						' data-obje-url="' . $media->getHtmlUrl() . '"' .
 						' data-obje-note="' . htmlspecialchars($media->getNote()) . '"' .
-						' data-title="' . WT_Filter::escapeHtml($media->getFullName()) . '"' .
+						' data-title="' . Filter::escapeHtml($media->getFullName()) . '"' .
 						'>' . $image . '</a>';
 				}
 			} else {
