@@ -109,7 +109,7 @@ class JustBlackTheme extends BaseTheme {
 			if ($this->themeOption('treetitle') === '1') {
 				return '
 				<h1 style="' . $this->headerTitleStyle() . '">
-				<a href="index.php">' . $this->tree->titleHtml() . '</a>
+				<a href="index.php">' . $this->tree->getTitleHtml() . '</a>
 				</h1>';
 			}
 		} catch (Exception $ex) {
@@ -451,7 +451,7 @@ class JustBlackTheme extends BaseTheme {
 	private function scriptVars() {
 		return '<script>' .
 			'var WT_CSS_URL = "' . $this->assetUrl() . '";' .
-			'var WT_TREE_TITLE = "' . $this->tree->name() . '";' .
+			'var WT_TREE_TITLE = "' . $this->tree->getName() . '";' .
 			'var JB_THEME_URL = "' . $this->theme_dir . '";' .
 			'var JB_COLORBOX_URL = "' . $this->colorbox_url . '";' .
 			'var authID = "' . Auth::id() . '";' .
