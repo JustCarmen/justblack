@@ -365,7 +365,7 @@ class JustBlackTheme extends BaseTheme {
 	}
 
 	private function menuMedia() {
-		global $MEDIA_DIRECTORY;
+		$MEDIA_DIRECTORY = $this->tree->getPreference('MEDIA_DIRECTORY');
 
 		$mainfolder = $this->themeOption('media_link') == $MEDIA_DIRECTORY ? '' : '&amp;folder=' . rawurlencode($this->themeOption('media_link'));
 		$subfolders = $this->themeOption('subfolders') ? '&amp;subdirs=on' : '';
@@ -616,7 +616,7 @@ class JustBlackTheme extends BaseTheme {
 	}
 
 	private function thumbnail($individual) {
-		global $USE_SILHOUETTE;
+		global $WT_TREE;
 
 		$media = $individual->findHighlightedMedia();
 		if ($media) {
@@ -707,7 +707,7 @@ class JustBlackTheme extends BaseTheme {
 		}
 
 		if ($no_thumbnail == true) {
-			if ($USE_SILHOUETTE) {
+			if ($WT_TREE->getPreference('USE_SILHOUETTE')) {
 				return '<i class="icon-silhouette-' . $individual->getSex() . '"></i>';
 			} else {
 				return '';
