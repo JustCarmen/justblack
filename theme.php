@@ -214,32 +214,36 @@ class JustBlackTheme extends BaseTheme {
 	/** {@inheritdoc} */
 	public function individualBox(Individual $individual) {
 		try {
-			$personBoxClass = array_search($individual->getSex(), array('person_box' => 'M', 'person_boxF' => 'F', 'person_boxNN' => 'U'));
-			if ($this->tree->getPreference('SHOW_HIGHLIGHT_IMAGES')) {
-				$thumbnail = $this->thumbnail($individual);
-			} else {
-				$thumbnail = '';
-			}
+			if($this->themeOption('square_thumbs')) {
+				$personBoxClass = array_search($individual->getSex(), array('person_box' => 'M', 'person_boxF' => 'F', 'person_boxNN' => 'U'));
+				if ($this->tree->getPreference('SHOW_HIGHLIGHT_IMAGES')) {
+					$thumbnail = $this->thumbnail($individual);
+				} else {
+					$thumbnail = '';
+				}
 
-			return
-				'<div data-pid="' . $individual->getXref() . '" class="person_box_template ' . $personBoxClass . ' box-style1" style="width: ' . $this->parameter('chart-box-x') . 'px; min-height: ' . $this->parameter('chart-box-y') . 'px">' .
-				'<div class="noprint icons">' .
-				'<span class="iconz icon-zoomin" title="' . I18N::translate('Zoom in/out on this box.') . '"></span>' .
-				'<div class="itr"><i class="icon-pedigree"></i><div class="popup">' .
-				'<ul class="' . $personBoxClass . '">' . implode('', $this->individualBoxMenu($individual)) . '</ul>' .
-				'</div>' .
-				'</div>' .
-				'</div>' .
-				'<div class="chart_textbox" style="max-height:' . $this->parameter('chart-box-y') . 'px;">' .
-				$thumbnail .
-				'<a href="' . $individual->getHtmlUrl() . '">' .
-				'<span class="namedef name1">' . $individual->getFullName() . '</span>' .
-				'</a>' .
-				'<div class="namedef name1">' . $individual->getAddName() . '</div>' .
-				'<div class="inout2 details1">' . $this->individualBoxFacts($individual) . '</div>' .
-				'</div>' .
-				'<div class="inout"></div>' .
-				'</div>';
+				return
+					'<div data-pid="' . $individual->getXref() . '" class="person_box_template ' . $personBoxClass . ' box-style1" style="width: ' . $this->parameter('chart-box-x') . 'px; min-height: ' . $this->parameter('chart-box-y') . 'px">' .
+					'<div class="noprint icons">' .
+					'<span class="iconz icon-zoomin" title="' . I18N::translate('Zoom in/out on this box.') . '"></span>' .
+					'<div class="itr"><i class="icon-pedigree"></i><div class="popup">' .
+					'<ul class="' . $personBoxClass . '">' . implode('', $this->individualBoxMenu($individual)) . '</ul>' .
+					'</div>' .
+					'</div>' .
+					'</div>' .
+					'<div class="chart_textbox" style="max-height:' . $this->parameter('chart-box-y') . 'px;">' .
+					$thumbnail .
+					'<a href="' . $individual->getHtmlUrl() . '">' .
+					'<span class="namedef name1">' . $individual->getFullName() . '</span>' .
+					'</a>' .
+					'<div class="namedef name1">' . $individual->getAddName() . '</div>' .
+					'<div class="inout2 details1">' . $this->individualBoxFacts($individual) . '</div>' .
+					'</div>' .
+					'<div class="inout"></div>' .
+					'</div>';
+			} else {
+				return parent::individualBox($individual);
+			}
 		} catch (Exception $ex) {
 			return parent::individualBox($individual);
 		}
@@ -248,32 +252,36 @@ class JustBlackTheme extends BaseTheme {
 	/** {@inheritdoc} */
 	public function individualBoxLarge(Individual $individual) {
 		try {
-			$personBoxClass = array_search($individual->getSex(), array('person_box' => 'M', 'person_boxF' => 'F', 'person_boxNN' => 'U'));
-			if ($this->tree->getPreference('SHOW_HIGHLIGHT_IMAGES')) {
-				$thumbnail = $this->thumbnail($individual);
-			} else {
-				$thumbnail = '';
-			}
+			if($this->themeOption('square_thumbs')) {
+				$personBoxClass = array_search($individual->getSex(), array('person_box' => 'M', 'person_boxF' => 'F', 'person_boxNN' => 'U'));
+				if ($this->tree->getPreference('SHOW_HIGHLIGHT_IMAGES')) {
+					$thumbnail = $this->thumbnail($individual);
+				} else {
+					$thumbnail = '';
+				}
 
-			return
-				'<div data-pid="' . $individual->getXref() . '" class="person_box_template ' . $personBoxClass . ' box-style2">' .
-				'<div class="noprint icons">' .
-				'<span class="iconz icon-zoomin" title="' . I18N::translate('Zoom in/out on this box.') . '"></span>' .
-				'<div class="itr"><i class="icon-pedigree"></i><div class="popup">' .
-				'<ul class="' . $personBoxClass . '">' . implode('', $this->individualBoxMenu($individual)) . '</ul>' .
-				'</div>' .
-				'</div>' .
-				'</div>' .
-				'<div class="chart_textbox" style="max-height:' . $this->parameter('chart-box-y') . 'px;">' .
-				$thumbnail .
-				'<a href="' . $individual->getHtmlUrl() . '">' .
-				'<span class="namedef name2">' . $individual->getFullName() . '</span>' .
-				'</a>' .
-				'<div class="namedef name2">' . $individual->getAddName() . '</div>' .
-				'<div class="inout2 details2">' . $this->individualBoxFacts($individual) . '</div>' .
-				'</div>' .
-				'<div class="inout"></div>' .
-				'</div>';
+				return
+					'<div data-pid="' . $individual->getXref() . '" class="person_box_template ' . $personBoxClass . ' box-style2">' .
+					'<div class="noprint icons">' .
+					'<span class="iconz icon-zoomin" title="' . I18N::translate('Zoom in/out on this box.') . '"></span>' .
+					'<div class="itr"><i class="icon-pedigree"></i><div class="popup">' .
+					'<ul class="' . $personBoxClass . '">' . implode('', $this->individualBoxMenu($individual)) . '</ul>' .
+					'</div>' .
+					'</div>' .
+					'</div>' .
+					'<div class="chart_textbox" style="max-height:' . $this->parameter('chart-box-y') . 'px;">' .
+					$thumbnail .
+					'<a href="' . $individual->getHtmlUrl() . '">' .
+					'<span class="namedef name2">' . $individual->getFullName() . '</span>' .
+					'</a>' .
+					'<div class="namedef name2">' . $individual->getAddName() . '</div>' .
+					'<div class="inout2 details2">' . $this->individualBoxFacts($individual) . '</div>' .
+					'</div>' .
+					'<div class="inout"></div>' .
+					'</div>';
+			} else {
+				return parent::individualBoxLarge($individual);
+			}
 		} catch (Exception $ex) {
 			return parent::individualBoxLarge($individual);
 		}
@@ -281,24 +289,28 @@ class JustBlackTheme extends BaseTheme {
 
 	public function individualBoxSmall(Individual $individual) {
 		try {
-			$personBoxClass = array_search($individual->getSex(), array('person_box' => 'M', 'person_boxF' => 'F', 'person_boxNN' => 'U'));
-			if ($this->tree->getPreference('SHOW_HIGHLIGHT_IMAGES')) {
-				$thumbnail = $this->thumbnail($individual);
-			} else {
-				$thumbnail = '';
-			}
+			if($this->themeOption('square_thumbs')) {
+				$personBoxClass = array_search($individual->getSex(), array('person_box' => 'M', 'person_boxF' => 'F', 'person_boxNN' => 'U'));
+				if ($this->tree->getPreference('SHOW_HIGHLIGHT_IMAGES')) {
+					$thumbnail = $this->thumbnail($individual);
+				} else {
+					$thumbnail = '';
+				}
 
-			return
-				'<div data-pid="' . $individual->getXref() . '" class="person_box_template ' . $personBoxClass . ' box-style0" style="width: ' . $this->parameter('compact-chart-box-x') . 'px; min-height: ' . $this->parameter('compact-chart-box-y') . 'px">' .
-				'<div class="compact_view">' .
-				$thumbnail .
-				'<a href="' . $individual->getHtmlUrl() . '">' .
-				'<span class="namedef name0">' . $individual->getFullName() . '</span>' .
-				'</a>' .
-				'<div class="inout2 details0">' . $individual->getLifeSpan() . '</div>' .
-				'</div>' .
-				'<div class="inout"></div>' .
-				'</div>';
+				return
+					'<div data-pid="' . $individual->getXref() . '" class="person_box_template ' . $personBoxClass . ' box-style0" style="width: ' . $this->parameter('compact-chart-box-x') . 'px; min-height: ' . $this->parameter('compact-chart-box-y') . 'px">' .
+					'<div class="compact_view">' .
+					$thumbnail .
+					'<a href="' . $individual->getHtmlUrl() . '">' .
+					'<span class="namedef name0">' . $individual->getFullName() . '</span>' .
+					'</a>' .
+					'<div class="inout2 details0">' . $individual->getLifeSpan() . '</div>' .
+					'</div>' .
+					'<div class="inout"></div>' .
+					'</div>';
+			} else {
+				return parent::individualBoxSmall($individual);
+			}
 		} catch (Exception $ex) {
 			return parent::individualBoxSmall($individual);
 		}
