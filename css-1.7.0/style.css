@@ -5106,7 +5106,8 @@ table.tabs_table #side_bar a#alturl {
 
 #pedigree_chart #childarrow,
 #pedigree_chart #uparrow,
-#pedigree_chart .shadow {
+#pedigree_chart .shadow,
+.ancestorarrow {
 	position: absolute;
 }
 
