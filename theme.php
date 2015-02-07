@@ -149,7 +149,12 @@ class JustBlackTheme extends BaseTheme {
 
 	// Theme settings for the header top section
 	private function headerTopStyle() {
-		$image = WT_DATA_DIR . $this->themeOption('image');
+		if ($this->themeOption('image')) {
+			$image = WT_DATA_DIR . $this->themeOption('image');
+		}
+		else {
+			$image = '';
+		}
 		if ($this->themeOption('header') === '1' && file_exists($image)) {
 			$bg = file_get_contents($image); // The data dir is a protected directory.
 			$type = @getimagesize($image);
