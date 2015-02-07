@@ -616,7 +616,6 @@ class JustBlackTheme extends BaseTheme {
 	}
 
 	private function thumbnail($individual) {
-		global $WT_TREE;
 
 		$media = $individual->findHighlightedMedia();
 		if ($media) {
@@ -707,7 +706,7 @@ class JustBlackTheme extends BaseTheme {
 		}
 
 		if ($no_thumbnail == true) {
-			if ($WT_TREE->getPreference('USE_SILHOUETTE')) {
+			if ($this->tree->getPreference('USE_SILHOUETTE')) {
 				return '<i class="icon-silhouette-' . $individual->getSex() . '"></i>';
 			} else {
 				return '';
