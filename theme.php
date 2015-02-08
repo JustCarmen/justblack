@@ -1,9 +1,9 @@
 <?php
 namespace Fisharebest\Webtrees;
 
-/** 
+/**
  * JustBlack Theme
- * 
+ *
  * webtrees: online genealogy
  * Copyright (C) 2015 webtrees development team
  * Copyright (C) 2015 JustCarmen
@@ -384,18 +384,22 @@ class JustBlackTheme extends BaseTheme {
 	private function menuMedia() {
 		$MEDIA_DIRECTORY = $this->tree->getPreference('MEDIA_DIRECTORY');
 
-		$mainfolder = $this->themeOption('media_link') == $MEDIA_DIRECTORY ? '' : '&amp;folder=' . rawurlencode($this->themeOption('media_link'));
-		$subfolders = $this->themeOption('subfolders') ? '&amp;subdirs=on' : '';
+		$mainfolder = $this->themeOption('media_link') === $MEDIA_DIRECTORY ? '' : '&amp;folder=' . Filter::escapeUrl($this->themeOption('media_link'));
+		$folders = $this->themeOption('mediafolders');
+		$show_subfolders = $this->themeOption('show_subfolders') ? '&amp;subdirs=on' : '';
 
-		$menu = new Menu(/* I18N: Main media menu */ I18N::translate('Media'), 'medialist.php?action=filter&amp;search=no' . $mainfolder . '&amp;sortby=title&amp;' . $subfolders . '&amp;max=20&amp;columns=2', 'menu-media');
+		if (count($folders) > 1) {
+			$menu = new Menu(/* I18N: Main media menu */ I18N::translate('Media'), 'medialist.php?' . $this->tree_url . '&amp;action=filter&amp;search=no' . $mainfolder . '&amp;sortby=title' . $show_subfolders . '&amp;max=20&amp;columns=2', 'menu-media');
 
-		$folders = $this->themeOption('mediafolders'); $i = 0;
-		foreach ($folders as $key => $folder) {
-			if ($key !== $MEDIA_DIRECTORY) {
-				$submenu = new Menu(ucfirst($folder), 'medialist.php?action=filter&amp;search=no&amp;folder=' . rawurlencode($key) . '&amp;sortby=title&amp;' . $subfolders . '&amp;max=20&amp;columns=2', 'menu-media-' . $i);
-				$menu->addSubmenu($submenu);
+			$i = 1;
+			foreach ($folders as $key => $folder) {
+				if ($key !== $MEDIA_DIRECTORY) {
+					$submenu = new Menu(ucfirst($folder), 'medialist.php?' . $this->tree_url . '&amp;action=filter&amp;search=no&amp;folder=' . rawurlencode($key) . '&amp;sortby=title' . $show_subfolders . '&amp;max=20&amp;columns=2', 'menu-media-' . $i++);
+					$menu->addSubmenu($submenu);
+				}
 			}
-			$i++;
+		} else { // fallback if we don't have any subfolders added to the list
+			$menu = new Menu(/* I18N: Main media menu */ I18N::translate('Media'), 'medialist.php?' . $this->tree_url, 'menu-media');
 		}
 		return $menu;
 	}
