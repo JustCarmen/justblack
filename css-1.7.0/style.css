@@ -3971,11 +3971,6 @@ body .ui-tooltip {
 }
 
 /* ===== search.php ===== */
-#search_submit {
-	margin: 20px;
-	text-align: center;
-}
-
 #search-page-table {
 	background-color: #FECF5B;
 	box-shadow: 6px 8px #171717;
@@ -5120,12 +5115,6 @@ table.tabs_table #side_bar a#alturl {
 	left: auto;
 	right: 0;
 	width: 99%;
-}
-
-/*-- Relationship ---- */
-#relationship_chart div[id^=line] {
-	font-size: 11px;
-	line-height: 1.8em;
 }
 
 /* -- Statistics ---- */
