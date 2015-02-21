@@ -318,12 +318,6 @@ form {
 	float: right;
 }
 
-table {
-	background-color: transparent;
-	border-collapse: collapse;
-	border-spacing: 0;
-}
-
 table.center {
 	margin-left: auto;
 	margin-right: auto;
@@ -4774,6 +4768,13 @@ table.tabs_table #side_bar a#alturl {
 #familybook_chart,
 #hourglass_chart {
 	margin: 20px;
+}
+
+[id*="booklet"] table,
+[id*="chart"] table {
+	background-color: transparent;
+	border-collapse: collapse;
+	border-spacing: 0;
 }
 
 #ancestry_booklet .person_box_template,
