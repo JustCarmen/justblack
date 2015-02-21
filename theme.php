@@ -298,7 +298,7 @@ class JustBlackTheme extends BaseTheme {
 				}
 
 				return
-					'<div data-pid="' . $individual->getXref() . '" class="person_box_template ' . $personBoxClass . ' box-style0" style="width: ' . $this->parameter('compact-chart-box-x') . 'px; min-height: ' . $this->parameter('compact-chart-box-y') . 'px">' .
+					'<div data-pid="' . $individual->getXref() . '" class="person_box_template ' . $personBoxClass . ' iconz box-style0" style="width: ' . $this->parameter('compact-chart-box-x') . 'px; min-height: ' . $this->parameter('compact-chart-box-y') . 'px">' .
 					'<div class="compact_view">' .
 					$thumbnail .
 					'<a href="' . $individual->getHtmlUrl() . '">' .

@@ -21,6 +21,10 @@ html {
 	overflow-y: scroll;
 }
 
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
 body {
 	background-color: #2E2E2E;
 	color: #e7e7e7;
@@ -314,6 +318,12 @@ form {
 	float: right;
 }
 
+table {
+	background-color: transparent;
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
 table.center {
 	margin-left: auto;
 	margin-right: auto;
@@ -397,12 +407,14 @@ div.fact_SHARED_NOTE {
 	width: 99%;
 }
 
+.name0,
 .name1 {
 	color: #e7e7e7;
 	font-size: 11px;
 	font-weight: bold;
 }
 
+a:hover .name0,
 a:hover .name1 {
 	color: #E7E7E7;
 	font-size: 11px;
@@ -430,6 +442,7 @@ a:hover .nameZoom {
 	font-weight: bold;
 }
 
+.details0,
 .details1 {
 	color: #e7e7e7;
 	font-size: 10px;
@@ -4751,6 +4764,10 @@ table.tabs_table #side_bar a#alturl {
 }
 
 /* ====== Charts Styles ======== */
+#people label {
+	display:block;
+}
+
 #compact_chart,
 #fan_chart,
 #ancestry_chart,
@@ -4758,6 +4775,15 @@ table.tabs_table #side_bar a#alturl {
 #hourglass_chart {
 	margin: 20px;
 }
+
+#ancestry_booklet .person_box_template,
+#descendancy_booklet .person_box_template,
+#familybook_chart .person_box_template,
+#hourglass_chart .person_box_template {
+	margin: 3px 0;
+}
+
+
 
 /* styles for vertical lines in ancestry and descendancy charts */
 .chart_common li {
@@ -4838,8 +4864,10 @@ table.tabs_table #side_bar a#alturl {
 	text-align: center;
 }
 
-#familybook_chart .line3, #familybook_chart .pvline, #familybook_chart .spacer {
-	width: 3px;
+#familybook_chart .line3,
+#familybook_chart .pvline,
+#familybook_chart .spacer {
+	width: 2px;
 }
 
 #familybook_chart .line4 {
@@ -4850,8 +4878,13 @@ table.tabs_table #side_bar a#alturl {
 	display:none
 }
 
-[ID^="vline"] {
-	width: 3px;
+img[src*="hline"] {
+	height: 2px;
+}
+
+[ID^="vline"],
+img[src*="vline"] {
+	width: 2px;
 }
 
 [dir=rtl] #familybook_chart {
@@ -4988,6 +5021,13 @@ table.tabs_table #side_bar a#alturl {
 }
 
 /*-- Hourglass ---- */
+#hourglass_chart td {
+	background-repeat: repeat-y !important;
+	background-position: center 0 !important;
+	margin: 0;
+	padding: 0;
+}
+
 #hourglass_chart img.line4 {
 	vertical-align: middle;
 }
@@ -5070,7 +5110,7 @@ table.tabs_table #side_bar a#alturl {
 
 /*-- Pedigree ---- */
 #pedigree-page table.list_table {
-	margin: 0 auto;
+	margin: 0 auto 20px;
 	width: 500px;
 }
 
@@ -5084,18 +5124,16 @@ table.tabs_table #side_bar a#alturl {
 #pedigree_chart {
 	left: 0;
 	position: relative;
-	top: -200px;
 	width: 99%;
 }
 
 #pedigree_chart div.shadow {
-	box-shadow: 6px 8px #171717;
+	box-shadow: 15px 15px #171717;
 }
 
 #pedigree_canvas {
 	color: #FFFFDE;
 	position: absolute;
-	top: 200px;
 	z-index: -1000;
 }
 
