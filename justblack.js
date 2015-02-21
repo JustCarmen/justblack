@@ -25,7 +25,7 @@ function jb_modalDialog(url, title) {
 	.load(url).dialog({
 		title: title,
 		width: 'auto',
-		maxWidth: '90%',
+		maxWidth: 700,
 		height: 'auto',
 		maxHeight: 500,
 		fluid: true,
