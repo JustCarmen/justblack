@@ -24,6 +24,7 @@ function get_imagetype() {
 	jQuery.ajax({
 		url: JB_COLORBOX_URL + 'action.php?action=imagetype',
 		type: 'POST',
+		dataType: 'json',
 		async: false,
 		data: {
 			'csrf': WT_CSRF_TOKEN,
