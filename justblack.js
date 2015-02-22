@@ -367,6 +367,15 @@ jQuery(document).ready(function() {
 	jQuery('.block .gedcom_favorites_block .action_header, .block .gedcom_favorites_block .action_headerF, .block .user_favorites_block .action_header, .block .user_favorites_block .action_headerF').each(function() {
 		jQuery(this).removeClass('person_box');
 	});
+	
+	// statistics block correction - replace br tag to show all data in one line
+	jQuery(document).ajaxComplete(function() {
+		jQuery(".stat-table1 .stats_value br", ".gedcom_stats_block").replaceWith(" - ");
+		jQuery(".stat-table2 .list_item", ".gedcom_stats_block").each(function(){
+			jQuery("br:first", this).replaceWith(": ");
+			jQuery("br", this).replaceWith(" • ");
+		});
+	});
 
 	/************************************** INDIVIDUAL PAGE ***********************************************/
 	if (WT_SCRIPT_NAME === 'individual.php') {
