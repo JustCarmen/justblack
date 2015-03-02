@@ -2541,6 +2541,7 @@ float: right;
 	padding: 8px;
 	vertical-align: middle;
 	text-align: left;
+	white-space: pre-wrap;
 }
 
 .stat-table2 .stat-cell.left {
