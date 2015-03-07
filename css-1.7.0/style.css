@@ -257,6 +257,11 @@ select {
 	width: 60px;
 }
 
+.btn-group {
+	display: inline-block;
+	margin: 0 4px;
+}
+
 form {
 	font-size: 13px;
 	line-height: 2em;
@@ -3453,8 +3458,16 @@ body .ui-tooltip {
 }
 
 .dataTables_wrapper .fg-toolbar {
-	background: none;
-	border: none;
+	background: #272727;
+	border: #545454 1px solid;
+}
+
+.dataTables_wrapper .fg-toolbar:last-child {
+	border-top:none;
+}
+
+.dataTables .fg-toolbar button {
+	cursor: pointer;
 }
 
 .DataTables_sort_wrapper {
@@ -3468,6 +3481,11 @@ body .ui-tooltip {
 	margin-top: -8px;
 	position: absolute;
 	top: 50%;
+}
+
+.dataTables_wrapper table {
+	border-collapse: collapse;
+	box-sizing: border-box;
 }
 
 [dir=rtl] .css_right {
@@ -4124,14 +4142,6 @@ body .ui-tooltip {
 	width: 100%;
 }
 
-#search-result-tabs .fg-toolbar {
-	background-color: #303030;
-}
-
-#search-result-tabs .fg-toolbar button {
-	cursor: pointer;
-}
-
 /* -- search_advanced.php ---- */
 #search-page table#field_table {
 	border-spacing: 0;
@@ -4176,24 +4186,9 @@ body .ui-tooltip {
 	margin-bottom: 10px;
 }
 
-#search-page .fg-toolbar {
-	background-color: #303030;
-}
-
-#search-page .fg-toolbar-border {
-	border: #545454 1px solid;
-}
-
-#search-page div[class^=filters] button, #search-page .dataTable th {
-	border-bottom: none;
-}
-
-#search-page .dataTable {
-	border-spacing: 0;
-}
-
-#search-page .fg-toolbar button {
-	cursor: pointer;
+#search-page form > input[type="submit"] {
+	display: block;
+	margin: 10px auto;
 }
 
 /*  edituser.php  */
