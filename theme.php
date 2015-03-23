@@ -106,11 +106,13 @@ class JustBlackTheme extends BaseTheme {
 	/** (@inheritdoc) */
 	public function formatTreeTitle() {
 		try {
-			if ($this->themeOption('treetitle') === '1') {
+			if ($this->tree && $this->themeOption('treetitle') === '1') {
 				return '
 				<h1 style="' . $this->headerTitleStyle() . '">
 				<a href="index.php">' . $this->tree->getTitleHtml() . '</a>
 				</h1>';
+			} else {
+				return '';
 			}
 		} catch (Exception $ex) {
 			return parent::formatTreeTitle();
@@ -214,7 +216,7 @@ class JustBlackTheme extends BaseTheme {
 	/** {@inheritdoc} */
 	public function individualBox(Individual $individual) {
 		try {
-			if($this->themeOption('square_thumbs')) {
+			if($this->tree && $this->themeOption('square_thumbs')) {
 				$personBoxClass = array_search($individual->getSex(), array('person_box' => 'M', 'person_boxF' => 'F', 'person_boxNN' => 'U'));
 				if ($this->tree->getPreference('SHOW_HIGHLIGHT_IMAGES')) {
 					$thumbnail = $this->thumbnail($individual);
@@ -252,7 +254,7 @@ class JustBlackTheme extends BaseTheme {
 	/** {@inheritdoc} */
 	public function individualBoxLarge(Individual $individual) {
 		try {
-			if($this->themeOption('square_thumbs')) {
+			if($this->tree && $this->themeOption('square_thumbs')) {
 				$personBoxClass = array_search($individual->getSex(), array('person_box' => 'M', 'person_boxF' => 'F', 'person_boxNN' => 'U'));
 				if ($this->tree->getPreference('SHOW_HIGHLIGHT_IMAGES')) {
 					$thumbnail = $this->thumbnail($individual);
@@ -481,9 +483,15 @@ class JustBlackTheme extends BaseTheme {
 
 	// This theme uses variables from php files in the javascript files
 	private function scriptVars() {
+		if ($this->tree) {
+			$tree_title = $this->tree->getName();
+		} else {
+			$tree_title = '';
+		}
+		
 		return '<script>' .
 			'var WT_CSS_URL = "' . $this->assetUrl() . '";' .
-			'var WT_TREE_TITLE = "' . $this->tree->getName() . '";' .
+			'var WT_TREE_TITLE = "' . $tree_title . '";' .
 			'var JB_THEME_URL = "' . $this->theme_dir . '";' .
 			'var JB_COLORBOX_URL = "' . $this->colorbox_url . '";' .
 			'var authID = "' . Auth::id() . '";' .
