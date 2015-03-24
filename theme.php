@@ -343,9 +343,9 @@ class JustBlackTheme extends BaseTheme {
 		$menu->addSubmenu($this->menuCalendar());
 
 		foreach ($menu->getSubmenus() as $submenu) {
-			$id = explode("-", $submenu->getId());
-			$new_id = implode("-", array($id[0], 'view', $id[1]));
-			$submenu->setId($new_id);
+			$class = explode("-", $submenu->getClass());
+			$new_class = implode("-", array($class[0], 'view', $class[1]));
+			$submenu->setClass($new_class);
 		}
 
 		return $menu;
@@ -358,12 +358,12 @@ class JustBlackTheme extends BaseTheme {
 		if ($menu && $menu->getSubmenus()) {
 			foreach ($menu->getSubmenus() as $submenu) {
 				if ($submenu) {
-					$lang = explode('-', $submenu->getId());
+					$lang = explode('-', $submenu->getClass());
 					$class = '';
 					if (WT_LOCALE == $lang[2]) {
-						$class = ' class="lang-active" ';
+						$class = ' lang-active';
 					}
-					$flags .= '<li id="' . $submenu->getId() . '"' . $class . 'title="' . $submenu->getLabel() . '">
+					$flags .= '<li class="' . $submenu->getClass() . $class . '" title="' . $submenu->getLabel() . '">
 								<a href="' . $submenu->getLink() . '"></a></li>';
 				}
 			}
@@ -376,7 +376,7 @@ class JustBlackTheme extends BaseTheme {
 			$menu = parent::menuLists();
 			if ($this->themeOption('media_menu')) {
 				$submenus = array_filter($menu->getSubmenus(), function (Menu $menu) {
-					return $menu->getId() !== 'menu-list-obje';
+					return $menu->getClass() !== 'menu-list-obje';
 				});
 				$menu->setSubmenus($submenus);
 			}
@@ -396,10 +396,9 @@ class JustBlackTheme extends BaseTheme {
 		if (count($folders) > 1) {
 			$menu = new Menu(/* I18N: Main media menu */ I18N::translate('Media'), 'medialist.php?' . $this->tree_url . '&amp;action=filter&amp;search=no' . $mainfolder . '&amp;sortby=title' . $show_subfolders . '&amp;max=20&amp;columns=2', 'menu-media');
 
-			$i = 1;
 			foreach ($folders as $key => $folder) {
 				if ($key !== $MEDIA_DIRECTORY) {
-					$submenu = new Menu(ucfirst($folder), 'medialist.php?' . $this->tree_url . '&amp;action=filter&amp;search=no&amp;folder=' . rawurlencode($key) . '&amp;sortby=title' . $show_subfolders . '&amp;max=20&amp;columns=2', 'menu-media-' . $i++);
+					$submenu = new Menu(ucfirst($folder), 'medialist.php?' . $this->tree_url . '&amp;action=filter&amp;search=no&amp;folder=' . rawurlencode($key) . '&amp;sortby=title' . $show_subfolders . '&amp;max=20&amp;columns=2', 'menu-mediafolder');
 					$menu->addSubmenu($submenu);
 				}
 			}
