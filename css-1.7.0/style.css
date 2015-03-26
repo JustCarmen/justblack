@@ -7138,7 +7138,7 @@ form[name=messageform] textarea {
 		display: none;
 	}
 
-	#pedigree_chart {
+	#pedigree_chart,
 	#pedigree-page h2 {
 		margin: 0;
 	}
