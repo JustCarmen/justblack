@@ -301,13 +301,6 @@ jQuery(document).ready(function() {
 		jb_dialogBox();
 	});
 
-	/********************************************* CUSTOM CONTACT LINK ***********************************************/
-	// custom contact link (in custom html block or news block for example). Give the link the class 'contact_link_admin');
-	jQuery('a.contact_link_admin').each(function() {
-		var onclickItem = jQuery('.contact_links a').attr('onclick');
-		jQuery(this).attr('onclick', onclickItem).wrap('<span class="contact_links">');
-	});
-
 	/********************************************* LOGIN FORM ***********************************************/
 	if (jQuery('#login-page').length > 0) {
 		// login page styling
