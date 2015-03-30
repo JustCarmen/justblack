@@ -1302,12 +1302,6 @@ tr.classy0, tr.classy1 {
 }
 
 /* ======== medialist.php ==== */
-#medialist-page {
-	width: 75%;
-	margin-left: auto;
-	margin-right: auto;
-}
-
 #medialist-page form + div > p {
 	text-align: center;
 }
@@ -1366,9 +1360,13 @@ tr.classy0, tr.classy1 {
 	display: none;
 }
 
-.lb-menu {
-	position: relative;
+.lightbox-menu {
+	display: none;
 	float: right;
+}
+
+.lb-menu {
+	display: inline-block;
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
@@ -1376,12 +1374,6 @@ tr.classy0, tr.classy1 {
 
 .lb-menu ul {
 	list-style-type: none;
-}
-
-.lb-menu li {
-	position: relative;
-	float: left;
-	top: 0;
 }
 
 .lb-menu a {
@@ -1392,12 +1384,8 @@ tr.classy0, tr.classy1 {
 	padding-top: 25px;
 }
 
-[dir=rtl] .lb-menu {
-	float: right;
-}
-
-[dir=rtl] .lb-menu li {
-	float: right;
+[dir=rtl] .lightbox-menu {
+	float: left;
 }
 
 .lb-menu .popup {

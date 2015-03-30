@@ -522,13 +522,13 @@ jQuery(document).ready(function() {
 		jQuery('.lightbox-menu .lb-menu > li > a').each(function() {
 			var tooltip, pos;
 			tooltip = jQuery(this).text();
-			if (jQuery(this).hasClass('lb-image_link')) {
+			if (jQuery(this).parent().hasClass('lb-image_link')) {
 				jQuery(this).parent().find('.popup ul').prepend('<li class="lb-pop-title">' + tooltip);
 			} else {
-				if (jQuery(this).hasClass('lb-image_edit')) {
+				if (jQuery(this).parent().hasClass('lb-image_edit')) {
 					pos = "right-18";
 				}
-				if (jQuery(this).hasClass('lb-image_view')) {
+				if (jQuery(this).parent().hasClass('lb-image_view')) {
 					pos = "left+15";
 				}
 				jQuery(this).parent().tooltip({
@@ -553,6 +553,8 @@ jQuery(document).ready(function() {
 			jQuery(this).find('> a').addClass("media_link").next('br').remove();
 			jQuery(this).find('.media_link').wrapAll('<div class="media_link_list">');
 		});
+		
+		jQuery(".lightbox-menu").show();
 	}
 
 	/************************************** MEDIAVIEWER PAGE ******************************************/
