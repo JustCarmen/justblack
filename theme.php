@@ -733,7 +733,7 @@ class JustBlackTheme extends BaseTheme {
 						' href="' . $media->getHtmlUrlDirect('main') . '"' .
 						' type="' . $media->mimeType() . '"' .
 						' data-obje-url="' . $media->getHtmlUrl() . '"' .
-						' data-obje-note="' . htmlspecialchars($media->getNote()) . '"' .
+						' data-obje-note="' . Filter::escapeHtml($media->getNote()) . '"' .
 						' data-title="' . Filter::escapeHtml($media->getFullName()) . '"' .
 						'>' . $image . '</a>';
 				}
