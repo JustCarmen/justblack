@@ -511,6 +511,24 @@ jQuery(document).ready(function() {
 
 	/************************************** MEDIALIST PAGE ********************************************/
 	if (WT_SCRIPT_NAME === 'medialist.php') {
+		// Collapse notes by default on the medialist page
+		jQuery(".fact_NOTE, .fact_SHARED_NOTE").each(function() {
+			if (jQuery(".icon-plus", this).length === 0) {
+				if (jQuery(this).hasClass("fact_SHARED_NOTE")) {
+					jQuery(this).removeClass().addClass("fact_NOTE");
+				}
+				jQuery(".field", this).uniqueId().removeAttr("dir").removeClass("field").addClass("note-details").hide();
+				var uniqueId = jQuery(".note-details", this).attr("id");
+				var title = jQuery(".note-details", this).text().split("\n")[0];
+				if (title.length > 100) {
+					title = title.substr(0, 100) + "…";
+				}
+				jQuery(".label", this)
+					.prepend('<a onclick="expand_layer(\'' + uniqueId + '\'); return false;" href="#"><i class="icon-plus" id="' + uniqueId + '_img"></i></a> ')
+					.after('<span id="' + uniqueId + '-alt"> ' + title + '</span>');
+			}
+		});
+		
 		// Medialist Menu
 		jQuery('.lightbox-menu').parent('td').each(function() {
 			jQuery(this).wrapInner('<div class="lb-image_info">');
@@ -554,7 +572,7 @@ jQuery(document).ready(function() {
 			jQuery(this).find('.media_link').wrapAll('<div class="media_link_list">');
 		});
 		
-		jQuery(".lightbox-menu").show();
+		jQuery("#medialist-page .list_table").show();
 	}
 
 	/************************************** MEDIAVIEWER PAGE ******************************************/

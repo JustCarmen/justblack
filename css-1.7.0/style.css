@@ -1306,6 +1306,10 @@ tr.classy0, tr.classy1 {
 	text-align: center;
 }
 
+#medialist-page .list_table {
+	display: none;
+}
+
 #medialist-page div .list_table {
 	border: none;
 	border-spacing: 10px;
@@ -1361,7 +1365,6 @@ tr.classy0, tr.classy1 {
 }
 
 .lightbox-menu {
-	display: none;
 	float: right;
 }
 
