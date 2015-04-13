@@ -2815,6 +2815,7 @@ dd .editlink,dd .deletelink {
 
 .markdown table {
 	border-collapse: collapse;
+	margin-bottom: 20px;
 }
 
 .markdown th {
@@ -3000,7 +3001,6 @@ label[for=checkbox_note2] {
 .fact_NOTE, .fact_SHARED_NOTE {
 	font-style: normal;
 	line-height: 1.5em;
-	padding:10px 0;
 }
 
 .media-display {
