@@ -885,6 +885,24 @@ a:hover .nameZoom {
 	opacity: 0.8;
 }
 
+.small {
+	font-size: 11px;
+}
+
+.text-muted {
+	color: #777;
+	line-height: 1.2em;
+	margin: 5px 0 10px;
+}
+
+.optionbox .text-muted {
+	padding-left: 5px;
+}
+
+[dir=rtl] .optionbox .text-muted {
+	padding-right: 5px;
+}
+
 .width10 {
 	width: 10%;
 }
