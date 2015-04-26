@@ -23,8 +23,7 @@
 
 // Modal dialog boxes
 function jb_modalDialog(url, title) {
-	var $dialog = jQuery('<div id="config-dialog" style="max-height:550px; overflow-y:auto"><div title="' + title + '"><div></div>')
-	.load(url).dialog({
+	var $dialog = jQuery('<div id="config-dialog" style="max-height:550px; overflow-y:auto"><div title="' + title + '"><div></div>').load(url).dialog({
 		title: title,
 		width: 'auto',
 		maxWidth: 700,
@@ -34,22 +33,22 @@ function jb_modalDialog(url, title) {
 		modal: true,
 		resizable: false,
 		autoOpen: false,
-		open: function() {
-			jQuery('.ui-widget-overlay').on('click', function() {
+		open: function () {
+			jQuery('.ui-widget-overlay').on('click', function () {
 				$dialog.dialog('close');
 			});
 		}
 	});
 
 	// open the dialog box after some time. This is neccessary for the dialogbox to load in center position without page flickering.
-	setTimeout(function() {
+	setTimeout(function () {
 		$dialog.dialog('open');
 	}, 500);
 	return false;
 }
 
 function jb_helpDialog(topic, module) {
-	jQuery.getJSON('help_text.php?help=' + topic + '&mod=' + module, function(json) {
+	jQuery.getJSON('help_text.php?help=' + topic + '&mod=' + module, function (json) {
 		jb_modalHelp(json.content, json.title);
 	});
 }
@@ -63,8 +62,8 @@ function jb_modalHelp(content, title) {
 		modal: true,
 		fluid: true,
 		resizable: false,
-		open: function() {
-			jQuery('.ui-widget-overlay').on('click', function() {
+		open: function () {
+			jQuery('.ui-widget-overlay').on('click', function () {
 				$dialog.dialog('close');
 			});
 		}
@@ -74,16 +73,16 @@ function jb_modalHelp(content, title) {
 	return false;
 }
 
-jQuery(document).on("dialogopen", ".ui-dialog", function() {
+jQuery(document).on("dialogopen", ".ui-dialog", function () {
 	fluidDialog();
 });
 
 // remove window resize namespace
-jQuery(document).on("dialogclose", ".ui-dialog", function() {
+jQuery(document).on("dialogclose", ".ui-dialog", function () {
 	jQuery(window).off("resize.responsive");
 });
 
-jQuery(window).resize(function() {
+jQuery(window).resize(function () {
 	jQuery(".ui-dialog-content").dialog("option", "position", {
 		my: "center",
 		at: "center",
@@ -93,7 +92,7 @@ jQuery(window).resize(function() {
 
 function fluidDialog() {
 	var $visible = jQuery(".ui-dialog:visible");
-	$visible.each(function() {
+	$visible.each(function () {
 		var $this = jQuery(this);
 		var dialog = $this.find(".ui-dialog-content");
 		var maxWidth = dialog.dialog("option", "maxWidth");
@@ -105,7 +104,7 @@ function fluidDialog() {
 			$this.css("max-width", maxWidth);
 			//reposition dialog
 			dialog.dialog("option", "position", {
-				my: "center", 
+				my: "center",
 				at: "center",
 				of: window
 			});
@@ -113,7 +112,7 @@ function fluidDialog() {
 
 		if (fluid) {
 			// namespace window resize
-			jQuery(window).on("resize.responsive", function() {
+			jQuery(window).on("resize.responsive", function () {
 				var wWidth = jQuery(window).width();
 				// check window width against dialog width
 				if (wWidth < maxWidth + 50) {
@@ -123,7 +122,7 @@ function fluidDialog() {
 				}
 				//reposition dialog
 				dialog.dialog("option", "position", {
-					my: "center", 
+					my: "center",
 					at: "center",
 					of: window
 				});
@@ -150,15 +149,15 @@ function qstring(key, url) {
 //=========================================================================================================
 //												GENERAL
 //=========================================================================================================
-jQuery(document).ready(function() {
+jQuery(document).ready(function () {
 	'use strict';
 	var obj, title;
 	/********************************************* TOOLTIPS ***********************************************/
 	// Tooltips for all title attributes
 	function add_tooltips() {
-		jQuery('*[title]').each(function() {
+		jQuery('*[title]').each(function () {
 			title = jQuery(this).attr('title');
-			jQuery(this).on('click', function() {
+			jQuery(this).on('click', function () {
 				jQuery(this).attr('title', title); // some functions need the title attribute. Make sure it is filled when clicking the item.
 			});
 		});
@@ -169,49 +168,49 @@ jQuery(document).ready(function() {
 	}
 
 	add_tooltips(); // needed when no ajaxcall is made on the particular page.
-	jQuery(document).ajaxComplete(function() { // be sure the tooltip is activated after a ajax call is made.
+	jQuery(document).ajaxComplete(function () { // be sure the tooltip is activated after a ajax call is made.
 		add_tooltips();
 	});
 
 	/******************************************* DROPDOWN MENU *********************************************/
-	jQuery('.dropdown > li').hover(function() {
+	jQuery('.dropdown > li').hover(function () {
 		jQuery(this).find('ul').show();
-	}, function() {
+	}, function () {
 		jQuery(this).find('ul').hide();
 	});
 
 	// function to use with unsorted dropdownmenus like the fav-menu.
 	function sortMenu(dropdownMenu) {
 		var menu = jQuery(dropdownMenu + ' .dropdown ul').children('li').get();
-		menu.sort(function(a, b) {
+		menu.sort(function (a, b) {
 			var val1 = jQuery(a).text().toUpperCase();
 			var val2 = jQuery(b).text().toUpperCase();
 			return (val1 < val2) ? -1 : (val1 > val2) ? 1 : 0;
 		});
-		jQuery.each(menu, function(index, row) {
+		jQuery.each(menu, function (index, row) {
 			jQuery(dropdownMenu + ' .dropdown ul').append(row);
 		});
 	}
 
 	/********************************************* MAIN MENU ***********************************************/
-	jQuery('.primary-menu').each(function() {
+	jQuery('.primary-menu').each(function () {
 		var dTime, li_height, height, maxHeight, i;
 
-		jQuery(this).find('li').hover(function() {
+		jQuery(this).find('li').hover(function () {
 			//show submenu
 			jQuery(this).find('>ul').slideDown('slow');
-		}, function() {
+		}, function () {
 			//hide submenu
 			jQuery(this).find('>ul').hide();
 		});
 
 		dTime = 1200;
-		jQuery(this).find('ul').each(function() {
-			jQuery(this).children().hover(function() {
+		jQuery(this).find('ul').each(function () {
+			jQuery(this).children().hover(function () {
 				jQuery(this).stop().animate({
 					backgroundColor: '#808080'
 				}, dTime);
-			}, function() {
+			}, function () {
 				jQuery(this).stop().animate({
 					backgroundColor: '#272727'
 				}, dTime);
@@ -220,7 +219,7 @@ jQuery(document).ready(function() {
 
 		// dynamic height of menubar
 		li_height = jQuery(this).find('> li').height();
-		height = jQuery(this).find('> li > a').map(function() {
+		height = jQuery(this).find('> li > a').map(function () {
 			return jQuery(this).height();
 		});
 		maxHeight = height[0];
@@ -239,15 +238,15 @@ jQuery(document).ready(function() {
 	});
 
 	/********************************************* LANGUAGE (FLAGS) MENU ******************************************/
-	jQuery('.header-flags').each(function() {
-		jQuery(this).find('li').each(function() {
+	jQuery('.header-flags').each(function () {
+		jQuery(this).find('li').each(function () {
 			jQuery(this).tooltip({
 				position: {
 					my: "center top-40",
 					at: "center center"
 				}
 			});
-			jQuery(this).click(function() {
+			jQuery(this).click(function () {
 				location.href = jQuery(this).find('a').attr('href');
 			});
 		});
@@ -263,7 +262,7 @@ jQuery(document).ready(function() {
 		submenu.find('li:last a').addClass('add-favorite');
 	}
 
-	obj.each(function() {
+	obj.each(function () {
 		var url = jQuery(this).find('a').attr('href');
 		var id = qstring('pid', url) || qstring('famid', url) || qstring('mid', url) || qstring('nid', url) || qstring('rid', url) || qstring('sid', url);
 		if (id === pageId) {
@@ -273,7 +272,7 @@ jQuery(document).ready(function() {
 		}
 	});
 
-	obj.click(function() {
+	obj.click(function () {
 		jQuery('#menu-favorites > a').replaceWith(jQuery(this).html());
 	});
 
@@ -285,21 +284,21 @@ jQuery(document).ready(function() {
 	/**************************************** MODAL DIALOG BOXES ********************************************/
 	// replace default function with our justblack theme function (better dialog boxes)
 	function jb_dialogBox() {
-		jQuery('[onclick^="modalDialog"], [onclick^="return modalDialog"]').each(function() {
-			jQuery(this).attr('onclick', function(index, attr) {
+		jQuery('[onclick^="modalDialog"], [onclick^="return modalDialog"]').each(function () {
+			jQuery(this).attr('onclick', function (index, attr) {
 				return attr.replace('modalDialog', 'jb_modalDialog');
 			});
 		});
 
-		jQuery('[onclick^="helpDialog"]').each(function() {
-			jQuery(this).attr('onclick', function(index, attr) {
+		jQuery('[onclick^="helpDialog"]').each(function () {
+			jQuery(this).attr('onclick', function (index, attr) {
 				return attr.replace('helpDialog', 'jb_helpDialog');
 			});
 		});
 	}
 
 	jb_dialogBox();
-	jQuery(document).ajaxComplete(function() {
+	jQuery(document).ajaxComplete(function () {
 		jb_dialogBox();
 	});
 
@@ -324,7 +323,7 @@ jQuery(document).ready(function() {
 		jQuery('#login-register-page .error').removeAttr('class');
 		jQuery('#login-register-page #register-text, #login-register-page #register-box').wrapAll('<div id="register-page-block">');
 
-		jQuery('#login-register-page #register-form label').each(function() {
+		jQuery('#login-register-page #register-form label').each(function () {
 			jQuery(this).after(jQuery(this).find('input'));
 			jQuery(this).after(jQuery(this).find('select'));
 			jQuery(this).after(jQuery(this).find('textarea'));
@@ -338,7 +337,7 @@ jQuery(document).ready(function() {
 		jQuery('#edituser-page h2').remove();
 		jQuery('<div id="edituser-page-title" class="subheaders ui-state-default">' + title + '</div>').prependTo('#edituser-page');
 		jQuery('#edituser_submit').before('<hr class="clearfloat">');
-		jQuery('#edituser-table input:first[type=password]').each(function() {
+		jQuery('#edituser-table input:first[type=password]').each(function () {
 			jQuery(this).parent().wrapInner('<span class="pw-info">');
 			jQuery(this).prependTo(jQuery(this).parents('.value'));
 		});
@@ -359,14 +358,14 @@ jQuery(document).ready(function() {
 	block.find('a').css('font-size', '11px');
 
 	// gedcom and user favorites block
-	jQuery('.block .gedcom_favorites_block .action_header, .block .gedcom_favorites_block .action_headerF, .block .user_favorites_block .action_header, .block .user_favorites_block .action_headerF').each(function() {
+	jQuery('.block .gedcom_favorites_block .action_header, .block .gedcom_favorites_block .action_headerF, .block .user_favorites_block .action_header, .block .user_favorites_block .action_headerF').each(function () {
 		jQuery(this).removeClass('person_box');
 	});
-	
+
 	// statistics block correction - replace br tag to show all data in one line
-	jQuery(document).ajaxComplete(function() {
+	jQuery(document).ajaxComplete(function () {
 		jQuery(".stat-table1 .stats_value br", ".gedcom_stats_block").replaceWith(" - ");
-		jQuery(".stat-table2 .list_item", ".gedcom_stats_block").each(function(){
+		jQuery(".stat-table2 .list_item", ".gedcom_stats_block").each(function () {
 			jQuery("br:first", this).replaceWith(": ");
 			jQuery("br", this).replaceWith(" • ");
 		});
@@ -377,7 +376,7 @@ jQuery(document).ready(function() {
 
 		// General
 		jQuery('<div class="divider">').appendTo('#tabs ul:first');
-		jQuery('#tabs li').each(function() {
+		jQuery('#tabs li').each(function () {
 			jQuery(this).tooltip({
 				position: {
 					my: "center top+25",
@@ -395,15 +394,15 @@ jQuery(document).ready(function() {
 	}
 
 	function modifybox(obj) {
-		obj.find(".field").contents().filter(function() {
+		obj.find(".field").contents().filter(function () {
 			return (this.nodeType === 3);
 		}).remove();
-		obj.find(".field span").filter(function() {
+		obj.find(".field span").filter(function () {
 			return jQuery(this).text().trim().length === 0;
 		}).remove();
-		obj.find("div[class^=fact_]").each(function() {
+		obj.find("div[class^=fact_]").each(function () {
 			var div = jQuery(this);
-			div.find(".field").each(function() {
+			div.find(".field").each(function () {
 				if (jQuery.trim(jQuery(this).text()) === '') {
 					div.remove();
 				}
@@ -414,8 +413,8 @@ jQuery(document).ready(function() {
 
 	personbox_default();
 
-	jQuery(document).ajaxComplete(function() {
-		setTimeout(function() {
+	jQuery(document).ajaxComplete(function () {
+		setTimeout(function () {
 			personbox_default();
 		}, 500);
 		var obj = jQuery(".person_box_zoom");
@@ -424,24 +423,24 @@ jQuery(document).ready(function() {
 
 	/************************************************ PEDIGREE CHART *****************************************************/
 	if (WT_SCRIPT_NAME === 'pedigree.php') {
-		jQuery("#content").each(function() {
+		jQuery("#content").each(function () {
 			jQuery(this).height(jQuery(this).height() + 80);
 		});
 	}
 
 	/************************************************ HOURGLASS CHART *****************************************************/
 	function styleSB() {
-		jQuery('.person_box_template.style1').each(function() {
+		jQuery('.person_box_template.style1').each(function () {
 			var width = jQuery(this).width();
 			if (width < 250) { // spouses boxes are smaller then the default ones.
 				jQuery(this).addClass('spouse_box').removeAttr('style') // css styling
-					.closest('table').find('tr:first .person_box_template').css('border-bottom-style', 'dashed');
+				.closest('table').find('tr:first .person_box_template').css('border-bottom-style', 'dashed');
 			}
 		});
 	}
 
 	if (WT_SCRIPT_NAME === 'hourglass.php' && qstring('show_spouse') === '1') {
-		jQuery('a[onclick*=ChangeDis]').on('click', function() {
+		jQuery('a[onclick*=ChangeDis]').on('click', function () {
 			styleSB();
 		});
 		styleSB();
@@ -449,19 +448,19 @@ jQuery(document).ready(function() {
 
 	/****************************** CHILDBOX (ON PEDIGREE CHART AND HOURGLASS CHART)***************************************/
 	if (WT_SCRIPT_NAME === 'pedigree.php' || WT_SCRIPT_NAME === 'hourglass.php') {
-		jQuery('#hourglass_chart #childbox .name1').each(function() {
+		jQuery('#hourglass_chart #childbox .name1').each(function () {
 			jQuery(this).appendTo(jQuery(this).parents('#childbox'));
 		});
 		jQuery('#hourglass_chart #childbox table').remove();
 		jQuery('#hourglass_chart #childbox').removeAttr('style');
 
-		jQuery('#childbox').each(function() {
+		jQuery('#childbox').each(function () {
 			var childbox = jQuery(this);
 			childbox.find('br').remove();
 			childbox.wrapInner('<ul>');
 			childbox.find('a').wrap('<li>');
 			childbox.find('ul > span').wrap('<li class="cb_title">');
-			childbox.find('span.name1').each(function() {
+			childbox.find('span.name1').each(function () {
 				var sChar = '<';
 				var str = jQuery(this).text();
 				if (str.indexOf(sChar) > -1) {
@@ -472,9 +471,9 @@ jQuery(document).ready(function() {
 			});
 
 			var li_child = jQuery('#hourglass_chart #childbox').parent().prev('table').find('.popup li.cb_child');
-			li_child.each(function() {
+			li_child.each(function () {
 				var child = jQuery(this).text();
-				jQuery('#hourglass_chart #childbox li').each(function() {
+				jQuery('#hourglass_chart #childbox li').each(function () {
 					var str = jQuery(this).text();
 					if (str === child) {
 						jQuery(this).addClass('cb_child');
@@ -504,7 +503,7 @@ jQuery(document).ready(function() {
 
 	/************************************ FANCHART PAGE (POPUPS)***************************************/
 	if (WT_SCRIPT_NAME === 'fanchart.php') {
-		jQuery('.fan_chart_menu .person_box').each(function() {
+		jQuery('.fan_chart_menu .person_box').each(function () {
 			var fanbox = jQuery(this);
 			fanbox.find('.name1:not(.children .name1, div.name1), .charts li').prepend('<span class="ui-icon ui-icon-triangle-1-e left">');
 			fanbox.find('.children li').prepend('<span class="ui-icon ui-icon-person left">');
@@ -514,7 +513,7 @@ jQuery(document).ready(function() {
 	/************************************** MEDIALIST PAGE ********************************************/
 	if (WT_SCRIPT_NAME === 'medialist.php') {
 		// Collapse notes by default on the medialist page
-		jQuery(".fact_NOTE, .fact_SHARED_NOTE").each(function() {
+		jQuery(".fact_NOTE, .fact_SHARED_NOTE").each(function () {
 			if (jQuery(".icon-plus", this).length === 0) {
 				if (jQuery(this).hasClass("fact_SHARED_NOTE")) {
 					jQuery(this).removeClass().addClass("fact_NOTE");
@@ -525,21 +524,19 @@ jQuery(document).ready(function() {
 				if (title.length > 100) {
 					title = title.substr(0, 100) + "…";
 				}
-				jQuery(".label", this)
-					.prepend('<a onclick="expand_layer(\'' + uniqueId + '\'); return false;" href="#"><i class="icon-plus" id="' + uniqueId + '_img"></i></a> ')
-					.after('<span id="' + uniqueId + '-alt"> ' + title + '</span>');
+				jQuery(".label", this).prepend('<a onclick="expand_layer(\'' + uniqueId + '\'); return false;" href="#"><i class="icon-plus" id="' + uniqueId + '_img"></i></a> ').after('<span id="' + uniqueId + '-alt"> ' + title + '</span>');
 			}
 		});
-		
+
 		// Medialist Menu
-		jQuery('.lightbox-menu').parent('td').each(function() {
+		jQuery('.lightbox-menu').parent('td').each(function () {
 			jQuery(this).wrapInner('<div class="lb-image_info">');
 			jQuery(this).find('.lightbox-menu').prependTo(jQuery(this));
 		});
 
 		jQuery('.lightbox-menu .lb-menu li ul').wrap('<div class="popup">');
 
-		jQuery('.lightbox-menu .lb-menu > li > a').each(function() {
+		jQuery('.lightbox-menu .lb-menu > li > a').each(function () {
 			var tooltip, pos;
 			tooltip = jQuery(this).text();
 			if (jQuery(this).parent().hasClass('lb-image_link')) {
@@ -562,18 +559,18 @@ jQuery(document).ready(function() {
 			jQuery(this).text('');
 		});
 
-		jQuery('.lb-menu .lb-image_link').parent().hover(function() {
+		jQuery('.lb-menu .lb-image_link').parent().hover(function () {
 			jQuery(this).find('.popup').fadeIn('slow');
-		}, function() {
+		}, function () {
 			jQuery(this).find('.popup').fadeOut('slow');
 		});
 
 		// media link list
-		jQuery(".lb-image_info").each(function() {
+		jQuery(".lb-image_info").each(function () {
 			jQuery(this).find('> a').addClass("media_link").next('br').remove();
 			jQuery(this).find('.media_link').wrapAll('<div class="media_link_list">');
 		});
-		
+
 		jQuery("#medialist-page .list_table").show();
 	}
 
@@ -613,19 +610,19 @@ jQuery(document).ready(function() {
 		searchResult = jQuery('#search-result-tabs');
 		if (searchResult.length > 0) {
 			searchForm.hide();
-			searchResult.each(function() {
+			searchResult.each(function () {
 				jQuery(this).find('ul').append('<li id="search-btn" class="ui-state-default ui-corner-top"><a href="#search"><span>' + titleBtn);
 				jQuery(this).find('.ui-tabs-nav, .fg-toolbar').removeClass('ui-widget-header');
 			});
 
 			jQuery('li#search-btn').on({
-				mouseenter: function() {
+				mouseenter: function () {
 					jQuery(this).addClass('ui-state-hover');
 				},
-				mouseleave: function() {
+				mouseleave: function () {
 					jQuery(this).removeClass('ui-state-hover');
 				},
-				click: function() {
+				click: function () {
 					jQuery(this).addClass('ui-state-active');
 					searchResult.fadeOut('slow');
 					searchForm.fadeIn('slow');
@@ -642,7 +639,7 @@ jQuery(document).ready(function() {
 			searchResult.find('div[class^=filtersH]').append('<button id="search-btn" class="ui-state-default" type="button">' + titleBtn);
 
 			jQuery('#search-btn').on({
-				click: function() {
+				click: function () {
 					searchResult.fadeOut('slow');
 					searchForm.fadeIn('slow');
 				}
@@ -661,7 +658,7 @@ jQuery(document).ready(function() {
 
 	/************************************* PLACELIST PAGE *******************************************/
 	if (WT_SCRIPT_NAME === 'placelist.php') {
-		jQuery('#place-hierarchy').each(function() {
+		jQuery('#place-hierarchy').each(function () {
 			jQuery(this).find('.list_label').addClass('ui-state-default');
 			jQuery(this).find('.icon-place').remove();
 			jQuery(this).find('.list_table li a').before('<span class="ui-icon ui-icon-triangle-1-e left">');
@@ -682,8 +679,8 @@ jQuery(document).ready(function() {
 	jQuery('#pending br').remove();
 
 	// change the width of the popup screen
-	jQuery('[onclick*="edit_changes.php"]').each(function() {
-		jQuery(this).attr('onclick', function(index, attr) {
+	jQuery('[onclick*="edit_changes.php"]').each(function () {
+		jQuery(this).attr('onclick', function (index, attr) {
 			return attr.replace('chan_window_specs', '\'width=850,height=600,left=100,top=100,resizable=1,scrollbars=1\'');
 		});
 	});
@@ -704,7 +701,7 @@ jQuery(document).ready(function() {
 	jQuery('.lifespan_people a.showit i.icon-sex_m_9x9, .lifespan_people a.showit i.icon-sex_f_9x9').hide();
 
 	// scroll to anchors
-	jQuery(".scroll").click(function(event) {
+	jQuery(".scroll").click(function (event) {
 		var id = jQuery(this).attr("href");
 		var offset = 60;
 		var target = jQuery(id).offset().top - offset;
@@ -712,5 +709,5 @@ jQuery(document).ready(function() {
 			scrollTop: target
 		}, 1000);
 		event.preventDefault();
-	});	
+	});
 });
