@@ -153,8 +153,7 @@ class JustBlackTheme extends BaseTheme {
 	private function headerTopStyle() {
 		if ($this->themeOption('image')) {
 			$image = WT_DATA_DIR . $this->themeOption('image');
-		}
-		else {
+		} else {
 			$image = '';
 		}
 		if ($this->themeOption('header') === '1' && file_exists($image)) {
@@ -216,7 +215,7 @@ class JustBlackTheme extends BaseTheme {
 	/** {@inheritdoc} */
 	public function individualBox(Individual $individual) {
 		try {
-			if($this->tree && $this->themeOption('square_thumbs')) {
+			if ($this->tree && $this->themeOption('square_thumbs')) {
 				$personBoxClass = array_search($individual->getSex(), array('person_box' => 'M', 'person_boxF' => 'F', 'person_boxNN' => 'U'));
 				if ($this->tree->getPreference('SHOW_HIGHLIGHT_IMAGES')) {
 					$thumbnail = $this->thumbnail($individual);
@@ -254,7 +253,7 @@ class JustBlackTheme extends BaseTheme {
 	/** {@inheritdoc} */
 	public function individualBoxLarge(Individual $individual) {
 		try {
-			if($this->tree && $this->themeOption('square_thumbs')) {
+			if ($this->tree && $this->themeOption('square_thumbs')) {
 				$personBoxClass = array_search($individual->getSex(), array('person_box' => 'M', 'person_boxF' => 'F', 'person_boxNN' => 'U'));
 				if ($this->tree->getPreference('SHOW_HIGHLIGHT_IMAGES')) {
 					$thumbnail = $this->thumbnail($individual);
@@ -291,7 +290,7 @@ class JustBlackTheme extends BaseTheme {
 
 	public function individualBoxSmall(Individual $individual) {
 		try {
-			if($this->themeOption('square_thumbs')) {
+			if ($this->themeOption('square_thumbs')) {
 				$personBoxClass = array_search($individual->getSex(), array('person_box' => 'M', 'person_boxF' => 'F', 'person_boxNN' => 'U'));
 				if ($this->tree->getPreference('SHOW_HIGHLIGHT_IMAGES')) {
 					$thumbnail = $this->thumbnail($individual);
@@ -412,12 +411,11 @@ class JustBlackTheme extends BaseTheme {
 		$modules = Module::getActiveMenus($this->tree);
 		if (array_key_exists($module_name, $modules)) {
 			return $modules[$module_name]->getMenu();
-		}
-		else {
+		} else {
 			return null;
 		}
 	}
-	
+
 	/** {@inheritdoc} */
 	public function parameter($parameter_name) {
 		$parameters = array(
@@ -487,7 +485,7 @@ class JustBlackTheme extends BaseTheme {
 		} else {
 			$tree_title = '';
 		}
-		
+
 		return '<script>' .
 			'var WT_CSS_URL = "' . $this->assetUrl() . '";' .
 			'var WT_TREE_TITLE = "' . $tree_title . '";' .
