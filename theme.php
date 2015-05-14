@@ -322,6 +322,19 @@ class JustBlackTheme extends BaseTheme {
 			return parent::individualBoxSmall($individual);
 		}
 	}
+	
+	/** {@inheritdoc} */
+	public function menuLogin() {
+		try {
+			if (Auth::check() || Auth::isSearchEngine()) {
+				return null;
+			} else {
+				return new Menu(I18N::translate('Login'), WT_LOGIN_URL . '?url=' . rawurlencode(get_query_url()));
+			}
+		} catch (Exception $ex) {
+			return parent::menuLogin();
+		}
+	}
 
 	/** {@inheritdoc} */
 	public function logoPoweredBy() {
