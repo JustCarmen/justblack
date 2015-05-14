@@ -1665,11 +1665,6 @@ tr.classy0, tr.classy1 {
 	border: 0;
 }
 
-#register-form .small {
-	border-bottom: 1px solid #545454;
-	font-size: 11px;
-}
-
 #register-text {
 	line-height: 1.5em;
 }
