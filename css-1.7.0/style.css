@@ -6455,26 +6455,6 @@ footer {
 	content: url(images/powered-by-webtrees.png);
 }
 
-#link_change_blocks {
-	clear: both;
-	line-height: 1.5em;
-	margin: 0 auto;
-	padding: 25px 0 0;
-	text-align: center;
-}
-
-#link_change_blocks a {
-	display:block;
-}
-
-#link_change_blocks span {
-	padding: 0 50px;
-}
-
-#link_change_blocks span span {
-	padding: 0 3px;
-}
-
 form[name=messageform] input,
 form[name=messageform] textarea {
 	font-size:12px;
