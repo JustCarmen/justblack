@@ -21,32 +21,6 @@
 //												FUNCTIONS
 //=========================================================================================================
 
-// Modal dialog boxes
-function jb_modalDialog(url, title) {
-	var $dialog = jQuery('<div id="config-dialog" style="max-height:550px; overflow-y:auto"><div title="' + title + '"><div></div>').load(url).dialog({
-		title: title,
-		width: 'auto',
-		maxWidth: 700,
-		height: 'auto',
-		maxHeight: 500,
-		fluid: true,
-		modal: true,
-		resizable: false,
-		autoOpen: false,
-		open: function () {
-			jQuery('.ui-widget-overlay').on('click', function () {
-				$dialog.dialog('close');
-			});
-		}
-	});
-
-	// open the dialog box after some time. This is neccessary for the dialogbox to load in center position without page flickering.
-	setTimeout(function () {
-		$dialog.dialog('open');
-	}, 500);
-	return false;
-}
-
 function jb_helpDialog(topic, module) {
 	jQuery.getJSON('help_text.php?help=' + topic + '&mod=' + module, function (json) {
 		jb_modalHelp(json.content, json.title);
@@ -284,12 +258,6 @@ jQuery(document).ready(function () {
 	/**************************************** MODAL DIALOG BOXES ********************************************/
 	// replace default function with our justblack theme function (better dialog boxes)
 	function jb_dialogBox() {
-		jQuery('[onclick^="modalDialog"], [onclick^="return modalDialog"]').each(function () {
-			jQuery(this).attr('onclick', function (index, attr) {
-				return attr.replace('modalDialog', 'jb_modalDialog');
-			});
-		});
-
 		jQuery('[onclick^="helpDialog"]').each(function () {
 			jQuery(this).attr('onclick', function (index, attr) {
 				return attr.replace('helpDialog', 'jb_helpDialog');
