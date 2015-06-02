@@ -1237,6 +1237,7 @@ tr.classy0, tr.classy1 {
 
 .person_box_template {
 	height: auto;
+	white-space: normal;
 }
 
 .person_box_template .namedef i {
@@ -1270,10 +1271,12 @@ tr.classy0, tr.classy1 {
 	overflow: hidden;
 }
 
-.person_box_template img,
 .person_box_template a.gallery {
 	float: left;
 	margin: 0 4px 0 0;
+}
+
+.person_box_template img {
 	height: 50px;
 	width: auto;
 	max-width: 80px;
@@ -5170,50 +5173,77 @@ img[src*="vline"] {
 }
 
 /*-- Pedigree ---- */
-#pedigree-page table.list_table {
-	margin: 0 auto 20px;
-	width: 500px;
-}
-
-.pedigree_chart_table {
-	border: 0;
-	border-collapse: collapse;
-	padding: 0;
-	width: 100%;
-}
-
 #pedigree_chart {
-	left: 0;
 	position: relative;
-	width: 99%;
-}
-
-#pedigree_chart div.shadow {
-	box-shadow: 15px 15px #171717;
+	margin: 20px auto;
 }
 
 #pedigree_canvas {
 	color: #FFFFDE;
-	position: absolute;
 	z-index: -1000;
 }
 
-#pedigree_chart #childarrow,
-#pedigree_chart #uparrow,
-#pedigree_chart .shadow,
-.ancestorarrow {
+#pedigree-page .shadow {	
 	position: absolute;
+	white-space: nowrap;
 }
 
-#pedigree_chart #childbox {
+#pedigree-page .shadow .person_box_template {
+	box-shadow: 5px 5px #171717;
+}
+
+#pedigree-page .layout0 .shadow > div,
+#pedigree-page .layout1 .shadow > div {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+#pedigree-page .spacer {
+	background-image: url(images/spacer.png);
+	height: 20px;
+	width: 1px;
+}
+
+#childarrow,
+.ancestorarrow {
+	text-align: center;
+}
+
+#pedigree-page #childarrow {
+	position: relative;
+}
+
+#pedigree-page #childbox {
 	background-color: #272727;
 	border: #545454 1px solid;
 }
 
-[dir=rtl] #pedigree_chart {
-	left: auto;
-	right: 0;
-	width: 99%;
+#pedigree_chart.layout2 .person_box_template .compact_view a.gallery,
+#pedigree_chart.layout3 .person_box_template .compact_view a.gallery,
+#pedigree_chart.layout2 .person_box_template .compact_view i[class^="icon-silhouette"],
+#pedigree_chart.layout3 .person_box_template .compact_view i[class^="icon-silhouette"] {
+	display: block;
+	float: none;
+	margin: 0 auto;
+	text-align: center;
+}
+
+#pedigree_chart.layout2 .person_box_template .compact_view img,
+#pedigree_chart.layout3 .person_box_template .compact_view img {
+	border: none;
+	float: none;
+	margin-bottom: 3px;
+}
+
+#pedigree_chart.layout2 .person_box_template .compact_view .name0,
+#pedigree_chart.layout3 .person_box_template .compact_view .name0 {
+	display: block;
+	text-align: center;
+}
+
+#pedigree_chart.layout2 .person_box_template .compact_view .details0,
+#pedigree_chart.layout3 .person_box_template .compact_view .details0 {
+	text-align: center;
 }
 
 /* -- Statistics ---- */
@@ -7123,11 +7153,10 @@ form[name=messageform] textarea {
 		display: none;
 	}
 
-	#pedigree_chart,
 	#pedigree-page h2 {
 		margin: 0;
 	}
-
+	
 	#pedigree_chart {
 		margin: 0 auto;
 	}

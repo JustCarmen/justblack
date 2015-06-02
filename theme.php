@@ -443,9 +443,8 @@ class JustBlackTheme extends BaseTheme {
 			'chart-background-u'			 => 'ffffde',
 			'chart-font-color'				 => '2e2e2e',
 			'chart-font-size'				 => 9,
-			'chart-spacing-x'				 => 5,
-			'chart-spacing-y'				 => 40,
-			'compact-chart-box-y'			 => 55,
+			'chart-spacing-x'				 => 10,
+			'chart-spacing-y'				 => 15,
 			'distribution-chart-high-values' => 'ff8c00',
 			'distribution-chart-low-values'	 => 'ffeeb0',
 			'line-width'					 => 1,
@@ -454,6 +453,11 @@ class JustBlackTheme extends BaseTheme {
 			'shadow-offset-x'				 => 2,
 			'shadow-offset-y'				 => 2,
 		);
+		
+		if (WT_SCRIPT_NAME === 'pedigree.php' && (Filter::getInteger('orientation') === 2 || Filter::getInteger('orientation') === 3)) {
+			$parameters['compact-chart-box-x'] = 90;
+			$parameters['compact-chart-box-y'] = 120;
+		}
 
 		if (array_key_exists($parameter_name, $parameters)) {
 			return $parameters[$parameter_name];
