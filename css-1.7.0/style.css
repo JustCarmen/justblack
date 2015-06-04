@@ -1259,6 +1259,7 @@ tr.classy0, tr.classy1 {
 .person_box_template .inout {
 	clear: both;
 	display: none;
+	padding: 7px;
 }
 
 .person_box_template .noprint {
