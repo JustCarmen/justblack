@@ -1429,7 +1429,7 @@ tr.classy0, tr.classy1 {
 }
 
 .lb-menu .popup li > a:first-child::before {
-	background: url(../jquery-ui-1.11.2/images/ui-icons_dd6900_256x240.png) no-repeat -32px -16px;
+	background: url(../jquery-ui-1.11.4/images/ui-icons_dd6900_256x240.png) no-repeat -32px -16px;
 }
 
 .lb-menu .popup a {
@@ -1904,7 +1904,7 @@ tr.classy0, tr.classy1 {
 }
 
 #calendar-page .topbottombar {
-	background: url(../jquery-ui-1.11.2/ui-bg_highlight-soft_40_474747_1x100.png);
+	background: url(../jquery-ui-1.11.4/ui-bg_highlight-soft_40_474747_1x100.png);
 	padding-top: 40px;
 }
 
@@ -2015,7 +2015,7 @@ tr.classy0, tr.classy1 {
 }
 
 .popup ul > li > a:first-child::before {
-	background: url(../jquery-ui-1.11.2/images/ui-icons_e2e2e2_256x240.png) no-repeat -32px -16px;
+	background: url(../jquery-ui-1.11.4/images/ui-icons_e2e2e2_256x240.png) no-repeat -32px -16px;
 	width: 16px;
 	height: 16px;
 	display: block;
@@ -2024,7 +2024,7 @@ tr.classy0, tr.classy1 {
 }
 
 .popup > ul > li li > a:first-child::before {
-	background: url(../jquery-ui-1.11.2/images/ui-icons_e2e2e2_256x240.png) no-repeat -144px -96px;
+	background: url(../jquery-ui-1.11.4/images/ui-icons_e2e2e2_256x240.png) no-repeat -144px -96px;
 	width: 16px;
 	height: 16px;
 	display: block;
@@ -2950,7 +2950,7 @@ dd .editlink,dd .deletelink {
 
 #tabs tr:first-child td.rela {
 	border: 1px solid #545454;
-	background: #2e2e2e url(../jquery-ui-1.11.2/images/ui-bg_highlight-soft_50_2e2e2e_1x100.png) 50% 50% repeat-x;
+	background: #2e2e2e url(../jquery-ui-1.11.4/images/ui-bg_highlight-soft_50_2e2e2e_1x100.png) 50% 50% repeat-x;
 	color: #e2e2e2;
 	font-weight: bold;
 }
@@ -4056,7 +4056,7 @@ body .ui-tooltip {
 }
 
 .find-media-media li:before {
-	background: url(../jquery-ui-1.11.2/images/ui-icons_e2e2e2_256x240.png) no-repeat -32px -16px;
+	background: url(../jquery-ui-1.11.4/images/ui-icons_e2e2e2_256x240.png) no-repeat -32px -16px;
 	width: 16px;
 	height: 16px;
 	display: block;
@@ -4380,7 +4380,7 @@ body .ui-tooltip {
 	position: fixed;
 	bottom: 0;
 	left: 0;
-	background: url(../jquery-ui-1.11.2/images/ui-bg_glass_40_ffc73d_1x400.png) repeat;
+	background: url(../jquery-ui-1.11.4/images/ui-bg_glass_40_ffc73d_1x400.png) repeat;
 	width: 100%;
 }
 
@@ -4769,7 +4769,7 @@ table.tabs_table #side_bar a#alturl {
 .story_title,
 #stories .news_title {
 	border: 1px solid #545454;
-	background: #2e2e2e url(../jquery-ui-1.11.2/images/ui-bg_highlight-soft_50_2e2e2e_1x100.png) 50% 50% repeat-x;
+	background: #2e2e2e url(../jquery-ui-1.11.4/images/ui-bg_highlight-soft_50_2e2e2e_1x100.png) 50% 50% repeat-x;
 	color: #e2e2e2;
 	font-weight: bold;
 	opacity: 1;
@@ -5258,7 +5258,7 @@ img[src*="vline"] {
 }
 
 #stats-details td.facts_label {
-	background: url(../jquery-ui-1.11.2/images/ui-bg_highlight-soft_50_2e2e2e_1x100.png) repeat-x scroll 50% 50% #2E2E2E;
+	background: url(../jquery-ui-1.11.4/images/ui-bg_highlight-soft_50_2e2e2e_1x100.png) repeat-x scroll 50% 50% #2E2E2E;
 	border: 1px solid #545454;
 	color: #E2E2E2;
 	font-weight: bold;
@@ -5292,7 +5292,7 @@ img[src*="vline"] {
 }
 
 #stats-details .facts_value ul li:before {
-	background: url(../jquery-ui-1.11.2/images/ui-icons_e2e2e2_256x240.png) no-repeat -32px -16px;
+	background: url(../jquery-ui-1.11.4/images/ui-icons_e2e2e2_256x240.png) no-repeat -32px -16px;
 	width: 16px;
 	height: 16px;
 	display: block;

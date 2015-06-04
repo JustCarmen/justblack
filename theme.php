@@ -182,7 +182,7 @@ class JustBlackTheme extends BaseTheme {
 		try {
 			// Put a version number in the URL, to prevent browsers from caching old versions.
 			$this->theme_dir = 'themes/justblack/';
-			$this->jquery_ui_url = $this->theme_dir . 'jquery-ui-1.11.2/';
+			$this->jquery_ui_url = $this->theme_dir . 'jquery-ui-1.11.4/';
 			$this->colorbox_url = $this->theme_dir . 'colorbox-1.5.14/';
 		} catch (Exception $ex) {
 			return parent::hookAfterInit();
