@@ -357,7 +357,7 @@ jQuery(document).ready(function () {
 	/************************************************ PERSON BOXES *****************************************************/
 	// customize the personbox view
 	function personbox_default() {
-		var obj = jQuery(".person_box_template .inout2");
+		var obj = jQuery(".person_box_template .inout, .person_box_template .inout2");
 		modifybox(obj);
 	}
 
