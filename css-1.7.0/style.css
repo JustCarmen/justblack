@@ -1222,11 +1222,11 @@ tr.classy0, tr.classy1 {
 	2 normal view - large box
 */
 .box-style0 {
-	cursor: url(images/zoomin.png), n-resize;
+	cursor: url(images/icons/zoomin.png), n-resize;
 }
 
 .box-style0-expanded {
-	cursor: url(images/zoomout.png), n-resize;
+	cursor: url(images/icons/zoomout.png), n-resize;
 }
 
 .box-style0-expanded,
