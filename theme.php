@@ -19,11 +19,12 @@ namespace Fisharebest\Webtrees;
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
+use Fisharebest\Webtrees\Theme\AbstractTheme;
+use Fisharebest\Webtrees\Theme\ThemeInterface;
 use Fisharebest\Webtrees\I18N;
 use Fisharebest\Webtrees\Menu;
-use Fisharebest\Webtrees\Theme\BaseTheme;
 
-class JustBlackTheme extends BaseTheme {
+class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 
 	/** @var string the location of this theme */
 	private $theme_dir;
