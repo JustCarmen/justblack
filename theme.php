@@ -23,6 +23,7 @@ use Fisharebest\Webtrees\Theme\AbstractTheme;
 use Fisharebest\Webtrees\Theme\ThemeInterface;
 use Fisharebest\Webtrees\I18N;
 use Fisharebest\Webtrees\Menu;
+use Fisharebest\Webtrees\Functions\Functions;
 
 class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 
@@ -334,7 +335,7 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 			if (Auth::check() || Auth::isSearchEngine()) {
 				return null;
 			} else {
-				return new Menu(I18N::translate('Login'), WT_LOGIN_URL . '?url=' . rawurlencode(get_query_url()));
+				return new Menu(I18N::translate('Login'), WT_LOGIN_URL . '?url=' . rawurlencode(Functions::getQueryUrl()));
 			}
 		} catch (Exception $ex) {
 			return parent::menuLogin();
