@@ -1,5 +1,4 @@
 <?php
-namespace Fisharebest\Webtrees;
 
 /**
  * JustBlack Theme
@@ -18,12 +17,13 @@ namespace Fisharebest\Webtrees;
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
+namespace Fisharebest\Webtrees;
 
-use Fisharebest\Webtrees\Theme\AbstractTheme;
-use Fisharebest\Webtrees\Theme\ThemeInterface;
+use Fisharebest\Webtrees\Functions\Functions;
 use Fisharebest\Webtrees\I18N;
 use Fisharebest\Webtrees\Menu;
-use Fisharebest\Webtrees\Functions\Functions;
+use Fisharebest\Webtrees\Theme\AbstractTheme;
+use Fisharebest\Webtrees\Theme\ThemeInterface;
 
 class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 
@@ -62,7 +62,7 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 	public function favicon() {
 		return '<link rel="icon" href="' . $this->assetUrl() . 'favicon.png" type="image/png">';
 	}
-	
+
 	/** {@inheritdoc} */
 	protected function flashMessageContainer(\stdClass $message) {
 		// This theme uses jQuery markup.
@@ -328,7 +328,7 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 			return parent::individualBoxSmall($individual);
 		}
 	}
-	
+
 	/** {@inheritdoc} */
 	public function menuLogin() {
 		try {
@@ -459,7 +459,7 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 			'shadow-offset-x'				 => 2,
 			'shadow-offset-y'				 => 2,
 		);
-		
+
 		if (WT_SCRIPT_NAME === 'pedigree.php' && (Filter::getInteger('orientation') === 2 || Filter::getInteger('orientation') === 3)) {
 			$parameters['compact-chart-box-x'] = 90;
 			$parameters['compact-chart-box-y'] = 120;
