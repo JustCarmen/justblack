@@ -20,7 +20,6 @@
 //=========================================================================================================
 //												FUNCTIONS
 //=========================================================================================================
-
 function jb_helpDialog(topic, module) {
 	jQuery.getJSON('help_text.php?help=' + topic + '&mod=' + module, function (json) {
 		jb_modalHelp(json.content, json.title);
