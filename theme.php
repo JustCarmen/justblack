@@ -17,13 +17,19 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-namespace Fisharebest\Webtrees;
+namespace JustCarmen\WebtreesAddOns\Theme;
 
+use Fisharebest\Webtrees\Auth;
+use Fisharebest\Webtrees\Filter;
+use Fisharebest\Webtrees\FlashMessages;
 use Fisharebest\Webtrees\Functions\Functions;
 use Fisharebest\Webtrees\I18N;
+use Fisharebest\Webtrees\Individual;
 use Fisharebest\Webtrees\Menu;
+use Fisharebest\Webtrees\Module;
 use Fisharebest\Webtrees\Theme\AbstractTheme;
 use Fisharebest\Webtrees\Theme\ThemeInterface;
+use JustCarmen\WebtreesAddOns\Module\JustBlackThemeOptionsModule;
 
 class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 
@@ -53,7 +59,7 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 				'<div class="divider"></div>' .
 				'<main id="content" role="main">' .
 				$this->flashMessagesContainer(FlashMessages::getMessages());
-		} catch (Exception $ex) {
+		} catch (\Exception $ex) {
 			parent::bodyHeader();
 		}
 	}
@@ -76,7 +82,7 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 				'</main>' .
 				'<div class="divider"></div>' .
 				'<footer>' . $this->footerContent() . '</footer>';
-		} catch (Exception $ex) {
+		} catch (\Exception $ex) {
 			parent::footerContainer();
 		}
 	}
@@ -126,7 +132,7 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 			} else {
 				return '';
 			}
-		} catch (Exception $ex) {
+		} catch (\Exception $ex) {
 			return parent::formatTreeTitle();
 		}
 	}
@@ -146,7 +152,7 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 				$this->formQuickSearch() .
 				$this->formatFlagsMenu() .
 				'</div>';
-		} catch (Exception $ex) {
+		} catch (\Exception $ex) {
 			return parent::headerContent();
 		}
 	}
@@ -186,7 +192,7 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 			$this->theme_dir = 'themes/justblack/';
 			$this->jquery_ui_url = $this->theme_dir . 'jquery-ui-1.11.4/';
 			$this->colorbox_url = $this->theme_dir . 'colorbox-1.5.14/';
-		} catch (Exception $ex) {
+		} catch (\Exception $ex) {
 			return parent::hookAfterInit();
 		}
 	}
@@ -203,7 +209,7 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 				'<script src="' . $this->colorbox_url . 'justblack.colorbox.js"></script>' .
 				$this->tableMessages() .
 				$this->tableClippings();
-		} catch (Exception $ex) {
+		} catch (\Exception $ex) {
 			return parent::hookFooterExtraJavascript();
 		}
 	}
@@ -219,7 +225,7 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 				$html .= '<link rel="stylesheet" type="text/css" href="' . $this->assetUrl() . 'treeview.css">';
 			}
 			return $html;
-		} catch (Exception $ex) {
+		} catch (\Exception $ex) {
 			return parent::hookHeaderExtraContent();
 		}
 	}
@@ -257,7 +263,7 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 			} else {
 				return parent::individualBox($individual);
 			}
-		} catch (Exception $ex) {
+		} catch (\Exception $ex) {
 			return parent::individualBox($individual);
 		}
 	}
@@ -295,7 +301,7 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 			} else {
 				return parent::individualBoxLarge($individual);
 			}
-		} catch (Exception $ex) {
+		} catch (\Exception $ex) {
 			return parent::individualBoxLarge($individual);
 		}
 	}
@@ -324,7 +330,7 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 			} else {
 				return parent::individualBoxSmall($individual);
 			}
-		} catch (Exception $ex) {
+		} catch (\Exception $ex) {
 			return parent::individualBoxSmall($individual);
 		}
 	}
@@ -337,7 +343,7 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 			} else {
 				return new Menu(I18N::translate('Login'), WT_LOGIN_URL . '?url=' . rawurlencode(Functions::getQueryUrl()));
 			}
-		} catch (Exception $ex) {
+		} catch (\Exception $ex) {
 			return parent::menuLogin();
 		}
 	}
@@ -348,7 +354,7 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 			return
 				parent::logoPoweredBy() .
 				'<a class="link" href="http://www.justcarmen.nl" target="_blank">Design: justcarmen.nl</a>';
-		} catch (Exception $ex) {
+		} catch (\Exception $ex) {
 			return parent::logoPoweredBy();
 		}
 	}
@@ -404,7 +410,7 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 				});
 				$menu->setSubmenus($submenus);
 			}
-		} catch (Exception $ex) {
+		} catch (\Exception $ex) {
 			return parent::menuLists();
 		}
 		return $menu;
@@ -502,7 +508,7 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 			} else {
 				return parent::primaryMenu();
 			}
-		} catch (Exception $ex) {
+		} catch (\Exception $ex) {
 			return parent::primaryMenu();
 		}
 	}
@@ -539,7 +545,7 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 					$this->menuLogin(),
 				);
 			}
-		} catch (Exception $ex) {
+		} catch (\Exception $ex) {
 			return parent::secondaryMenu();
 		}
 	}
@@ -552,7 +558,7 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 				$this->menuLogout(),
 				$this->menuPendingChanges(),
 			));
-		} catch (Exception $ex) {
+		} catch (\Exception $ex) {
 			return parent::secondaryMenu();
 		}
 	}
