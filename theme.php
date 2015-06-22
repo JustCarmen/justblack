@@ -358,11 +358,11 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 		}
 	}
 
-	private function menuCompact(Individual $individual) {
+	private function menuCompact(Individual $individual, $surname) {
 		$menu = new Menu(I18N::translate('View'), '#', 'menu-view');
 
 		$menu->addSubmenu($this->menuChart($individual));
-		$menu->addSubmenu($this->menuLists());
+		$menu->addSubmenu($this->menuLists($surname));
 
 		/** $menuReports could return null */
 		if ($this->themeOption('compact_menu_reports') && $this->menuReports()) {
@@ -400,9 +400,9 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 		}
 	}
 
-	public function menuLists() {
+	public function menuLists($surname) {
 		try {
-			$menu = parent::menuLists();
+			$menu = parent::menuLists($surname);
 			if ($this->themeOption('media_menu')) {
 				$submenus = array_filter($menu->getSubmenus(), function (Menu $menu) {
 					return $menu->getClass() !== 'menu-list-obje';
@@ -485,13 +485,14 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 			$menus = $this->themeOption('menu');
 			if ($this->tree && $menus) {
 				$individual = $controller->getSignificantIndividual();
+				$surname = $controller->getSignificantSurname();
 				foreach ($menus as $menu) {
 					$label = $menu['label'];
 					$sort = $menu['sort'];
 					$function = $menu['function'];
 					if ($sort > 0) {
 						if ($function === 'menuCompact') {
-							$menubar[] = $this->menuCompact($individual);
+							$menubar[] = $this->menuCompact($individual, $surname);
 						} elseif ($function === 'menuMedia') {
 							$menubar[] = $this->menuMedia();
 						} elseif ($function === 'menuChart') {
