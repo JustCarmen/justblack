@@ -179,7 +179,8 @@ input {
 }
 
 input[type="submit"],
-input[type="button"] {
+input[type="button"],
+input[type="reset"] {
 	-moz-border-radius: 2px;
 	background: url(images/button_sprite.png) repeat-x;
 	border: #545454 1px solid;
@@ -301,9 +302,6 @@ form {
 	background-color: #ffffcc;
 }
 
-.person_box_lifespan {
-	display: inline;
-}
 /* families tab person box  */
 #relatives_content .person_box > .person_box,
 #relatives_content .person_boxF > .person_boxF,
@@ -983,44 +981,6 @@ a:hover .nameZoom {
 .old {
 	border: solid #F6F6F6 2px;
 	overflow: hidden;
-}
-
-a.showit {
-	color: #e7e7e7;
-	position: relative;
-	text-decoration: none;
-	z-index: 24;
-}
-
-a.showit:hover {
-	background-color: #fff8dc;
-	cursor: crosshair;
-	z-index: 25;
-}
-
-a.showit > span {
-	display: none;
-}
-
-a.showit:hover > span {
-	background: #ffdcb2;
-	border-bottom: 1px solid #000;
-	border-left: 15px outset #000;
-	border-right: 1px solid #000;
-	border-top: 1px solid #000;
-	color: #444444;
-	display: block;
-	font-size: 11px;
-	left: 0;
-	filter: alpha(opacity=85);
-	opacity: .85;
-	padding: 3px;
-	position: absolute;
-	text-align: left;
-	top: 22px;
-	white-space: normal;
-	width: 225px;
-	z-index: 5;
 }
 
 .tag_cloud {
@@ -1964,11 +1924,21 @@ tr.classy0, tr.classy1 {
 /* styles for popup menus */
 .itr {
 	line-height: 1.5;
-	position: absolute;
+	position: relative;
 }
 
 .popup {
-	display: none;
+	position: absolute;
+	top: 20px;
+	right: 0;
+	left: auto;
+	visibility: hidden;
+	opacity: 0;
+	transition: visibility 0s ease .25s,opacity .25s ease;
+	z-index: 9999;
+	-webkit-box-shadow: 5px 5px 5px 0 rgba(0,0,0,.4);
+	-moz-box-shadow: 5px 5px 5px 0 rgba(0,0,0,.4);
+	box-shadow: 5px 5px 5px 0 rgba(0,0,0,.4);
 }
 
 .popup ul {
@@ -2064,16 +2034,9 @@ tr.classy0, tr.classy1 {
 }
 
 .itr:hover .popup {
-	display: block;
-	position: absolute;
-	right: 0;
-	width: 12em;
-	z-index: 9999;
-}
-
-[dir=rtl] .itr:hover .popup {
-	left: 0;
-	right: auto;
+	visibility: visible;
+	opacity: 1;
+	transition-delay: 0s;
 }
 
 /* styles for FindFacts pop-up */
@@ -5115,62 +5078,65 @@ img[src*="vline"] {
 }
 
 /*-- Lifespan ---- */
-#lifespan-page .person0 {
-	padding: 5px;
+#lifespan-chart {
+	padding:    0 10px 10px;
+	margin:     0 auto;
+	min-height: 500px;
 }
 
-#lifespan-page .person0 div{
-	text-align: center;
+#lifespan-scale {
+	background:  transparent url(images/lifespan-chunk.png) repeat-x left bottom;
+	height:      55px;
+	display:     inline-block;
+	white-space: nowrap;
 }
 
-#lifespan_chart .div-controls {
-	opacity: 0.67;
+#lifespan-scale .date {
+	display: inline-block;
+	width:   70px;
+}
+
+[dir='rtl'] #lifespan-scale .date {
+	text-align: right;
+}
+
+#lifespan-people {
 	position: relative;
-	top: 80px;
-	width: 180px;
-	z-index: 100;
-	margin-left: 20px;
 }
 
-.lifespan_people span:first-letter {
-	font-size: 16px;
-	font-variant: small-caps;
-	font-weight: bold;
-	padding: 1px;
-}
-
-.lifespan_outer {
-	border: solid #dd6900 1px;
-	height: 600px;
-	overflow: hidden;
-	position: relative;
-	width: 99.5%;
-}
-
-.lifespan_outer a {
-	color: #e7e7e7;
-}
-
-.lifespan_outer a:hover {
-	color: #767676;
-	text-decoration: none;
-}
-
-.lifespan_timeline {
-	background-color: #808080;
-	left: -10px;
+#lifespan-people > div {
+	border: none;
 	position: absolute;
-	top: -65px;
-	width: 100%;
-	z-index: 2;
+	padding:  0;
 }
 
-.lifespan_people {
-	left: -10px;
-	position: absolute;
-	top: -60px;
-	width: 500px;
-	z-index: 1;
+#lifespan-people .itr {
+	cursor: pointer;
+	display: inline;
+}
+
+#lifespan-people .popup div:first-of-type {
+	font-weight: 900;
+}
+
+#lifespan-people .popup {
+	background-color: #ffeeb0;
+	border: 1px solid #fecf5b;
+    box-shadow: 3px 4px #171717;
+	color: #272727;
+	font-size: 11px;
+	left: 0;
+	right: auto;
+	white-space: nowrap;
+}
+
+#lifespan-people .popup a {
+	color: #272727;
+}
+
+[dir='rtl'] #lifespan-people .popup {
+	left:  auto;
+	right: 0;
 }
 
 /*-- Pedigree ---- */
@@ -5554,36 +5520,6 @@ a.icon-ldarrow:hover {
 	background-image: url(images/icons/ldarrow2.png);
 	height: 20px;
 	width: 20px;
-}
-
-.icon-lifespan-chunk {
-	background-image: url(images/icons/lifespan-chunk.png);
-	height: 37px;
-	width: 50px;
-}
-
-.icon-lsdnarrow {
-	background-image: url(images/icons/lifespan-down.png);
-	height: 48px;
-	width: 48px;
-}
-
-.icon-lsltarrow {
-	background-image: url(images/icons/lifespan-left.png);
-	height: 48px;
-	width: 48px;
-}
-
-.icon-lsrtarrow {
-	background-image: url(images/icons/lifespan-right.png);
-	height: 48px;
-	width: 48px;
-}
-
-.icon-lsuparrow {
-	background-image: url(images/icons/lifespan-up.png);
-	height: 48px;
-	width: 48px;
 }
 
 .icon-loading-small {
@@ -7170,19 +7106,9 @@ form[name=messageform] textarea {
 		margin-bottom: 10px;
 	}
 
-	.lifespan_outer {
-		position: relative;
-		width: auto;
-		height: auto;
-		overflow: visible;
+	#lifespan-chart {
+		margin: 0;
 		border: 0;
-	}
-
-	.lifespan_people {
-		position: absolute;
-		width: auto;
-		left: -10px;
-		top: -60px;
-		z-index: 1;
+		padding: 0;
 	}
 }
