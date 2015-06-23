@@ -502,6 +502,7 @@ jQuery(document).ready(function () {
 		});
 
 		jQuery('.lightbox-menu .lb-menu li ul').wrap('<div class="popup">');
+		jQuery(".lb-image_link").addClass("itr");
 
 		jQuery('.lightbox-menu .lb-menu > li > a').each(function () {
 			var tooltip, pos;
@@ -524,12 +525,6 @@ jQuery(document).ready(function () {
 				jQuery(this).parent().attr('title', tooltip);
 			}
 			jQuery(this).text('');
-		});
-
-		jQuery('.lb-menu .lb-image_link').parent().hover(function () {
-			jQuery(this).find('.popup').fadeIn('slow');
-		}, function () {
-			jQuery(this).find('.popup').fadeOut('slow');
 		});
 
 		// media link list
