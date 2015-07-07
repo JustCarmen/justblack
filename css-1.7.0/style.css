@@ -2398,10 +2398,6 @@ ul#reorder_list li {
 	min-width: 100px;
 }
 
-.add_fav_ref label:after {
-	content: ":";
-}
-
 .add_fav_ref input {
 	margin: 0 5px;
 }
@@ -2493,10 +2489,6 @@ ul#reorder_list li {
 
 [dir=rtl] .stat-table1 .stat-cell {
 	padding: 0 0 0 3px;
-}
-
-.stat-table1 .facts_label:after {
-	content: ":";
 }
 
 .stat-table2 {
@@ -2734,10 +2726,6 @@ span.link_text {
 .indi_name_details {
 	margin: 0;
 	padding: 5px;
-}
-
-.indi_name_details dt:after {
-	content: ":";
 }
 
 .indi_name_details .name1 {
