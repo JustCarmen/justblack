@@ -497,6 +497,8 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 							$menubar[] = $this->menuMedia();
 						} elseif ($function === 'menuChart') {
 							$menubar[] = $this->menuChart($individual);
+						} elseif ($function === 'menuLists') {
+							$menubar[] = $this->menuLists($surname);						
 						} elseif ($function === 'menuModule') {
 							$menubar[] = $this->menuModule($label);
 						} else {
