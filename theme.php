@@ -682,7 +682,7 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 	// This theme comes with an optional module to set a few theme options
 	private function themeOption($setting) {
 		if (Module::getModuleByName('justblack_theme_options')) {
-			$module = new JustBlackThemeOptionsModule;
+			$module = new JustBlackThemeOptionsClass;
 			return $module->options($setting);
 		}
 	}
