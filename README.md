@@ -1,7 +1,7 @@
 JustBlack Theme for webtrees
 ============================
 
-This theme requires [webtrees 1.6.2](https://github.com/fisharebest/webtrees). Download the latest stable release [here](https://github.com/JustCarmen/justblack/releases/tag/1.6.2).
+This theme requires [webtrees 1.7.0](https://github.com/fisharebest/webtrees). Download the latest stable release [here](https://github.com/JustCarmen/justblack/releases/tag/1.7.0).
 
 Download the latest stable relase for webtrees 1.4.x here: https://github.com/JustCarmen/justblack/releases/tag/1.4.4
 
@@ -23,9 +23,9 @@ Download the theme option module here: https://github.com/JustCarmen/justblack_t
 Pick the version number that correspondents with the version number of the JustBlack Theme. Read the readme files in the folder for installation instructions and usage.
 
 A few options to mention:
+* Easily change the header image.
 * Flags for language menu in the header with a nice tooltip system.
 * Use a compact menu.
-* Use Google Docs Viewer for pdf display.
 
 For a complete overview of all the options in the JustBlack Theme Options module read [this](https://github.com/JustCarmen/justblack_theme_options) page.
 
