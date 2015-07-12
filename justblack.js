@@ -15,7 +15,7 @@
  */
 
 
-/* global authID, WT_SCRIPT_NAME */
+/* global authID, WT_SCRIPT_NAME, WT_CSRF_TOKEN */
 
 //=========================================================================================================
 //												FUNCTIONS
@@ -219,9 +219,17 @@ jQuery(document).ready(function () {
 					at: "center center"
 				}
 			});
-			jQuery(this).click(function () {
-				location.href = jQuery(this).find('a').attr('href');
-			});
+		});
+	});
+
+	// Activate the flags selection menu
+	jQuery(".header-flags").on("click", "li", function () {
+		jQuery.post("action.php", {
+			action: "language",
+			language: jQuery(this).find("a").data("language"),
+			csrf: WT_CSRF_TOKEN
+		}, function () {
+			location.reload();
 		});
 	});
 

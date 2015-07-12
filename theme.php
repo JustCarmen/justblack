@@ -387,13 +387,12 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 		if ($menu && $menu->getSubmenus()) {
 			foreach ($menu->getSubmenus() as $submenu) {
 				if ($submenu) {
-					$lang = explode('-', $submenu->getClass());
-					$class = '';
-					if (WT_LOCALE == $lang[2]) {
-						$class = ' lang-active';
+					$attrs = '';
+					foreach ($submenu->getAttrs() as $key => $value) {
+						$attrs .= ' ' . $key . '="' . Filter::escapeHtml($value) . '"';//						
 					}
-					$flags .= '<li class="' . $submenu->getClass() . $class . '" title="' . $submenu->getLabel() . '">
-								<a href="' . $submenu->getLink() . '"></a></li>';
+					$flags .= '<li class="' . $submenu->getClass() . '" title="' . $submenu->getLabel() . '">
+								<a href="' . $submenu->getLink() . '"' . $attrs . '></a></li>';
 				}
 			}
 			return $flags;
