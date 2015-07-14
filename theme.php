@@ -1,5 +1,4 @@
 <?php
-
 /**
  * JustBlack Theme
  *
@@ -48,19 +47,15 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 
 	/** {@inheritdoc} */
 	public function bodyHeader() {
-		try {
-			return
-				'<body>' .
-				'<header>' .
-				$this->headerContent() .
-				$this->primaryMenuContainer($this->primaryMenu()) .
-				'</header>' .
-				'<div class="divider"></div>' .
-				'<main id="content" role="main">' .
-				$this->flashMessagesContainer(FlashMessages::getMessages());
-		} catch (\Exception $ex) {
-			parent::bodyHeader();
-		}
+		return
+			'<body>' .
+			'<header>' .
+			$this->headerContent() .
+			$this->primaryMenuContainer($this->primaryMenu()) .
+			'</header>' .
+			'<div class="divider"></div>' .
+			'<main id="content" role="main">' .
+			$this->flashMessagesContainer(FlashMessages::getMessages());
 	}
 
 	/** {@inheritdoc} */
@@ -76,14 +71,10 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 
 	/** {@inheritdoc} */
 	public function footerContainer() {
-		try {
-			return
-				'</main>' .
-				'<div class="divider"></div>' .
-				'<footer>' . $this->footerContent() . '</footer>';
-		} catch (\Exception $ex) {
-			parent::footerContainer();
-		}
+		return
+			'</main>' .
+			'<div class="divider"></div>' .
+			'<footer>' . $this->footerContent() . '</footer>';
 	}
 
 	private function formatFavoritesMenu() {
@@ -122,38 +113,30 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 
 	/** (@inheritdoc) */
 	public function formatTreeTitle() {
-		try {
-			if ($this->tree && $this->themeOption('treetitle') === '1') {
-				return '
-				<h1 style="' . $this->headerTitleStyle() . '">
-				<a href="index.php">' . $this->tree->getTitleHtml() . '</a>
-				</h1>';
-			} else {
-				return '';
-			}
-		} catch (\Exception $ex) {
-			return parent::formatTreeTitle();
+		if ($this->tree && $this->themeOption('treetitle') === '1') {
+			return '
+			<h1 style="' . $this->headerTitleStyle() . '">
+			<a href="index.php">' . $this->tree->getTitleHtml() . '</a>
+			</h1>';
+		} else {
+			return '';
 		}
 	}
 
 	/** {@inheritdoc} */
 	public function headerContent() {
-		try {
-			return
-				'<div class="header-top" style="' . $this->headerTopStyle() . '">' .
-				$this->formatTreeTitle() .
-				$this->formatTopMenu() .
-				$this->formatSecondaryMenu() .
-				$this->formatUserMenu() .
-				'</div>' .
-				'<div class="header-bottom">' .
-				$this->formatFavoritesMenu() .
-				$this->formQuickSearch() .
-				$this->formatFlagsMenu() .
-				'</div>';
-		} catch (\Exception $ex) {
-			return parent::headerContent();
-		}
+		return
+			'<div class="header-top" style="' . $this->headerTopStyle() . '">' .
+			$this->formatTreeTitle() .
+			$this->formatTopMenu() .
+			$this->formatSecondaryMenu() .
+			$this->formatUserMenu() .
+			'</div>' .
+			'<div class="header-bottom">' .
+			$this->formatFavoritesMenu() .
+			$this->formQuickSearch() .
+			$this->formatFlagsMenu() .
+			'</div>';
 	}
 
 	// Theme setting for the tree title
@@ -186,176 +169,144 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 
 	/** {@inheritdoc} */
 	public function hookAfterInit() {
-		try {
-			// Put a version number in the URL, to prevent browsers from caching old versions.
-			$this->theme_dir = 'themes/justblack/';
-			$this->jquery_ui_url = $this->theme_dir . 'jquery-ui-1.11.4/';
-			$this->colorbox_url = $this->theme_dir . 'colorbox-1.5.14/';
-		} catch (\Exception $ex) {
-			return parent::hookAfterInit();
-		}
+		// Put a version number in the URL, to prevent browsers from caching old versions.
+		$this->theme_dir = 'themes/justblack/';
+		$this->jquery_ui_url = $this->theme_dir . 'jquery-ui-1.11.4/';
+		$this->colorbox_url = $this->theme_dir . 'colorbox-1.5.14/';
 	}
 
 	/** {@inheritdoc} */
 	public function hookFooterExtraJavascript() {
-		try {
-			return
-				$this->scriptVars() .
-				'<script src="' . WT_JQUERY_COLORBOX_URL . '"></script>' .
-				'<script src="' . WT_JQUERY_WHEELZOOM_URL . '"></script>' .
-				'<script src="' . $this->jquery_ui_url . 'jquery-ui-effects.min.js"></script>' .
-				'<script src="' . $this->theme_dir . 'justblack.js"></script>' .
-				'<script src="' . $this->colorbox_url . 'justblack.colorbox.js"></script>' .
-				$this->tableMessages() .
-				$this->tableClippings();
-		} catch (\Exception $ex) {
-			return parent::hookFooterExtraJavascript();
-		}
+		return
+			$this->scriptVars() .
+			'<script src="' . WT_JQUERY_COLORBOX_URL . '"></script>' .
+			'<script src="' . WT_JQUERY_WHEELZOOM_URL . '"></script>' .
+			'<script src="' . $this->jquery_ui_url . 'jquery-ui-effects.min.js"></script>' .
+			'<script src="' . $this->theme_dir . 'justblack.js"></script>' .
+			'<script src="' . $this->colorbox_url . 'justblack.colorbox.js"></script>' .
+			$this->tableMessages() .
+			$this->tableClippings();
 	}
 
 	/** {@inheritdoc} */
 	public function hookHeaderExtraContent() {
-		try {
-			$html = '';
-			if ($this->themeOption('css')) {
-				$html .= '<link rel="stylesheet" type="text/css" href="' . $this->themeOption('css') . '">';
-			}
-			if (WT_SCRIPT_NAME == 'individual.php' || Filter::get('mod_action') === 'treeview') {
-				$html .= '<link rel="stylesheet" type="text/css" href="' . $this->assetUrl() . 'treeview.css">';
-			}
-			return $html;
-		} catch (\Exception $ex) {
-			return parent::hookHeaderExtraContent();
+		$html = '';
+		if ($this->themeOption('css')) {
+			$html .= '<link rel="stylesheet" type="text/css" href="' . $this->themeOption('css') . '">';
 		}
+		if (WT_SCRIPT_NAME == 'individual.php' || Filter::get('mod_action') === 'treeview') {
+			$html .= '<link rel="stylesheet" type="text/css" href="' . $this->assetUrl() . 'treeview.css">';
+		}
+		return $html;
 	}
 
 	/** {@inheritdoc} */
 	public function individualBox(Individual $individual) {
-		try {
-			if ($this->tree && $this->themeOption('square_thumbs')) {
-				$personBoxClass = array_search($individual->getSex(), array('person_box' => 'M', 'person_boxF' => 'F', 'person_boxNN' => 'U'));
-				if ($this->tree->getPreference('SHOW_HIGHLIGHT_IMAGES')) {
-					$thumbnail = $this->thumbnail($individual);
-				} else {
-					$thumbnail = '';
-				}
-
-				return
-					'<div data-pid="' . $individual->getXref() . '" class="person_box_template ' . $personBoxClass . ' box-style1" style="width: ' . $this->parameter('chart-box-x') . 'px; min-height: ' . $this->parameter('chart-box-y') . 'px">' .
-					'<div class="noprint icons">' .
-					'<span class="iconz icon-zoomin" title="' . I18N::translate('Zoom in/out on this box.') . '"></span>' .
-					'<div class="itr"><i class="icon-pedigree"></i><div class="popup">' .
-					'<ul class="' . $personBoxClass . '">' . implode('', $this->individualBoxMenu($individual)) . '</ul>' .
-					'</div>' .
-					'</div>' .
-					'</div>' .
-					'<div class="chart_textbox" style="max-height:' . $this->parameter('chart-box-y') . 'px;">' .
-					$thumbnail .
-					'<a href="' . $individual->getHtmlUrl() . '">' .
-					'<span class="namedef name1">' . $individual->getFullName() . '</span>' .
-					'</a>' .
-					'<div class="namedef name1">' . $individual->getAddName() . '</div>' .
-					'<div class="inout2 details1">' . $this->individualBoxFacts($individual) . '</div>' .
-					'</div>' .
-					'<div class="inout"></div>' .
-					'</div>';
+		if ($this->tree && $this->themeOption('square_thumbs')) {
+			$personBoxClass = array_search($individual->getSex(), array('person_box' => 'M', 'person_boxF' => 'F', 'person_boxNN' => 'U'));
+			if ($this->tree->getPreference('SHOW_HIGHLIGHT_IMAGES')) {
+				$thumbnail = $this->thumbnail($individual);
 			} else {
-				return parent::individualBox($individual);
+				$thumbnail = '';
 			}
-		} catch (\Exception $ex) {
+
+			return
+				'<div data-pid="' . $individual->getXref() . '" class="person_box_template ' . $personBoxClass . ' box-style1" style="width: ' . $this->parameter('chart-box-x') . 'px; min-height: ' . $this->parameter('chart-box-y') . 'px">' .
+				'<div class="noprint icons">' .
+				'<span class="iconz icon-zoomin" title="' . I18N::translate('Zoom in/out on this box.') . '"></span>' .
+				'<div class="itr"><i class="icon-pedigree"></i><div class="popup">' .
+				'<ul class="' . $personBoxClass . '">' . implode('', $this->individualBoxMenu($individual)) . '</ul>' .
+				'</div>' .
+				'</div>' .
+				'</div>' .
+				'<div class="chart_textbox" style="max-height:' . $this->parameter('chart-box-y') . 'px;">' .
+				$thumbnail .
+				'<a href="' . $individual->getHtmlUrl() . '">' .
+				'<span class="namedef name1">' . $individual->getFullName() . '</span>' .
+				'</a>' .
+				'<div class="namedef name1">' . $individual->getAddName() . '</div>' .
+				'<div class="inout2 details1">' . $this->individualBoxFacts($individual) . '</div>' .
+				'</div>' .
+				'<div class="inout"></div>' .
+				'</div>';
+		} else {
 			return parent::individualBox($individual);
 		}
 	}
 
 	/** {@inheritdoc} */
 	public function individualBoxLarge(Individual $individual) {
-		try {
-			if ($this->tree && $this->themeOption('square_thumbs')) {
-				$personBoxClass = array_search($individual->getSex(), array('person_box' => 'M', 'person_boxF' => 'F', 'person_boxNN' => 'U'));
-				if ($this->tree->getPreference('SHOW_HIGHLIGHT_IMAGES')) {
-					$thumbnail = $this->thumbnail($individual);
-				} else {
-					$thumbnail = '';
-				}
-
-				return
-					'<div data-pid="' . $individual->getXref() . '" class="person_box_template ' . $personBoxClass . ' box-style2">' .
-					'<div class="noprint icons">' .
-					'<span class="iconz icon-zoomin" title="' . I18N::translate('Zoom in/out on this box.') . '"></span>' .
-					'<div class="itr"><i class="icon-pedigree"></i><div class="popup">' .
-					'<ul class="' . $personBoxClass . '">' . implode('', $this->individualBoxMenu($individual)) . '</ul>' .
-					'</div>' .
-					'</div>' .
-					'</div>' .
-					'<div class="chart_textbox" style="max-height:' . $this->parameter('chart-box-y') . 'px;">' .
-					$thumbnail .
-					'<a href="' . $individual->getHtmlUrl() . '">' .
-					'<span class="namedef name2">' . $individual->getFullName() . '</span>' .
-					'</a>' .
-					'<div class="namedef name2">' . $individual->getAddName() . '</div>' .
-					'<div class="inout2 details2">' . $this->individualBoxFacts($individual) . '</div>' .
-					'</div>' .
-					'<div class="inout"></div>' .
-					'</div>';
+		if ($this->tree && $this->themeOption('square_thumbs')) {
+			$personBoxClass = array_search($individual->getSex(), array('person_box' => 'M', 'person_boxF' => 'F', 'person_boxNN' => 'U'));
+			if ($this->tree->getPreference('SHOW_HIGHLIGHT_IMAGES')) {
+				$thumbnail = $this->thumbnail($individual);
 			} else {
-				return parent::individualBoxLarge($individual);
+				$thumbnail = '';
 			}
-		} catch (\Exception $ex) {
+
+			return
+				'<div data-pid="' . $individual->getXref() . '" class="person_box_template ' . $personBoxClass . ' box-style2">' .
+				'<div class="noprint icons">' .
+				'<span class="iconz icon-zoomin" title="' . I18N::translate('Zoom in/out on this box.') . '"></span>' .
+				'<div class="itr"><i class="icon-pedigree"></i><div class="popup">' .
+				'<ul class="' . $personBoxClass . '">' . implode('', $this->individualBoxMenu($individual)) . '</ul>' .
+				'</div>' .
+				'</div>' .
+				'</div>' .
+				'<div class="chart_textbox" style="max-height:' . $this->parameter('chart-box-y') . 'px;">' .
+				$thumbnail .
+				'<a href="' . $individual->getHtmlUrl() . '">' .
+				'<span class="namedef name2">' . $individual->getFullName() . '</span>' .
+				'</a>' .
+				'<div class="namedef name2">' . $individual->getAddName() . '</div>' .
+				'<div class="inout2 details2">' . $this->individualBoxFacts($individual) . '</div>' .
+				'</div>' .
+				'<div class="inout"></div>' .
+				'</div>';
+		} else {
 			return parent::individualBoxLarge($individual);
 		}
 	}
 
 	public function individualBoxSmall(Individual $individual) {
-		try {
-			if ($this->themeOption('square_thumbs')) {
-				$personBoxClass = array_search($individual->getSex(), array('person_box' => 'M', 'person_boxF' => 'F', 'person_boxNN' => 'U'));
-				if ($this->tree->getPreference('SHOW_HIGHLIGHT_IMAGES')) {
-					$thumbnail = $this->thumbnail($individual);
-				} else {
-					$thumbnail = '';
-				}
-
-				return
-					'<div data-pid="' . $individual->getXref() . '" class="person_box_template ' . $personBoxClass . ' iconz box-style0" style="width: ' . $this->parameter('compact-chart-box-x') . 'px; min-height: ' . $this->parameter('compact-chart-box-y') . 'px">' .
-					'<div class="compact_view">' .
-					$thumbnail .
-					'<a href="' . $individual->getHtmlUrl() . '">' .
-					'<span class="namedef name0">' . $individual->getFullName() . '</span>' .
-					'</a>' .
-					'<div class="inout2 details0">' . $individual->getLifeSpan() . '</div>' .
-					'</div>' .
-					'<div class="inout"></div>' .
-					'</div>';
+		if ($this->themeOption('square_thumbs')) {
+			$personBoxClass = array_search($individual->getSex(), array('person_box' => 'M', 'person_boxF' => 'F', 'person_boxNN' => 'U'));
+			if ($this->tree->getPreference('SHOW_HIGHLIGHT_IMAGES')) {
+				$thumbnail = $this->thumbnail($individual);
 			} else {
-				return parent::individualBoxSmall($individual);
+				$thumbnail = '';
 			}
-		} catch (\Exception $ex) {
+
+			return
+				'<div data-pid="' . $individual->getXref() . '" class="person_box_template ' . $personBoxClass . ' iconz box-style0" style="width: ' . $this->parameter('compact-chart-box-x') . 'px; min-height: ' . $this->parameter('compact-chart-box-y') . 'px">' .
+				'<div class="compact_view">' .
+				$thumbnail .
+				'<a href="' . $individual->getHtmlUrl() . '">' .
+				'<span class="namedef name0">' . $individual->getFullName() . '</span>' .
+				'</a>' .
+				'<div class="inout2 details0">' . $individual->getLifeSpan() . '</div>' .
+				'</div>' .
+				'<div class="inout"></div>' .
+				'</div>';
+		} else {
 			return parent::individualBoxSmall($individual);
 		}
 	}
 
 	/** {@inheritdoc} */
 	public function menuLogin() {
-		try {
-			if (Auth::check() || Auth::isSearchEngine()) {
-				return null;
-			} else {
-				return new Menu(I18N::translate('Login'), WT_LOGIN_URL . '?url=' . rawurlencode(Functions::getQueryUrl()));
-			}
-		} catch (\Exception $ex) {
-			return parent::menuLogin();
+		if (Auth::check() || Auth::isSearchEngine()) {
+			return null;
+		} else {
+			return new Menu(I18N::translate('Login'), WT_LOGIN_URL . '?url=' . rawurlencode(Functions::getQueryUrl()));
 		}
 	}
 
 	/** {@inheritdoc} */
 	public function logoPoweredBy() {
-		try {
-			return
-				parent::logoPoweredBy() .
-				'<a class="link" href="http://www.justcarmen.nl" target="_blank">Design: justcarmen.nl</a>';
-		} catch (\Exception $ex) {
-			return parent::logoPoweredBy();
-		}
+		return
+			parent::logoPoweredBy() .
+			'<a class="link" href="http://www.justcarmen.nl" target="_blank">Design: justcarmen.nl</a>';
 	}
 
 	private function menuCompact(Individual $individual, $surname) {
@@ -389,7 +340,7 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 				if ($submenu) {
 					$attrs = '';
 					foreach ($submenu->getAttrs() as $key => $value) {
-						$attrs .= ' ' . $key . '="' . Filter::escapeHtml($value) . '"';//						
+						$attrs .= ' ' . $key . '="' . Filter::escapeHtml($value) . '"'; //						
 					}
 					$flags .= '<li class="' . $submenu->getClass() . '" title="' . $submenu->getLabel() . '">
 								<a href="' . $submenu->getLink() . '"' . $attrs . '></a></li>';
@@ -400,16 +351,12 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 	}
 
 	public function menuLists($surname) {
-		try {
-			$menu = parent::menuLists($surname);
-			if ($this->themeOption('media_menu')) {
-				$submenus = array_filter($menu->getSubmenus(), function (Menu $menu) {
-					return $menu->getClass() !== 'menu-list-obje';
-				});
-				$menu->setSubmenus($submenus);
-			}
-		} catch (\Exception $ex) {
-			return parent::menuLists();
+		$menu = parent::menuLists($surname);
+		if ($this->themeOption('media_menu')) {
+			$submenus = array_filter($menu->getSubmenus(), function (Menu $menu) {
+				return $menu->getClass() !== 'menu-list-obje';
+			});
+			$menu->setSubmenus($submenus);
 		}
 		return $menu;
 	}
@@ -478,38 +425,34 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 
 	/** {@inheritdoc} */
 	public function primaryMenu() {
-		try {
-			global $controller;
+		global $controller;
 
-			$menus = $this->themeOption('menu');
-			if ($this->tree && $menus) {
-				$individual = $controller->getSignificantIndividual();
-				$surname = $controller->getSignificantSurname();
-				foreach ($menus as $menu) {
-					$label = $menu['label'];
-					$sort = $menu['sort'];
-					$function = $menu['function'];
-					if ($sort > 0) {
-						if ($function === 'menuCompact') {
-							$menubar[] = $this->menuCompact($individual, $surname);
-						} elseif ($function === 'menuMedia') {
-							$menubar[] = $this->menuMedia();
-						} elseif ($function === 'menuChart') {
-							$menubar[] = $this->menuChart($individual);
-						} elseif ($function === 'menuLists') {
-							$menubar[] = $this->menuLists($surname);						
-						} elseif ($function === 'menuModule') {
-							$menubar[] = $this->menuModule($label);
-						} else {
-							$menubar[] = $this->{$function}();
-						}
+		$menus = $this->themeOption('menu');
+		if ($this->tree && $menus) {
+			$individual = $controller->getSignificantIndividual();
+			$surname = $controller->getSignificantSurname();
+			foreach ($menus as $menu) {
+				$label = $menu['label'];
+				$sort = $menu['sort'];
+				$function = $menu['function'];
+				if ($sort > 0) {
+					if ($function === 'menuCompact') {
+						$menubar[] = $this->menuCompact($individual, $surname);
+					} elseif ($function === 'menuMedia') {
+						$menubar[] = $this->menuMedia();
+					} elseif ($function === 'menuChart') {
+						$menubar[] = $this->menuChart($individual);
+					} elseif ($function === 'menuLists') {
+						$menubar[] = $this->menuLists($surname);
+					} elseif ($function === 'menuModule') {
+						$menubar[] = $this->menuModule($label);
+					} else {
+						$menubar[] = $this->{$function}();
 					}
 				}
-				return array_filter($menubar);
-			} else {
-				return parent::primaryMenu();
 			}
-		} catch (\Exception $ex) {
+			return array_filter($menubar);
+		} else {
 			return parent::primaryMenu();
 		}
 	}
@@ -533,35 +476,27 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 
 	/** {@inheritdoc} */
 	public function secondaryMenu() {
-		try {
-			if (Auth::id()) {
-				return array_filter(array(
-					$this->menuMyPage(),
-					$this->menuMyIndividualRecord(),
-					$this->menuMyPedigree(),
-				));
-			} else {
-				// It is just a visitor
-				return array(
-					$this->menuLogin(),
-				);
-			}
-		} catch (\Exception $ex) {
-			return parent::secondaryMenu();
+		if (Auth::id()) {
+			return array_filter(array(
+				$this->menuMyPage(),
+				$this->menuMyIndividualRecord(),
+				$this->menuMyPedigree(),
+			));
+		} else {
+			// It is just a visitor
+			return array(
+				$this->menuLogin(),
+			);
 		}
 	}
 
 	private function userMenu() {
-		try {
-			return array_filter(array(
-				$this->menuMyAccount(),
-				$this->menuControlPanel(),
-				$this->menuLogout(),
-				$this->menuPendingChanges(),
-			));
-		} catch (\Exception $ex) {
-			return parent::secondaryMenu();
-		}
+		return array_filter(array(
+			$this->menuMyAccount(),
+			$this->menuControlPanel(),
+			$this->menuLogout(),
+			$this->menuPendingChanges(),
+		));
 	}
 
 	/** {@inheritdoc} */
@@ -689,7 +624,6 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 	}
 
 	private function thumbnail($individual) {
-
 		$media = $individual->findHighlightedMedia();
 		if ($media) {
 			$mediasrc = $media->getServerFilename();
