@@ -5890,6 +5890,15 @@ a.icon-udarrow:hover {
 	background-image: url(images/silhouette_unknown.png);
 }
 
+[class^="icon-mime-"],
+[class*=" icon-mime-"] {
+	display: inline-block;
+	background-image: url(images/icon-mime-sprite.png);
+	background-repeat: no-repeat;
+	width: 48px;
+	height: 48px;
+}
+
 /* ===== Generic MIME types ===== */
 [class^="icon-mime-"],
 [class*=" icon-mime-"] {
