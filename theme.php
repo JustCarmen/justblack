@@ -95,18 +95,12 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 		}
 	}
 
-	private function formatUserMenu() {
+	/** (@inheritdoc) */
+	public function formatSecondaryMenu() {
 		return
-			'<ul class="secondary-menu user-menu">' .
-			implode('', $this->userMenu()) .
-			'</ul>';
-	}
-
-	private function formatTopMenu() {
-		return
-			'<div class="header-topmenu">' .
+			'<div class="secondary-menu">' .
 			'<ul class="dropdown" role="menubar">' .
-			implode('', $this->topMenu()) .
+			implode('', $this->secondaryMenu()) .
 			'</ul>' .
 			'</div>';
 	}
@@ -128,9 +122,7 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 		return
 			'<div class="header-top" style="' . $this->headerTopStyle() . '">' .
 			$this->formatTreeTitle() .
-			$this->formatTopMenu() .
 			$this->formatSecondaryMenu() .
-			$this->formatUserMenu() .
 			'</div>' .
 			'<div class="header-bottom">' .
 			$this->formatFavoritesMenu() .
@@ -474,28 +466,15 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 			'</script>';
 	}
 
-	/** {@inheritdoc} */
+	/** (@inheritdoc) */
 	public function secondaryMenu() {
-		if (Auth::id()) {
-			return array_filter(array(
-				$this->menuMyPage(),
-				$this->menuMyIndividualRecord(),
-				$this->menuMyPedigree(),
-			));
-		} else {
-			// It is just a visitor
-			return array(
-				$this->menuLogin(),
-			);
-		}
-	}
-
-	private function userMenu() {
 		return array_filter(array(
-			$this->menuMyAccount(),
-			$this->menuControlPanel(),
-			$this->menuLogout(),
 			$this->menuPendingChanges(),
+			$this->menuMyPages(),
+			$this->menuThemes(),
+			!$this->themeOption('flags') ? $this->menuLanguages() : '',
+			$this->menuLogin(),
+			$this->menuLogout()
 		));
 	}
 
@@ -719,13 +698,6 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 				return '';
 			}
 		}
-	}
-
-	private function topMenu() {
-		return array_filter(array(
-			$this->menuThemes(),
-			!$this->themeOption('flags') ? $this->menuLanguages() : ''
-		));
 	}
 
 }

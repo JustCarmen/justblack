@@ -6043,118 +6043,75 @@ header h1 a {
 }
 
 /* Set stack level for top two header menu rows */
-.header-topmenu ul,
 .secondary-menu ul,
 .primary-menu ul {
 	z-index: 210; /* Set stack level for top two header menu rows */
 }
 
-/* ====== Header topmenu ======= */
-.header-topmenu {
+/* ====== Secondary menu ======= */
+.secondary-menu {
 	float: right;
 	white-space: nowrap;
 	margin: 5px 15px 0 0;
 }
 
-.header-topmenu > ul {
+.secondary-menu > ul {
 	background: none;
 	border: none;
 	margin: 0;
 	padding: 0;
 }
 
-.header-topmenu > ul > li {
+.secondary-menu > ul > li {
 	background: none;
 	border: none;
 	display: inline;
+	position: relative;
 }
 
-.header-topmenu > ul > li+li:before {
+.secondary-menu > ul > li+li:before {
 	content: "|";
 }
 
-.header-topmenu > ul > li > a {
+.secondary-menu > ul > li > a {
 	color: #e7e7e7;
 	display: inline;
 	font-weight: bold;
 	padding: 0;
 }
 
-.header-topmenu li ul {
+.secondary-menu li ul {
 	position: absolute;
-	top: 1.1em;
+	top: 1.15em;
 	left: auto;
 	right: 0;
 }
 
-.header-topmenu li ul li {
+.secondary-menu li ul li {
 	padding: 2px;
 	display: block;
 }
 
-.header-topmenu li ul li a {
+.secondary-menu li ul li a {
 	padding: 3px 8px;
 }
 
-.header-topmenu .lang-active, .header-topmenu .theme-active {
+.secondary-menu .lang-active, .secondary-menu .theme-active {
 	font-weight: bold;
 }
 
-[dir=rtl] .header-topmenu {
+[dir=rtl] .secondary-menu {
 	float: left;
 	margin: 5px 0 0 15px;
 }
 
-[dir=rtl] .header-topmenu li ul {
+[dir=rtl] .secondary-menu li ul {
 	left: 0;
 	right: auto;
 }
 
-[dir=rtl] .header-topmenu li ul li {
+[dir=rtl] .secondary-menu li ul li {
 	text-align: right;
-}
-
-/* ====== Secondary menu ======= */
-.secondary-menu {
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	list-style-type: none;
-	padding: 0;
-}
-
-.secondary-menu li {
-	float: left;
-}
-
-.secondary-menu li:not(:last-child):after {
-	content: "|";
-}
-
-.secondary-menu li a {
-	color: #e7e7e7;
-    font-size: 11px;
-	font-weight: bold;
-	text-align: center;
-}
-
-[dir=rtl] .secondary-menu {
-	right: 0;
-}
-
-[dir=rtl] .secondary-menu li {
-	float: right;
-}
-
-/* ====== User menu ======= */
-.user-menu {
-	left: auto;
-	right: 0;
-}
-
-[dir=rtl] .user-menu {
-	left: 0;
-	right: auto;
 }
 
 /* ====== Header bottom menu ======= */

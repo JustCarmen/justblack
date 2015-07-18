@@ -209,6 +209,20 @@ jQuery(document).ready(function () {
 		// open admin in new browsertab
 		jQuery(this).find('ul li#menu-admin a').attr('target', 'blank');
 	});
+	
+	/********************************************* SECONDARY MENU *************************************************/
+	jQuery(".secondary-menu li ul").each(function(){
+		var $menu = jQuery(this);
+		var offset = $menu.offset();
+		var maxHeight = 0.90 * (jQuery(window).height() - offset.top + jQuery(window).scrollTop());
+		if ($menu.height() > maxHeight) {
+			$menu.css({
+				"height": "auto",
+				"max-height": maxHeight,
+				"overflow-x": "hidden"
+			});
+		}		
+	});
 
 	/********************************************* LANGUAGE (FLAGS) MENU ******************************************/
 	jQuery('.header-flags').each(function () {
