@@ -2556,8 +2556,9 @@ ul#reorder_list li {
 }
 
 /* ==== Change blocks === */
-table#change_blocks {
-	width: 900px;
+#change_blocks {
+	margin-left: auto;
+	margin-right: auto;
 }
 
 /* ==== FAQ table styles ===== */
