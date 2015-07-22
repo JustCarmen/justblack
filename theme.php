@@ -77,7 +77,7 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 			'<footer>' . $this->footerContent() . '</footer>';
 	}
 
-	private function formatFavoritesMenu() {
+	protected function formatFavoritesMenu() {
 		return
 			'<div class="header-favorites">' .
 			'<ul class="dropdown" role="menubar">' .
@@ -86,7 +86,7 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 			'</div>';
 	}
 
-	private function formatFlagsMenu() {
+	protected function formatFlagsMenu() {
 		if ($this->themeOption('flags') === '1') {
 			return
 				'<div class="header-flags">' .
@@ -132,7 +132,7 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 	}
 
 	// Theme setting for the tree title
-	private function headerTitleStyle() {
+	protected function headerTitleStyle() {
 		$pos = $this->themeOption('titlepos');
 		$posV = $pos['V']['pos'] . ':' . $pos['V']['size'] . $pos['V']['fmt'];
 		$posH = $pos['H']['pos'] . ':' . $pos['H']['size'] . $pos['H']['fmt'];
@@ -142,7 +142,7 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 	}
 
 	// Theme settings for the header top section
-	private function headerTopStyle() {
+	protected function headerTopStyle() {
 		if ($this->themeOption('image')) {
 			$image = WT_DATA_DIR . $this->themeOption('image');
 		} else {
@@ -301,7 +301,7 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 			'<a class="link" href="http://www.justcarmen.nl" target="_blank">Design: justcarmen.nl</a>';
 	}
 
-	private function menuCompact(Individual $individual, $surname) {
+	protected function menuCompact(Individual $individual, $surname) {
 		$menu = new Menu(I18N::translate('View'), '#', 'menu-view');
 
 		$menu->addSubmenu($this->menuChart($individual));
@@ -323,7 +323,7 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 		return $menu;
 	}
 
-	private function menuFlags() {
+	protected function menuFlags() {
 		$menu = $this->menuLanguages();
 
 		$flags = '';
@@ -353,7 +353,7 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 		return $menu;
 	}
 
-	private function menuMedia() {
+	protected function menuMedia() {
 		$MEDIA_DIRECTORY = $this->tree->getPreference('MEDIA_DIRECTORY');
 
 		$mainfolder = $this->themeOption('media_link') === $MEDIA_DIRECTORY ? '' : '&amp;folder=' . Filter::escapeUrl($this->themeOption('media_link'));
@@ -375,7 +375,7 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 		return $menu;
 	}
 
-	private function menuModule($module_name) {
+	protected function menuModule($module_name) {
 		$modules = Module::getActiveMenus($this->tree);
 		if (array_key_exists($module_name, $modules)) {
 			return $modules[$module_name]->getMenu();
@@ -450,7 +450,7 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 	}
 
 	// This theme uses variables from php files in the javascript files
-	private function scriptVars() {
+	protected function scriptVars() {
 		if ($this->tree) {
 			$tree_title = $this->tree->getName();
 		} else {
@@ -487,7 +487,7 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 		);
 	}
 
-	private function tableClippings() {
+	protected function tableClippings() {
 		if (Filter::get('mod') == 'clippings') {
 			return
 				'<script src="' . WT_JQUERY_DATATABLES_JS_URL . '"></script>' .
@@ -514,7 +514,7 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 		}
 	}
 
-	private function tableMessages() {
+	protected function tableMessages() {
 		if (WT_SCRIPT_NAME == 'index.php') {
 			return
 				'<script src="' . WT_JQUERY_DATATABLES_JS_URL . '"></script>' .
@@ -595,14 +595,14 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 	}
 
 	// This theme comes with an optional module to set a few theme options
-	private function themeOption($setting) {
+	protected function themeOption($setting) {
 		if (Module::getModuleByName('justblack_theme_options')) {
 			$module = new JustBlackThemeOptionsClass;
 			return $module->options($setting);
 		}
 	}
 
-	private function thumbnail($individual) {
+	protected function thumbnail($individual) {
 		$media = $individual->findHighlightedMedia();
 		if ($media) {
 			$mediasrc = $media->getServerFilename();
