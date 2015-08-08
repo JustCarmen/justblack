@@ -80,7 +80,7 @@ function resizeImg() {
 }
 
 // add colorbox function to all images on the page when first clicking on an image.
-jQuery("body").one('click', 'a.gallery', function (event) {
+jQuery("body").one('click', 'a.gallery', function () {
 	get_imagetype();
 
 	// General (both images and pdf)
