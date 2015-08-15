@@ -1335,7 +1335,7 @@ tr.classy0, tr.classy1 {
 }
 
 #medialist-page a.media_link {
-	display: inline-block;
+	display: block;
 	height: 1.4em;
 	font-size: 11px;
 }
