@@ -59,11 +59,6 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 	}
 
 	/** {@inheritdoc} */
-	public function favicon() {
-		return '<link rel="icon" href="' . $this->assetUrl() . 'favicon.png" type="image/png">';
-	}
-
-	/** {@inheritdoc} */
 	protected function flashMessageContainer(\stdClass $message) {
 		// This theme uses jQuery markup.
 		return '<p class="ui-state-highlight">' . $message->text . '</p>';
