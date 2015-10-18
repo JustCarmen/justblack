@@ -2244,6 +2244,10 @@ ul#reorder_list li {
 	width: 98%;
 }
 
+#search-result-tabs.advanced-search {
+	width: 100%;
+}
+
 #search-result-tabs h3 {
 	text-align: center;
 }
@@ -4104,52 +4108,30 @@ body .ui-tooltip {
 }
 
 /* -- search_advanced.php ---- */
-#search-page table#field_table {
-	border-spacing: 0;
-	box-shadow: 6px 8px #171717;
+#field_table {
+	border-spacing: 1px;
 }
 
-#search-page td.list_value table {
-	border-spacing: 0;
-}
-
-#search-page td.list_label {
+#field_table .list_label {
 	background-color: #FECF5B;
 	color: #272727;
-	padding: 5px 10px 0 10px;
+	padding: 5px 10px;
+	text-align: right;
 }
 
-#search-page td.facts_label03 {
-	background: none;
-	color: #272727;
-	font-size: 14px;
-}
-
-#search-page td.list_value table td {
-	background: none;
-}
-
-#search-page td.list_value {
+#field_table .list_value {
 	background-color: #FFFFDE;
 	border: none;
-	padding: 5px 10px 0 10px;
+	padding: 10px;
 }
 
-#search-page tr:last-child td {
-	padding-bottom: 10px;
+#field_table .facts_label03 {
+	background: none;
+	font-size: 120%;
 }
 
-#search-page td.list_value input, #search-page td.list_value select {
+#field_table input, #field_table select {
 	background-color: #EEE8AA;
-}
-
-#search-page .indi-list {
-	margin-bottom: 10px;
-}
-
-#search-page form > input[type="submit"] {
-	display: block;
-	margin: 10px auto;
 }
 
 /*  edituser.php  */

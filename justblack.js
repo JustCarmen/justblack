@@ -593,45 +593,43 @@ jQuery(document).ready(function () {
 	/************************************** SEARCH PAGE ***********************************************/
 	var searchForm = jQuery('#search-page form');
 	var searchResult;
-	var titleBtn = jQuery('#search-page h2').text();
+	var searchFormBtn;
+	var searchResultTabs;
+	var btnText = jQuery('#search-page h2').text();
 
 	if (WT_SCRIPT_NAME === 'search.php') {
 		searchResult = jQuery('#search-result-tabs');
 		if (searchResult.length > 0) {
 			searchForm.hide();
 			searchResult.each(function () {
-				jQuery(this).find('ul').append('<li id="search-btn" class="ui-state-default ui-corner-top"><a href="#search"><span>' + titleBtn);
-				jQuery(this).find('.ui-tabs-nav, .fg-toolbar').removeClass('ui-widget-header');
+				searchFormBtn = jQuery(this).find('ul li:first').clone(true).removeClass("ui-tabs-active ui-state-active");
+				jQuery("a", searchFormBtn).text(btnText).attr("href", "#search");
+				jQuery(this).find('ul').append(searchFormBtn).removeClass('ui-widget-header');
 			});
 
-			jQuery('li#search-btn').on({
-				mouseenter: function () {
-					jQuery(this).addClass('ui-state-hover');
-				},
-				mouseleave: function () {
-					jQuery(this).removeClass('ui-state-hover');
-				},
-				click: function () {
-					jQuery(this).addClass('ui-state-active');
-					searchResult.fadeOut('slow');
-					searchForm.fadeIn('slow');
-				}
+			searchFormBtn.on("click", function () {
+				searchResult.fadeOut('slow');
+				searchForm.fadeIn('slow');
 			});
 		}
 	}
 
 	if (WT_SCRIPT_NAME === 'search_advanced.php') {
-		jQuery('#search-page a[onclick^=addFields]').attr('onclick', 'addFields();return false;');
+		// add return false to onclick attribute to prevent page jumping
+		jQuery("#field_table").find("a[onclick]").on("click", function(){
+			return false;
+		});
+		
 		searchResult = jQuery('#search-page .indi-list');
 		if (searchResult.length > 0) {
 			searchForm.hide();
-			searchResult.find('div[class^=filtersH]').append('<button id="search-btn" class="ui-state-default" type="button">' + titleBtn);
+			searchResultTabs = jQuery('<div id="search-result-tabs" class="advanced-search"><ul><li id="search-btn"><a href="#search">' + btnText + '</a></li></ul></div>').tabs();
+			jQuery("ul", searchResultTabs).removeClass("ui-widget-header");
+			searchResult.find('.dataTables_wrapper').prepend(searchResultTabs.css("visibility", "visible"));		 
 
-			jQuery('#search-btn').on({
-				click: function () {
-					searchResult.fadeOut('slow');
-					searchForm.fadeIn('slow');
-				}
+			jQuery('#search-btn').removeClass("ui-tabs-active ui-state-active").on("click", function () {
+				searchResult.fadeOut('slow');
+				searchForm.fadeIn('slow');
 			});
 		}
 	}
