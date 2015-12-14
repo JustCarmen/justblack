@@ -3665,33 +3665,7 @@ body .ui-tooltip {
 	height: 20px;
 }
 
-/* Individuals, Families  */
-.sb_indi_surname_li,
-.sb_fam_surname_li {
-	list-style-image: url(images/icons/plus.png);
-	white-space: nowrap;
-}
-
-.name_tree_div li,.name_tree_div_visible li {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-	white-space: normal;
-}
-
-.name_tree_div {
-	display: none;
-}
-
-.name_tree_div ul,.name_tree_div_visible ul {
-	margin: 0;
-	padding: 0;
-}
-
-#sb_content_family_nav .nav_content {
-	width: 100%;
-}
-
+/* family navigator */
 #sb_content_family_nav .flyout {
 	background-color: #FFEEB0;
 	border: 1px solid #FECF5B;
@@ -3701,18 +3675,7 @@ body .ui-tooltip {
 	padding: 5px 8px;
 }
 
-#sb_content_family_nav .flyout ul {
-	list-style-type: none;
-}
-
-#sb_content_family_nav .flyout3 {
-	padding: 3px;
-}
-
-#sb_content_family_nav .facts_label > div > a:hover {
-	color: #A8A8A8;
-}
-
+/* descendancy list */
 #sb_content_descendancy {
 	padding: 10px;
 }
@@ -3745,6 +3708,25 @@ body .ui-tooltip {
 	margin-top: -20px;
 }
 
+/* Individuals, Families  */
+.sb_indi_surname_li,
+.sb_fam_surname_li {
+	list-style-image: url(images/icons/plus.png);
+	white-space: nowrap;
+}
+
+.name_tree_div ul {
+	padding: 0;
+	margin: 0;
+}
+
+.name_tree_div li {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	white-space: normal
+}
+
 #sb_content_individuals a.sb_indi_letter:after,
 #sb_content_families a.sb_fam_letter:after {
 	content: " |";
@@ -3761,21 +3743,18 @@ body .ui-tooltip {
 	color: #e2e2e2;
 }
 
-#sb_content_individuals .name_tree_div li,
-#sb_content_individuals .name_tree_div_visible li {
+#sb_content_individuals .name_tree_div li {
 	padding-left: 14px;
 	text-indent: -16px;
 	width: 220px;
 }
 
 #sb_content_individuals .name_tree_div li a,
-#sb_content_individuals .name_tree_div_visible li a,
-#sb_content_families .name_tree_div li a, #sb_content_families .name_tree_div_visible li a {
+#sb_content_families .name_tree_div li a {
 	font-size: 11px;
 }
 
-#sb_content_families .name_tree_div li,
-#sb_content_families .name_tree_div_visible li {
+#sb_content_families .name_tree_div li {
 	background: url(images/icons/rings.png) no-repeat left center;
 	line-height: 16px;
 	padding-left: 16px;
