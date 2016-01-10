@@ -671,6 +671,9 @@ jQuery(document).ready(function () {
 			return attr.replace('chan_window_specs', '\'width=850,height=600,left=100,top=100,resizable=1,scrollbars=1\'');
 		});
 	});
+	
+	/************************************** CENSUS ASSISTANT FORM ***********************************************/
+	jQuery("button[type=submit]").addClass("save").wrap("<p id=\"save-cancel\">").parents("div").addClass("census-assistant-save").before("<br><br>");
 
 	/************************************* OTHER *******************************************/
 	// Correction. On default pdf opens on the same page. We do not want to force users to use the browser back button.
