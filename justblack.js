@@ -673,7 +673,9 @@ jQuery(document).ready(function () {
 	});
 	
 	/************************************** CENSUS ASSISTANT FORM ***********************************************/
-	jQuery("button[type=submit]").addClass("save").wrap("<p id=\"save-cancel\">").parents("div").addClass("census-assistant-save").before("<br><br>");
+	if (qstring('action') === 'addnewnote_assisted') {
+		jQuery(".container-popup button[type=submit]").addClass("save").wrap("<p id=\"save-cancel\">").parents("div").addClass("census-assistant-save").before("<br><br>");
+	}
 
 	/************************************* OTHER *******************************************/
 	// Correction. On default pdf opens on the same page. We do not want to force users to use the browser back button.
