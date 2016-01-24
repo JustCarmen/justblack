@@ -4500,8 +4500,8 @@ body .ui-tooltip {
 	display:none;
 }
 
-.table-census-assistant tbody tr:first-child td:empty + td:not(:empty) {
-	display:table-cell;
+.table-census-assistant th:last-child {
+	display:none;
 }
 
 /* Google maps module - pedigree map */
