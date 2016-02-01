@@ -6220,7 +6220,6 @@ footer {
 	font-size: 12px;
 	margin-bottom: 10px;
 	text-align: center;
-	width: 99%;
 }
 
 .container-popup footer {
@@ -6239,6 +6238,16 @@ footer {
 
 .powered-by-webtrees:after {
 	content: url(images/powered-by-webtrees.png);
+}
+
+.cookie-warning {
+	background: #8e8e8e;
+	margin: 10px 0;
+	padding: 10px 0;
+}
+
+.cookie-warning.hidden {
+	display: none;
 }
 
 form[name=messageform] input,
