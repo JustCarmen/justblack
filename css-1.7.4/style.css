@@ -1635,12 +1635,6 @@ tr.classy0, tr.classy1 {
 	line-height: 1.5em;
 }
 
-/* For those who have activated the facebook module */
-#facebook-login-box {
-	display: block !important;
-	padding: 0 !important;
-}
-
 [dir=rtl] #login-form label,
 [dir=rtl] #new_passwd_form label,
 [dir=rtl] #register-form label,
@@ -4505,6 +4499,10 @@ body .ui-tooltip {
 }
 
 /* Google maps module - pedigree map */
+.iwstyle {
+	width: 360px;
+}
+
 #iwcontent_edit {
 	background-color: #DDD !important;
 }
@@ -4633,9 +4631,22 @@ table.tabs_table #side_bar a#alturl {
 	text-align:left;
 }
 
-/* Google maps module */
-.iwstyle {
-	width: 360px;
+/* ===== Custom modules === */
+/* Facebook module */
+#facebook-login-box {
+	display: block !important;
+	padding: 0 !important;
+}
+
+/* Fancy Imagebar module */
+#fancy-imagebar {
+	clear: both;
+	overflow: hidden;
+	margin-top: -1px;
+}
+
+.fancy-imagebar-divider {
+	margin-top: 3px;
 }
 
 /* ====== Charts Styles ======== */

@@ -28,6 +28,7 @@ use Fisharebest\Webtrees\Menu;
 use Fisharebest\Webtrees\Module;
 use Fisharebest\Webtrees\Theme\AbstractTheme;
 use Fisharebest\Webtrees\Theme\ThemeInterface;
+use JustCarmen\WebtreesAddOns\FancyImagebar\FancyImagebarClass;
 
 class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 
@@ -54,8 +55,20 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 			$this->primaryMenuContainer($this->primaryMenu()) .
 			'</header>' .
 			'<div class="divider"></div>' .
+			$this->fancyImagebar() .
 			'<main id="content" role="main">' .
 			$this->flashMessagesContainer(FlashMessages::getMessages());
+	}
+	
+	public function fancyImagebar() {
+		if (Module::getModuleByName('fancy_imagebar')) {
+			$fib = new FancyImagebarClass;
+			if (method_exists($fib, 'loadFancyImagebar') && $fib->loadFancyImagebar()) {
+				return
+					$fib->getFancyImagebar() .
+					'<div class="divider fancy-imagebar-divider"></div>';
+			}
+		}
 	}
 
 	/** {@inheritdoc} */
