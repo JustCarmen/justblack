@@ -56,7 +56,7 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 			'</header>' .
 			'<div class="divider"></div>' .
 			$this->fancyImagebar() .
-			'<main id="content" role="main">' .
+			'<main id="content">' .
 			$this->flashMessagesContainer(FlashMessages::getMessages());
 	}
 	
