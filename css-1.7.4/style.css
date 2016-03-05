@@ -1778,6 +1778,10 @@ tr.classy0, tr.classy1 {
 }
 
 /* Family page */
+#family-table {
+	width: 95%;
+}
+
 #family-table a {
 	color: #E2E2E2;
 }
