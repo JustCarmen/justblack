@@ -86,12 +86,15 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 	}
 
 	protected function formatFavoritesMenu() {
-		return
+		$menu = parent::menuFavorites();
+		if (count($menu->getSubmenus())) {
+			return
 			'<div class="header-favorites">' .
-			'<ul class="dropdown" role="menubar">' .
-			$this->menuFavorites() .
-			'</ul>' .
+			'<ul class="dropdown" role="menubar">' . $menu . '</ul>' .
 			'</div>';
+		} else {
+			return null;
+		}
 	}
 
 	protected function formatFlagsMenu() {
