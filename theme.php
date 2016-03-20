@@ -59,7 +59,7 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 			'<main id="content">' .
 			$this->flashMessagesContainer(FlashMessages::getMessages());
 	}
-	
+
 	public function fancyImagebar() {
 		if (Module::getModuleByName('fancy_imagebar')) {
 			$fib = new FancyImagebarClass;
@@ -89,9 +89,9 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 		$menu = parent::menuFavorites();
 		if (count($menu->getSubmenus())) {
 			return
-			'<div class="header-favorites">' .
-			'<ul class="dropdown" role="menubar">' . $menu . '</ul>' .
-			'</div>';
+				'<div class="header-favorites">' .
+				'<ul class="dropdown" role="menubar">' . $menu . '</ul>' .
+				'</div>';
 		} else {
 			return null;
 		}
@@ -144,11 +144,11 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 
 	// Theme setting for the tree title
 	protected function headerTitleStyle() {
-		$pos = $this->themeOption('titlepos');
-		$posV = $pos['V']['pos'] . ':' . $pos['V']['size'] . $pos['V']['fmt'];
-		$posH = $pos['H']['pos'] . ':' . $pos['H']['size'] . $pos['H']['fmt'];
-		$posH = $pos['H']['pos'] == 'left' ? 'right:auto;' . $posH : 'left:auto;' . $posH;
-		$font_size = 'font-size:' . $this->themeOption('titlesize') . 'px';
+		$pos		 = $this->themeOption('titlepos');
+		$posV		 = $pos['V']['pos'] . ':' . $pos['V']['size'] . $pos['V']['fmt'];
+		$posH		 = $pos['H']['pos'] . ':' . $pos['H']['size'] . $pos['H']['fmt'];
+		$posH		 = $pos['H']['pos'] == 'left' ? 'right:auto;' . $posH : 'left:auto;' . $posH;
+		$font_size	 = 'font-size:' . $this->themeOption('titlesize') . 'px';
 		return $font_size . ';' . $posV . ';' . $posH . ';';
 	}
 
@@ -160,8 +160,8 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 			$image = '';
 		}
 		if ($this->themeOption('header') === '1' && file_exists($image)) {
-			$bg = file_get_contents($image); // The data dir is a protected directory.
-			$type = @getimagesize($image);
+			$bg		 = file_get_contents($image); // The data dir is a protected directory.
+			$type	 = @getimagesize($image);
 			return 'background-image:url(data:' . $type['mime'] . ';base64,' . base64_encode($bg) . '); height: ' . $this->themeOption('headerheight') . 'px;';
 		} elseif ($this->themeOption('header') === '2') {
 			return 'height: ' . $this->themeOption('headerheight') . 'px;';
@@ -173,9 +173,9 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 	/** {@inheritdoc} */
 	public function hookAfterInit() {
 		// Put a version number in the URL, to prevent browsers from caching old versions.
-		$this->theme_dir = 'themes/justblack/';
+		$this->theme_dir	 = 'themes/justblack/';
 		$this->jquery_ui_url = $this->theme_dir . 'jquery-ui-1.11.4/';
-		$this->colorbox_url = $this->theme_dir . 'colorbox-1.5.14/';
+		$this->colorbox_url	 = $this->theme_dir . 'colorbox-1.5.14/';
 	}
 
 	/** {@inheritdoc} */
@@ -214,14 +214,12 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 			}
 
 			$content = '<span class="namedef name1">' . $individual->getFullName() . '</span>';
-			
-			$icons    = '';
+
+			$icons = '';
 			if ($individual->canShowName()) {
-				$content =
-					'<a href="' . $individual->getHtmlUrl() . '">' . $content . '</a>' .
+				$content = '<a href="' . $individual->getHtmlUrl() . '">' . $content . '</a>' .
 					'<div class="namedef name1">' . $individual->getAddName() . '</div>';
-				$icons =
-					'<div class="noprint icons">' .
+				$icons	 = '<div class="noprint icons">' .
 					'<span class="iconz icon-zoomin" title="' . I18N::translate('Zoom in/out on this box.') . '"></span>' .
 					'<div class="itr"><i class="icon-pedigree"></i><div class="popup">' .
 					'<ul class="' . $personBoxClass . '">' . implode('', $this->individualBoxMenu($individual)) . '</ul>' .
@@ -334,8 +332,8 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 		$menu->addSubmenu($this->menuCalendar());
 
 		foreach ($menu->getSubmenus() as $submenu) {
-			$class = explode("-", $submenu->getClass());
-			$new_class = implode("-", array($class[0], 'view', $class[1]));
+			$class		 = explode("-", $submenu->getClass());
+			$new_class	 = implode("-", array($class[0], 'view', $class[1]));
 			$submenu->setClass($new_class);
 		}
 
@@ -375,8 +373,8 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 	protected function menuMedia() {
 		$MEDIA_DIRECTORY = $this->tree->getPreference('MEDIA_DIRECTORY');
 
-		$mainfolder = $this->themeOption('media_link') === $MEDIA_DIRECTORY ? '' : '&amp;folder=' . Filter::escapeUrl($this->themeOption('media_link'));
-		$folders = $this->themeOption('mediafolders');
+		$mainfolder		 = $this->themeOption('media_link') === $MEDIA_DIRECTORY ? '' : '&amp;folder=' . Filter::escapeUrl($this->themeOption('media_link'));
+		$folders		 = $this->themeOption('mediafolders');
 		$show_subfolders = $this->themeOption('show_subfolders') ? '&amp;subdirs=on' : '';
 
 		if (count($folders) > 1) {
@@ -423,8 +421,8 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 		);
 
 		if (WT_SCRIPT_NAME === 'pedigree.php' && (Filter::getInteger('orientation') === 2 || Filter::getInteger('orientation') === 3)) {
-			$parameters['compact-chart-box-x'] = 90;
-			$parameters['compact-chart-box-y'] = 120;
+			$parameters['compact-chart-box-x']	 = 90;
+			$parameters['compact-chart-box-y']	 = 120;
 		}
 
 		if (array_key_exists($parameter_name, $parameters)) {
@@ -440,12 +438,12 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 
 		$menus = $this->themeOption('menu');
 		if ($this->tree && $menus) {
-			$individual = $controller->getSignificantIndividual();
-			$surname = $controller->getSignificantSurname();
+			$individual	 = $controller->getSignificantIndividual();
+			$surname	 = $controller->getSignificantSurname();
 			foreach ($menus as $menu) {
-				$label = $menu['label'];
-				$sort = $menu['sort'];
-				$function = $menu['function'];
+				$label		 = $menu['label'];
+				$sort		 = $menu['sort'];
+				$function	 = $menu['function'];
 				if ($sort > 0) {
 					if ($function === 'menuCompact') {
 						$menubar[] = $this->menuCompact($individual, $surname);
@@ -624,13 +622,13 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 	protected function thumbnail($individual) {
 		$media = $individual->findHighlightedMedia();
 		if ($media) {
-			$mediasrc = $media->getServerFilename();
-			if (file_exists($mediasrc) && $data = getimagesize($mediasrc)) { // extra check to be sure the thumb can be created.
+			$mediasrc	 = $media->getServerFilename();
+			if (file_exists($mediasrc) && $data		 = getimagesize($mediasrc)) { // extra check to be sure the thumb can be created.
 				// Thumbnail exists - use it.
 				if ($media->isExternal()) {
 					// Use an icon
-					$mime_type = str_replace('/', '-', $media->mimeType());
-					$image = '<i' .
+					$mime_type	 = str_replace('/', '-', $media->mimeType());
+					$image		 = '<i' .
 						' dir="' . 'auto' . '"' . // For the tool-tip
 						' class="' . 'icon-mime-' . $mime_type . '"' .
 						' title="' . strip_tags($media->getFullName()) . '"' .
@@ -646,35 +644,35 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 
 						switch ($type) {
 							case 'image/jpeg':
-								$imagesrc = @imagecreatefromjpeg($mediasrc);
+								$imagesrc	 = @imagecreatefromjpeg($mediasrc);
 								break;
 							case 'image/png':
-								$imagesrc = @imagecreatefrompng($mediasrc);
+								$imagesrc	 = @imagecreatefrompng($mediasrc);
 								break;
 						}
 
-						$ratio_orig = $width_orig / $height_orig;
-						$thumbwidth = $thumbheight = '50';
+						$ratio_orig	 = $width_orig / $height_orig;
+						$thumbwidth	 = $thumbheight = '50';
 
 
 						if ($thumbwidth / $thumbheight > $ratio_orig) {
-							$new_height = $thumbwidth / $ratio_orig;
-							$new_width = $thumbwidth;
+							$new_height	 = $thumbwidth / $ratio_orig;
+							$new_width	 = $thumbwidth;
 						} else {
-							$new_width = $thumbheight * $ratio_orig;
-							$new_height = $thumbheight;
+							$new_width	 = $thumbheight * $ratio_orig;
+							$new_height	 = $thumbheight;
 						}
 
 						$process = imagecreatetruecolor(round($new_width), round($new_height));
 						imagecopyresampled($process, $imagesrc, 0, 0, 0, 0, $new_width, $new_height, $width_orig, $height_orig);
-						$thumb = imagecreatetruecolor($thumbwidth, $thumbheight);
+						$thumb	 = imagecreatetruecolor($thumbwidth, $thumbheight);
 						imagecopyresampled($thumb, $process, 0, 0, 0, 0, $thumbwidth, $thumbheight, $thumbwidth, $thumbheight);
 
 						imagedestroy($process);
 						imagedestroy($imagesrc);
 
-						ob_start(); imagejpeg($thumb, null, 80); $thumb = ob_get_clean();
-						$src = 'data:image/jpeg;base64,' . base64_encode($thumb);
+						ob_start(); imagejpeg($thumb, null, 80); $thumb	 = ob_get_clean();
+						$src	 = 'data:image/jpeg;base64,' . base64_encode($thumb);
 
 						$image = '<img' .
 							' dir="' . 'auto' . '"' . // For the tool-tip
