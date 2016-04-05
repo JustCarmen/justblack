@@ -378,7 +378,7 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 		$show_subfolders = $this->themeOption('show_subfolders') ? '&amp;subdirs=on' : '';
 
 		if (count($folders) > 1) {
-			$menu = new Menu(/* I18N: Main media menu */ I18N::translate('Media'), 'medialist.php?' . $this->tree_url . '&amp;action=filter&amp;search=no' . $mainfolder . '&amp;sortby=title' . $show_subfolders . '&amp;max=20&amp;columns=2&amp;action=submit', 'menu-media');
+			$menu = new Menu(/* I18N: Main media menu */ I18N::translate('Media'), '#', 'menu-media');
 
 			foreach ($folders as $key => $folder) {
 				if ($key !== $MEDIA_DIRECTORY) {
