@@ -6936,6 +6936,7 @@ form[name=messageform] textarea {
 	form,
 	#sidebar,
 	#separator,
+	.editfacts,
 	.noprint {
 		display: none;
 	}
