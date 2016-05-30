@@ -43,7 +43,7 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 
 	/** {@inheritdoc} */
 	public function assetUrl() {
-		return 'themes/justblack/css-1.7.4/';
+		return 'themes/justblack/css-1.7.5/';
 	}
 
 	/** {@inheritdoc} */
