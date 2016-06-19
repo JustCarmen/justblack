@@ -87,7 +87,7 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 
 	protected function formatFavoritesMenu() {
 		$menu = parent::menuFavorites();
-		if (count($menu->getSubmenus())) {
+		if ($menu && count($menu->getSubmenus())) {
 			return
 				'<div class="header-favorites">' .
 				'<ul class="dropdown" role="menubar">' . $menu . '</ul>' .
