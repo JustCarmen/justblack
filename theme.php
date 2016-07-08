@@ -73,8 +73,13 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 
 	/** {@inheritdoc} */
 	protected function flashMessageContainer(\stdClass $message) {
-		// This theme uses jQuery markup.
-		return '<p class="ui-state-highlight">' . $message->text . '</p>';
+		// This theme uses jQueryUI markup.
+		switch ($message->status) {
+		case 'danger':
+			return '<p class="ui-state-error">' . $message->text . '</p>';
+		default:
+			return '<p class="ui-state-highlight">' . $message->text . '</p>';
+		}
 	}
 
 	/** {@inheritdoc} */
