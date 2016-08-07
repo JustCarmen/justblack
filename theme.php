@@ -50,6 +50,7 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 	public function bodyHeader() {
 		return
 			'<body>' .
+			'<div id="wrap">' .
 			'<header>' .
 			$this->headerContent() .
 			$this->primaryMenuContainer($this->primaryMenu()) .
@@ -86,8 +87,27 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 	public function footerContainer() {
 		return
 			'</main>' .
+			'<div id="push"></div>' .
+			'</div>' .
 			'<div class="divider"></div>' .
-			'<footer>' . $this->footerContent() . '</footer>';
+			'<footer>' . $this->footerContent() . '</footer>' .
+			$this->cookieWarning();
+	}
+	
+	/** {@inheritdoc} */
+	public function footerContent() {
+		return
+			$this->formatContactLinks() .
+			$this->formatPageViews($this->page_views) .
+			$this->formatCredits();
+	}
+	
+	protected function formatCredits() {
+		return 
+			'<div class="credits">' . 
+				$this->logoPoweredBy() .
+				'<a href="http://www.justcarmen.nl">Design: justcarmen.nl</a>' .
+			'</div>';
 	}
 
 	protected function formatFavoritesMenu() {
@@ -314,13 +334,6 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 		} else {
 			return new Menu(I18N::translate('Login'), WT_LOGIN_URL . '?url=' . rawurlencode(Functions::getQueryUrl()));
 		}
-	}
-
-	/** {@inheritdoc} */
-	public function logoPoweredBy() {
-		return
-			parent::logoPoweredBy() .
-			'<a class="link" href="http://www.justcarmen.nl" target="_blank">Design: justcarmen.nl</a>';
 	}
 
 	protected function menuCompact(Individual $individual, $surname) {
