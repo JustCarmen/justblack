@@ -890,10 +890,6 @@ a:hover .nameZoom {
 	color: #767676;
 }
 
-.rela, .histo {
-	opacity: 0.8;
-}
-
 .small {
 	font-size: 11px;
 }
@@ -2630,6 +2626,7 @@ div.faq_body {
 .editfacts {
 	clear: left;
 	padding-top: 15px;
+	padding-bottom: 5px;
 }
 
 /* a container for the following three links  */
@@ -2709,7 +2706,6 @@ span.link_text {
 }
 
 #indi_header a {
-	font-size: 0.75em;
 	font-weight: normal;
 }
 
@@ -3014,6 +3010,10 @@ label[for=checkbox_note2] {
 
 label[for=checkbox_histo] {
 	font-size: 11px;
+}
+
+.fact_TEXT .markdown {
+	display: table-cell;
 }
 
 /* Relatives tab  */

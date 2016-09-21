@@ -199,6 +199,7 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 	public function hookAfterInit() {
 		// Put a version number in the URL, to prevent browsers from caching old versions.
 		$this->theme_dir	 = 'themes/justblack/';
+		$this->js_url		 = 'themes/justblack/js-1.7.7/';
 		$this->jquery_ui_url = $this->theme_dir . 'jquery-ui-1.11.4/';
 		$this->colorbox_url	 = $this->theme_dir . 'colorbox-1.5.14/';
 	}
@@ -210,7 +211,8 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 			'<script src="' . WT_JQUERY_COLORBOX_URL . '"></script>' .
 			'<script src="' . WT_JQUERY_WHEELZOOM_URL . '"></script>' .
 			'<script src="' . $this->jquery_ui_url . 'jquery-ui-effects.min.js"></script>' .
-			'<script src="' . $this->theme_dir . 'justblack.js"></script>' .
+			'<script src="' . $this->js_url . 'jquery.waituntilexists.min.js"></script>' .
+			'<script src="' . $this->js_url . 'justblack.js"></script>' .
 			'<script src="' . $this->colorbox_url . 'justblack.colorbox.js"></script>' .
 			$this->tableMessages() .
 			$this->tableClippings();

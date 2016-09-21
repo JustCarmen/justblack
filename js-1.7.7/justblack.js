@@ -378,6 +378,15 @@ jQuery(document).ready(function () {
 				}
 			});
 		});
+		
+		// solve a layout issue
+		jQuery('.optionbox').waitUntilExists(function(){
+			jQuery(this).find(':first').each(function() {
+				if (jQuery(this).hasClass('place') && jQuery(this).text().length === 0) {
+					jQuery(this).next('br').remove().end().next('[class^=fact]').css('margin-top', '0');
+				}
+			});
+		});
 	}
 
 	/************************************************ PERSON BOXES *****************************************************/
