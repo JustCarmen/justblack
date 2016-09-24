@@ -682,9 +682,6 @@ jQuery(document).ready(function () {
 	}
 
 	/************************************* OTHER *******************************************/
-	// Correction. On default pdf opens on the same page. We do not want to force users to use the browser back button.
-	jQuery('#reportengine-page form').attr("onsubmit", "this.target='_blank'");
-
 	// styling of the lifespan module
 	jQuery('.lifespan_people .icon-sex_m_9x9').parents('#inner div[id^="bar"]').css({
 		'background-color': '#545454',
