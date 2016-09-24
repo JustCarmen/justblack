@@ -360,11 +360,6 @@ jQuery(document).ready(function () {
 		});
 	});
 	
-	// Change blocks form
-	jQuery("form[name=config_setup").prev("h1").each(function () {
-		jQuery(this).replaceWith("<h2>" + jQuery(this).text());
-	});
-
 	/************************************** INDIVIDUAL PAGE ***********************************************/
 	if (WT_SCRIPT_NAME === 'individual.php') {
 
