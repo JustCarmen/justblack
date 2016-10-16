@@ -1168,13 +1168,6 @@ tr.classy0, tr.classy1 {
 	color: #e2e2e2;
 }
 
-#family-table a[href^=mediaviewer] span,
-#media_content a[href^=mediaviewer] span,
-#source-details a[href^=mediaviewer] span {
-	display:block;
-	padding:5px 0;
-}
-
 /* ======== Person box ======= */
 .gedcom_favorites_block,
 .user_favorites_block,
