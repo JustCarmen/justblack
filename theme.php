@@ -43,7 +43,7 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 
 	/** {@inheritdoc} */
 	public function assetUrl() {
-		return 'themes/justblack/css-1.7.8/';
+		return 'themes/justblack/css-1.7.9/';
 	}
 
 	/** {@inheritdoc} */
@@ -199,7 +199,7 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 	public function hookAfterInit() {
 		// Put a version number in the URL, to prevent browsers from caching old versions.
 		$this->theme_dir	 = 'themes/justblack/';
-		$this->js_url		 = 'themes/justblack/js-1.7.8/';
+		$this->js_url		 = 'themes/justblack/js-1.7.9/';
 		$this->jquery_ui_url = $this->theme_dir . 'jquery-ui-1.11.4/';
 		$this->colorbox_url	 = $this->theme_dir . 'colorbox-1.5.14/';
 	}
