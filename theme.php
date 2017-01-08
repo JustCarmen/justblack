@@ -639,101 +639,120 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 		}
 	}
 
-	protected function thumbnail($individual) {
+	protected function thumbnail(Individual $individual) {
 		$media = $individual->findHighlightedMedia();
-		if ($media) {
-			$mediasrc	 = $media->getServerFilename();
-			if (file_exists($mediasrc) && $data		 = getimagesize($mediasrc)) { // extra check to be sure the thumb can be created.
-				// Thumbnail exists - use it.
-				if ($media->isExternal()) {
-					// Use an icon
-					$mime_type	 = str_replace('/', '-', $media->mimeType());
-					$image		 = '<i' .
-						' dir="' . 'auto' . '"' . // For the tool-tip
-						' class="' . 'icon-mime-' . $mime_type . '"' .
-						' title="' . strip_tags($media->getFullName()) . '"' .
-						'></i>';
-				} else {
-					// Create a thumbnail image
-					$type = $media->mimeType();
-					if ($type == 'image/jpeg' || $type == 'image/png') {
 
-						if (!list($width_orig, $height_orig) = @getimagesize($mediasrc)) {
-							return $no_thumbnail = true;
-						}
-
-						switch ($type) {
-							case 'image/jpeg':
-								$imagesrc	 = @imagecreatefromjpeg($mediasrc);
-								break;
-							case 'image/png':
-								$imagesrc	 = @imagecreatefrompng($mediasrc);
-								break;
-						}
-
-						$ratio_orig	 = $width_orig / $height_orig;
-						$thumbwidth	 = $thumbheight = '50';
-
-
-						if ($thumbwidth / $thumbheight > $ratio_orig) {
-							$new_height	 = $thumbwidth / $ratio_orig;
-							$new_width	 = $thumbwidth;
-						} else {
-							$new_width	 = $thumbheight * $ratio_orig;
-							$new_height	 = $thumbheight;
-						}
-
-						$process = imagecreatetruecolor(round($new_width), round($new_height));
-						imagecopyresampled($process, $imagesrc, 0, 0, 0, 0, $new_width, $new_height, $width_orig, $height_orig);
-						$thumb	 = imagecreatetruecolor($thumbwidth, $thumbheight);
-						imagecopyresampled($thumb, $process, 0, 0, 0, 0, $thumbwidth, $thumbheight, $thumbwidth, $thumbheight);
-
-						imagedestroy($process);
-						imagedestroy($imagesrc);
-
-						ob_start(); imagejpeg($thumb, null, 80); $thumb	 = ob_get_clean();
-						$src	 = 'data:image/jpeg;base64,' . base64_encode($thumb);
-
-						$image = '<img' .
-							' dir="' . 'auto' . '"' . // For the tool-tip
-							' src="' . $src . '"' .
-							' alt="' . strip_tags($media->getFullName()) . '"' .
-							' title="' . strip_tags($media->getFullName()) . '"' .
-							'>';
-					} else {
-						$src = $media->getHtmlUrlDirect('thumb');
-					}
-
-					$image = '<img' .
-						' dir="' . 'auto' . '"' . // For the tool-tip
-						' src="' . $src . '"' .
-						' alt="' . strip_tags($media->getFullName()) . '"' .
-						' title="' . strip_tags($media->getFullName()) . '"' .
-						'>';
-
-					return
-						'<a' .
-						' class="' . 'gallery' . '"' .
-						' href="' . $media->getHtmlUrlDirect('main') . '"' .
-						' type="' . $media->mimeType() . '"' .
-						' data-obje-url="' . $media->getHtmlUrl() . '"' .
-						' data-obje-note="' . Filter::escapeHtml($media->getNote()) . '"' .
-						' data-title="' . Filter::escapeHtml($media->getFullName()) . '"' .
-						'>' . $image . '</a>';
-				}
-			} else {
-				$no_thumbnail = true;
-			}
-		} else {
-			$no_thumbnail = true;
+		if (!$media) {
+			return $this->useSilhouette($individual);
 		}
 
-		if ($no_thumbnail == true) {
-			if ($this->tree->getPreference('USE_SILHOUETTE')) {
-				return '<i class="icon-silhouette-' . $individual->getSex() . '"></i>';
-			} else {
-				return '';
+		$main_file = $media->getServerFilename();
+		if (!file_exists($main_file)) {
+			return $this->useSilhouette($individual);
+		}
+
+		// File exists - use it.
+		if ($media->isExternal()) {
+			// Use an icon
+			$mime_type	 = str_replace('/', '-', $media->mimeType());
+			$image		 = '<i' .
+				' dir="' . 'auto' . '"' . // For the tool-tip
+				' class="' . 'icon-mime-' . $mime_type . '"' .
+				' title="' . strip_tags($media->getFullName()) . '"' .
+				'></i>';
+		} else {
+			try {
+				// Create a thumbnail image
+				$imgsize = getimagesize($main_file);
+
+				switch ($imgsize['mime']) {
+					case 'image/jpeg':
+						$main_image	 = imagecreatefromjpeg($main_file);
+						break;
+					case 'image/png':
+						$main_image	 = imagecreatefrompng($main_file);
+						break;
+					case 'image/gif':
+						$main_image = imagecreatefromgif($main_file);
+						break;
+					default:
+						// we can't create an image, so link to the default webtrees thumbnail
+						$img_src = $media->getHtmlUrlDirect('thumb');
+				}
+
+				if ($main_image) {
+					$ratio			= $imgsize[0] / $imgsize[1];
+					$thumbwidth		= '50';
+					$thumbheight	= '50';
+
+					if ($thumbwidth / $thumbheight > $ratio) {
+						$height	 = $thumbwidth / $ratio;
+						$width	 = $thumbwidth;
+					} else {
+						$width	 = $thumbheight * $ratio;
+						$height	 = $thumbheight;
+					}
+
+					$thumb_image = imagecreatetruecolor($width, $height);
+					// Create a transparent background, instead of the default black one
+					imagesavealpha($thumb_image, true);
+					imagefill($thumb_image, 0, 0, imagecolorallocatealpha($thumb_image, 0, 0, 0, 127));
+					// Shrink the image
+					imagecopyresampled($thumb_image, $main_image, 0, 0, 0, 0, $width, $height, $imgsize[0], $imgsize[1]);
+					// Crop the image to a square thumbnail of 50x50px
+					$sqthumb_image = imagecreatetruecolor($thumbwidth, $thumbheight);
+					imagecopyresampled($sqthumb_image, $thumb_image, 0, 0, 0, 0, $thumbwidth, $thumbheight, $thumbwidth, $thumbheight);
+
+					ob_start();
+					switch ($imgsize['mime']) {
+						case 'image/jpeg':
+							imagejpeg($sqthumb_image);
+							break;
+						case 'image/png':
+							imagepng($sqthumb_image);
+							break;
+						case 'image/gif':
+							imagegif($sqthumb_image);
+							break;
+					}
+					$sqthumb	 = ob_get_clean();
+
+					$img_src	 = 'data:image/jpeg;base64,' . base64_encode($sqthumb);
+
+					imagedestroy($main_image);
+					imagedestroy($thumb_image);
+					imagedestroy($sqthumb_image);
+				}
+			} catch (\ErrorException $ex) {
+				return $this->useSilhouette($individual);
 			}
+
+			$img = '<img' .
+				' dir="' . 'auto' . '"' . // For the tool-tip
+				' src="' . $img_src . '"' .
+				' alt="' . strip_tags($media->getFullName()) . '"' .
+				' title="' . strip_tags($media->getFullName()) . '"' .
+				'>';
+
+			return
+				'<a' .
+				' class="' . 'gallery' . '"' .
+				' href="' . $media->getHtmlUrlDirect('main') . '"' .
+				' type="' . $media->mimeType() . '"' .
+				' data-obje-url="' . $media->getHtmlUrl() . '"' .
+				' data-obje-note="' . Filter::escapeHtml($media->getNote()) . '"' .
+				' data-title="' . Filter::escapeHtml($media->getFullName()) . '"' .
+				'>' . $img . '</a>';
+		}
+	}
+
+	/**
+	 * Use a silhouette if we don't have a thumbnail to display
+	 * @return string
+	 */
+	private function useSilhouette(Individual $individual) {
+		if ($this->tree->getPreference('USE_SILHOUETTE')) {
+			return '<i class="icon-silhouette-' . $individual->getSex() . '"></i>';
 		}
 	}
 
