@@ -197,7 +197,7 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 	/** {@inheritdoc} */
 	public function hookFooterExtraJavascript() {
 		return
-			$this->scriptVars() .
+			$this->PhpToJavascript($this->hookJavascriptVariables()) .
 			'<script src="' . WT_JQUERY_COLORBOX_URL . '"></script>' .
 			'<script src="' . WT_JQUERY_WHEELZOOM_URL . '"></script>' .
 			'<script src="' . self::THEME_JQUERY_UI_URL . 'jquery-ui-effects.min.js"></script>' .
@@ -206,6 +206,24 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 			'<script src="' . self::THEME_COLORBOX_URL . 'justblack.colorbox.js"></script>' .
 			$this->tableMessages() .
 			$this->tableClippings();
+	}
+
+	/**
+	 * This theme uses variables from php in javascript.
+	 * Output an array of variables
+	 * Key	 = Javascript variable name
+	 * Value = Php value
+	 *
+	 * @return array
+	 *
+	 */
+	protected function hookJavascriptVariables() {
+		$variables = [
+			'AUTH_ID'			 => Auth::id(),
+			'THEME_COLORBOX_URL' => self::THEME_COLORBOX_URL
+		];
+
+		return $variables;
 	}
 
 	/** {@inheritdoc} */
@@ -442,6 +460,21 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 		}
 	}
 
+	/**
+	 * Output Javascript variables from Php values
+	 *
+	 * @param array $variables
+	 * @return javascript
+	 */
+	protected function phpToJavascript(array $variables) {
+		$javascript = '';
+		foreach ($variables as $js_variable => $php_variable) {
+			$javascript .= 'var ' . $js_variable . ' = "' . $php_variable . '"; ';
+		}
+
+		return '<script>' . $javascript . '</script>';
+	}
+
 	/** {@inheritdoc} */
 	public function primaryMenu() {
 		global $controller;
@@ -474,15 +507,6 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 		} else {
 			return parent::primaryMenu();
 		}
-	}
-
-	// This theme uses variables from php files in the javascript files
-	protected function scriptVars() {
-		return
-			'<script>' .
-				'var THEME_COLORBOX_URL = "' . self::THEME_COLORBOX_URL . '";' .
-				'var authID = "' . Auth::id() . '";' .
-			'</script>';
 	}
 
 	/** (@inheritdoc) */

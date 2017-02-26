@@ -15,7 +15,7 @@
  */
 
 
-/* global authID, WT_SCRIPT_NAME, WT_CSRF_TOKEN */
+/* global AUTH_ID, WT_SCRIPT_NAME, WT_CSRF_TOKEN */
 
 //=========================================================================================================
 //												FUNCTIONS
@@ -252,7 +252,7 @@ jQuery(document).ready(function () {
 	var submenu = jQuery('.header-favorites > ul ul');
 
 	obj = submenu.find('li');
-	if (authID && pageId !== undefined) {
+	if (AUTH_ID && pageId !== undefined) {
 		obj = submenu.find('li').not(':last');
 		submenu.find('li:last a').addClass('add-favorite');
 	}
