@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-namespace JustCarmen\WebtreesAddOns\JustBlack;
+namespace JustCarmen\WebtreesThemes\JustBlack;
 
 use Fisharebest\Webtrees\Auth;
 use Fisharebest\Webtrees\Filter;
@@ -29,6 +29,7 @@ use Fisharebest\Webtrees\Module;
 use Fisharebest\Webtrees\Theme\AbstractTheme;
 use Fisharebest\Webtrees\Theme\ThemeInterface;
 use JustCarmen\WebtreesAddOns\FancyImagebar\FancyImagebarClass;
+use JustCarmen\WebtreesAddOns\JustBlack\JustBlackThemeOptionsClass;
 
 class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 
@@ -73,13 +74,13 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 	}
 
 	/** {@inheritdoc} */
-	protected function flashMessageContainer(\stdClass $message) {
+	protected function flashMessageContainer(stdClass $message) {
 		// This theme uses jQueryUI markup.
 		switch ($message->status) {
-		case 'danger':
-			return '<p class="ui-state-error">' . $message->text . '</p>';
-		default:
-			return '<p class="ui-state-highlight">' . $message->text . '</p>';
+			case 'danger':
+				return '<p class="ui-state-error">' . $message->text . '</p>';
+			default:
+				return '<p class="ui-state-highlight">' . $message->text . '</p>';
 		}
 	}
 
@@ -93,7 +94,7 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 			'<footer>' . $this->footerContent() . '</footer>' .
 			$this->cookieWarning();
 	}
-	
+
 	/** {@inheritdoc} */
 	public function footerContent() {
 		return
@@ -101,12 +102,12 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 			$this->formatPageViews($this->page_views) .
 			$this->formatCredits();
 	}
-	
+
 	protected function formatCredits() {
-		return 
-			'<div class="credits">' . 
-				$this->logoPoweredBy() .
-				'<a href="http://www.justcarmen.nl">Design: justcarmen.nl</a>' .
+		return
+			'<div class="credits">' .
+			$this->logoPoweredBy() .
+			'<a href="http://www.justcarmen.nl">Design: justcarmen.nl</a>' .
 			'</div>';
 	}
 
@@ -369,7 +370,7 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 				if ($submenu) {
 					$attrs = '';
 					foreach ($submenu->getAttrs() as $key => $value) {
-						$attrs .= ' ' . $key . '="' . Filter::escapeHtml($value) . '"'; //						
+						$attrs .= ' ' . $key . '="' . Filter::escapeHtml($value) . '"'; //
 					}
 					$flags .= '<li class="' . $submenu->getClass() . '" title="' . $submenu->getLabel() . '">
 								<a href="' . $submenu->getLink() . '"' . $attrs . '></a></li>';
@@ -673,17 +674,17 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 						$main_image	 = imagecreatefrompng($main_file);
 						break;
 					case 'image/gif':
-						$main_image = imagecreatefromgif($main_file);
+						$main_image	 = imagecreatefromgif($main_file);
 						break;
 					default:
 						// we can't create an image, so link to the default webtrees thumbnail
-						$img_src = $media->getHtmlUrlDirect('thumb');
+						$img_src	 = $media->getHtmlUrlDirect('thumb');
 				}
 
 				if ($main_image) {
-					$ratio			= $imgsize[0] / $imgsize[1];
-					$thumbwidth		= '50';
-					$thumbheight	= '50';
+					$ratio		 = $imgsize[0] / $imgsize[1];
+					$thumbwidth	 = '50';
+					$thumbheight = '50';
 
 					if ($thumbwidth / $thumbheight > $ratio) {
 						$height	 = $thumbwidth / $ratio;
@@ -693,14 +694,14 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 						$height	 = $thumbheight;
 					}
 
-					$thumb_image = imagecreatetruecolor($width, $height);
+					$thumb_image	 = imagecreatetruecolor($width, $height);
 					// Create a transparent background, instead of the default black one
 					imagesavealpha($thumb_image, true);
 					imagefill($thumb_image, 0, 0, imagecolorallocatealpha($thumb_image, 0, 0, 0, 127));
 					// Shrink the image
 					imagecopyresampled($thumb_image, $main_image, 0, 0, 0, 0, $width, $height, $imgsize[0], $imgsize[1]);
 					// Crop the image to a square thumbnail of 50x50px
-					$sqthumb_image = imagecreatetruecolor($thumbwidth, $thumbheight);
+					$sqthumb_image	 = imagecreatetruecolor($thumbwidth, $thumbheight);
 					imagecopyresampled($sqthumb_image, $thumb_image, 0, 0, 0, 0, $thumbwidth, $thumbheight, $thumbwidth, $thumbheight);
 
 					ob_start();
@@ -715,15 +716,15 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 							imagegif($sqthumb_image);
 							break;
 					}
-					$sqthumb	 = ob_get_clean();
+					$sqthumb = ob_get_clean();
 
-					$img_src	 = 'data:image/jpeg;base64,' . base64_encode($sqthumb);
+					$img_src = 'data:image/jpeg;base64,' . base64_encode($sqthumb);
 
 					imagedestroy($main_image);
 					imagedestroy($thumb_image);
 					imagedestroy($sqthumb_image);
 				}
-			} catch (\ErrorException $ex) {
+			} catch (ErrorException $ex) {
 				return $this->useSilhouette($individual);
 			}
 
