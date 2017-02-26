@@ -56,7 +56,7 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 			'</header>' .
 			'<div class="divider"></div>' .
 			$this->fancyImagebar() .
-			'<main id="content">' .
+			'<main id="content" class="' . $this->getMainContentClass() . '">' .
 			$this->flashMessagesContainer(FlashMessages::getMessages());
 	}
 
@@ -150,6 +150,35 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 		} else {
 			return '';
 		}
+	}
+
+	/**
+	 * Add page identifier to the main content class
+	 *
+	 * @return string
+	 */
+	protected function getMainContentClass() {
+		$class = ' jc-content-' . $this->getPage();
+
+		$module = Filter::get('mod');
+		if ($module) {
+			$class = $class . '-' . $module;
+		}
+
+		$ctype = Filter::get('ctype');
+		if ($ctype) {
+			$class = $class . ' ' . $class . '-' . $ctype;
+		}
+		return $class;
+	}
+
+	/**
+	 * Get the current page
+	 *
+	 * @return type
+	 */
+	protected function getPage() {
+		return basename(WT_SCRIPT_NAME, ".php");
 	}
 
 	/** {@inheritdoc} */
