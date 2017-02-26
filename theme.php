@@ -49,14 +49,14 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 	public function bodyHeader() {
 		return
 			'<body>' .
-			'<div id="wrap">' .
+			'<div id="page" class="jc-page-container ' . $this->getPageContainerClass() . '">' .
 			'<header>' .
 			$this->headerContent() .
 			$this->primaryMenuContainer($this->primaryMenu()) .
 			'</header>' .
 			'<div class="divider"></div>' .
 			$this->fancyImagebar() .
-			'<main id="content" class="' . $this->getMainContentClass() . '">' .
+			'<main id="content">' .
 			$this->flashMessagesContainer(FlashMessages::getMessages());
 	}
 
@@ -157,8 +157,8 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 	 *
 	 * @return string
 	 */
-	protected function getMainContentClass() {
-		$class = ' jc-content-' . $this->getPage();
+	protected function getPageContainerClass() {
+		$class = ' jc-page-container-' . $this->getPage();
 
 		$module = Filter::get('mod');
 		if ($module) {
