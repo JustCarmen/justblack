@@ -478,17 +478,10 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 
 	// This theme uses variables from php files in the javascript files
 	protected function scriptVars() {
-		if ($this->tree) {
-			$tree_title = $this->tree->getName();
-		} else {
-			$tree_title = '';
-		}
-
-		return '<script>' .
-			'var WT_CSS_URL = "' . $this->assetUrl() . '";' .
-			'var WT_TREE_TITLE = "' . $tree_title . '";' .
-			'var THEME_COLORBOX_URL = "' . self::THEME_COLORBOX_URL . '";' .
-			'var authID = "' . Auth::id() . '";' .
+		return
+			'<script>' .
+				'var THEME_COLORBOX_URL = "' . self::THEME_COLORBOX_URL . '";' .
+				'var authID = "' . Auth::id() . '";' .
 			'</script>';
 	}
 
