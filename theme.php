@@ -33,18 +33,16 @@ use JustCarmen\WebtreesAddOns\JustBlack\JustBlackThemeOptionsClass;
 
 class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 
-	/** @var string the location of this theme */
-	private $theme_dir;
-
-	/** @var string the location of the jquery-ui files */
-	private $jquery_ui_url;
-
-	/** @var string the location of the colorbox files */
-	private $colorbox_url;
+	const THEME_VERSION			 = '1.7.9';
+	const THEME_DIR				 = WT_THEMES_DIR . 'justblack/';
+	const THEME_CSS_URL			 = self::THEME_DIR . 'css-' . self::THEME_VERSION . '/';
+	const THEME_JS_URL			 = self::THEME_DIR . 'js-' . self::THEME_VERSION . '/';
+	const THEME_JQUERY_UI_URL	 = self::THEME_DIR . 'jquery-ui-1.11.4/';
+	const THEME_COLORBOX_URL	 = self::THEME_DIR . 'colorbox-1.5.14/';
 
 	/** {@inheritdoc} */
 	public function assetUrl() {
-		return 'themes/justblack/css-1.7.9/';
+		return self::THEME_CSS_URL;
 	}
 
 	/** {@inheritdoc} */
@@ -197,24 +195,15 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 	}
 
 	/** {@inheritdoc} */
-	public function hookAfterInit() {
-		// Put a version number in the URL, to prevent browsers from caching old versions.
-		$this->theme_dir	 = 'themes/justblack/';
-		$this->js_url		 = 'themes/justblack/js-1.7.9/';
-		$this->jquery_ui_url = $this->theme_dir . 'jquery-ui-1.11.4/';
-		$this->colorbox_url	 = $this->theme_dir . 'colorbox-1.5.14/';
-	}
-
-	/** {@inheritdoc} */
 	public function hookFooterExtraJavascript() {
 		return
 			$this->scriptVars() .
 			'<script src="' . WT_JQUERY_COLORBOX_URL . '"></script>' .
 			'<script src="' . WT_JQUERY_WHEELZOOM_URL . '"></script>' .
-			'<script src="' . $this->jquery_ui_url . 'jquery-ui-effects.min.js"></script>' .
-			'<script src="' . $this->js_url . 'jquery.waituntilexists.min.js"></script>' .
-			'<script src="' . $this->js_url . 'justblack.js"></script>' .
-			'<script src="' . $this->colorbox_url . 'justblack.colorbox.js"></script>' .
+			'<script src="' . self::THEME_JQUERY_UI_URL . 'jquery-ui-effects.min.js"></script>' .
+			'<script src="' . self::THEME_JS_URL . 'jquery.waituntilexists.min.js"></script>' .
+			'<script src="' . self::THEME_JS_URL . 'justblack.js"></script>' .
+			'<script src="' . self::THEME_COLORBOX_URL . 'justblack.colorbox.js"></script>' .
 			$this->tableMessages() .
 			$this->tableClippings();
 	}
@@ -498,8 +487,7 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 		return '<script>' .
 			'var WT_CSS_URL = "' . $this->assetUrl() . '";' .
 			'var WT_TREE_TITLE = "' . $tree_title . '";' .
-			'var JB_THEME_URL = "' . $this->theme_dir . '";' .
-			'var JB_COLORBOX_URL = "' . $this->colorbox_url . '";' .
+			'var THEME_COLORBOX_URL = "' . self::THEME_COLORBOX_URL . '";' .
 			'var authID = "' . Auth::id() . '";' .
 			'</script>';
 	}
@@ -519,8 +507,8 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 	/** {@inheritdoc} */
 	public function stylesheets() {
 		return array(
-			$this->jquery_ui_url . 'jquery-ui.min.css',
-			$this->colorbox_url . 'colorbox.css',
+			self::THEME_JQUERY_UI_URL . 'jquery-ui.min.css',
+			self::THEME_COLORBOX_URL . 'colorbox.css',
 			$this->assetUrl() . 'style.css',
 		);
 	}
