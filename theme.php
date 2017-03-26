@@ -270,7 +270,7 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 	/** {@inheritdoc} */
 	public function individualBox(Individual $individual) {
 		if ($this->tree && $this->themeOption('square_thumbs')) {
-			$personBoxClass = array_search($individual->getSex(), array('person_box' => 'M', 'person_boxF' => 'F', 'person_boxNN' => 'U'));
+			$personBoxClass = array_search($individual->getSex(), ['person_box' => 'M', 'person_boxF' => 'F', 'person_boxNN' => 'U']);
 			if ($this->tree->getPreference('SHOW_HIGHLIGHT_IMAGES')) {
 				$thumbnail = $this->thumbnail($individual);
 			} else {
@@ -310,7 +310,7 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 	/** {@inheritdoc} */
 	public function individualBoxLarge(Individual $individual) {
 		if ($this->tree && $this->themeOption('square_thumbs')) {
-			$personBoxClass = array_search($individual->getSex(), array('person_box' => 'M', 'person_boxF' => 'F', 'person_boxNN' => 'U'));
+			$personBoxClass = array_search($individual->getSex(), ['person_box' => 'M', 'person_boxF' => 'F', 'person_boxNN' => 'U']);
 			if ($this->tree->getPreference('SHOW_HIGHLIGHT_IMAGES')) {
 				$thumbnail = $this->thumbnail($individual);
 			} else {
@@ -343,7 +343,7 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 
 	public function individualBoxSmall(Individual $individual) {
 		if ($this->themeOption('square_thumbs')) {
-			$personBoxClass = array_search($individual->getSex(), array('person_box' => 'M', 'person_boxF' => 'F', 'person_boxNN' => 'U'));
+			$personBoxClass = array_search($individual->getSex(), ['person_box' => 'M', 'person_boxF' => 'F', 'person_boxNN' => 'U']);
 			if ($this->tree->getPreference('SHOW_HIGHLIGHT_IMAGES')) {
 				$thumbnail = $this->thumbnail($individual);
 			} else {
@@ -390,7 +390,7 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 
 		foreach ($menu->getSubmenus() as $submenu) {
 			$class		 = explode("-", $submenu->getClass());
-			$new_class	 = implode("-", array($class[0], 'view', $class[1]));
+			$new_class	 = implode("-", [$class[0], 'view', $class[1]]);
 			$submenu->setClass($new_class);
 		}
 
@@ -460,7 +460,7 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 
 	/** {@inheritdoc} */
 	public function parameter($parameter_name) {
-		$parameters = array(
+		$parameters = [
 			'chart-background-f'			 => 'ffeeb0',
 			'chart-background-m'			 => 'ff8c00',
 			'chart-background-u'			 => 'ffffde',
@@ -475,7 +475,7 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 			'shadow-color'					 => '171717',
 			'shadow-offset-x'				 => 2,
 			'shadow-offset-y'				 => 2,
-		);
+		];
 
 		if (WT_SCRIPT_NAME === 'pedigree.php' && (Filter::getInteger('orientation') === 2 || Filter::getInteger('orientation') === 3)) {
 			$parameters['compact-chart-box-x']	 = 90;
@@ -540,23 +540,23 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 
 	/** (@inheritdoc) */
 	public function secondaryMenu() {
-		return array_filter(array(
+		return array_filter([
 			$this->menuPendingChanges(),
 			$this->menuMyPages(),
 			$this->menuThemes(),
 			!$this->themeOption('flags') ? $this->menuLanguages() : '',
 			$this->menuLogin(),
 			$this->menuLogout()
-		));
+		]);
 	}
 
 	/** {@inheritdoc} */
 	public function stylesheets() {
-		return array(
+		return [
 			self::THEME_JQUERY_UI_URL . 'jquery-ui.min.css',
 			self::THEME_COLORBOX_URL . 'colorbox.css',
 			$this->assetUrl() . 'style.css',
-		);
+		];
 	}
 
 	protected function tableClippings() {
