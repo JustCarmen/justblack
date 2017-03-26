@@ -72,7 +72,7 @@ class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 	}
 
 	/** {@inheritdoc} */
-	protected function flashMessageContainer(stdClass $message) {
+	protected function flashMessageContainer(\stdClass $message) {
 		// This theme uses jQueryUI markup.
 		switch ($message->status) {
 			case 'danger':
