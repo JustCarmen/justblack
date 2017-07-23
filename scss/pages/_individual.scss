@@ -1,0 +1,31 @@
+// Put specific code for the Individual page here
+
+.jc-global-individual {
+  h2 {
+    @extend .wt-page-title;
+  }
+
+  .card-header {
+    @include jc-theme-gradient();
+  }
+
+  .tab-content { // tab content of the main section
+                 .facts_table > tbody > tr:first-child > td[colspan="2"] {
+                   @include jb-theme-gradient();
+                 }
+
+                 td.optionbox,
+                 td.facts_value {
+                   background-color: $card-bg;
+                 }
+  }
+
+  #sidebar {
+
+    @at-root #sb_family_nav_content {
+      .flyout2, .flyout3, .flyout4 {
+        color: $inverse-color;
+      }
+    }
+  }
+}

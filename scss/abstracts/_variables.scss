@@ -1,0 +1,138 @@
+// Import these set of variables before Bootstrap variables to overwrite the !default variables
+// from the Bootstrap variable set.
+// To use bootstrap variables inside our own variables we need to redeclare them here or
+// import the bootstrap variable set before we use these variables, but after the overwrites are set
+// =============================================================================
+// Bootstrap variables
+// =============================================================================
+// The variables below are used in our own variable set (right column)
+// The values are not altered. These are the bootstrap default values.
+
+// Colors
+$black:                             #000 !default;
+$white:                             #fff !default;
+$yellow:                            #ffd500 !default;
+
+// Grayscale
+$gray-dark:                         #292b2c !default;
+$gray:                              #464a4c !default;
+$gray-light:                        #636c72 !default;
+$gray-lighter:                      #eceeef !default;
+$gray-lightest:                     #f7f7f9 !default;
+
+// =============================================================================
+// JustBlack theme variables
+// =============================================================================
+
+// Colors
+$orange:                            #dd6900;
+
+// Custom colors
+$orange-light:                      #f90;
+$orange-lighter:                    #ffd87f;
+$yellow-light:                      #ffffde;
+
+// Semantic color scheme
+$brand-primary:                     $orange;
+$brand-inverse:                     $gray-light;
+
+// Options
+$enable-gradients:                  true;
+$enable-shadows:                    true;
+
+// Fonts
+$theme-fonts-path:                  'fonts/';
+$font-family-title:                 'Salina';
+$font-family-treetitle:             'Comfortaa';
+
+// Body
+$body-bg:                           lighten($gray-dark, 2.75%);
+$body-color:                        darken($gray-lighter, 2.5%);
+$inverse-bg:                        $gray-light;
+$inverse-color:                     $gray-dark;
+
+// Header
+$banner-sm:                         'images/banner-sm.jpg';
+$banner-md:                         'images/banner-md.jpg';
+$banner-lg:                         'images/banner-lg.jpg';
+
+$banner-lg-width:                   800px;
+$banner-lg-height:                  150px;
+$banner-md-width:                   720px;
+$banner-md-height:                  135px;
+$banner-sm-width:                   540px;
+$banner-sm-height:                  101px;
+
+// Type
+$text-muted:                        lighten($gray-light, 15%);
+
+// Links
+$link-color:                        $brand-primary;
+$link-hover-color:                  $gray-lightest;
+
+// Nav
+$nav-link-padding:                  .25em 1em;
+$nav-link-color:                    $body-color;
+$nav-link-hover-color:              $gray-lighter;
+$nav-tabs-active-link-hover-color:  $nav-link-color;
+
+// Buttons
+$btn-padding-x:                     .5rem; // make all buttons small buttons
+$btn-padding-y:                     .25rem;
+
+// Icons
+$icon-color:                        $yellow-light;
+$icon-hover-color:                  darken($icon-color, 10%);
+
+// Components
+$component-active-color:            $body-color;
+$component-active-bg:               darken($gray-light, 10%);
+
+// Tables
+$table-bg-accent:                   rgba($black,.25);
+$table-head-bg:                     $gray;
+$table-head-color:                  $body-color;
+$table-border-color:                rgba($white,.175);
+
+// Cards
+$card-cap-bg:                       $gray-dark;
+$card-bg:                           $gray-dark;
+$card-border-color:                 $table-border-color;
+$card-link-color:                   $gray-lighter;
+$card-link-hover-color:             $gray-light;
+
+// Dropdown menu container and contents.
+// inverse for dark background and light font colors
+$dropdown-bg:                       $yellow-light;
+$dropdown-bg-inverse:               $card-bg;
+$dropdown-border-color:             rgba($gray-lighter, .35);
+$dropdown-divider-bg:               $gray-light;
+$dropdown-link-color:               $link-color;
+$dropdown-link-color-inverse:       $body-color;
+$dropdown-link-hover-color:         darken($dropdown-link-color, 5%);
+$dropdown-link-hover-bg:            $orange-lighter;
+$dropdown-link-hover-bg-inverse:    lighten($gray-light, 5%);
+$dropdown-link-active-color:        $dropdown-link-hover-color;
+$dropdown-link-active-bg:           darken($orange-lighter, 5%);
+$dropdown-link-active-bg-inverse:   $gray-light;
+$dropdown-item-padding-x:           .5rem;
+
+// Forms
+$input-border-color:                lighten($yellow, 20%);
+$input-group-addon-bg:              lighten($yellow, 35%);
+
+// Popovers
+$popover-bg:                        $dropdown-bg;
+$popover-border-color:              $dropdown-border-color;
+$popover-title-bg:                  $dropdown-link-active-bg;
+
+// Personboxes
+$personbox-male-bg:                 $gray;
+$personbox-female-bg:               $gray-light;
+$personbox-unknown-border-color:    $brand-primary;
+$personbox-link-color:              $body-color;
+
+// Treeview
+$treeview-bg-color:                 lighten($orange-lighter, 5%);
+$treeview-title-color:              $gray-dark;
+$treeview-box-shadow:               1px 1px 2px $gray;

@@ -1,0 +1,5 @@
+.jc-divider {
+  @include jb-theme-divider-gradient;
+  clear: both;
+  height: 4px;
+}

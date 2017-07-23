@@ -1,0 +1,14 @@
+.card {
+  margin-bottom: 0;
+  overflow: hidden;
+  @include jc-box-shadow;
+}
+
+.card-header {	
+  a {
+    color: $card-link-color;
+    &.fa {
+      color: $icon-color;
+    }
+  }
+}

@@ -1,0 +1,22 @@
+// Table header gradient
+.table {
+  thead {
+    th,
+    td {
+      @include jb-theme-gradient;
+      color: $table-head-color;
+      border-bottom-width: $table-border-width;
+    }
+  }
+}
+
+// Datatable sorting icons
+.table.dataTable thead th {
+  &.sorting:after {
+    opacity: 0.75;
+  }
+  &.sorting_asc:after,
+    &.sorting_desc:after {
+    opacity: 1;
+  }
+}

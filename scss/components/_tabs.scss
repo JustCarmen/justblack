@@ -1,0 +1,10 @@
+.nav-tabs {
+  .nav-item {
+    @include jc-direction(margin, .15rem, null, right);
+  }
+  .nav-link {
+    @include jb-tabs-gradient;
+    font-size: $font-size-sm;
+    font-weight: $headings-font-weight;
+  }
+}

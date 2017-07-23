@@ -1,0 +1,47 @@
+/*!
+ * webtrees: online genealogy
+ * Copyright (C) 2017 JustCarmen
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ * You should have received a copy of the GNU General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+// JustBlack Theme Variables
+@import "abstracts/variables";
+
+// Base theme
+@import "../../justfancy/scss/style";
+
+// JustBlack Theme Helpers
+@import "compass"; // needed for the gradients
+@import 'abstracts/gradients';
+
+// Common
+@import "common/fonts";
+@import "common/type";
+
+// Layout
+@import "layout/header";
+
+// Components
+@import "components/menu";
+@import "components/tabs";
+@import "components/divider";
+@import "components/cards";
+@import "components/tables";
+@import "components/forms";
+@import "components/statsblock";
+@import "components/modules";
+@import "components/treeview";
+
+// Pages
+@import "pages/index";
+@import "pages/individual";
+@import "pages/charts";

@@ -1,0 +1,12 @@
+// Put specific code for the Homepage or My page here
+// Use jc-global-index to access both pages or use jc-global-index-gedcom for the homepage
+// and jc-global-index-user for the mypage
+
+.jc-global-index {
+  .card-header {
+    border-bottom: 0;
+    font-family: $font-family-title, $font-family-base;
+    font-size: $font-size-base * 1.6;
+    padding-bottom: 0.5rem;
+  }
+}

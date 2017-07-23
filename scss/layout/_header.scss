@@ -1,0 +1,60 @@
+.wt-header-content {
+  @include jc-background-image($banner-sm, $banner-sm-height);
+
+  @include media-breakpoint-up(md) {
+    & {
+      @include jc-background-image($banner-md, $banner-md-height);
+    }
+  }
+  @include media-breakpoint-up(lg) {
+    & {
+      @include jc-background-image($banner-lg, $banner-lg-height);
+    }
+  }
+}
+
+.wt-site-title {
+  font-family: $font-family-treetitle, $font-family-base;
+  font-size: 1.5rem;
+  margin: 0 calc(50vw - #{$banner-sm-width/2});
+  @include media-breakpoint-up(md) {
+    & {
+      font-size: 1.35rem;
+      margin: 0 calc(50vw - #{$banner-md-width/2});
+    }
+  }
+  @include media-breakpoint-up(lg) {
+    & {
+      font-size: 2rem;
+      margin: 0 calc(50vw - #{$banner-lg-width/2});
+    }
+  }
+  text-shadow: -2px 2px $black;
+}
+
+.jc-favsearch-bar {
+  @include jb-theme-bar-gradient;
+  height: 2.5rem;
+
+  @at-root {
+    .jc-header-search-container {
+      padding: 0.4rem 0;
+    }
+
+    .wt-header-search-form {
+      & input {
+        border-bottom-left-radius: $btn-border-radius !important;
+        border-top-left-radius: $btn-border-radius !important;
+      }
+      & .input-group-btn,
+      & .btn {
+        @include jb-theme-gradient;
+        @include jb-theme-gradient-hover;
+        border: none;
+        border-bottom-right-radius: $btn-border-radius;
+        border-top-right-radius: $btn-border-radius;
+      }
+    }
+  }
+}
+
