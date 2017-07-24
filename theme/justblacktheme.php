@@ -25,7 +25,7 @@ use JustCarmen\WebtreesThemes\JustFancy\Theme\JustFancyTheme;
 
 class JustBlackTheme extends JustFancyTheme {
 
-  const THEME_VERSION = '1.8.0-dev';
+  const THEME_VERSION = '2.0.0-dev';
   const THEME_NAME    = 'JustBlack';
   const THEME_DIR     = 'justblack';
   const ASSET_DIR     = 'themes/' . self::THEME_DIR . '/css/';
