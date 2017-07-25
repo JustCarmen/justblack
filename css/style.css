@@ -8783,7 +8783,7 @@ dt {
   padding: 0.25rem 0.75rem;
 }
 
-.wt-header-search .input-group-btn {
+.wt-header-search .input-group-btn, .jc-change-root .input-group-btn {
   background-color: #dd6900;
 }
 
