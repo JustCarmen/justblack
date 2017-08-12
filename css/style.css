@@ -9640,6 +9640,9 @@ h2 {
 .wt-primary-menu .menu-indi .menu-indi-editraw:before {
   content: url(menu/edit-gedcom.png);
 }
+.wt-primary-menu .menu-indi .menu-indi-ordername:before {
+  content: url(menu/edit-reorder.png);
+}
 .wt-primary-menu .menu-fam .nav-link:before {
   content: url(menu/fam.png);
 }
