@@ -15,6 +15,11 @@
 
 // input-group-addons
 .input-group-addon {
+   .fa,
+   a.fa {
+    color: $brand-primary;
+  }
+  
   .btn .fa,
   .btn-secondary {
     &:hover {
