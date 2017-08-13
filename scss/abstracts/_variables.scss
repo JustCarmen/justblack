@@ -86,6 +86,28 @@ $icon-hover-color:                  darken($icon-color, 10%);
 $icon-inverse-color:                $brand-primary;
 $icon-inverse-hover-color:          darken($icon-inverse-color, 10%);
 
+// Image icons used by this theme
+// optional parameters: prefix (wt), different icon on hover, width (16), height (16)
+$image-icons: (
+    arrow-down:         (wt, true, 20),
+    arrow-left:         (wt, true, 20),
+    arrow-right:        (wt, true, 20),
+    arrow-up:           (wt, true, 20),
+    bing-maps:          (wt, false, 23),
+    childless:          ('', false, 25),
+    copy:               (wt),
+    delete:             (wt),
+    edit:               (wt),
+    google-maps:        (wt, false, 23),
+    preferences:        (wt, false, 15),
+    resn-confidential:  (),
+    resn-locked:        (),
+    resn-none:          (),
+    resn-privacy:       (),
+    ring:               (),
+    selected:           ('', false, 12),
+);
+
 // Components
 $component-active-color:            $body-color;
 $component-active-bg:               darken($gray-light, 10%);

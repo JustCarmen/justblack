@@ -6381,7 +6381,7 @@ a.bg-inverse:focus, a.bg-inverse:hover {
   padding-left: 0.25rem !important;
 }
 
-.px-1 {
+.px-1, .btn-link, .input-group-btn .btn-secondary {
   padding-right: 0.25rem !important;
   padding-left: 0.25rem !important;
 }
@@ -8778,7 +8778,7 @@ dt {
 }
 
 .icon-darrow, .icon-larrow, .icon-ldarrow, .icon-rarrow, .icon-rdarrow, .icon-uarrow, .icon-sex_m_9x9, .icon-sex_f_9x9, .icon-sex_u_9x9, .icon-sex_m_15x15, .icon-sex_f_15x15, .icon-sex_u_15x15, .icon-mypage, .icon-clippings, .icon-selected, .icon-indis, .icon-user_add, .icon-zoomin, .icon-zoomout, .icon-edit_indi, .icon-silhouette-F, .icon-silhouette-M, .icon-silhouette-U, .icon-button_family, .icon-children, .icon-childless, .icon-target, .icon-wiki, .icon-pedigree {
-  background: none !important;
+  background: none;
   width: auto;
   height: auto;
   color: #ffffde;
@@ -8911,6 +8911,10 @@ a.fa:hover {
   content: "\f010";
 }
 
+.wt-icon-delete:before {
+  content: "\f00d";
+}
+
 @font-face {
   font-family: "icomoon";
   font-style: normal;
@@ -8973,163 +8977,139 @@ a.fa:hover {
   content: "\e609";
 }
 
-.icon-bing, .icon-googlemaps, .icon-loading-small, .icon-loading-large, .icon-osm, .icon-confidential-none, .icon-locked-none, .icon-resn-none, .icon-class-none {
+.wt-icon-arrow-down::before {
+  height: 20px;
+  width: 20px;
+  content: url(icons/arrow-down.png);
+}
+.wt-icon-arrow-down:hover {
+  background-image: url(icons/arrow-down-hover.png);
+}
+
+.wt-icon-arrow-left::before {
+  height: 20px;
+  width: 20px;
+  content: url(icons/arrow-left.png);
+}
+.wt-icon-arrow-left:hover {
+  background-image: url(icons/arrow-left-hover.png);
+}
+
+.wt-icon-arrow-right::before {
+  height: 20px;
+  width: 20px;
+  content: url(icons/arrow-right.png);
+}
+.wt-icon-arrow-right:hover {
+  background-image: url(icons/arrow-right-hover.png);
+}
+
+.wt-icon-arrow-up::before {
+  height: 20px;
+  width: 20px;
+  content: url(icons/arrow-up.png);
+}
+.wt-icon-arrow-up:hover {
+  background-image: url(icons/arrow-up-hover.png);
+}
+
+.wt-icon-bing-maps::before {
+  height: 23px;
+  width: 23px;
+  content: url(icons/bing-maps.png);
+}
+
+.icon-childless {
+  height: 25px;
+  width: 25px;
+  background-image: url(icons/childless.png);
+}
+.icon-childless::before {
+  content: '';
+}
+
+.wt-icon-copy::before {
   height: 16px;
   width: 16px;
+  content: url(icons/copy.png);
 }
 
-.icon-bing {
-  background-image: url(images/bing.png);
+.wt-icon-delete::before {
+  height: 16px;
+  width: 16px;
+  content: url(icons/delete.png);
 }
 
-.icon-googlemaps {
-  background-image: url(images/googlemaps.png);
+.wt-icon-edit::before {
+  height: 16px;
+  width: 16px;
+  content: url(icons/edit.png);
 }
 
-.icon-loading-small {
-  background-image: url(images/indicator.gif);
+.wt-icon-google-maps::before {
+  height: 23px;
+  width: 23px;
+  content: url(icons/google-maps.png);
 }
 
-.icon-loading-large {
-  background-image: url(images/loading.gif);
+.wt-icon-preferences::before {
+  height: 15px;
+  width: 15px;
+  content: url(icons/preferences.png);
 }
 
-.icon-osm {
-  background-image: url(images/osm.png);
+.icon-resn-confidential {
+  height: 16px;
+  width: 16px;
+  background-image: url(icons/resn-confidential.png);
+}
+.icon-resn-confidential::before {
+  content: '';
 }
 
-.icon-confidential-none {
-  background-image: url(images/resn_confidential.png);
+.icon-resn-locked {
+  height: 16px;
+  width: 16px;
+  background-image: url(icons/resn-locked.png);
 }
-
-.icon-locked-none {
-  background-image: url(images/resn_locked.png);
+.icon-resn-locked::before {
+  content: '';
 }
 
 .icon-resn-none {
-  background-image: url(images/resn_none.png);
+  height: 16px;
+  width: 16px;
+  background-image: url(icons/resn-none.png);
+}
+.icon-resn-none::before {
+  content: '';
 }
 
-.icon-class-none {
-  background-image: url(images/resn_privacy.png);
+.icon-resn-privacy {
+  height: 16px;
+  width: 16px;
+  background-image: url(icons/resn-privacy.png);
+}
+.icon-resn-privacy::before {
+  content: '';
 }
 
-[class^="icon-mime-"],
-[class*=" icon-mime-"] {
-  background-position: -99px -49px;
+.icon-ring {
+  height: 16px;
+  width: 16px;
+  background-image: url(icons/ring.png);
+}
+.icon-ring::before {
+  content: '';
 }
 
-[class^="icon-mime-application-"],
-[class*=" icon-mime-application-"] {
-  background-position: -99px -196px;
+.icon-selected {
+  height: 12px;
+  width: 12px;
+  background-image: url(icons/selected.png);
 }
-
-.icon-mime-application-pdf {
-  background-position: -1px -49px;
-}
-
-.icon-mime-application-msword {
-  background-position: -148px -49px;
-}
-
-.icon-mime-application-vnd-ms-excel {
-  background-position: -148px -196px;
-}
-
-.icon-mime-application-x-rar-compressed {
-  background-position: -50px -98px;
-}
-
-.icon-mime-application-zip {
-  background-position: -50px -147px;
-}
-
-.icon-mime-application-x-shockwave-flash {
-  background-position: -148px 0px;
-}
-
-[class^="icon-mime-audio-"],
-[class*=" icon-mime-audio-"] {
-  background-position: -197px -98px;
-}
-
-.icon-mime-audio-mp3 {
-  background-position: -50px -245px;
-}
-
-.icon-mime-audio-mpeg {
-  background-position: -50px 0px;
-}
-
-.icon-mime-audio-x-ms-wma {
-  background-position: -1px -245px;
-}
-
-.icon-mime-audio-wav {
-  background-position: -1px -98px;
-}
-
-[class^="icon-mime-image-"],
-[class*=" icon-mime-image-"] {
-  background-position: -148px -245px;
-}
-
-.icon-mime-image-bmp {
-  background-position: 197px 0px;
-}
-
-.icon-mime-image-gif {
-  background-position: -197px -49px;
-}
-
-.icon-mime-image-jpeg {
-  background-position: -1px -147px;
-}
-
-.icon-mime-image-png {
-  background-position: -99px -98px;
-}
-
-.icon-mime-image-svg {
-  background-position: -197px -196px;
-}
-
-.icon-mime-image-tiff {
-  background-position: -148px -98px;
-}
-
-[class^="icon-mime-text-"],
-[class*=" icon-mime-text-"] {
-  background-position: -197px -147px;
-}
-
-.icon-mime-text-html {
-  background-position: -99px -245px;
-}
-
-.icon-mime-text-x-gedcom {
-  background-position: -50px -245px;
-}
-
-[class^="icon-mime-video-"],
-[class*=" icon-mime-video-"] {
-  background-position: -148px -147px;
-}
-
-.icon-mime-video-quicktime {
-  background-position: -99px -147px;
-}
-
-.icon-mime-video-avi {
-  background-position: -99px 0px;
-}
-
-.icon-mime-video-x-ms-wmv {
-  background-position: -50px -196px;
-}
-
-.wt-icon-delete:before {
-  content: "\f00d";
+.icon-selected::before {
+  content: '';
 }
 
 .card {
