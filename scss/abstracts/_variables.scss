@@ -83,6 +83,8 @@ $btn-padding-y:                     .25rem;
 // Icons
 $icon-color:                        $yellow-light;
 $icon-hover-color:                  darken($icon-color, 10%);
+$icon-inverse-color:                $brand-primary;
+$icon-inverse-hover-color:          darken($icon-inverse-color, 10%);
 
 // Components
 $component-active-color:            $body-color;

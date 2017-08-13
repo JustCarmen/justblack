@@ -8811,6 +8811,25 @@ a.fa {
 a.fa:hover {
   color: #ffffab;
 }
+.input-group-btn .fa, .input-group-addon .fa, .input-group-btn .fa, .btn-secondary .fa, .input-group-btn
+a.fa, .input-group-addon
+a.fa, .input-group-btn
+a.fa, .btn-secondary
+a.fa {
+  color: #dd6900;
+}
+.input-group-btn .fa:hover, .input-group-addon .fa:hover, .input-group-btn .fa:hover, .btn-secondary .fa:hover, .input-group-btn
+a.fa:hover, .input-group-addon
+a.fa:hover, .input-group-btn
+a.fa:hover, .btn-secondary
+a.fa:hover {
+  color: #aa5100;
+}
+.btn-primary .fa, .btn-primary .fa:hover, .btn-primary
+a.fa, .btn-primary
+a.fa:hover {
+  color: #fff;
+}
 
 .fa-info-circle {
   color: #dd6900;
@@ -9793,17 +9812,6 @@ h2 {
 }
 .select2-container--default .select2-results__option[aria-selected=true] {
   background-color: #636c72;
-}
-
-.input-group-addon .fa, .input-group-btn .fa,
-.input-group-addon a.fa,
-.input-group-btn a.fa {
-  color: #dd6900;
-}
-.input-group-addon .btn .fa:hover, .input-group-btn .btn .fa:hover,
-.input-group-addon .btn-secondary:hover,
-.input-group-btn .btn-secondary:hover {
-  color: #aa5100;
 }
 
 .wt-block-content-gedcom-stats-block .card-block {
