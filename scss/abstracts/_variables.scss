@@ -156,6 +156,11 @@ $personbox-female-bg:               $gray-light;
 $personbox-unknown-border-color:    $brand-primary;
 $personbox-link-color:              $body-color;
 
+// Optionbox/descriptionbox
+$descriptionbox-bg:                 $table-head-bg;
+$descriptionbox-color:              $table-head-color;
+$optionbox-bg:                      $card-bg;
+
 // Treeview
 $treeview-bg-color:                 lighten($orange-lighter, 5%);
 $treeview-title-color:              $gray-dark;

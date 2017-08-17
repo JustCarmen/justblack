@@ -9147,7 +9147,8 @@ td.descriptionbox, td.facts_label {
   color: #e5e8e9;
 }
 td.optionbox, td.facts_value {
-  background-color: #f7f7f9;
+  background-color: #292b2c;
+  color: #e5e8e9;
 }
 
 .table.dataTable thead th.sorting:before, .dataTable.facts_table thead th.sorting:before,
@@ -9345,9 +9346,6 @@ td.optionbox, td.facts_value {
 .jc-global-individual .tab-content .facts_table > tbody > tr:first-child > td[colspan="2"] {
   background-color: #292b2c;
   color: #303233;
-}
-.jc-global-individual .tab-content td.optionbox {
-  background-color: #f7f7f9;
 }
 #sb_family_nav_content .nav_content {
   border-collapse: separate;
@@ -9882,10 +9880,6 @@ h2 {
   background-image: linear-gradient(#4b5257, #3a3d3f 50%, #292b2c);
   background-repeat: no-repeat;
   color: #e5e8e9;
-}
-.jc-global-individual .tab-content td.optionbox,
-.jc-global-individual .tab-content td.facts_value {
-  background-color: #292b2c;
 }
 #sb_family_nav_content .flyout2, #sb_family_nav_content .flyout3, #sb_family_nav_content .flyout4 {
   color: #292b2c;

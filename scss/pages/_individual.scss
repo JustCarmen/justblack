@@ -14,11 +14,6 @@
     .facts_table > tbody > tr:first-child > td[colspan="2"] {
       @include jb-theme-gradient();
     }
-
-    td.optionbox,
-    td.facts_value {
-      background-color: $card-bg;
-    }
   }
 
   #sidebar {
