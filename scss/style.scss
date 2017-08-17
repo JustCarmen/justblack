@@ -38,10 +38,12 @@
 @import "components/tables";
 @import "components/forms";
 @import "components/statsblock";
-@import "components/modules";
-@import "components/treeview";
 
 // Pages
 @import "pages/index";
 @import "pages/individual";
 @import "pages/charts";
+
+// Modules
+@import "modules/fancy-imagebar";
+@import "modules/treeview";
