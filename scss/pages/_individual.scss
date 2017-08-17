@@ -9,15 +9,16 @@
     @include jc-theme-gradient();
   }
 
-  .tab-content { // tab content of the main section
-                 .facts_table > tbody > tr:first-child > td[colspan="2"] {
-                   @include jb-theme-gradient();
-                 }
+  // tab content of the main section
+  .tab-content { 
+    .facts_table > tbody > tr:first-child > td[colspan="2"] {
+      @include jb-theme-gradient();
+    }
 
-                 td.optionbox,
-                 td.facts_value {
-                   background-color: $card-bg;
-                 }
+    td.optionbox,
+    td.facts_value {
+      background-color: $card-bg;
+    }
   }
 
   #sidebar {
