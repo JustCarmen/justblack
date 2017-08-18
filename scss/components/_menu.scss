@@ -3,6 +3,13 @@
   font-size: $font-size-sm;
 }
 
+%wt-nav-link {
+  color: $link-inverse-color;
+  &:hover {
+    color: $link-inverse-hover-color;
+  }
+}
+
 // General styles for dropdown menus
 .dropdown-menu {
   @include jc-box-shadow;
@@ -24,8 +31,11 @@
     min-width: 5rem;
     text-align: center;
   }
-  .nav-link:before {
-    display: block;
+  .nav-link {
+    @extend %wt-nav-link;
+    &::before {
+      display: block;
+    }
   }
 
   .dropdown-menu {
@@ -33,7 +43,7 @@
   }
 
   .dropdown-item {
-    color: $dropdown-link-color-inverse;
+    color: $link-inverse-color;
     &:hover,
       &:focus {
       background-color: $dropdown-link-hover-bg-inverse;
@@ -59,6 +69,7 @@
   }
 
   .nav-link {
+    @extend %wt-nav-link;
     display: inline-block;
     padding: .5rem .25rem;
   }

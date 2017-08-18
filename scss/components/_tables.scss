@@ -10,13 +10,18 @@
   }
 }
 
-// Datatable sorting icons
-.table.dataTable thead th {
-  &.sorting:after {
-    opacity: 0.75;
-  }
-  &.sorting_asc:after,
-    &.sorting_desc:after {
-    opacity: 1;
+// datatables
+.dataTable {
+  @extend %fact-table-style;
+
+  // Datatable sorting icons
+  thead th {
+    &.sorting:after {
+      opacity: 0.75;
+    }
+    &.sorting_asc:after,
+      &.sorting_desc:after {
+      opacity: 1;
+    }
   }
 }

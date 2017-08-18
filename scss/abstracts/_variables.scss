@@ -127,6 +127,11 @@ $table-head-bg:                     $gray;
 $table-head-color:                  $body-color;
 $table-border-color:                rgba($white,.175);
 
+// Pagination
+$pagination-disabled-color:         lighten($gray-light, .25);
+$pagination-disabled-bg:            lighten($gray-lightest, .15);
+$pagination-hover-color:            $pagination-disabled-color;
+
 // Cards
 $card-cap-bg:                       $gray-dark;
 $card-bg:                           $gray-dark;
@@ -141,7 +146,6 @@ $dropdown-bg-inverse:               $card-bg;
 $dropdown-border-color:             rgba($gray-lighter, .35);
 $dropdown-divider-bg:               $gray-light;
 $dropdown-link-color:               $link-color;
-$dropdown-link-color-inverse:       $body-color;
 $dropdown-link-hover-color:         darken($dropdown-link-color, 5%);
 $dropdown-link-hover-bg:            $orange-lighter;
 $dropdown-link-hover-bg-inverse:    lighten($gray-light, 5%);
