@@ -9051,10 +9051,10 @@ a.fa:hover {
   content: url(icons/google-maps.png);
 }
 
-.wt-icon-preferences::before {
-  height: 15px;
-  width: 15px;
-  content: url(icons/preferences.png);
+.wt-icon-openstreetmap::before {
+  height: 23px;
+  width: 23px;
+  content: url(icons/openstreetmap.png);
 }
 
 .icon-childless {
@@ -9359,6 +9359,21 @@ td.optionbox, td.facts_value {
   border-collapse: separate;
 }
 
+[ID^="vline"], img[src*="vline"] {
+  width: 2px;
+}
+
+img[src*="hline"] {
+  height: 2px;
+}
+
+.linef1 {
+  margin-bottom: 2px;
+}
+
+#lifespan-scale {
+  background-image: url(charts/lifespan-chunk.png);
+}
 #lifespan-people .popup div:first-of-type {
   font-weight: 500;
 }
@@ -9891,10 +9906,6 @@ h2 {
 }
 #sb_family_nav_content .flyout2, #sb_family_nav_content .flyout3, #sb_family_nav_content .flyout4 {
   color: #292b2c;
-}
-
-#lifespan-scale {
-  background-image: url(images/charts/lifespan-chunk.png);
 }
 
 .theme-justblack .tv_out {
