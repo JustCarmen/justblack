@@ -8911,10 +8911,6 @@ a.fa:hover {
   content: "\f010";
 }
 
-.wt-icon-delete:before {
-  content: "\f00d";
-}
-
 @font-face {
   font-family: "icomoon";
   font-style: normal;
@@ -8982,26 +8978,38 @@ a.fa:hover {
   width: 20px;
   content: url(icons/arrow-down.png);
 }
-.wt-icon-arrow-down:hover {
-  background-image: url(icons/arrow-down-hover.png);
+.wt-icon-arrow-down:hover::before {
+  content: url(icons/arrow-down-hover.png);
 }
 
-.wt-icon-arrow-left::before {
+.wt-icon-arrow-start::before {
   height: 20px;
   width: 20px;
   content: url(icons/arrow-left.png);
 }
-.wt-icon-arrow-left:hover {
-  background-image: url(icons/arrow-left-hover.png);
+[dir=rtl] .wt-icon-arrow-start::before {
+  content: url(icons/arrow-right.png);
+}
+.wt-icon-arrow-start:hover::before {
+  content: url(icons/arrow-left-hover.png);
+}
+[dir=rtl] .wt-icon-arrow-start:hover::before {
+  content: url(icons/arrow-right-hover.png);
 }
 
-.wt-icon-arrow-right::before {
+.wt-icon-arrow-end::before {
   height: 20px;
   width: 20px;
   content: url(icons/arrow-right.png);
 }
-.wt-icon-arrow-right:hover {
-  background-image: url(icons/arrow-right-hover.png);
+[dir=rtl] .wt-icon-arrow-end::before {
+  content: url(icons/arrow-left.png);
+}
+.wt-icon-arrow-end:hover::before {
+  content: url(icons/arrow-right-hover.png);
+}
+[dir=rtl] .wt-icon-arrow-end:hover::before {
+  content: url(icons/arrow-left-hover.png);
 }
 
 .wt-icon-arrow-up::before {
@@ -9009,23 +9017,14 @@ a.fa:hover {
   width: 20px;
   content: url(icons/arrow-up.png);
 }
-.wt-icon-arrow-up:hover {
-  background-image: url(icons/arrow-up-hover.png);
+.wt-icon-arrow-up:hover::before {
+  content: url(icons/arrow-up-hover.png);
 }
 
 .wt-icon-bing-maps::before {
   height: 23px;
   width: 23px;
   content: url(icons/bing-maps.png);
-}
-
-.icon-childless {
-  height: 25px;
-  width: 25px;
-  background-image: url(icons/childless.png);
-}
-.icon-childless::before {
-  content: '';
 }
 
 .wt-icon-copy::before {
@@ -9056,6 +9055,15 @@ a.fa:hover {
   height: 15px;
   width: 15px;
   content: url(icons/preferences.png);
+}
+
+.icon-childless {
+  height: 25px;
+  width: 25px;
+  background-image: url(icons/childless.png);
+}
+.icon-childless::before {
+  content: '';
 }
 
 .icon-resn-confidential {

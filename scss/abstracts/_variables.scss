@@ -86,26 +86,35 @@ $icon-hover-color:                  darken($icon-color, 10%);
 $icon-inverse-color:                $brand-primary;
 $icon-inverse-hover-color:          darken($icon-inverse-color, 10%);
 
+$webtrees-fa-icons:                (); // empty. We use image icons
+
 // Image icons used by this theme
-// optional parameters: prefix (wt), different icon on hover, width (16), height (16)
+// Type: arrows, webtrees or other (icons without the prefix wt)
+// optional parameters: width (default 16), height (default 16)
 $image-icons: (
-    arrow-down:         (wt, true, 20),
-    arrow-left:         (wt, true, 20),
-    arrow-right:        (wt, true, 20),
-    arrow-up:           (wt, true, 20),
-    bing-maps:          (wt, false, 23),
-    childless:          ('', false, 25),
-    copy:               (wt),
-    delete:             (wt),
-    edit:               (wt),
-    google-maps:        (wt, false, 23),
-    preferences:        (wt, false, 15),
+  arrows: (
+    arrow-down:         (20),
+    arrow-left:         (20),
+    arrow-right:        (20),
+    arrow-up:           (20)
+  ),
+  webtrees: (
+    bing-maps:          (23),
+    copy:               (),
+    delete:             (),
+    edit:               (),
+    google-maps:        (23),
+    preferences:        (15)
+  ),
+  other: (
+    childless:          (25),
     resn-confidential:  (),
     resn-locked:        (),
     resn-none:          (),
     resn-privacy:       (),
     ring:               (),
-    selected:           ('', false, 12),
+    selected:           (12)
+  )
 );
 
 // Components
