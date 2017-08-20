@@ -160,7 +160,7 @@ class JustBlackTheme extends JustFancyTheme {
    * In this theme we use full width pages on some pages
    */
   protected function setFluidClass() {
-    $pages   = ['index', 'individual', 'sourcelist', 'notelist'];
+    $pages   = ['index', 'individual'];
     $modules = ['tree'];
 
     if (in_array($this->getPage(), $pages) || (in_array(Filter::get('mod'), $modules))) {
