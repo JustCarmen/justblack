@@ -60,7 +60,9 @@
     return $this;
   };
 
-}(jQuery, window));function qstring(key, url) {
+}(jQuery, window));
+
+function qstring(key, url) {
   'use strict';
   var KeysValues, KeyValue, i;
   if (url === null || url === undefined) {
@@ -78,6 +80,9 @@
 jQuery.fn.outerHtml = function() {
   return jQuery(this).clone().wrap('<p>').parent().html();
 };
+
+// Use wt-page-title on all page titles (webtrees only adds a few)
+jQuery('h2:first').addClass('wt-page-title');
 
 // Tweak the datatables made by webtrees
 // target = column number - 1

@@ -10,4 +10,3 @@ $('.jc-global-individual .wt-main-container > .row > .col-sm-8').each(function()
       
 });
 $('.jc-global-individual .wt-main-container > .row > .col-sm-4').addClass('col-12 col-lg-3 col-md-4').removeClass('col-sm-4');
-
