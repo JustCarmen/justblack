@@ -83,14 +83,15 @@
   }
 
   .table, .facts_table,
-  .markdown table {
+  .markdown table, .faq {
     border-collapse: collapse !important;
   }
   .table td, .facts_table td,
-  .markdown table td,
+  .markdown table td, .faq td,
   .table th,
   .facts_table th,
-  .markdown table th {
+  .markdown table th,
+  .faq th {
     background-color: #fff !important;
   }
 
@@ -1929,38 +1930,42 @@ pre code {
   }
 }
 .table, .facts_table,
-.markdown table {
+.markdown table, .faq {
   width: 100%;
   max-width: 100%;
   margin-bottom: 1rem;
   background-color: transparent;
 }
 .table th, .facts_table th,
-.markdown table th,
+.markdown table th, .faq th,
 .table td,
 .facts_table td,
-.markdown table td {
+.markdown table td,
+.faq td {
   padding: 0.75rem;
   vertical-align: top;
   border-top: 1px solid rgba(255, 255, 255, 0.175);
 }
 .table thead th, .facts_table thead th,
-.markdown table thead th {
+.markdown table thead th, .faq thead th {
   vertical-align: bottom;
   border-bottom: 2px solid rgba(255, 255, 255, 0.175);
 }
 .table tbody + tbody, .facts_table tbody + tbody,
-.markdown table tbody + tbody {
+.markdown table tbody + tbody, .faq tbody + tbody {
   border-top: 2px solid rgba(255, 255, 255, 0.175);
 }
 .table .table, .facts_table .table,
-.markdown table .table, .table .facts_table, .facts_table .facts_table,
-.markdown table .facts_table,
+.markdown table .table, .faq .table, .table .facts_table, .facts_table .facts_table,
+.markdown table .facts_table, .faq .facts_table,
 .table .markdown table,
 .markdown .table table,
 .facts_table .markdown table,
 .markdown .facts_table table,
-.markdown table table {
+.markdown table table,
+.faq .markdown table,
+.markdown .faq table, .table .faq, .facts_table .faq,
+.markdown table .faq, .faq .faq {
   background-color: #303233;
 }
 
@@ -1992,10 +1997,10 @@ pre code {
 }
 
 .table-striped tbody tr:nth-of-type(odd) {
-  background-color: rgba(0, 0, 0, 0.25);
+  background-color: #eceeef;
 }
 
-.table-hover tbody tr:hover {
+.table-hover tbody tr:hover, .faq tbody tr:hover {
   background-color: rgba(0, 0, 0, 0.075);
 }
 
@@ -2005,11 +2010,12 @@ pre code {
   background-color: rgba(0, 0, 0, 0.075);
 }
 
-.table-hover .table-active:hover {
+.table-hover .table-active:hover, .faq .table-active:hover {
   background-color: rgba(0, 0, 0, 0.075);
 }
-.table-hover .table-active:hover > td,
-.table-hover .table-active:hover > th {
+.table-hover .table-active:hover > td, .faq .table-active:hover > td,
+.table-hover .table-active:hover > th,
+.faq .table-active:hover > th {
   background-color: rgba(0, 0, 0, 0.075);
 }
 
@@ -2019,11 +2025,12 @@ pre code {
   background-color: #dff0d8;
 }
 
-.table-hover .table-success:hover {
+.table-hover .table-success:hover, .faq .table-success:hover {
   background-color: #d0e9c6;
 }
-.table-hover .table-success:hover > td,
-.table-hover .table-success:hover > th {
+.table-hover .table-success:hover > td, .faq .table-success:hover > td,
+.table-hover .table-success:hover > th,
+.faq .table-success:hover > th {
   background-color: #d0e9c6;
 }
 
@@ -2033,11 +2040,12 @@ pre code {
   background-color: #d9edf7;
 }
 
-.table-hover .table-info:hover {
+.table-hover .table-info:hover, .faq .table-info:hover {
   background-color: #c4e3f3;
 }
-.table-hover .table-info:hover > td,
-.table-hover .table-info:hover > th {
+.table-hover .table-info:hover > td, .faq .table-info:hover > td,
+.table-hover .table-info:hover > th,
+.faq .table-info:hover > th {
   background-color: #c4e3f3;
 }
 
@@ -2047,11 +2055,12 @@ pre code {
   background-color: #fcf8e3;
 }
 
-.table-hover .table-warning:hover {
+.table-hover .table-warning:hover, .faq .table-warning:hover {
   background-color: #faf2cc;
 }
-.table-hover .table-warning:hover > td,
-.table-hover .table-warning:hover > th {
+.table-hover .table-warning:hover > td, .faq .table-warning:hover > td,
+.table-hover .table-warning:hover > th,
+.faq .table-warning:hover > th {
   background-color: #faf2cc;
 }
 
@@ -2061,11 +2070,12 @@ pre code {
   background-color: #f2dede;
 }
 
-.table-hover .table-danger:hover {
+.table-hover .table-danger:hover, .faq .table-danger:hover {
   background-color: #ebcccc;
 }
-.table-hover .table-danger:hover > td,
-.table-hover .table-danger:hover > th {
+.table-hover .table-danger:hover > td, .faq .table-danger:hover > td,
+.table-hover .table-danger:hover > th,
+.faq .table-danger:hover > th {
   background-color: #ebcccc;
 }
 
@@ -6309,7 +6319,7 @@ a.bg-inverse:focus, a.bg-inverse:hover {
   width: 90% !important;
 }
 
-.w-100, .width100 {
+.w-100, .width100, .faq, .faq_title {
   width: 100% !important;
 }
 
@@ -6394,7 +6404,7 @@ a.bg-inverse:focus, a.bg-inverse:hover {
 }
 
 .m-0, .col-form-label,
-.col-form-legend {
+.col-form-legend, .faq_title {
   margin: 0 0 !important;
 }
 
@@ -6602,7 +6612,7 @@ a.bg-inverse:focus, a.bg-inverse:hover {
   padding-left: 0 !important;
 }
 
-.py-0 {
+.py-0, .faq_title {
   padding-top: 0 !important;
   padding-bottom: 0 !important;
 }
@@ -6627,7 +6637,7 @@ a.bg-inverse:focus, a.bg-inverse:hover {
   padding-left: 0.25rem !important;
 }
 
-.px-1, .btn-link, .input-group-btn .btn-secondary {
+.px-1, .btn-link, .input-group-btn .btn-secondary, .faq_body {
   padding-right: 0.25rem !important;
   padding-left: 0.25rem !important;
 }
@@ -9419,7 +9429,7 @@ a.fa:hover {
 }
 
 .table, .facts_table,
-.markdown table {
+.markdown table, .faq {
   border-spacing: 0;
 }
 
@@ -9431,7 +9441,7 @@ tr.odd {
   background-color: transparent;
 }
 tr.even {
-  background-color: rgba(0, 0, 0, 0.25);
+  background-color: #eceeef;
 }
 
 td.descriptionbox, td.facts_label {
@@ -9605,7 +9615,7 @@ td.optionbox, td.facts_value {
   border-bottom: none;
 }
 .stat-table2 .stat-row:nth-child(odd) {
-  background-color: rgba(0, 0, 0, 0.25);
+  background-color: #eceeef;
 }
 .stat-table2 .stat-row:nth-child(even) {
   background-color: transparent;
@@ -9731,6 +9741,15 @@ img[src*="hline"] {
 }
 .album-title {
   height: 100%;
+}
+
+.faq,
+.faq .odd td {
+  background-color: transparent !important;
+}
+
+.faq_title {
+  background-color: transparent !important;
 }
 
 @font-face {
@@ -10144,10 +10163,11 @@ h2 {
 }
 
 .table thead th, .facts_table thead th,
-.markdown table thead th,
+.markdown table thead th, .faq thead th,
 .table thead td,
 .facts_table thead td,
-.markdown table thead td {
+.markdown table thead td,
+.faq thead td {
   background-image: linear-gradient(#4b5257, #3a3d3f 50%, #292b2c);
   background-repeat: no-repeat;
   color: #e5e8e9;
@@ -10234,6 +10254,20 @@ h2 {
 }
 #sb_family_nav_content .flyout2, #sb_family_nav_content .flyout3, #sb_family_nav_content .flyout4 {
   color: #292b2c;
+}
+
+.faq tr {
+  border: 1px solid rgba(255, 255, 255, 0.175);
+}
+.faq tr.even {
+  background-color: transparent;
+}
+.faq a {
+  color: #e5e8e9;
+}
+.faq a:hover {
+  color: #bcc3c6;
+  text-decoration: none;
 }
 
 .theme-justblack .tv_out {

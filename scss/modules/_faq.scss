@@ -1,0 +1,20 @@
+// FAQ Module
+.faq {
+  @extend .table-hover;
+  tr {
+    border: $border-width solid $table-border-color;
+    &.even {
+      background-color: $table-bg;
+    }
+  }
+
+  a {
+    color: $link-inverse-color;
+    &:hover {
+      color: $link-inverse-hover-color;
+      text-decoration: none;
+    }
+  }
+}
+
+
