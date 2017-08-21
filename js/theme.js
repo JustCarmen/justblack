@@ -81,6 +81,11 @@ jQuery.fn.outerHtml = function() {
   return jQuery(this).clone().wrap('<p>').parent().html();
 };
 
+function strip_tags(str) {
+    str = str.toString();
+    return str.replace(/<\/?[^>]+>/gi, '').trim();
+}
+
 // Prevent jumping to the top of the page when clicking on a javascript link
 if ($('a[onclick]').attr('href') == '#') {
   $('a[onclick]').attr('href', 'javascript:void(0)');
@@ -339,7 +344,9 @@ $('.jc-global-individual').each(function() {
   $('.wt-main-container .card:first .card-header').each(function() {
     $(this)
       .addClass('d-flex flex-column flex-lg-row justify-content-lg-between')
-      .wrapInner('<div class="jc-individual-name">')
-      .append('<div class="jc-individual-age">' + parts[1]);
+      .wrapInner('<div class="jc-individual-name">');
+    if (strip_tags(parts[1]) !== '–') {
+      $(this).append('<div class="jc-individual-age">' + parts[1]);
+    }
   });
 });
