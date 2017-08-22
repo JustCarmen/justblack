@@ -6279,7 +6279,7 @@ a.bg-inverse:focus, a.bg-inverse:hover {
   margin-right: 0 !important;
 }
 
-.mb-0 {
+.mb-0, dl, #lightbox_content .facts_table {
   margin-bottom: 0 !important;
 }
 
@@ -6309,7 +6309,7 @@ a.bg-inverse:focus, a.bg-inverse:hover {
   margin-right: 0.25rem !important;
 }
 
-.mb-1 {
+.mb-1, dd {
   margin-bottom: 0.25rem !important;
 }
 
@@ -6478,7 +6478,7 @@ a.bg-inverse:focus, a.bg-inverse:hover {
   padding-bottom: 0 !important;
 }
 
-.p-1 {
+.p-1, .btn-link, .input-group-btn .btn-secondary {
   padding: 0.25rem 0.25rem !important;
 }
 
@@ -6498,12 +6498,13 @@ a.bg-inverse:focus, a.bg-inverse:hover {
   padding-left: 0.25rem !important;
 }
 
-.px-1, .btn-link, .input-group-btn .btn-secondary, .faq_body {
+.px-1, .faq_body {
   padding-right: 0.25rem !important;
   padding-left: 0.25rem !important;
 }
 
-.py-1 {
+.py-1, .jc-global-individual #individual-names .card-header:not(#name-header-0),
+.jc-global-individual #individual-names .card-block {
   padding-top: 0.25rem !important;
   padding-bottom: 0.25rem !important;
 }
@@ -6542,7 +6543,7 @@ a.bg-inverse:focus, a.bg-inverse:hover {
   padding: 1rem 1rem !important;
 }
 
-.pt-3, .jc-global-search_advanced .facts_label03 {
+.pt-3, .jc-global-search_advanced .facts_label03, #lightbox_content div.facts_value {
   padding-top: 1rem !important;
 }
 
@@ -8495,20 +8496,20 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
   }
 }
 
-.jc-global-individual .tab-content, .jc-global-individual #sidebar, .jc-global-family .facts_table, .dataTable {
+.jc-global-individual #individual-names, .jc-global-individual .tab-content, .jc-global-individual #sidebar, .jc-global-family .facts_table, .dataTable {
   font-size: 0.875rem;
 }
-.jc-global-individual .tab-content a, .jc-global-individual #sidebar a, .jc-global-family .facts_table a, .dataTable a {
+.jc-global-individual #individual-names a, .jc-global-individual .tab-content a, .jc-global-individual #sidebar a, .jc-global-family .facts_table a, .dataTable a {
   color: #e5e8e9;
 }
-.jc-global-individual .tab-content a:hover, .jc-global-individual #sidebar a:hover, .jc-global-family .facts_table a:hover, .dataTable a:hover {
+.jc-global-individual #individual-names a:hover, .jc-global-individual .tab-content a:hover, .jc-global-individual #sidebar a:hover, .jc-global-family .facts_table a:hover, .dataTable a:hover {
   color: #bcc3c6;
 }
-.jc-global-individual .tab-content .quickfacts a, .jc-global-individual #sidebar .quickfacts a, .jc-global-family .facts_table .quickfacts a, .dataTable .quickfacts a {
+.jc-global-individual #individual-names .quickfacts a, .jc-global-individual .tab-content .quickfacts a, .jc-global-individual #sidebar .quickfacts a, .jc-global-family .facts_table .quickfacts a, .dataTable .quickfacts a {
   font-size: 0.75rem;
   color: #dd6900;
 }
-.jc-global-individual .tab-content .quickfacts a:hover, .jc-global-individual #sidebar .quickfacts a:hover, .jc-global-family .facts_table .quickfacts a:hover, .dataTable .quickfacts a:hover {
+.jc-global-individual #individual-names .quickfacts a:hover, .jc-global-individual .tab-content .quickfacts a:hover, .jc-global-individual #sidebar .quickfacts a:hover, .jc-global-family .facts_table .quickfacts a:hover, .dataTable .quickfacts a:hover {
   color: #f7f7f9;
 }
 
@@ -8799,6 +8800,10 @@ dt {
   margin-right: 0.5rem;
 }
 
+a {
+  word-wrap: break-word;
+}
+
 .media-display-image,
 .media-display-title {
   padding: 0;
@@ -8931,11 +8936,21 @@ dt {
   height: auto;
   color: #ffffde;
   cursor: pointer;
-  font-size: 1.25rem;
+  font-size: 0.875rem;
   font-style: normal;
   line-height: 1;
   padding: 0 .25rem;
   vertical-align: baseline;
+}
+@media (min-width: 768px) {
+  .icon-darrow, .icon-larrow, .icon-ldarrow, .icon-rarrow, .icon-rdarrow, .icon-uarrow, .icon-sex_m_9x9, .icon-sex_f_9x9, .icon-sex_u_9x9, .icon-sex_m_15x15, .icon-sex_f_15x15, .icon-sex_u_15x15, .icon-mypage, .icon-clippings, .icon-selected, .icon-indis, .icon-user_add, .icon-zoomin, .icon-zoomout, .icon-edit_indi, .icon-silhouette-F, .icon-silhouette-M, .icon-silhouette-U, .icon-button_family, .icon-children, .icon-childless, .icon-target, .icon-wiki, .icon-pedigree {
+    font-size: 1rem;
+  }
+}
+@media (min-width: 992px) {
+  .icon-darrow, .icon-larrow, .icon-ldarrow, .icon-rarrow, .icon-rdarrow, .icon-uarrow, .icon-sex_m_9x9, .icon-sex_f_9x9, .icon-sex_u_9x9, .icon-sex_m_15x15, .icon-sex_f_15x15, .icon-sex_u_15x15, .icon-mypage, .icon-clippings, .icon-selected, .icon-indis, .icon-user_add, .icon-zoomin, .icon-zoomout, .icon-edit_indi, .icon-silhouette-F, .icon-silhouette-M, .icon-silhouette-U, .icon-button_family, .icon-children, .icon-childless, .icon-target, .icon-wiki, .icon-pedigree {
+    font-size: 1.25rem;
+  }
 }
 .icon-darrow:hover, .icon-larrow:hover, .icon-ldarrow:hover, .icon-rarrow:hover, .icon-rdarrow:hover, .icon-uarrow:hover, .icon-sex_m_9x9:hover, .icon-sex_f_9x9:hover, .icon-sex_u_9x9:hover, .icon-sex_m_15x15:hover, .icon-sex_f_15x15:hover, .icon-sex_u_15x15:hover, .icon-mypage:hover, .icon-clippings:hover, .icon-selected:hover, .icon-indis:hover, .icon-user_add:hover, .icon-zoomin:hover, .icon-zoomout:hover, .icon-edit_indi:hover, .icon-silhouette-F:hover, .icon-silhouette-M:hover, .icon-silhouette-U:hover, .icon-button_family:hover, .icon-children:hover, .icon-childless:hover, .icon-target:hover, .icon-wiki:hover, .icon-pedigree:hover {
   color: #ffffab;
@@ -9066,11 +9081,31 @@ a.fa:hover {
   src: url("../../../themes/justfancy/css/fonts/icomoon.ttf") format("truetype"), url("../../../themes/justfancy/css/fonts/icomoon.eot?") format("eot"), url("../../../themes/justfancy/css/fonts/icomoon.woff") format("woff");
 }
 .jc-global-individual .icon-silhouette-F, .jc-global-individual .icon-silhouette-M, .jc-global-individual .icon-silhouette-U {
-  font-size: 8rem;
+  font-size: 6rem;
+}
+@media (min-width: 768px) {
+  .jc-global-individual .icon-silhouette-F, .jc-global-individual .icon-silhouette-M, .jc-global-individual .icon-silhouette-U {
+    font-size: 8rem;
+  }
+}
+@media (min-width: 992px) {
+  .jc-global-individual .icon-silhouette-F, .jc-global-individual .icon-silhouette-M, .jc-global-individual .icon-silhouette-U {
+    font-size: 10rem;
+  }
 }
 .icon-silhouette-F, #individual-tabs .icon-silhouette-F, #sidebar .icon-silhouette-F, .icon-silhouette-M, #individual-tabs .icon-silhouette-M, #sidebar .icon-silhouette-M, .icon-silhouette-U, #individual-tabs .icon-silhouette-U, #sidebar .icon-silhouette-U {
   cursor: default;
-  font-size: 3rem;
+  font-size: 1rem;
+}
+@media (min-width: 768px) {
+  .icon-silhouette-F, #individual-tabs .icon-silhouette-F, #sidebar .icon-silhouette-F, .icon-silhouette-M, #individual-tabs .icon-silhouette-M, #sidebar .icon-silhouette-M, .icon-silhouette-U, #individual-tabs .icon-silhouette-U, #sidebar .icon-silhouette-U {
+    font-size: 2rem;
+  }
+}
+@media (min-width: 992px) {
+  .icon-silhouette-F, #individual-tabs .icon-silhouette-F, #sidebar .icon-silhouette-F, .icon-silhouette-M, #individual-tabs .icon-silhouette-M, #sidebar .icon-silhouette-M, .icon-silhouette-U, #individual-tabs .icon-silhouette-U, #sidebar .icon-silhouette-U {
+    font-size: 3rem;
+  }
 }
 .icon-silhouette-F:hover, #individual-tabs .icon-silhouette-F:hover, #sidebar .icon-silhouette-F:hover, .icon-silhouette-M:hover, #individual-tabs .icon-silhouette-M:hover, #sidebar .icon-silhouette-M:hover, .icon-silhouette-U:hover, #individual-tabs .icon-silhouette-U:hover, #sidebar .icon-silhouette-U:hover {
   color: #ffffde;
@@ -9507,6 +9542,16 @@ td.optionbox, td.facts_value {
   width: 100%;
 }
 
+.jc-global-individual #name-header-0,
+.jc-global-individual #name-content-0 {
+  font-size: 1rem;
+}
+.jc-global-individual #name-header-add {
+  font-weight: normal;
+}
+.jc-global-individual #name-header-add .card-title b {
+  font-weight: 500;
+}
 .jc-global-individual #individual-tabs {
   margin-top: 3rem;
 }
@@ -9565,6 +9610,11 @@ img[src*="hline"] {
 [dir=rtl] .jc-global-search_advanced .list_value select, [dir=rtl]
 .jc-global-search_advanced .list_value_wrap select {
   margin-right: "";
+}
+
+#lightbox_content div.facts_value {
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.175);
 }
 
 .album-list {
