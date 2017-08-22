@@ -1,4 +1,6 @@
 // Scripts for the individual page
+
+// Move birthyear/deathyear and age to the name card header
 $('.jc-global-individual').each(function() {
   var html = $('h2').html();
   var parts = html.split(',');
