@@ -9663,6 +9663,10 @@ img[src*="hline"] {
   background-color: transparent !important;
 }
 
+.gm-events * {
+  font-size: 0.875rem;
+}
+
 @font-face {
   font-family: "Salina";
   font-style: normal;
