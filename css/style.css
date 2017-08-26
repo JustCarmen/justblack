@@ -9540,10 +9540,6 @@ td.optionbox, td.facts_value {
 .jc-global-index .wt-side-blocks .card-block {
   font-size: 0.875rem;
 }
-.wt-block-gedcom-block-block .row,
-.wt-block-user-welcome-block .row {
-  text-align: center;
-}
 .wt-block-gedcom-block-block i,
 .wt-block-user-welcome-block i {
   font-size: 2rem;
