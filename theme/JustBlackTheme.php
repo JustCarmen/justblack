@@ -43,7 +43,7 @@ class JustBlackTheme extends JustFancyTheme {
         '<body class="wt-global' . $this->getPageGlobalClass() . ' theme-' . self::THEME_DIR . '">' .
         '<header class="wt-header-wrapper">' .
         '<div class="container-fluid wt-header-container">' .
-        '<div class="row wt-header-content m-0">' .
+        '<div class="d-flex flex-wrap wt-header-content m-0">' .
         $this->headerContent() .
         '</div>' .
         '</div>' .
@@ -100,11 +100,11 @@ class JustBlackTheme extends JustFancyTheme {
   protected function headerContent() {
     return
         $this->accessibilityLinks() .
-        '<div class="d-flex col-12 order-last">' .
+        '<div class="d-flex col-12 order-2">' .
         $this->logoHeader() .
         $this->formatTreeTitle() .
         '</div>' .
-        '<div class="d-flex flex-column flex-nowrap col-12 order-first">' .
+        '<div class="d-flex flex-column flex-nowrap col-12 order-1">' .
         $this->secondaryMenuContainer($this->secondaryMenu()) .
         '</div>';
   }
