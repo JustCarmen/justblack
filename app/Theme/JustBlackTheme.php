@@ -21,11 +21,9 @@ namespace JustCarmen\WebtreesThemes\JustBlack\Theme;
 use Fisharebest\Webtrees\Filter;
 use Fisharebest\Webtrees\FlashMessages;
 use Fisharebest\Webtrees\I18N;
-use JustCarmen\WebtreesThemes\JustFancy\Theme\JustFancyTheme;
 
-class JustBlackTheme extends JustFancyTheme {
+class JustBlackTheme extends JustBaseTheme {
 
-  const THEME_VERSION = '2.0.0-dev';
   const THEME_NAME    = 'JustBlack';
   const THEME_DIR     = 'justblack';
   const ASSET_DIR     = 'themes/' . self::THEME_DIR . '/css/';
