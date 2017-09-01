@@ -16,7 +16,7 @@
 
     @at-root #sb_family_nav_content {
       .flyout2, .flyout3, .flyout4 {
-        color: $inverse-color;
+        color: theme-color(dark);
       }
     }
   }

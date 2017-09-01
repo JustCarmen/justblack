@@ -9,7 +9,7 @@
 
   #tv_tree {
     .tv_box {
-      border: thin outset $gray-dark;
+      border: thin outset theme-color(dark);
       border-radius: $border-radius;
       box-shadow: $treeview-box-shadow;
 
@@ -29,13 +29,13 @@
 
       }
       .dashed {
-        border-color: $gray-dark !important;
+        border-color: theme-color(dark) !important;
       }
     }
 
     div.tv_hline,
     div.tv_vline {
-      background-color: $gray-dark;
+      background-color: theme-color(dark);
     }
   }
 }

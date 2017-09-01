@@ -1,27 +1,5 @@
 // Import these set of variables before Bootstrap variables to overwrite the !default variables
 // from the Bootstrap variable set.
-// To use bootstrap variables inside our own variables we need to redeclare them here or
-// import the bootstrap variable set before we use these variables, but after the overwrites are set
-// =============================================================================
-// Bootstrap variables
-// =============================================================================
-// The variables below are used in our own variable set (right column)
-// The values are not altered. These are the bootstrap default values.
-
-// Colors
-$black:                             #000 !default;
-$white:                             #fff !default;
-$yellow:                            #ffd500 !default;
-
-// Grayscale
-$gray-dark:                         #292b2c !default;
-$gray:                              #464a4c !default;
-$gray-light:                        #636c72 !default;
-$gray-lighter:                      #eceeef !default;
-$gray-lightest:                     #f7f7f9 !default;
-
-// Fonts
-$font-size-sm:                      .875rem !default;
 
 // =============================================================================
 // JustBlack theme variables
@@ -31,28 +9,28 @@ $font-size-sm:                      .875rem !default;
 $orange:                            #dd6900;
 
 // Custom colors
-$orange-light:                      #f90;
+$orange-light:                      #ff9900;
 $orange-lighter:                    #ffd87f;
 $yellow-light:                      #ffffde;
 
 // Semantic color scheme
-$brand-primary:                     $orange;
-$brand-inverse:                     $gray-light;
+// Color scheme
+$theme-colors: (
+  primary: $orange
+);
 
 // Options
 $enable-gradients:                  true;
 $enable-shadows:                    true;
 
+// Body
+$body-bg:                           $gray-800;
+$body-color:                        $gray-300;
+
 // Fonts
 $theme-fonts-path:                  'fonts/';
 $font-family-title:                 'Salina';
 $font-family-treetitle:             'Comfortaa';
-
-// Body
-$body-bg:                           lighten($gray-dark, 2.75%);
-$body-color:                        darken($gray-lighter, 2.5%);
-$inverse-bg:                        $gray-light;
-$inverse-color:                     $gray-dark;
 
 // Header
 $banner-sm:                         'images/banner-sm.jpg';
@@ -66,17 +44,14 @@ $banner-md-height:                  135px;
 $banner-sm-width:                   540px;
 $banner-sm-height:                  101px;
 
-// Type
-$text-muted:                        lighten($gray-light, 15%);
-
 // Links
-$link-color:                        $brand-primary;
-$link-hover-color:                  $gray-lightest;
+$link-color:                        $orange; // primary color
+$link-hover-color:                  $gray-100;
 
 // Nav
 $nav-link-padding:                  .25em 1em;
 $nav-link-color:                    $body-color;
-$nav-link-hover-color:              $gray-lighter;
+$nav-link-hover-color:              $gray-100;
 $nav-tabs-active-link-hover-color:  $nav-link-color;
 
 // Buttons
@@ -86,8 +61,6 @@ $btn-padding-y:                     .25rem;
 // Icons
 $icon-color:                        $yellow-light;
 $icon-hover-color:                  darken($icon-color, 10%);
-$icon-inverse-color:                $brand-primary;
-$icon-inverse-hover-color:          darken($icon-inverse-color, 10%);
 
 $webtrees-fa-icons:                (); // empty. We use image icons
 
@@ -122,39 +95,39 @@ $image-icons: (
 
 // Components
 $component-active-color:            $body-color;
-$component-active-bg:               darken($gray-light, 10%);
+$component-active-bg:               darken($gray-600, 10%);
 
 // Tables
 $table-bg-accent:                   rgba($black,.25);
-$table-head-bg:                     $gray;
+$table-head-bg:                     $gray-700;
 $table-head-color:                  $body-color;
 $table-border-color:                rgba($white,.175);
 
 // Pagination
-$pagination-disabled-color:         lighten($gray-light, .25);
-$pagination-disabled-bg:            lighten($gray-lightest, .15);
+$pagination-disabled-color:         $gray-600;
+$pagination-disabled-bg:            $gray-100;
 $pagination-hover-color:            $pagination-disabled-color;
 
 // Cards
-$card-cap-bg:                       $gray-dark;
-$card-bg:                           $gray-dark;
+$card-cap-bg:                       $gray-800;
+$card-bg:                           $gray-800;
 $card-border-color:                 $table-border-color;
-$card-link-color:                   $gray-lighter;
-$card-link-hover-color:             $gray-light;
+$card-link-color:                   $gray-200;
+$card-link-hover-color:             $gray-600;
 
 // Dropdown menu container and contents.
 // inverse for dark background and light font colors
 $dropdown-bg:                       $yellow-light;
 $dropdown-bg-inverse:               $card-bg;
-$dropdown-border-color:             rgba($gray-lighter, .35);
-$dropdown-divider-bg:               $gray-light;
+$dropdown-border-color:             rgba($gray-200, .35);
+$dropdown-divider-bg:               $gray-600;
 $dropdown-link-color:               $link-color;
 $dropdown-link-hover-color:         darken($dropdown-link-color, 5%);
 $dropdown-link-hover-bg:            $orange-lighter;
-$dropdown-link-hover-bg-inverse:    lighten($gray-light, 5%);
+$dropdown-link-hover-bg-inverse:    lighten($gray-600, 5%);
 $dropdown-link-active-color:        $dropdown-link-hover-color;
 $dropdown-link-active-bg:           darken($orange-lighter, 5%);
-$dropdown-link-active-bg-inverse:   $gray-light;
+$dropdown-link-active-bg-inverse:   $gray-600;
 $dropdown-item-padding-x:           .5rem;
 
 // Forms
@@ -167,9 +140,9 @@ $popover-border-color:              $dropdown-border-color;
 $popover-title-bg:                  $dropdown-link-active-bg;
 
 // Personboxes
-$personbox-male-bg:                 $gray;
-$personbox-female-bg:               $gray-light;
-$personbox-unknown-border-color:    $brand-primary;
+$personbox-male-bg:                 $gray-700;
+$personbox-female-bg:               $gray-600;
+$personbox-unknown-border-color:    $orange; // primary color
 $personbox-link-color:              $body-color;
 
 // Optionbox/descriptionbox
@@ -179,8 +152,8 @@ $optionbox-bg:                      $card-bg;
 
 // Treeview
 $treeview-bg-color:                 lighten($orange-lighter, 5%);
-$treeview-title-color:              $gray-dark;
-$treeview-box-shadow:               1px 1px 2px $gray;
+$treeview-title-color:              $gray-800;
+$treeview-box-shadow:               1px 1px 2px $gray-700;
 
 // Googlemaps
 $gm-events-font-size:               $font-size-sm;

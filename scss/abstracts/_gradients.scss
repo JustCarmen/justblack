@@ -24,13 +24,13 @@
 // Gradient for table, card headers etc.
 // =======================================================================================
 @mixin jb-theme-gradient() {
-  @include gradient-y-three-colors(darken($gray-light, 10%), darken($gray, 5%), 50%, $gray-dark);
+  @include gradient-y-three-colors(darken(gray(600), 10%), darken(gray(700), 5%), 50%, gray(800));
   color: $body-color;
 }
 
 @mixin jb-theme-gradient-hover() {
   &:hover {
-    @include gradient-y-three-colors(darken($gray-light, 20%), darken($gray, 10%), 50%, darken($gray-dark, 5%));
+    @include gradient-y-three-colors(darken(gray(600), 20%), darken(gray(700), 10%), 50%, darken(gray(800), 5%));
     color: $body-color;
   }
 }
