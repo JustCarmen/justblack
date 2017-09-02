@@ -1,41 +1,18 @@
-.theme-justblack {
-  .tv_out {
-    background-color: $treeview-bg-color;
-
-    #tree-title {
-      color: $treeview-title-color;
-    }
-  }
-
+.jc-global-module-tree {
   #tv_tree {
     .tv_box {
-      border: thin outset theme-color(dark);
-      border-radius: $border-radius;
-      box-shadow: $treeview-box-shadow;
-
       .tvM {
         @include jb-tree-gradient("M");
-        border-radius: 0;
         &, a, a:hover {
           color: $white;
         }
       }
       .tvF {
         @include jb-tree-gradient("F");
-        border-radius: 0;
         &, a, a:hover {
           color: $black;
         }
-
       }
-      .dashed {
-        border-color: theme-color(dark) !important;
-      }
-    }
-
-    div.tv_hline,
-    div.tv_vline {
-      background-color: theme-color(dark);
     }
   }
 }

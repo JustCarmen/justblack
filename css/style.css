@@ -429,23 +429,23 @@ h1, h2, h3, h4, h5, h6,
 }
 
 h1, .h1 {
-  font-size: 2.5rem;
-}
-
-h2, .h2 {
   font-size: 2rem;
 }
 
+h2, .h2 {
+  font-size: 1.6rem;
+}
+
 h3, .h3, .jc-global-search_advanced .facts_label03 {
-  font-size: 1.75rem;
+  font-size: 1.4rem;
 }
 
 h4, .h4 {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
 
 h5, .h5 {
-  font-size: 1.25rem;
+  font-size: 1.1rem;
 }
 
 h6, .h6 {
@@ -1575,7 +1575,7 @@ pre code {
 .table-sm td,
 .facts_table td,
 .markdown table td {
-  padding: 0.3rem;
+  padding: 0.5rem;
 }
 
 .table-bordered, .facts_table,
@@ -1598,7 +1598,7 @@ pre code {
 }
 
 .table-striped tbody tr:nth-of-type(odd) {
-  background-color: rgba(0, 0, 0, 0.05);
+  background-color: rgba(0, 0, 0, 0.25);
 }
 
 .table-hover tbody tr:hover, .faq tbody tr:hover {
@@ -8797,7 +8797,7 @@ a.fa:hover {
   font-family: "icomoon";
   font-style: normal;
   font-weight: 500;
-  src: url("../../../themes/_justbase/fonts/icomoon.ttf") format("truetype"), url("../../../themes/_justbase/fonts/icomoon.eot?") format("eot"), url("../../../themes/_justbase/fonts/icomoon.woff") format("woff");
+  src: url("fonts/icomoon/icomoon.ttf") format("truetype"), url("fonts/icomoon/icomoon.eot?") format("eot"), url("fonts/icomoon/icomoon.woff") format("woff");
 }
 .jc-global-individual .icon-silhouette-F, .jc-global-individual .icon-silhouette-M, .jc-global-individual .icon-silhouette-U {
   font-size: 6rem;
@@ -9387,20 +9387,20 @@ img[src*="hline"] {
 }
 
 @font-face {
-  font-family: "Salina";
+  font-family: "salina";
   font-style: normal;
   font-weight: 500;
   src: url("fonts/salina/salina-webfont.ttf") format("truetype"), url("fonts/salina/salina-webfont.eot?") format("eot"), url("fonts/salina/salina-webfont.woff") format("woff");
 }
 @font-face {
-  font-family: "Comfortaa";
+  font-family: "comfortaa";
   font-style: normal;
   font-weight: 500;
   src: url("fonts/comfortaa/comfortaa_bold-webfont.ttf") format("truetype"), url("fonts/comfortaa/comfortaa_bold-webfont.eot?") format("eot"), url("fonts/comfortaa/comfortaa_bold-webfont.woff") format("woff");
 }
 h2 {
-  font-family: "Salina", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  font-size: 2.5rem;
+  font-family: "salina", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 2.4rem;
 }
 
 .wt-header-content {
@@ -9433,14 +9433,14 @@ h2 {
 }
 
 .wt-site-title {
-  font-family: "Comfortaa", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  font-size: 1.5rem;
+  font-family: "comfortaa", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 1.35rem;
   margin: 0 calc(50vw - 270px);
   text-shadow: -2px 2px #000;
 }
 @media (min-width: 768px) {
   .wt-site-title {
-    font-size: 1.35rem;
+    font-size: 1.5rem;
     margin: 0 calc(50vw - 360px);
   }
 }
@@ -9830,7 +9830,7 @@ h2 {
 
 .jc-global-index .card-header {
   border-bottom: 0;
-  font-family: "Salina", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: "salina", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 1.6rem;
   padding-bottom: 0.5rem;
 }
@@ -9902,47 +9902,27 @@ h2 {
   text-decoration: none;
 }
 
-.theme-justblack .tv_out {
-  background-color: #ffe099;
-}
-.theme-justblack .tv_out #tree-title {
-  color: #343a40;
-}
-.theme-justblack #tv_tree .tv_box {
-  border: thin outset #343a40;
-  border-radius: 0.25rem;
-  box-shadow: 1px 1px 2px #495057;
-}
-.theme-justblack #tv_tree .tv_box .tvM {
+.jc-global-module-tree #tv_tree .tv_box .tvM {
   background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2RkNjkwMCIvPjxzdG9wIG9mZnNldD0iNDIlIiBzdG9wLWNvbG9yPSIjZGM2OTAwIi8+PHN0b3Agb2Zmc2V0PSI0OSUiIHN0b3AtY29sb3I9IiNkZTcwMGQiLz48c3RvcCBvZmZzZXQ9IjYwJSIgc3RvcC1jb2xvcj0iI2UyN2YyNSIvPjxzdG9wIG9mZnNldD0iNjUlIiBzdG9wLWNvbG9yPSIjZTI4MzJkIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZTI4MzJkIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
   background-size: 100%;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #dd6900), color-stop(42%, #dc6900), color-stop(49%, #de700d), color-stop(60%, #e27f25), color-stop(65%, #e2832d), color-stop(100%, #e2832d));
   background-image: -moz-linear-gradient(top, #dd6900 0%, #dc6900 42%, #de700d 49%, #e27f25 60%, #e2832d 65%, #e2832d 100%);
   background-image: -webkit-linear-gradient(top, #dd6900 0%, #dc6900 42%, #de700d 49%, #e27f25 60%, #e2832d 65%, #e2832d 100%);
   background-image: linear-gradient(to bottom, #dd6900 0%, #dc6900 42%, #de700d 49%, #e27f25 60%, #e2832d 65%, #e2832d 100%);
-  border-radius: 0;
 }
-.theme-justblack #tv_tree .tv_box .tvM, .theme-justblack #tv_tree .tv_box .tvM a, .theme-justblack #tv_tree .tv_box .tvM a:hover {
+.jc-global-module-tree #tv_tree .tv_box .tvM, .jc-global-module-tree #tv_tree .tv_box .tvM a, .jc-global-module-tree #tv_tree .tv_box .tvM a:hover {
   color: #fff;
 }
-.theme-justblack #tv_tree .tv_box .tvF {
+.jc-global-module-tree #tv_tree .tv_box .tvF {
   background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZDA1YyIvPjxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjZmZkMDVjIi8+PHN0b3Agb2Zmc2V0PSI1MCUiIHN0b3AtY29sb3I9IiNmZmM3M2QiLz48c3RvcCBvZmZzZXQ9IjUxJSIgc3RvcC1jb2xvcj0iI2ZmY2E0NyIvPjxzdG9wIG9mZnNldD0iNTMlIiBzdG9wLWNvbG9yPSIjZmZkMTYwIi8+PHN0b3Agb2Zmc2V0PSI1NCUiIHN0b3AtY29sb3I9IiNmZmQ1NmIiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmZmQ1NmIiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA=');
   background-size: 100%;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffd05c), color-stop(50%, #ffd05c), color-stop(50%, #ffc73d), color-stop(51%, #ffca47), color-stop(53%, #ffd160), color-stop(54%, #ffd56b), color-stop(100%, #ffd56b));
   background-image: -moz-linear-gradient(top, #ffd05c 0%, #ffd05c 50%, #ffc73d 50%, #ffca47 51%, #ffd160 53%, #ffd56b 54%, #ffd56b 100%);
   background-image: -webkit-linear-gradient(top, #ffd05c 0%, #ffd05c 50%, #ffc73d 50%, #ffca47 51%, #ffd160 53%, #ffd56b 54%, #ffd56b 100%);
   background-image: linear-gradient(to bottom, #ffd05c 0%, #ffd05c 50%, #ffc73d 50%, #ffca47 51%, #ffd160 53%, #ffd56b 54%, #ffd56b 100%);
-  border-radius: 0;
 }
-.theme-justblack #tv_tree .tv_box .tvF, .theme-justblack #tv_tree .tv_box .tvF a, .theme-justblack #tv_tree .tv_box .tvF a:hover {
+.jc-global-module-tree #tv_tree .tv_box .tvF, .jc-global-module-tree #tv_tree .tv_box .tvF a, .jc-global-module-tree #tv_tree .tv_box .tvF a:hover {
   color: #000;
-}
-.theme-justblack #tv_tree .tv_box .dashed {
-  border-color: #343a40 !important;
-}
-.theme-justblack #tv_tree div.tv_hline,
-.theme-justblack #tv_tree div.tv_vline {
-  background-color: #343a40;
 }
 
 /*# sourceMappingURL=style.css.map */
