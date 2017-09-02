@@ -169,7 +169,7 @@ class JustBlackTheme extends JustBaseTheme {
   /** @inheritdoc} */
   public function stylesheets() {
     return array_merge(
-        array_diff(parent::stylesheets(), [parent::STYLESHEET]), [self::STYLESHEET]
+      parent::stylesheets(), [self::STYLESHEET]
     );
   }
 
