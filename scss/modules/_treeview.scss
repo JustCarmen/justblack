@@ -1,17 +1,25 @@
 .jc-global-module-tree {
+  #tv_tools {
+    .icon-sfamily {
+      color: $black;
+    }
+  }
   #tv_tree {
     .tv_box {
       .tvM {
         @include jb-tree-gradient("M");
         &, a, a:hover {
-          color: $white;
+          color: theme-color(light);
         }
       }
       .tvF {
         @include jb-tree-gradient("F");
         &, a, a:hover {
-          color: $black;
+          color: theme-color(dark);
         }
+      }
+      .tvU {
+        color: theme-color(dark);
       }
     }
   }
