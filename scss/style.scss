@@ -1,11 +1,11 @@
 // Common variables
-@import "../../justfancy/scss/abstracts/common";
+@import "../../_justbase/scss/abstracts/common";
 
 // JustBlack Theme Variables
 @import "abstracts/variables";
 
 // Base theme
-@import "../../justfancy/scss/style";
+@import "../../_justbase/scss/style";
 
 // JustBlack Theme Helpers
 @import "compass"; // needed for the gradients
