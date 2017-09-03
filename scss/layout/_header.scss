@@ -34,11 +34,10 @@
 
 .jc-favsearch-bar {
   @include jb-theme-bar-gradient;
-  height: 2.5rem;
 
   @at-root {
     .jc-header-search-container {
-      padding: 0.4rem 0;
+      padding: .4rem 0;
     }
 
     .wt-header-search-form {
@@ -46,8 +45,7 @@
         border-bottom-left-radius: $btn-border-radius !important;
         border-top-left-radius: $btn-border-radius !important;
       }
-      & .input-group-btn,
-      & .btn {
+      & .input-group-btn {
         @include jb-theme-gradient;
         @include jb-theme-gradient-hover;
         border: none;
