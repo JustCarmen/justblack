@@ -17,7 +17,6 @@ $orange-light:                      #ff9900;
 $orange-lighter:                    #ffd87f;
 $yellow-light:                      #ffffde;
 
-// Semantic color scheme
 // Color scheme
 $theme-colors: (
   primary: $orange
@@ -55,8 +54,7 @@ $link-hover-color:                  $gray-100;
 // Nav
 $nav-link-padding:                  .25em 1em;
 $nav-link-color:                    $body-color;
-$nav-link-hover-color:              $gray-100;
-$nav-tabs-active-link-hover-color:  $nav-link-color;
+$nav-tabs-link-active-color:        $gray-100;
 
 // Buttons
 $btn-padding-x:                     .5rem; // make all buttons small buttons

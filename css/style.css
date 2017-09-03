@@ -3427,7 +3427,7 @@ tbody.collapse.show {
 }
 .nav-tabs .nav-link.active,
 .nav-tabs .nav-item.show .nav-link {
-  color: #495057;
+  color: #f8f9fa;
   background-color: #2e2e2e;
   border-color: #ddd #ddd #2e2e2e;
 }
@@ -6344,7 +6344,7 @@ a.bg-dark:focus, a.bg-dark:hover {
   width: 10% !important;
 }
 
-.w-20, .width20 {
+.w-20, .width20, .jc-global-individual .tab-content .facts_label {
   width: 20% !important;
 }
 
@@ -9943,6 +9943,9 @@ h2 {
   background-image: linear-gradient(#6c757d, #3d4349 50%, #2e2e2e);
   background-repeat: no-repeat;
   color: #dee2e6;
+}
+.jc-global-individual .tab-content .person_box, .jc-global-individual .tab-content .person_boxF, .jc-global-individual .tab-content .person_boxU {
+  background: transparent;
 }
 #sb_family_nav_content .flyout2, #sb_family_nav_content .flyout3, #sb_family_nav_content .flyout4 {
   color: #2e2e2e;

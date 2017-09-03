@@ -10,6 +10,11 @@
     .facts_table > tbody > tr:first-child > td[colspan="2"] {
       @include jb-theme-gradient();
     }
+    .person_box {
+      &, &F, &U {
+        background: transparent;
+      }
+    }
   }
 
   #sidebar {
