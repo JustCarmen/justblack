@@ -490,7 +490,7 @@ hr {
 
 small,
 .small {
-  font-size: 85%;
+  font-size: 80%;
   font-weight: normal;
 }
 
@@ -9147,16 +9147,13 @@ td.optionbox, td.facts_value {
   margin-left: 0.25rem;
 }
 
-.person_box_template, #lifespan-people .popup {
-  font-size: 0.875rem;
-}
 .person_box {
   background-color: #495057;
-  border-color: rgba(255, 255, 255, 0.175);
+  border-color: rgba(255, 255, 255, 0.5);
 }
 .person_boxF {
   background-color: #868e96;
-  border-color: rgba(255, 255, 255, 0.175);
+  border-color: rgba(255, 255, 255, 0.5);
 }
 .person_boxNN {
   background-color: transparent;
@@ -9172,11 +9169,16 @@ td.optionbox, td.facts_value {
   color: #dee2e6;
 }
 .person_box_template .chart_textbox, #lifespan-people .popup .chart_textbox {
-  font-size: 0.875rem;
-  line-height: normal;
+  font-size: 0.75rem;
+  font-weight: 200;
+  line-height: 1.2;
 }
 .person_box_template .name1, #lifespan-people .popup .name1 {
+  font-size: 0.875rem;
   font-weight: 500;
+}
+.person_box_template .details0, #lifespan-people .popup .details0, .person_box_template .details1, #lifespan-people .popup .details1 {
+  font-size: 0.75rem;
 }
 
 .popover a:focus, .popover a:hover {
@@ -9297,6 +9299,13 @@ td.optionbox, td.facts_value {
 }
 #sb_family_nav_content .nav_content {
   border-collapse: separate;
+}
+
+#pedigree_canvas {
+  color: #868e96;
+}
+.jc-global-pedigree .shadow .person_box_template, .jc-global-pedigree .shadow #lifespan-people .popup, #lifespan-people .jc-global-pedigree .shadow .popup {
+  box-shadow: 5px 7px 2px 0 #000;
 }
 
 #lifespan-scale {

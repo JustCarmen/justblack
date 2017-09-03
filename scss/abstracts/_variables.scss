@@ -145,6 +145,7 @@ $popover-title-bg:                  $dropdown-link-active-bg;
 
 // Personboxes
 $personbox-male-bg:                 $gray-700;
+$personbox-male-border-color:       rgba($white, .5);
 $personbox-female-bg:               $gray-600;
 $personbox-unknown-border-color:    $orange; // primary color
 $personbox-link-color:              $body-color;
@@ -153,6 +154,9 @@ $personbox-link-color:              $body-color;
 $descriptionbox-bg:                 $table-head-bg;
 $descriptionbox-color:              $table-head-color;
 $optionbox-bg:                      $card-bg;
+
+// Charts
+$pedigree-canvas-color:             $gray-600;
 
 // Treeview
 $treeview-bg-color:                 lighten($orange-lighter, 5%);
