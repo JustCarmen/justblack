@@ -8633,6 +8633,9 @@ a {
   height: calc(2.25rem + 2px);
   line-height: 2.25;
 }
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+  background-color: #dd6900;
+}
 
 .input-group .input-group-btn + .select2.form-control + .select2-container--default .select2-selection--single, .input-group .jc-global-search .input-group-btn + input.select2[type=text] + .select2-container--default .select2-selection--single, .jc-global-search .input-group .input-group-btn + input.select2[type=text] + .select2-container--default .select2-selection--single,
 .input-group .jc-global-search_advanced .input-group-btn + input.select2[type=text] + .select2-container--default .select2-selection--single,
@@ -8641,10 +8644,6 @@ a {
 .jc-global-search_advanced .input-group .input-group-btn + select.select2 + .select2-container--default .select2-selection--single {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
-}
-
-.input-group-addon, .input-group-btn {
-  padding: 0.25rem 0.75rem;
 }
 
 .wt-header-search .input-group-btn, .jc-change-root .input-group-btn {
@@ -9384,6 +9383,10 @@ img[src*="hline"] {
   background-color: transparent !important;
 }
 
+.gm-ancestor {
+  font-size: 0.875rem;
+}
+
 .gm-events * {
   font-size: 0.875rem;
 }
@@ -9865,9 +9868,6 @@ h2 {
 
 .select2-container--default .select2-results {
   background-color: #343a40;
-}
-.select2-container--default .select2-results__option--highlighted[aria-selected] {
-  background-color: #949ba2;
 }
 .select2-container--default .select2-results__option[aria-selected=true] {
   background-color: #868e96;
