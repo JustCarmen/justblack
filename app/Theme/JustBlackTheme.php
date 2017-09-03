@@ -128,7 +128,6 @@ class JustBlackTheme extends JustBaseTheme {
         'chart-spacing-y'                => 15,
         'distribution-chart-high-values' => 'ff8c00',
         'distribution-chart-low-values'  => 'ffeeb0',
-        'line-width'                     => 1,
         'shadow-blur'                    => 12,
         'shadow-color'                   => '171717',
         'shadow-offset-x'                => 2,
