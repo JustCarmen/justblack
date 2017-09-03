@@ -5,6 +5,10 @@
 // JustBlack theme variables
 // =============================================================================
 
+// Gray scale
+$gray-800:                          #2e2e2e;
+$gray-900:                          #272727;
+
 // Colors
 $orange:                            #dd6900;
 
@@ -109,8 +113,8 @@ $pagination-disabled-bg:            $gray-100;
 $pagination-hover-color:            $pagination-disabled-color;
 
 // Cards
-$card-cap-bg:                       $gray-800;
-$card-bg:                           $gray-800;
+$card-cap-bg:                       $gray-900;
+$card-bg:                           $gray-900;
 $card-border-color:                 $table-border-color;
 $card-link-color:                   $gray-200;
 $card-link-hover-color:             $gray-600;
