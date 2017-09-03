@@ -40,7 +40,7 @@
       padding: .4rem 0;
     }
 
-    .wt-header-search-form {
+    .wt-header-search {
       & input {
         border-bottom-left-radius: $btn-border-radius !important;
         border-top-left-radius: $btn-border-radius !important;
@@ -48,7 +48,7 @@
       & .input-group-btn {
         @include jb-theme-gradient;
         @include jb-theme-gradient-hover;
-        border: none;
+        border-color: gray(600);
         border-bottom-right-radius: $btn-border-radius;
         border-top-right-radius: $btn-border-radius;
       }

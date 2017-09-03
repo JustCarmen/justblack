@@ -8603,6 +8603,13 @@ a {
     display: block;
   }
 }
+.wt-header-search .input-group-btn {
+  padding: 0.25rem 0.5rem;
+  border-color: #dd6900;
+}
+.wt-header-search .fa-search {
+  font-size: 1.25rem;
+}
 
 .jc-primary-navigation {
   padding: 0 calc(50vw - 50%);
@@ -9520,19 +9527,19 @@ h2 {
   padding: .4rem 0;
 }
 
-.wt-header-search-form input {
+.wt-header-search input {
   border-bottom-left-radius: 0.25rem !important;
   border-top-left-radius: 0.25rem !important;
 }
-.wt-header-search-form .input-group-btn {
+.wt-header-search .input-group-btn {
   background-image: linear-gradient(#6c757d, #3d4349 50%, #2e2e2e);
   background-repeat: no-repeat;
   color: #dee2e6;
-  border: none;
+  border-color: #868e96;
   border-bottom-right-radius: 0.25rem;
   border-top-right-radius: 0.25rem;
 }
-.wt-header-search-form .input-group-btn:hover {
+.wt-header-search .input-group-btn:hover {
   background-image: linear-gradient(#555b61, #32373b 50%, #212121);
   background-repeat: no-repeat;
   color: #dee2e6;
