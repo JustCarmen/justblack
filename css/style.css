@@ -2705,23 +2705,23 @@ fieldset[disabled] a.btn {
   border-color: #2e2e2e;
 }
 
-.btn-link, .input-group-btn .btn-secondary {
+.btn-link {
   font-weight: normal;
   color: #dd6900;
   background-color: transparent;
   border-radius: 0;
 }
-.btn-link:hover, .input-group-btn .btn-secondary:hover {
+.btn-link:hover {
   color: #f8f9fa;
   text-decoration: underline;
   background-color: transparent;
   border-color: transparent;
 }
-.btn-link:focus, .input-group-btn .btn-secondary:focus, .btn-link.focus, .input-group-btn .focus.btn-secondary {
+.btn-link:focus, .btn-link.focus {
   border-color: transparent;
   box-shadow: none;
 }
-.btn-link:disabled, .input-group-btn .btn-secondary:disabled, .btn-link.disabled, .input-group-btn .disabled.btn-secondary {
+.btn-link:disabled, .btn-link.disabled {
   color: #868e96;
 }
 
@@ -2985,7 +2985,7 @@ tbody.collapse.show {
 .btn-group.show .dropdown-toggle {
   box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
 }
-.btn-group.show .dropdown-toggle.btn-link, .btn-group.show .input-group-btn .dropdown-toggle.btn-secondary, .input-group-btn .btn-group.show .dropdown-toggle.btn-secondary {
+.btn-group.show .dropdown-toggle.btn-link {
   box-shadow: none;
 }
 
@@ -6429,7 +6429,7 @@ a.bg-dark:focus, a.bg-dark:hover {
 }
 
 .m-0, .col-form-label,
-.col-form-legend, .faq_title {
+.col-form-legend, div[id^="caldivDATE"] table, .faq_title {
   margin: 0 !important;
 }
 
@@ -6602,7 +6602,7 @@ h2 {
   padding-left: 0 !important;
 }
 
-.p-1, .btn-link, .input-group-btn .btn-secondary, .jc-global-module-tree #tv_tree .tv_box .tvM, .jc-global-module-tree #tv_tree .tv_box .tvF, .jc-global-module-tree #tv_tree .tv_box .tvU {
+.p-1, .btn-link, .jc-global-module-tree #tv_tree .tv_box .tvM, .jc-global-module-tree #tv_tree .tv_box .tvF, .jc-global-module-tree #tv_tree .tv_box .tvU {
   padding: 0.25rem !important;
 }
 
@@ -6634,7 +6634,7 @@ h2 {
   padding-left: 0.25rem !important;
 }
 
-.p-2 {
+.p-2, div[id^="caldivDATE"] table td {
   padding: 0.5rem !important;
 }
 
@@ -8045,7 +8045,7 @@ h2 {
   text-align: right !important;
 }
 
-.text-center, h2, .jc-global-listpage .wt-page-options {
+.text-center, h2, div[id^="caldivDATE"] > table table td, .jc-global-listpage .wt-page-options {
   text-align: center !important;
 }
 
@@ -8634,11 +8634,15 @@ a {
 }
 
 .select2-container--default .select2-selection--single {
-  border: 1px solid #868e96;
+  border: 1px solid #ffdb6d;
 }
 .select2-container--default .select2-selection--single, .select2-container--default .select2-selection--single .select2-selection__rendered, .select2-container--default .select2-selection--single .select2-selection__arrow {
   height: calc(2.25rem + 2px);
   line-height: 2.25;
+}
+.input-group-addon + .select2-container--default .select2-selection--single, .input-group-btn + .select2-container--default .select2-selection--single {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }
 .select2-container--default .select2-results__option--highlighted[aria-selected] {
   background-color: #dd6900;
@@ -8653,8 +8657,20 @@ a {
   border-bottom-left-radius: 0;
 }
 
-.wt-header-search .input-group-btn, .jc-change-root .input-group-btn {
-  background-color: #dd6900;
+.col-form-label .wt-icon-help {
+  padding-left: 0.25rem;
+}
+[dir=rtl] .col-form-label .wt-icon-help {
+  padding-right: 0.25rem;
+}
+
+.input-group {
+  display: flex;
+  align-items: stretch;
+}
+.input-group .input-group-addon, .input-group .input-group-btn {
+  display: flex;
+  align-items: center;
 }
 
 .icon-darrow, .icon-larrow, .icon-ldarrow, .icon-rarrow, .icon-rdarrow, .icon-uarrow, .icon-sex_m_9x9, .icon-sex_f_9x9, .icon-sex_u_9x9, .icon-sex_m_15x15, .icon-sex_f_15x15, .icon-sex_u_15x15, .icon-mypage, .icon-clippings, .icon-selected, .icon-indis, .icon-user_add, .icon-zoomin, .icon-zoomout, .icon-edit_indi, .icon-silhouette-F, .icon-silhouette-M, .icon-silhouette-U, .icon-button_family, .icon-sfamily, .icon-children, .icon-childless, .icon-target, .icon-wiki, .icon-pedigree {
@@ -9042,6 +9058,10 @@ a.fa:hover {
   box-shadow: none;
 }
 
+.wt-header-search .input-group-btn, .jc-change-root .input-group-btn {
+  background-color: #dd6900;
+}
+
 .card {
   margin-bottom: .25rem;
 }
@@ -9119,7 +9139,7 @@ td.optionbox, td.facts_value {
 .dt-bootstrap4 .dataTable {
   border: 1px solid rgba(255, 255, 255, 0.175);
 }
-.dt-bootstrap4 .dataTable .btn-link, .dt-bootstrap4 .dataTable .input-group-btn .btn-secondary, .input-group-btn .dt-bootstrap4 .dataTable .btn-secondary {
+.dt-bootstrap4 .dataTable .btn-link {
   line-height: initial;
   padding: 0;
 }
@@ -9272,6 +9292,56 @@ td.optionbox, td.facts_value {
 }
 .wt-block-content-gedcom-stats-block .clearfloat {
   width: 100%;
+}
+
+div[id^="caldivDATE"] table td {
+  background-color: #2e2e2e !important;
+}
+div[id^="caldivDATE"] > table {
+  border: 1px solid rgba(255, 255, 255, 0.175);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.175);
+}
+div[id^="caldivDATE"] > table td {
+  border: none !important;
+}
+div[id^="caldivDATE"] > table table td {
+  border-radius: .25rem;
+}
+div[id^="caldivDATE"] > table table td a {
+  color: #a1a8ae;
+  text-decoration: none;
+}
+div[id^="caldivDATE"] > table table td.optionbox a, div[id^="caldivDATE"] > table table td.descriptionbox a {
+  color: #dee2e6;
+}
+div[id^="caldivDATE"] > table table td:hover {
+  background-color: #ffd87f !important;
+}
+div[id^="caldivDATE"] > table table tr:first-child {
+  font-weight: 700;
+}
+div[id^="caldivDATE"] > table table tr:first-child td:hover {
+  background: none !important;
+}
+div[id^="caldivDATE"] > table table tr:not(:first-child) td.descriptionbox {
+  position: relative;
+}
+div[id^="caldivDATE"] > table table tr:not(:first-child) td.descriptionbox, div[id^="caldivDATE"] > table table tr:not(:first-child) td.descriptionbox:hover {
+  background-color: #ffd066 !important;
+}
+div[id^="caldivDATE"] > table table tr:not(:first-child) td.descriptionbox a, div[id^="caldivDATE"] > table table tr:not(:first-child) td.descriptionbox a:hover {
+  color: #c45d00;
+}
+div[id^="caldivDATE"] > table table tr:not(:first-child) td.descriptionbox:before {
+  content: '';
+  display: inline-block;
+  border: solid transparent;
+  border-width: 0 0 .5rem .5rem;
+  border-bottom-color: #fff;
+  border-top-color: rgba(0, 0, 0, 0.2);
+  position: absolute;
+  bottom: .25rem;
+  right: .25rem;
 }
 
 .jc-global-index .wt-side-blocks .card-block {
