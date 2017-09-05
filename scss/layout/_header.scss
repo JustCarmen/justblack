@@ -41,14 +41,14 @@
     }
 
     .wt-header-search {
-      & input {
+      input {
         border-bottom-left-radius: $btn-border-radius !important;
         border-top-left-radius: $btn-border-radius !important;
       }
-      & .input-group-btn {
+      .btn-primary {
         @include jb-theme-gradient;
         @include jb-theme-gradient-hover;
-        border-color: gray(600);
+        border-color: theme-color(dark);
         border-bottom-right-radius: $btn-border-radius;
         border-top-right-radius: $btn-border-radius;
       }
