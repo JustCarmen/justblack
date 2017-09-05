@@ -4,9 +4,9 @@
 }
 
 %wt-nav-link {
-  color: $link-inverse-color;
+  color: $link-color-inverse;
   &:hover {
-    color: $link-inverse-hover-color;
+    color: $link-hover-color-inverse;
   }
 }
 
@@ -43,7 +43,7 @@
   }
 
   .dropdown-item {
-    color: $link-inverse-color;
+    color: $link-color-inverse;
     &:hover,
       &:focus {
       background-color: $dropdown-link-hover-bg-inverse;

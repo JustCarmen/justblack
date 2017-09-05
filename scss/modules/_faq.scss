@@ -9,9 +9,9 @@
   }
 
   a {
-    color: $link-inverse-color;
+    color: $link-color-inverse;
     &:hover {
-      color: $link-inverse-hover-color;
+      color: $link-hover-color-inverse;
       text-decoration: none;
     }
   }
