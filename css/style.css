@@ -1624,16 +1624,16 @@ pre code {
 .table-secondary,
 .table-secondary > th,
 .table-secondary > td {
-  background-color: #dddfe2;
+  background-color: #fffaec;
 }
 
 .table-hover .table-secondary:hover, .faq .table-secondary:hover {
-  background-color: #cfd2d6;
+  background-color: #fff3d3;
 }
 .table-hover .table-secondary:hover > td, .faq .table-secondary:hover > td,
 .table-hover .table-secondary:hover > th,
 .faq .table-secondary:hover > th {
-  background-color: #cfd2d6;
+  background-color: #fff3d3;
 }
 
 .table-success,
@@ -2334,27 +2334,27 @@ fieldset[disabled] a.btn {
 }
 
 .btn-secondary {
-  color: #fff;
-  background-color: #868e96;
-  border-color: #868e96;
+  color: #111;
+  background-color: #ffeeba;
+  border-color: #ffeeba;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 1px rgba(0, 0, 0, 0.075);
 }
 .btn-secondary:hover {
-  color: #fff;
-  background-color: #727b84;
-  border-color: #6c757d;
+  color: #111;
+  background-color: #ffe493;
+  border-color: #ffe187;
 }
 .btn-secondary:focus, .btn-secondary.focus {
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 0 3px rgba(134, 142, 150, 0.5);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 0 3px rgba(255, 238, 186, 0.5);
 }
 .btn-secondary.disabled, .btn-secondary:disabled {
-  background-color: #868e96;
-  border-color: #868e96;
+  background-color: #ffeeba;
+  border-color: #ffeeba;
 }
 .btn-secondary:active, .btn-secondary.active, .show > .btn-secondary.dropdown-toggle {
-  background-color: #727b84;
+  background-color: #ffe493;
   background-image: none;
-  border-color: #6c757d;
+  border-color: #ffe187;
   box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
 }
 
@@ -2533,27 +2533,27 @@ fieldset[disabled] a.btn {
 }
 
 .btn-outline-secondary {
-  color: #868e96;
+  color: #ffeeba;
   background-color: transparent;
   background-image: none;
-  border-color: #868e96;
+  border-color: #ffeeba;
 }
 .btn-outline-secondary:hover {
   color: #fff;
-  background-color: #868e96;
-  border-color: #868e96;
+  background-color: #ffeeba;
+  border-color: #ffeeba;
 }
 .btn-outline-secondary:focus, .btn-outline-secondary.focus {
-  box-shadow: 0 0 0 3px rgba(134, 142, 150, 0.5);
+  box-shadow: 0 0 0 3px rgba(255, 238, 186, 0.5);
 }
 .btn-outline-secondary.disabled, .btn-outline-secondary:disabled {
-  color: #868e96;
+  color: #ffeeba;
   background-color: transparent;
 }
 .btn-outline-secondary:active, .btn-outline-secondary.active, .show > .btn-outline-secondary.dropdown-toggle {
   color: #fff;
-  background-color: #868e96;
-  border-color: #868e96;
+  background-color: #ffeeba;
+  border-color: #ffeeba;
 }
 
 .btn-outline-success {
@@ -4109,13 +4109,13 @@ tbody.collapse.show {
 }
 
 .badge-secondary {
-  color: #fff;
-  background-color: #868e96;
+  color: #111;
+  background-color: #ffeeba;
 }
 .badge-secondary[href]:focus, .badge-secondary[href]:hover {
-  color: #fff;
+  color: #111;
   text-decoration: none;
-  background-color: #6c757d;
+  background-color: #ffe187;
 }
 
 .badge-success {
@@ -4232,15 +4232,15 @@ tbody.collapse.show {
 }
 
 .alert-secondary {
-  color: #464a4e;
-  background-color: #e7e8ea;
-  border-color: #dddfe2;
+  color: #857c61;
+  background-color: #fffcf1;
+  border-color: #fffaec;
 }
 .alert-secondary hr {
-  border-top-color: #cfd2d6;
+  border-top-color: #fff3d3;
 }
 .alert-secondary .alert-link {
-  color: #2e3133;
+  color: #68614b;
 }
 
 .alert-success {
@@ -4446,25 +4446,25 @@ button.list-group-item-primary.active {
 }
 
 .list-group-item-secondary {
-  color: #464a4e;
-  background-color: #dddfe2;
+  color: #857c61;
+  background-color: #fffaec;
 }
 
 a.list-group-item-secondary,
 button.list-group-item-secondary {
-  color: #464a4e;
+  color: #857c61;
 }
 a.list-group-item-secondary:focus, a.list-group-item-secondary:hover,
 button.list-group-item-secondary:focus,
 button.list-group-item-secondary:hover {
-  color: #464a4e;
-  background-color: #cfd2d6;
+  color: #857c61;
+  background-color: #fff3d3;
 }
 a.list-group-item-secondary.active,
 button.list-group-item-secondary.active {
   color: #fff;
-  background-color: #464a4e;
-  border-color: #464a4e;
+  background-color: #857c61;
+  border-color: #857c61;
 }
 
 .list-group-item-success {
@@ -5208,11 +5208,11 @@ a.bg-primary:focus, a.bg-primary:hover {
 }
 
 .bg-secondary {
-  background-color: #868e96 !important;
+  background-color: #ffeeba !important;
 }
 
 a.bg-secondary:focus, a.bg-secondary:hover {
-  background-color: #6c757d !important;
+  background-color: #ffe187 !important;
 }
 
 .bg-success {
@@ -5300,7 +5300,7 @@ a.bg-dark:focus, a.bg-dark:hover {
 }
 
 .border-secondary {
-  border-color: #868e96 !important;
+  border-color: #ffeeba !important;
 }
 
 .border-success {
@@ -6558,8 +6558,7 @@ h2 {
 }
 
 .p-0, .col-form-label,
-.col-form-legend, .btn-link, .input-group-addon .btn,
-.input-group-btn .btn, .stat-table1 .stat-cell {
+.col-form-legend, .btn-link, .stat-table1 .stat-cell {
   padding: 0 !important;
 }
 
@@ -8125,11 +8124,11 @@ a.text-primary:focus, a.text-primary:hover {
 }
 
 .text-secondary {
-  color: #868e96 !important;
+  color: #ffeeba !important;
 }
 
 a.text-secondary:focus, a.text-secondary:hover {
-  color: #6c757d !important;
+  color: #ffe187 !important;
 }
 
 .text-success {
@@ -8436,13 +8435,13 @@ a.fa:hover {
 a.fa, .input-group-btn
 a.fa, .btn-secondary
 a.fa {
-  color: #ffffde;
+  color: #dd6900;
 }
 .input-group-addon .fa:hover, .input-group-btn .fa:hover, .btn-secondary .fa:hover, .input-group-addon
 a.fa:hover, .input-group-btn
 a.fa:hover, .btn-secondary
 a.fa:hover {
-  color: #ffffab;
+  color: #aa5100;
 }
 .btn-primary .fa, .btn-primary .fa:hover, .btn-primary
 a.fa, .btn-primary
@@ -8451,7 +8450,7 @@ a.fa:hover {
 }
 
 .fa-info-circle {
-  color: #dd6900;
+  color: #dd6900 !important;
 }
 
 .icon-darrow:before {
@@ -8767,15 +8766,7 @@ a.fa:hover {
   content: '';
 }
 
-.input-group-addon .btn,
-.input-group-btn .btn {
-  background: none;
-  border: none;
-  box-shadow: none;
-}
-.wt-header-search .input-group-addon, .jc-change-root .input-group-addon, .wt-header-search
-.input-group-btn, .jc-change-root
-.input-group-btn {
+.wt-header-search .input-group-btn, .jc-change-root .input-group-btn {
   background-color: #dd6900;
 }
 

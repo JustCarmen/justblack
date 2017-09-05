@@ -19,12 +19,16 @@ $orange:                            #dd6900;
 // Custom colors
 $orange-light:                      #ff9900;
 $orange-lighter:                    #ffd87f;
-$yellow-light:                      #ffffde;
+$yellow-light:                      lighten($yellow, 35%); // #ffeeba
+$yellow-lighter:                    #ffffde;
 
-// Color scheme
+// Theme colors
 $theme-colors: (
-  primary: $orange
+  primary: $orange,
+  secondary: $yellow-light
 );
+
+$primary-color: map-get($theme-colors, primary);
 
 // Body
 $body-bg:                           $gray-800;
@@ -48,7 +52,7 @@ $banner-sm-width:                   540px;
 $banner-sm-height:                  101px;
 
 // Links
-$link-color:                        $orange; // primary color
+$link-color:                        $primary-color;
 $link-hover-color:                  $gray-100;
 
 // Nav
@@ -61,9 +65,9 @@ $btn-padding-x:                     .5rem; // make all buttons small buttons
 $btn-padding-y:                     .25rem;
 
 // Icons
-$icon-color:                        $yellow-light;
+$icon-color:                        $yellow-lighter;
 $icon-hover-color:                  darken($icon-color, 10%);
-$icon-color-inverse:                $orange; //primary color
+$icon-color-inverse:                $primary-color;
 
 // Image icons used by this theme
 // Type: arrows, webtrees or other (icons without the prefix wt)
@@ -118,7 +122,7 @@ $card-link-hover-color:             $gray-600;
 
 // Dropdown menu container and contents.
 // inverse for dark background and light font colors
-$dropdown-bg:                       $yellow-light;
+$dropdown-bg:                       $yellow-lighter;
 $dropdown-bg-inverse:               $card-bg;
 $dropdown-border-color:             rgba($gray-200, .35);
 $dropdown-divider-bg:               $gray-600;
@@ -144,7 +148,7 @@ $popover-title-bg:                  $dropdown-link-active-bg;
 $personbox-male-bg:                 $gray-700;
 $personbox-male-border-color:       rgba($white, .5);
 $personbox-female-bg:               $gray-600;
-$personbox-unknown-border-color:    $orange; // primary color
+$personbox-unknown-border-color:    $primary-color;
 $personbox-link-color:              $body-color;
 
 // Optionbox/descriptionbox
