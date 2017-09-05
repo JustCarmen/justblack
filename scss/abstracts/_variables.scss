@@ -5,6 +5,10 @@
 // JustBlack theme variables
 // =============================================================================
 
+// Options
+$enable-shadows:                    true !default;
+$enable-gradients:                  true !default;
+
 // Gray scale
 $gray-800:                          #2e2e2e;
 $gray-900:                          #272727;
@@ -59,6 +63,7 @@ $btn-padding-y:                     .25rem;
 // Icons
 $icon-color:                        $yellow-light;
 $icon-hover-color:                  darken($icon-color, 10%);
+$icon-color-inverse:                $orange; //primary color
 
 // Image icons used by this theme
 // Type: arrows, webtrees or other (icons without the prefix wt)
