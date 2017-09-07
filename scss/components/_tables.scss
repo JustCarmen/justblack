@@ -12,7 +12,7 @@
 
 // datatables
 .dataTable {
-  @extend %fact-table-style;
+  @include facts-table-body;
 
   // Datatable sorting icons
   thead th {

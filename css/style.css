@@ -8199,23 +8199,6 @@ a.text-dark:focus, a.text-dark:hover {
   visibility: hidden !important;
 }
 
-.jc-global-individual #individual-names, .jc-global-individual .tab-content, .jc-global-individual #sidebar, .jc-global-family .facts_table, .dataTable {
-  font-size: 0.875rem;
-}
-.jc-global-individual #individual-names a, .jc-global-individual .tab-content a, .jc-global-individual #sidebar a, .jc-global-family .facts_table a, .dataTable a {
-  color: #dee2e6;
-}
-.jc-global-individual #individual-names a:hover, .jc-global-individual .tab-content a:hover, .jc-global-individual #sidebar a:hover, .jc-global-family .facts_table a:hover, .dataTable a:hover {
-  color: #b2bcc5;
-}
-.jc-global-individual #individual-names .quickfacts a, .jc-global-individual .tab-content .quickfacts a, .jc-global-individual #sidebar .quickfacts a, .jc-global-family .facts_table .quickfacts a, .dataTable .quickfacts a {
-  font-size: 0.75rem;
-  color: #dd6900;
-}
-.jc-global-individual #individual-names .quickfacts a:hover, .jc-global-individual .tab-content .quickfacts a:hover, .jc-global-individual #sidebar .quickfacts a:hover, .jc-global-family .facts_table .quickfacts a:hover, .dataTable .quickfacts a:hover {
-  color: #f8f9fa;
-}
-
 /*! THEME BASE */
 ul {
   margin: 0;
@@ -9060,6 +9043,25 @@ div[id^="caldiv"] > table table tr:not(:first-child) td.descriptionbox:before {
   flex-flow: row-reverse;
 }
 
+.jc-global-individual .card-header {
+  font-size: 0.875rem;
+}
+.jc-global-individual #individual-names .card-block {
+  font-size: 0.875rem;
+}
+.jc-global-individual #individual-names .card-block a {
+  color: #dee2e6;
+}
+.jc-global-individual #individual-names .card-block a:hover {
+  color: #b2bcc5;
+}
+.jc-global-individual #individual-names .card-block .quickfacts a {
+  font-size: 0.75rem;
+  color: #dd6900;
+}
+.jc-global-individual #individual-names .card-block .quickfacts a:hover {
+  color: #f8f9fa;
+}
 .jc-global-individual #name-header-0,
 .jc-global-individual #name-content-0 {
   font-size: 1rem;
@@ -9073,12 +9075,65 @@ div[id^="caldiv"] > table table tr:not(:first-child) td.descriptionbox:before {
 .jc-global-individual #individual-tabs {
   margin-top: 3rem;
 }
-.jc-global-individual .tab-content .facts_table > tbody > tr:first-child > td[colspan="2"] {
+.jc-global-individual .tab-content #personal_facts_content .facts_table:first-of-type > tbody > tr:first-child td,
+.jc-global-individual .tab-content #relatives_content .facts_table:first-of-type > tbody > tr:first-child td,
+.jc-global-individual .tab-content #sources_tab_content .facts_table:first-of-type > tbody > tr:first-child td,
+.jc-global-individual .tab-content #notes_content .facts_table:first-of-type > tbody > tr:first-child td,
+.jc-global-individual .tab-content #lightbox_content .facts_table:first-of-type > tbody > tr:first-child td {
   background-color: #272727;
   color: #2e2e2e;
 }
+.jc-global-individual .tab-content {
+  font-size: 0.875rem;
+}
+.jc-global-individual .tab-content a {
+  color: #dee2e6;
+}
+.jc-global-individual .tab-content a:hover {
+  color: #b2bcc5;
+}
+.jc-global-individual .tab-content .quickfacts a {
+  font-size: 0.75rem;
+  color: #dd6900;
+}
+.jc-global-individual .tab-content .quickfacts a:hover {
+  color: #f8f9fa;
+}
+.jc-global-individual #sidebar .card-block {
+  font-size: 0.875rem;
+}
+.jc-global-individual #sidebar .card-block a {
+  color: #dee2e6;
+}
+.jc-global-individual #sidebar .card-block a:hover {
+  color: #b2bcc5;
+}
+.jc-global-individual #sidebar .card-block .quickfacts a {
+  font-size: 0.75rem;
+  color: #dd6900;
+}
+.jc-global-individual #sidebar .card-block .quickfacts a:hover {
+  color: #f8f9fa;
+}
 #sb_family_nav_content .nav_content {
   border-collapse: separate;
+}
+
+.jc-global-family .facts_table {
+  font-size: 0.875rem;
+}
+.jc-global-family .facts_table a {
+  color: #dee2e6;
+}
+.jc-global-family .facts_table a:hover {
+  color: #b2bcc5;
+}
+.jc-global-family .facts_table .quickfacts a {
+  font-size: 0.75rem;
+  color: #dd6900;
+}
+.jc-global-family .facts_table .quickfacts a:hover {
+  color: #f8f9fa;
 }
 
 #pedigree_canvas {
@@ -9915,6 +9970,22 @@ h2 {
   border-bottom-width: 1px;
 }
 
+.dataTable {
+  font-size: 0.875rem;
+}
+.dataTable a {
+  color: #dee2e6;
+}
+.dataTable a:hover {
+  color: #b2bcc5;
+}
+.dataTable .quickfacts a {
+  font-size: 0.75rem;
+  color: #dd6900;
+}
+.dataTable .quickfacts a:hover {
+  color: #f8f9fa;
+}
 .dataTable thead th.sorting:after {
   opacity: 0.75;
 }
@@ -9984,7 +10055,11 @@ h2 {
   background-color: #6c757d;
   border-color: #6c757d;
 }
-.jc-global-individual .tab-content .facts_table > tbody > tr:first-child > td[colspan="2"] {
+.jc-global-individual .tab-content #personal_facts_content .facts_table:first-of-type > tbody > tr:first-child td,
+.jc-global-individual .tab-content #relatives_content .facts_table:first-of-type > tbody > tr:first-child td,
+.jc-global-individual .tab-content #sources_tab_content .facts_table:first-of-type > tbody > tr:first-child td,
+.jc-global-individual .tab-content #notes_content .facts_table:first-of-type > tbody > tr:first-child td,
+.jc-global-individual .tab-content #lightbox_content .facts_table:first-of-type > tbody > tr:first-child td {
   background-image: linear-gradient(#6c757d, #3d4349 50%, #2e2e2e);
   background-repeat: no-repeat;
   color: #dee2e6;

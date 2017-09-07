@@ -2,13 +2,13 @@
 
 .jc-global-individual {
   .card-header {
-    @include jc-theme-gradient();
+    @include jc-theme-gradient;
   }
 
   // tab content of the main section
   .tab-content { 
-    .facts_table > tbody > tr:first-child > td[colspan="2"] {
-      @include jb-theme-gradient();
+    @include facts-table-header {
+      @include jb-theme-gradient;
     }
     .person_box {
       &, &F, &U {
@@ -18,7 +18,6 @@
   }
 
   #sidebar {
-
     @at-root #sb_family_nav_content {
       .flyout2, .flyout3, .flyout4 {
         color: theme-color(dark);
