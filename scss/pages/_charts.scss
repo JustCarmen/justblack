@@ -1,0 +1,8 @@
+.jc-global-pedigree {
+  .shadow {
+    .person_box_template {
+      @include box-shadow(5px 7px 2px 0 $black)
+    }
+  }
+}
+
