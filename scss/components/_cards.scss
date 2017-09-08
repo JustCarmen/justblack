@@ -11,4 +11,7 @@
       color: $icon-color;
     }
   }
+  .jc-global-individual & {
+    @extend .pt-1;
+  }
 }
