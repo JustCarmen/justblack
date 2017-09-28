@@ -8927,7 +8927,7 @@ div[id^="caldiv"] > table table tr:not(:first-child) td.descriptionbox:before {
   right: .25rem;
 }
 
-.jc-global-index .wt-side-blocks .card-block {
+.jc-global-index .wt-side-blocks .card-body {
   font-size: 0.875rem;
 }
 .wt-block-gedcom-block-block i,
@@ -9911,7 +9911,7 @@ h2 {
   background-color: #868e96;
 }
 
-.wt-block-content-gedcom-stats-block .card-block {
+.wt-block-content-gedcom-stats-block .card-body {
   margin-top: -.5rem;
 }
 
