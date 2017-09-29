@@ -8932,8 +8932,7 @@ div[id^="caldiv"] > table table tr:not(:first-child) td.descriptionbox:before {
 }
 .wt-block-gedcom-block-block i,
 .wt-block-user-welcome-block i {
-  font-size: 2rem;
-  width: 100%;
+  font-size: 2.25rem;
 }
 .jc-global-index .wt-block-content-charts-block {
   display: flex;
