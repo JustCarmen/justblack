@@ -28,7 +28,7 @@ $theme-colors: (
   secondary: $yellow-light
 );
 
-$primary-color: map-get($theme-colors, primary);
+$primary-color: theme-color("primary");
 
 // Body
 $body-bg:                           $gray-800;
