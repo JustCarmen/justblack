@@ -434,19 +434,19 @@ h1, .h1 {
 }
 
 h2, .h2 {
-  font-size: 1.6rem;
+  font-size: 1.8rem;
 }
 
 h3, .h3, .jc-global-search_advanced .wt-page-options .form-group.wt-page-options-label {
-  font-size: 1.4rem;
+  font-size: 1.6rem;
 }
 
 h4, .h4, .jc-global-search_advanced #div-holder .form-group.my-3 {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
 }
 
 h5, .h5 {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
 }
 
 h6, .h6 {
@@ -9183,7 +9183,7 @@ div[id^="caldiv"] > table table tr:not(:first-child) td.descriptionbox:before {
 }
 h2 {
   font-family: "salina", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  font-size: 2.4rem;
+  font-size: 2.7rem;
 }
 
 .wt-header-content {
@@ -9626,7 +9626,7 @@ h2 {
 .jc-global-index .card-header {
   border-bottom: 0;
   font-family: "salina", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   padding-bottom: 0.5rem;
 }
 
