@@ -12,7 +12,7 @@
 
 // datatables
 .dataTable {
-  @include facts-table-body;
+  @include jc-facts-table-body;
 
   // Datatable sorting icons
   thead th {
