@@ -3424,7 +3424,7 @@ tbody.collapse.show {
   border-radius: 0.25rem;
 }
 
-.card-body {
+.card-body, .card-block {
   flex: 1 1 auto;
   padding: 1.25rem;
 }
@@ -8390,6 +8390,49 @@ a.fa:hover {
   margin-bottom: 0;
 }
 
+.jc-global-index .wt-side-blocks .card-body, .jc-global-index .wt-side-blocks .card-block {
+  font-size: 0.875rem;
+}
+
+.jc-global-individual .card-header {
+  font-size: 0.875rem;
+}
+.jc-global-individual #individual-names .card-block {
+  font-size: 0.875rem;
+}
+.jc-global-individual #individual-names .card-block a {
+  color: #dee2e6;
+}
+.jc-global-individual #individual-names .card-block a:hover {
+  color: #b2bcc5;
+}
+.jc-global-individual #individual-names .card-block .quickfacts a {
+  font-size: 0.75rem;
+  color: #dd6900;
+}
+.jc-global-individual #individual-names .card-block .quickfacts a:hover {
+  color: #f8f9fa;
+}
+.jc-global-individual #name-header-add .card-title b {
+  font-weight: 500;
+}
+.jc-global-individual #sidebar .card-block {
+  font-size: 0.875rem;
+}
+.jc-global-individual #sidebar .card-block a {
+  color: #dee2e6;
+}
+.jc-global-individual #sidebar .card-block a:hover {
+  color: #b2bcc5;
+}
+.jc-global-individual #sidebar .card-block .quickfacts a {
+  font-size: 0.75rem;
+  color: #dd6900;
+}
+.jc-global-individual #sidebar .card-block .quickfacts a:hover {
+  color: #f8f9fa;
+}
+
 .table, .facts_table,
 .markdown table, .faq {
   border-spacing: 0;
@@ -8635,9 +8678,6 @@ div[id^="caldiv"] > table table tr:not(:first-child) td.descriptionbox:before {
   right: .25rem;
 }
 
-.jc-global-index .wt-side-blocks .card-body {
-  font-size: 0.875rem;
-}
 .wt-block-gedcom-block-block i,
 .wt-block-user-welcome-block i {
   font-size: 2.25rem;
@@ -8647,34 +8687,12 @@ div[id^="caldiv"] > table table tr:not(:first-child) td.descriptionbox:before {
   flex-flow: row-reverse;
 }
 
-.jc-global-individual .card-header {
-  font-size: 0.875rem;
-}
-.jc-global-individual #individual-names .card-block {
-  font-size: 0.875rem;
-}
-.jc-global-individual #individual-names .card-block a {
-  color: #dee2e6;
-}
-.jc-global-individual #individual-names .card-block a:hover {
-  color: #b2bcc5;
-}
-.jc-global-individual #individual-names .card-block .quickfacts a {
-  font-size: 0.75rem;
-  color: #dd6900;
-}
-.jc-global-individual #individual-names .card-block .quickfacts a:hover {
-  color: #f8f9fa;
-}
 .jc-global-individual #name-header-0,
 .jc-global-individual #name-content-0 {
   font-size: 1rem;
 }
 .jc-global-individual #name-header-add {
   font-weight: normal;
-}
-.jc-global-individual #name-header-add .card-title b {
-  font-weight: 500;
 }
 .jc-global-individual #individual-tabs {
   margin-top: 3rem;
@@ -8701,22 +8719,6 @@ div[id^="caldiv"] > table table tr:not(:first-child) td.descriptionbox:before {
   color: #dd6900;
 }
 .jc-global-individual .tab-content .quickfacts a:hover {
-  color: #f8f9fa;
-}
-.jc-global-individual #sidebar .card-block {
-  font-size: 0.875rem;
-}
-.jc-global-individual #sidebar .card-block a {
-  color: #dee2e6;
-}
-.jc-global-individual #sidebar .card-block a:hover {
-  color: #b2bcc5;
-}
-.jc-global-individual #sidebar .card-block .quickfacts a {
-  font-size: 0.75rem;
-  color: #dd6900;
-}
-.jc-global-individual #sidebar .card-block .quickfacts a:hover {
   color: #f8f9fa;
 }
 #sb_family_nav_content .nav_content {
@@ -9574,6 +9576,16 @@ h2 {
 .card-header a.fa {
   color: #ffffde;
 }
+.jc-global-index .card-header {
+  border-bottom: 0;
+  font-family: "salina", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 1.8rem;
+  padding-bottom: 0.5rem;
+}
+
+.jc-global-individual #individual-names .card {
+  margin-bottom: .25rem;
+}
 
 .table thead th, .facts_table thead th,
 .markdown table thead th, .faq thead th,
@@ -9616,17 +9628,6 @@ h2 {
 }
 .select2-container--default .select2-results__option[aria-selected=true] {
   background-color: #868e96;
-}
-
-.wt-block-content-gedcom-stats-block .card-body {
-  margin-top: -.5rem;
-}
-
-.jc-global-index .card-header {
-  border-bottom: 0;
-  font-family: "salina", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  font-size: 1.8rem;
-  padding-bottom: 0.5rem;
 }
 
 .jc-global-individual .card-header {

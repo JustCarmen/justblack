@@ -1,10 +1,6 @@
 // Put specific code for the Individual page here
 
 .jc-global-individual {
-  .card-header {
-    @include jc-theme-gradient;
-  }
-
   // tab content of the main section
   .tab-content { 
     @include jc-facts-table-header {

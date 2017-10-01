@@ -11,7 +11,24 @@
       color: $icon-color;
     }
   }
+
+  .jc-global-index & {
+    border-bottom: 0;
+    font-family: $font-family-title, $font-family-base;
+    font-size: $h2-font-size;
+    padding-bottom: 0.5rem;
+  }
+  
   .jc-global-individual & {
+    @include jc-theme-gradient;
     @extend .pt-1;
+  }
+}
+
+.jc-global-individual {
+  #individual-names {
+    .card {
+      margin-bottom: .25rem;
+    }
   }
 }
