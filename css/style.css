@@ -7925,9 +7925,6 @@ a[href^="https:"] {
     display: block;
   }
 }
-.wt-header-search .fa-search {
-  font-size: 1.25rem;
-}
 
 .jc-primary-navigation {
   padding: 0 calc(50vw - 50%);
@@ -8337,6 +8334,10 @@ a.fa:hover {
   color: #dd6900 !important;
 }
 
+.wt-header-search .fa-search {
+  font-size: 1.25rem;
+}
+
 .jc-global-individual .wt-silhouette-F::before, .jc-global-individual .wt-silhouette-M::before, .jc-global-individual .wt-silhouette-U::before {
   font-size: 6rem;
 }
@@ -8374,6 +8375,14 @@ a.fa:hover {
   padding: 0 .25rem;
 }
 
+@media (max-width: 991px) {
+  .btn, input[type="submit"] {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    border-radius: 0.2rem;
+  }
+}
 .card {
   margin-bottom: .25rem;
 }
