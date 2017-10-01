@@ -2488,7 +2488,7 @@ tbody.collapse.show {
 .dropdown-item:focus, .dropdown-item:hover {
   color: #c45d00;
   text-decoration: none;
-  background-color: #ffd87f;
+  background-color: #e9ecef;
 }
 .dropdown-item.active, .dropdown-item:active {
   color: #c45d00;
@@ -8603,7 +8603,10 @@ div[id^="caldiv"] > table table td.optionbox a, div[id^="caldiv"] > table table 
   color: #dee2e6;
 }
 div[id^="caldiv"] > table table td:hover {
-  background-color: #ffd87f !important;
+  background-color: #e9ecef !important;
+}
+div[id^="caldiv"] > table table td:hover a {
+  color: #c45d00;
 }
 div[id^="caldiv"] > table table tr:first-child {
   font-weight: 700;
