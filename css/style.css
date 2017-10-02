@@ -3424,7 +3424,7 @@ tbody.collapse.show {
   border-radius: 0.25rem;
 }
 
-.card-body, .card-block {
+.card-body {
   flex: 1 1 auto;
   padding: 1.25rem;
 }
@@ -6042,8 +6042,8 @@ h2,
 .jc-global-search_advanced .wt-page-options-value.py-1,
 .jc-global-search_advanced .jc-global-individual #individual-names .wt-page-options-value.card-header:not(#name-header-0),
 .jc-global-individual #individual-names .jc-global-search_advanced .wt-page-options-value.card-header:not(#name-header-0),
-.jc-global-search_advanced .jc-global-individual #individual-names .wt-page-options-value.card-block,
-.jc-global-individual #individual-names .jc-global-search_advanced .wt-page-options-value.card-block,
+.jc-global-search_advanced .jc-global-individual #individual-names .wt-page-options-value.card-body,
+.jc-global-individual #individual-names .jc-global-search_advanced .wt-page-options-value.card-body,
 .jc-global-search_advanced .jc-global-module-tree #tv_tools .wt-page-options-value.icon-sfamily,
 .jc-global-module-tree #tv_tools .jc-global-search_advanced .wt-page-options-value.icon-sfamily {
   margin-right: 0 !important;
@@ -6060,8 +6060,8 @@ h2,
 .jc-global-search_advanced .wt-page-options-value.py-1,
 .jc-global-search_advanced .jc-global-individual #individual-names .wt-page-options-value.card-header:not(#name-header-0),
 .jc-global-individual #individual-names .jc-global-search_advanced .wt-page-options-value.card-header:not(#name-header-0),
-.jc-global-search_advanced .jc-global-individual #individual-names .wt-page-options-value.card-block,
-.jc-global-individual #individual-names .jc-global-search_advanced .wt-page-options-value.card-block,
+.jc-global-search_advanced .jc-global-individual #individual-names .wt-page-options-value.card-body,
+.jc-global-individual #individual-names .jc-global-search_advanced .wt-page-options-value.card-body,
 .jc-global-search_advanced .jc-global-module-tree #tv_tools .wt-page-options-value.icon-sfamily,
 .jc-global-module-tree #tv_tools .jc-global-search_advanced .wt-page-options-value.icon-sfamily {
   margin-left: 0 !important;
@@ -6072,10 +6072,10 @@ h2,
 }
 
 .mt-1, .jc-global-search_advanced .wt-page-options-label.py-1, .jc-global-search_advanced .jc-global-individual #individual-names .wt-page-options-label.card-header:not(#name-header-0), .jc-global-individual #individual-names .jc-global-search_advanced .wt-page-options-label.card-header:not(#name-header-0),
-.jc-global-search_advanced .jc-global-individual #individual-names .wt-page-options-label.card-block,
-.jc-global-individual #individual-names .jc-global-search_advanced .wt-page-options-label.card-block, .jc-global-search_advanced .jc-global-module-tree #tv_tools .wt-page-options-label.icon-sfamily, .jc-global-module-tree #tv_tools .jc-global-search_advanced .wt-page-options-label.icon-sfamily, .jc-global-search_advanced .wt-page-options-value.py-1, .jc-global-search_advanced .jc-global-individual #individual-names .wt-page-options-value.card-header:not(#name-header-0), .jc-global-individual #individual-names .jc-global-search_advanced .wt-page-options-value.card-header:not(#name-header-0),
-.jc-global-search_advanced .jc-global-individual #individual-names .wt-page-options-value.card-block,
-.jc-global-individual #individual-names .jc-global-search_advanced .wt-page-options-value.card-block, .jc-global-search_advanced .jc-global-module-tree #tv_tools .wt-page-options-value.icon-sfamily, .jc-global-module-tree #tv_tools .jc-global-search_advanced .wt-page-options-value.icon-sfamily,
+.jc-global-search_advanced .jc-global-individual #individual-names .wt-page-options-label.card-body,
+.jc-global-individual #individual-names .jc-global-search_advanced .wt-page-options-label.card-body, .jc-global-search_advanced .jc-global-module-tree #tv_tools .wt-page-options-label.icon-sfamily, .jc-global-module-tree #tv_tools .jc-global-search_advanced .wt-page-options-label.icon-sfamily, .jc-global-search_advanced .wt-page-options-value.py-1, .jc-global-search_advanced .jc-global-individual #individual-names .wt-page-options-value.card-header:not(#name-header-0), .jc-global-individual #individual-names .jc-global-search_advanced .wt-page-options-value.card-header:not(#name-header-0),
+.jc-global-search_advanced .jc-global-individual #individual-names .wt-page-options-value.card-body,
+.jc-global-individual #individual-names .jc-global-search_advanced .wt-page-options-value.card-body, .jc-global-search_advanced .jc-global-module-tree #tv_tools .wt-page-options-value.icon-sfamily, .jc-global-module-tree #tv_tools .jc-global-search_advanced .wt-page-options-value.icon-sfamily,
 .my-1 {
   margin-top: 0.25rem !important;
 }
@@ -6224,7 +6224,7 @@ h2,
 .pt-1, .jc-global-individual .card-header,
 .py-1,
 .jc-global-individual #individual-names .card-header:not(#name-header-0),
-.jc-global-individual #individual-names .card-block,
+.jc-global-individual #individual-names .card-body,
 .jc-global-module-tree #tv_tools .icon-sfamily {
   padding-top: 0.25rem !important;
 }
@@ -6238,7 +6238,7 @@ h2,
 .pb-1,
 .py-1,
 .jc-global-individual #individual-names .card-header:not(#name-header-0),
-.jc-global-individual #individual-names .card-block,
+.jc-global-individual #individual-names .card-body,
 .jc-global-module-tree #tv_tools .icon-sfamily {
   padding-bottom: 0.25rem !important;
 }
@@ -7871,7 +7871,7 @@ a[href^="https:"] {
 }
 
 .font9 {
-  font-size: 0.75rem;
+  font-size: 80%;
 }
 
 .wt-global {
@@ -8403,46 +8403,46 @@ a.fa:hover {
   margin-bottom: 0;
 }
 
-.jc-global-index .wt-side-blocks .card-body, .jc-global-index .wt-side-blocks .card-block {
+.jc-global-index .wt-side-blocks .card-body {
   font-size: 0.875rem;
 }
 
 .jc-global-individual .card-header {
   font-size: 0.875rem;
 }
-.jc-global-individual #individual-names .card-block {
+.jc-global-individual #individual-names .card-body {
   font-size: 0.875rem;
 }
-.jc-global-individual #individual-names .card-block a {
+.jc-global-individual #individual-names .card-body a {
   color: #dee2e6;
 }
-.jc-global-individual #individual-names .card-block a:hover {
+.jc-global-individual #individual-names .card-body a:hover {
   color: #b2bcc5;
 }
-.jc-global-individual #individual-names .card-block .quickfacts a {
+.jc-global-individual #individual-names .card-body .quickfacts a {
   font-size: 0.75rem;
   color: #dd6900;
 }
-.jc-global-individual #individual-names .card-block .quickfacts a:hover {
+.jc-global-individual #individual-names .card-body .quickfacts a:hover {
   color: #f8f9fa;
 }
 .jc-global-individual #name-header-add .card-title b {
   font-weight: 500;
 }
-.jc-global-individual #sidebar .card-block {
+.jc-global-individual #sidebar .card-body {
   font-size: 0.875rem;
 }
-.jc-global-individual #sidebar .card-block a {
+.jc-global-individual #sidebar .card-body a {
   color: #dee2e6;
 }
-.jc-global-individual #sidebar .card-block a:hover {
+.jc-global-individual #sidebar .card-body a:hover {
   color: #b2bcc5;
 }
-.jc-global-individual #sidebar .card-block .quickfacts a {
+.jc-global-individual #sidebar .card-body .quickfacts a {
   font-size: 0.75rem;
   color: #dd6900;
 }
-.jc-global-individual #sidebar .card-block .quickfacts a:hover {
+.jc-global-individual #sidebar .card-body .quickfacts a:hover {
   color: #f8f9fa;
 }
 
@@ -8792,8 +8792,8 @@ div[id^="caldiv"] > table table tr:not(:first-child) td.descriptionbox:before {
   border-right: 1px solid rgba(255, 255, 255, 0.175);
 }
 .jc-global-search_advanced .wt-page-options-label.py-1, .jc-global-search_advanced .jc-global-individual #individual-names .wt-page-options-label.card-header:not(#name-header-0), .jc-global-individual #individual-names .jc-global-search_advanced .wt-page-options-label.card-header:not(#name-header-0),
-.jc-global-search_advanced .jc-global-individual #individual-names .wt-page-options-label.card-block,
-.jc-global-individual #individual-names .jc-global-search_advanced .wt-page-options-label.card-block, .jc-global-search_advanced .jc-global-module-tree #tv_tools .wt-page-options-label.icon-sfamily, .jc-global-module-tree #tv_tools .jc-global-search_advanced .wt-page-options-label.icon-sfamily {
+.jc-global-search_advanced .jc-global-individual #individual-names .wt-page-options-label.card-body,
+.jc-global-individual #individual-names .jc-global-search_advanced .wt-page-options-label.card-body, .jc-global-search_advanced .jc-global-module-tree #tv_tools .wt-page-options-label.icon-sfamily, .jc-global-module-tree #tv_tools .jc-global-search_advanced .wt-page-options-label.icon-sfamily {
   border-top: 1px solid rgba(255, 255, 255, 0.175);
   border-bottom: 1px solid rgba(255, 255, 255, 0.175);
 }
@@ -8804,8 +8804,8 @@ div[id^="caldiv"] > table table tr:not(:first-child) td.descriptionbox:before {
   border-left: 1px solid rgba(255, 255, 255, 0.175);
 }
 .jc-global-search_advanced .wt-page-options-value.py-1, .jc-global-search_advanced .jc-global-individual #individual-names .wt-page-options-value.card-header:not(#name-header-0), .jc-global-individual #individual-names .jc-global-search_advanced .wt-page-options-value.card-header:not(#name-header-0),
-.jc-global-search_advanced .jc-global-individual #individual-names .wt-page-options-value.card-block,
-.jc-global-individual #individual-names .jc-global-search_advanced .wt-page-options-value.card-block, .jc-global-search_advanced .jc-global-module-tree #tv_tools .wt-page-options-value.icon-sfamily, .jc-global-module-tree #tv_tools .jc-global-search_advanced .wt-page-options-value.icon-sfamily {
+.jc-global-search_advanced .jc-global-individual #individual-names .wt-page-options-value.card-body,
+.jc-global-individual #individual-names .jc-global-search_advanced .wt-page-options-value.card-body, .jc-global-search_advanced .jc-global-module-tree #tv_tools .wt-page-options-value.icon-sfamily, .jc-global-module-tree #tv_tools .jc-global-search_advanced .wt-page-options-value.icon-sfamily {
   border-top: 1px solid rgba(255, 255, 255, 0.175);
   border-bottom: 1px solid rgba(255, 255, 255, 0.175);
 }
