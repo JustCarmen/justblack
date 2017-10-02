@@ -12,8 +12,6 @@
 
 // datatables
 .dataTable {
-  @include jc-facts-table-body;
-
   // Datatable sorting icons
   thead th {
     &.sorting:after {

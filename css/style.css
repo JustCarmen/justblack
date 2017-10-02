@@ -75,23 +75,18 @@
     border: 1px solid #000;
   }
 
-  .table, .facts_table,
-  .markdown table, .faq {
+  .table, .markdown table, .faq {
     border-collapse: collapse !important;
   }
-  .table td, .facts_table td,
-  .markdown table td, .faq td,
+  .table td, .markdown table td, .faq td,
   .table th,
-  .facts_table th,
   .markdown table th,
   .faq th {
     background-color: #fff !important;
   }
 
-  .table-bordered th, .facts_table th,
-  .markdown table th,
+  .table-bordered th, .markdown table th,
   .table-bordered td,
-  .facts_table td,
   .markdown table td {
     border: 1px solid #ddd !important;
   }
@@ -1296,69 +1291,47 @@ pre code {
     order: 12;
   }
 }
-.table, .facts_table,
-.markdown table, .faq {
+.table, .markdown table, .faq {
   width: 100%;
   max-width: 100%;
   margin-bottom: 1rem;
   background-color: transparent;
 }
-.table th, .facts_table th,
-.markdown table th, .faq th,
+.table th, .markdown table th, .faq th,
 .table td,
-.facts_table td,
 .markdown table td,
 .faq td {
   padding: 0.75rem;
   vertical-align: top;
   border-top: 1px solid rgba(255, 255, 255, 0.175);
 }
-.table thead th, .facts_table thead th,
-.markdown table thead th, .faq thead th {
+.table thead th, .markdown table thead th, .faq thead th {
   vertical-align: bottom;
   border-bottom: 2px solid rgba(255, 255, 255, 0.175);
 }
-.table tbody + tbody, .facts_table tbody + tbody,
-.markdown table tbody + tbody, .faq tbody + tbody {
+.table tbody + tbody, .markdown table tbody + tbody, .faq tbody + tbody {
   border-top: 2px solid rgba(255, 255, 255, 0.175);
 }
-.table .table, .facts_table .table,
-.markdown table .table, .faq .table, .table .facts_table, .facts_table .facts_table,
-.markdown table .facts_table, .faq .facts_table,
-.table .markdown table,
-.markdown .table table,
-.facts_table .markdown table,
-.markdown .facts_table table,
-.markdown table table,
-.faq .markdown table,
-.markdown .faq table, .table .faq, .facts_table .faq,
-.markdown table .faq, .faq .faq {
+.table .table, .markdown table .table, .faq .table, .table .markdown table, .markdown .table table, .markdown table table, .faq .markdown table, .markdown .faq table, .table .faq, .markdown table .faq, .faq .faq {
   background-color: #2e2e2e;
 }
 
-.table-sm th, .facts_table th,
-.markdown table th,
+.table-sm th, .markdown table th,
 .table-sm td,
-.facts_table td,
 .markdown table td {
   padding: 0.5rem;
 }
 
-.table-bordered, .facts_table,
-.markdown table {
+.table-bordered, .markdown table {
   border: 1px solid rgba(255, 255, 255, 0.175);
 }
-.table-bordered th, .facts_table th,
-.markdown table th,
+.table-bordered th, .markdown table th,
 .table-bordered td,
-.facts_table td,
 .markdown table td {
   border: 1px solid rgba(255, 255, 255, 0.175);
 }
-.table-bordered thead th, .facts_table thead th,
-.markdown table thead th,
+.table-bordered thead th, .markdown table thead th,
 .table-bordered thead td,
-.facts_table thead td,
 .markdown table thead td {
   border-bottom-width: 2px;
 }
@@ -1525,8 +1498,7 @@ pre code {
 .table-inverse thead th {
   border-color: #3a3a3a;
 }
-.table-inverse.table-bordered, .table-inverse.facts_table,
-.markdown table.table-inverse {
+.table-inverse.table-bordered, .markdown table.table-inverse {
   border: 0;
 }
 .table-inverse.table-striped tbody tr:nth-of-type(odd) {
@@ -1543,8 +1515,7 @@ pre code {
     overflow-x: auto;
     -ms-overflow-style: -ms-autohiding-scrollbar;
   }
-  .table-responsive.table-bordered, .table-responsive.facts_table,
-  .markdown table {
+  .table-responsive.table-bordered, .markdown table {
     border: 0;
   }
 }
@@ -5943,7 +5914,7 @@ a.bg-dark:focus, a.bg-dark:hover {
   width: 10% !important;
 }
 
-.w-20, .width20, .jc-global-individual .tab-content .facts_label {
+.w-20, .width20, .wt-facts-table th, .jc-global-individual .wt-facts-table th {
   width: 20% !important;
 }
 
@@ -6049,7 +6020,7 @@ h2,
   margin-right: 0 !important;
 }
 
-.mb-0, dl, .wt-page-options .form-group, #lightbox_content .facts_table,
+.mb-0, dl, .wt-page-options .form-group, #lightbox_content,
 .my-0 {
   margin-bottom: 0 !important;
 }
@@ -6279,7 +6250,7 @@ h2,
   padding: 1rem !important;
 }
 
-.pt-3, .jc-global-search_advanced .wt-page-options .form-group.wt-page-options-label, .jc-global-search_advanced #div-holder .form-group.my-3, #lightbox_content div.facts_value, .jc-global-module-tree .tv_out,
+.pt-3, .jc-global-search_advanced .wt-page-options .form-group.wt-page-options-label, .jc-global-search_advanced #div-holder .form-group.my-3, #lightbox_content, .jc-global-module-tree .tv_out,
 .py-3 {
   padding-top: 1rem !important;
 }
@@ -8410,49 +8381,12 @@ a.fa:hover {
 .jc-global-individual .card-header {
   font-size: 0.875rem;
 }
-.jc-global-individual #individual-names .card-body {
-  font-size: 0.875rem;
-}
-.jc-global-individual #individual-names .card-body a {
-  color: #dee2e6;
-}
-.jc-global-individual #individual-names .card-body a:hover {
-  color: #b2bcc5;
-}
-.jc-global-individual #individual-names .card-body .quickfacts a {
-  font-size: 0.75rem;
-  color: #dd6900;
-}
-.jc-global-individual #individual-names .card-body .quickfacts a:hover {
-  color: #f8f9fa;
-}
 .jc-global-individual #name-header-add .card-title b {
   font-weight: 500;
 }
-.jc-global-individual #sidebar .card-body {
-  font-size: 0.875rem;
-}
-.jc-global-individual #sidebar .card-body a {
-  color: #dee2e6;
-}
-.jc-global-individual #sidebar .card-body a:hover {
-  color: #b2bcc5;
-}
-.jc-global-individual #sidebar .card-body .quickfacts a {
-  font-size: 0.75rem;
-  color: #dd6900;
-}
-.jc-global-individual #sidebar .card-body .quickfacts a:hover {
-  color: #f8f9fa;
-}
 
-.table, .facts_table,
-.markdown table, .faq {
+.table, .markdown table, .faq {
   border-spacing: 0;
-}
-
-.markdown table {
-  font-size: 0.875rem;
 }
 
 tr.odd {
@@ -8462,14 +8396,35 @@ tr.even {
   background-color: transparent;
 }
 
-td.descriptionbox, td.facts_label {
+.wt-facts-table {
+  font-size: 0.875rem;
+}
+.wt-facts-table a {
+  color: #dee2e6;
+}
+.wt-facts-table a:hover {
+  color: #b2bcc5;
+}
+.wt-facts-table th {
   background-color: #495057;
   border: 1px solid rgba(255, 255, 255, 0.175);
   color: #dee2e6;
 }
-td.optionbox, td.facts_value {
+.wt-facts-table td {
   background-color: #272727;
+  border: 1px solid rgba(255, 255, 255, 0.175) !important;
   color: #dee2e6;
+}
+.wt-facts-table .quickfacts a {
+  font-size: 0.75rem;
+  color: #dd6900;
+}
+.wt-facts-table .quickfacts a:hover {
+  color: #f8f9fa;
+}
+
+.markdown table {
+  font-size: 0.875rem;
 }
 
 .dt-bootstrap4 .dataTables_length select,
@@ -8530,10 +8485,7 @@ td.optionbox, td.facts_value {
   background-color: transparent;
   border-color: #dd6900;
 }
-.table-bordered td .person_box_template, .facts_table td .person_box_template,
-.markdown table td .person_box_template, .table-bordered td #lifespan-people .popup, #lifespan-people .table-bordered td .popup, .facts_table td #lifespan-people .popup, #lifespan-people .facts_table td .popup,
-.markdown table td #lifespan-people .popup,
-#lifespan-people .markdown table td .popup {
+.table-bordered td .person_box_template, .markdown table td .person_box_template, .table-bordered td #lifespan-people .popup, #lifespan-people .table-bordered td .popup, .markdown table td #lifespan-people .popup, #lifespan-people .markdown table td .popup {
   border: none;
 }
 .person_box_template a, #lifespan-people .popup a {
@@ -8710,49 +8662,20 @@ div[id^="caldiv"] > table table tr:not(:first-child) td.descriptionbox:before {
 .jc-global-individual #individual-tabs {
   margin-top: 3rem;
 }
-.jc-global-individual .tab-content #personal_facts_content .facts_table:first-of-type > tbody > tr:first-child td,
-.jc-global-individual .tab-content #relatives_content .facts_table:first-of-type > tbody > tr:first-child td,
-.jc-global-individual .tab-content #sources_tab_content .facts_table:first-of-type > tbody > tr:first-child td,
-.jc-global-individual .tab-content #notes_content .facts_table:first-of-type > tbody > tr:first-child td,
-.jc-global-individual .tab-content #lightbox_content .facts_table:first-of-type > tbody > tr:first-child td {
+.jc-global-individual .nav-tabs {
+  border-bottom: none;
+}
+.jc-global-individual .wt-facts-table[role="presentation"] td,
+.jc-global-individual .wt-facts-table td[colspan="2"] {
   background-color: #272727;
   color: #2e2e2e;
 }
-.jc-global-individual .tab-content {
-  font-size: 0.875rem;
-}
-.jc-global-individual .tab-content a {
-  color: #dee2e6;
-}
-.jc-global-individual .tab-content a:hover {
-  color: #b2bcc5;
-}
-.jc-global-individual .tab-content .quickfacts a {
-  font-size: 0.75rem;
-  color: #dd6900;
-}
-.jc-global-individual .tab-content .quickfacts a:hover {
-  color: #f8f9fa;
+.jc-global-individual .wt-facts-table .person_box, .jc-global-individual .wt-facts-table .person_boxF, .jc-global-individual .wt-facts-table .person_boxU {
+  background-color: transparent;
+  border: none;
 }
 #sb_family_nav_content .nav_content {
   border-collapse: separate;
-}
-
-.jc-global-family .facts_table {
-  font-size: 0.875rem;
-}
-.jc-global-family .facts_table a {
-  color: #dee2e6;
-}
-.jc-global-family .facts_table a:hover {
-  color: #b2bcc5;
-}
-.jc-global-family .facts_table .quickfacts a {
-  font-size: 0.75rem;
-  color: #dd6900;
-}
-.jc-global-family .facts_table .quickfacts a:hover {
-  color: #f8f9fa;
 }
 
 #pedigree_canvas {
@@ -8813,9 +8736,16 @@ div[id^="caldiv"] > table table tr:not(:first-child) td.descriptionbox:before {
   border-top: 1px solid rgba(255, 255, 255, 0.175);
 }
 
-#lightbox_content div.facts_value {
+#lightbox_content {
+  font-size: 0.875rem;
   background-color: transparent;
   border: 1px solid rgba(255, 255, 255, 0.175);
+}
+#lightbox_content a {
+  color: #dee2e6;
+}
+#lightbox_content a:hover {
+  color: #b2bcc5;
 }
 
 .album-list {
@@ -9644,10 +9574,8 @@ h2 {
   margin-bottom: .25rem;
 }
 
-.table thead th, .facts_table thead th,
-.markdown table thead th, .faq thead th,
+.table thead th, .markdown table thead th, .faq thead th,
 .table thead td,
-.facts_table thead td,
 .markdown table thead td,
 .faq thead td {
   background-image: linear-gradient(#6c757d, #3d4349 50%, #2e2e2e);
@@ -9657,22 +9585,6 @@ h2 {
   border-bottom-width: 1px;
 }
 
-.dataTable {
-  font-size: 0.875rem;
-}
-.dataTable a {
-  color: #dee2e6;
-}
-.dataTable a:hover {
-  color: #b2bcc5;
-}
-.dataTable .quickfacts a {
-  font-size: 0.75rem;
-  color: #dd6900;
-}
-.dataTable .quickfacts a:hover {
-  color: #f8f9fa;
-}
 .dataTable thead th.sorting:after {
   opacity: 0.75;
 }
@@ -9687,17 +9599,11 @@ h2 {
   background-color: #868e96;
 }
 
-.jc-global-individual .tab-content #personal_facts_content .facts_table:first-of-type > tbody > tr:first-child td,
-.jc-global-individual .tab-content #relatives_content .facts_table:first-of-type > tbody > tr:first-child td,
-.jc-global-individual .tab-content #sources_tab_content .facts_table:first-of-type > tbody > tr:first-child td,
-.jc-global-individual .tab-content #notes_content .facts_table:first-of-type > tbody > tr:first-child td,
-.jc-global-individual .tab-content #lightbox_content .facts_table:first-of-type > tbody > tr:first-child td {
+.jc-global-individual .wt-facts-table[role="presentation"] td,
+.jc-global-individual .wt-facts-table td[colspan="2"] {
   background-image: linear-gradient(#6c757d, #3d4349 50%, #2e2e2e);
   background-repeat: no-repeat;
   color: #dee2e6;
-}
-.jc-global-individual .tab-content .person_box, .jc-global-individual .tab-content .person_boxF, .jc-global-individual .tab-content .person_boxU {
-  background: transparent;
 }
 #sb_family_nav_content .flyout2, #sb_family_nav_content .flyout3, #sb_family_nav_content .flyout4 {
   color: #2e2e2e;

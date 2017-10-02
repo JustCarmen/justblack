@@ -1,15 +1,11 @@
 // Put specific code for the Individual page here
 
 .jc-global-individual {
-  // tab content of the main section
-  .tab-content { 
-    @include jc-facts-table-header {
+  // main section
+  .wt-facts-table {
+    &[role="presentation"] td,
+    td[colspan="2"] {
       @include jb-theme-gradient;
-    }
-    .person_box {
-      &, &F, &U {
-        background: transparent;
-      }
     }
   }
 
