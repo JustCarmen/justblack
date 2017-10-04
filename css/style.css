@@ -6162,7 +6162,7 @@ h2,
   margin-left: 3rem !important;
 }
 
-.p-0, .stat-table1 .stat-cell {
+.p-0, .stat-table1 .stat-cell, .jc-global-individual #relatives_content caption {
   padding: 0 !important;
 }
 
@@ -7843,6 +7843,10 @@ a[href^="https:"] {
 
 .font9 {
   font-size: 80%;
+}
+
+.subheaders {
+  font-weight: bold;
 }
 
 .wt-global {
