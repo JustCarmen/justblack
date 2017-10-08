@@ -6002,14 +6002,13 @@ a.bg-dark:focus, a.bg-dark:hover {
   margin: 0 !important;
 }
 
-.mt-0, h2,
+.mt-0,
 .my-0 {
   margin-top: 0 !important;
 }
 
 .mr-0,
-.mx-0,
-h2 {
+.mx-0 {
   margin-right: 0 !important;
 }
 
@@ -6019,8 +6018,7 @@ h2 {
 }
 
 .ml-0,
-.mx-0,
-h2 {
+.mx-0 {
   margin-left: 0 !important;
 }
 
@@ -6134,7 +6132,7 @@ h2 {
   margin-right: 3rem !important;
 }
 
-.mb-5, h2, .wt-page-options,
+.mb-5, .wt-page-options,
 .my-5 {
   margin-bottom: 3rem !important;
 }
@@ -7607,7 +7605,7 @@ h2 {
   text-align: right !important;
 }
 
-.text-center, h2, .wt-page-options-family-list, .wt-page-options-individual-list, div[id^="caldiv"] > table table td {
+.text-center, .wt-page-options-family-list, .wt-page-options-individual-list, div[id^="caldiv"] > table table td {
   text-align: center !important;
 }
 
@@ -7830,6 +7828,12 @@ a[href^="https:"] {
   display: inline-block;
   padding: 0 5px;
   text-decoration: none;
+}
+
+h2 {
+  margin-top: 0;
+  margin-bottom: 2rem;
+  text-align: center;
 }
 
 .font9 {
