@@ -559,7 +559,7 @@ mark,
 
 .figure-caption {
   font-size: 90%;
-  color: #868e96;
+  color: #dee2e6;
 }
 
 code,
@@ -6023,7 +6023,7 @@ div[id^="calendar-widget"] table, .faq_title {
   margin-right: 0 !important;
 }
 
-.mb-0, dl, .wt-page-options .form-group, #lightbox_content,
+.mb-0, dl, .wt-page-options .form-group,
 .my-0 {
   margin-bottom: 0 !important;
 }
@@ -6250,7 +6250,7 @@ div[id^="calendar-widget"] table td, .jc-global-individual #relatives_content td
   padding: 1rem !important;
 }
 
-.pt-3, #lightbox_content, .jc-global-module-tree .tv_out, .wt-block-charts-block .tv_out,
+.pt-3, .jc-global-module-tree .tv_out, .wt-block-charts-block .tv_out,
 #tree .tv_out,
 .py-3 {
   padding-top: 1rem !important;
@@ -8631,6 +8631,12 @@ div[id^="calendar-widget"] > table table tr:not(:first-child) td.descriptionbox:
 .jc-global-individual .nav-tabs {
   border-bottom: none;
 }
+.jc-global-individual .tab-pane a {
+  color: #dee2e6;
+}
+.jc-global-individual .tab-pane a:hover {
+  color: #b2bcc5;
+}
 .jc-global-individual .wt-facts-table[role="presentation"] td,
 .jc-global-individual .wt-facts-table td[colspan="2"] {
   background-color: #272727;
@@ -8693,45 +8699,10 @@ div[id^="calendar-widget"] > table table tr:not(:first-child) td.descriptionbox:
   border: 1px solid rgba(255, 255, 255, 0.175);
 }
 
-#lightbox_content {
-  font-size: 0.875rem;
-  background-color: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.175);
-}
-#lightbox_content a {
-  color: #dee2e6;
-}
-#lightbox_content a:hover {
-  color: #b2bcc5;
-}
-
-.album-list {
-  display: flex;
-  flex-flow: row wrap;
-  text-align: center;
-}
-.album-list-item {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 3rem;
-  height: auto;
-  width: calc(100%/2);
-}
-@media (min-width: 576px) {
-  .album-list-item {
-    width: calc(100%/3);
-  }
-}
-@media (min-width: 768px) {
-  .album-list-item {
-    width: calc(100%/4);
-  }
-}
-.album-image {
-  height: 78px;
-}
-.album-title {
-  height: 100%;
+.wt-album-tab-caption {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .faq,
