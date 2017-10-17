@@ -8638,7 +8638,7 @@ div[id^="calendar-widget"] > table table tr:not(:first-child) td.descriptionbox:
   color: #b2bcc5;
 }
 .jc-global-individual .wt-facts-table[role="presentation"] td,
-.jc-global-individual .wt-facts-table td[colspan="2"] {
+.jc-global-individual .wt-facts-table tr:first-child td[colspan="2"] {
   background-color: #272727;
   color: #2e2e2e;
 }
@@ -9555,7 +9555,7 @@ h2 {
 }
 
 .jc-global-individual .wt-facts-table[role="presentation"] td,
-.jc-global-individual .wt-facts-table td[colspan="2"] {
+.jc-global-individual .wt-facts-table tr:first-child td[colspan="2"] {
   background-image: linear-gradient(#6c757d, #3d4349 50%, #2e2e2e);
   background-repeat: no-repeat;
   color: #dee2e6;
