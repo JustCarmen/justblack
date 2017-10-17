@@ -9,9 +9,8 @@
   }
 
   a {
-    color: $link-color-inverse;
+    @include jc-links-inverse;
     &:hover {
-      color: $link-hover-color-inverse;
       text-decoration: none;
     }
   }

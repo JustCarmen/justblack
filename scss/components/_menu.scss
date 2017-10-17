@@ -4,10 +4,7 @@
 }
 
 %wt-nav-link {
-  color: $link-color-inverse;
-  &:hover {
-    color: $link-hover-color-inverse;
-  }
+  @include jc-links-inverse;
 }
 
 // General styles for dropdown menus

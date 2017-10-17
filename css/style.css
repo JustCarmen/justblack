@@ -9573,6 +9573,8 @@ h2 {
 }
 .faq a:hover {
   color: #b2bcc5;
+}
+.faq a:hover {
   text-decoration: none;
 }
 
