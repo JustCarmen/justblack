@@ -7861,6 +7861,10 @@ h2 {
   font-weight: bold;
 }
 
+.popup.person_box, .popup.person_boxF {
+  font-size: 0.875rem;
+}
+
 .wt-global {
   color: #dee2e6;
   background-color: #2e2e2e;
