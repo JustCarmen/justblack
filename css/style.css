@@ -12,7 +12,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-/*! BOOTSTRAP CORE CSS */
+/*! == BOOTSTRAP CORE CSS == */
 /*!
  * Bootstrap v4.0.0-beta (https://getbootstrap.com)
  * Copyright 2011-2017 The Bootstrap Authors
@@ -7790,11 +7790,8 @@ a.text-dark:focus, a.text-dark:hover {
   visibility: hidden !important;
 }
 
-/*! THEME BASE */
-:focus {
-  outline-style: none !important;
-}
-
+/*! == BASE THEME (JUSTFANCY THEME: SEE https://github.com/JustCarmen/justfancy) == */
+/*** Common styles ***/
 ul {
   margin: 0;
   padding: 0;
@@ -7821,6 +7818,10 @@ a[href^="https:"] {
   -moz-hyphens: auto;
   -webkit-hyphens: auto;
   hyphens: auto;
+}
+
+:focus {
+  outline-style: none !important;
 }
 
 .media-display-image,
@@ -7865,6 +7866,7 @@ h2 {
   font-size: 0.875rem;
 }
 
+/*** Body ***/
 .wt-global {
   color: #dee2e6;
   background-color: #2e2e2e;
@@ -7874,6 +7876,7 @@ h2 {
   flex: 1;
 }
 
+/*** Header ***/
 .wt-header-container {
   margin-top: 0;
 }
@@ -7929,6 +7932,7 @@ h2 {
   margin-bottom: 0.5rem;
 }
 
+/*** Footer ***/
 .wt-footer-container {
   color: #fbfcfc;
   font-size: 0.875rem;
@@ -7938,6 +7942,7 @@ h2 {
   content: url(images/powered-by-webtrees.png);
 }
 
+/*** Forms ***/
 .select2-container--default .select2-selection--single {
   border: 1px solid #ffdb6d;
 }
@@ -7996,6 +8001,7 @@ h2 {
   background: #272727;
 }
 
+/*** Icons ***/
 .icon-sex_m_9x9, .icon-sex_f_9x9, .icon-sex_u_9x9, .icon-sex_m_15x15, .icon-sex_f_15x15, .icon-sex_u_15x15, .icon-mypage, .icon-clippings, .icon-selected, .icon-indis, .icon-user_add, .icon-zoomin, .icon-zoomout, .icon-edit_indi, .icon-silhouette-F, .icon-silhouette-M, .icon-silhouette-U, .icon-button_family, .icon-sfamily, .icon-cfamily, .icon-children, .icon-childless, .icon-target, .icon-wiki, .icon-pedigree, .wt-silhouette-F, .wt-silhouette-M, .wt-silhouette-U {
   background: none;
   width: auto;
@@ -8374,6 +8380,7 @@ a.fa:hover {
   padding: 0 .25rem;
 }
 
+/*** Buttons ***/
 @media (max-width: 991px) {
   .btn, input[type="submit"] {
     padding: 0.25rem 0.5rem;
@@ -8382,6 +8389,7 @@ a.fa:hover {
     border-radius: 0.2rem;
   }
 }
+/*** Cards ***/
 .card {
   margin-bottom: .25rem;
 }
@@ -8409,6 +8417,7 @@ a.fa:hover {
   font-weight: 500;
 }
 
+/*** Tables ***/
 .table, .markdown table, .faq {
   border-spacing: 0;
 }
@@ -8500,6 +8509,7 @@ tr.even {
     justify-content: center;
   }
 }
+/*** Person boxes ***/
 .person_box_template .icon-silhouette-F, #lifespan-people .popup .icon-silhouette-F, .person_box_template .icon-silhouette-M, #lifespan-people .popup .icon-silhouette-M, .person_box_template .icon-silhouette-U, #lifespan-people .popup .icon-silhouette-U, .person_box_template a.gallery, #lifespan-people .popup a.gallery,
 .person_box_template img,
 #lifespan-people .popup img {
@@ -8543,6 +8553,7 @@ tr.even {
   font-size: 0.75rem;
 }
 
+/*** Popovers ***/
 .popover a:focus, .popover a:hover {
   color: #c45d00;
 }
@@ -8553,6 +8564,7 @@ tr.even {
   text-decoration: underline;
 }
 
+/*** Statistic block ***/
 .jc-statistics-row {
   font-size: 0.875rem;
 }
@@ -8563,6 +8575,7 @@ tr.even {
   content: " \2022 ";
 }
 
+/*** Calendar ***/
 div[id^="caldiv"] table td,
 div[id^="calendar-widget"] table td {
   background-color: #2e2e2e !important;
@@ -8633,7 +8646,7 @@ div[id^="calendar-widget"] > table table tr:not(:first-child) td.descriptionbox:
   right: .25rem;
 }
 
-/** Colorbox 1.6.4 - Core style **/
+/*** Colorbox 1.6.4 - Core style ***/
 #colorbox, #cboxOverlay, #cboxWrapper {
   position: absolute;
   top: 0;
@@ -8726,7 +8739,7 @@ div[id^="calendar-widget"] > table table tr:not(:first-child) td.descriptionbox:
   -webkit-box-sizing: content-box;
 }
 
-/** Colorbox 1.6.4 - User style 1 **/
+/*** Colorbox 1.6.4 - User style 1 (modified) ***/
 #cboxOverlay {
   background: url(colorbox/overlay.png) repeat 0 0;
   opacity: 0.9;
@@ -8901,6 +8914,7 @@ div[id^="calendar-widget"] > table table tr:not(:first-child) td.descriptionbox:
   background-position: -75px -25px;
 }
 
+/*** Index page (homepage and my page) ***/
 .wt-block-gedcom-block-block i,
 .wt-block-user-welcome-block i {
   font-size: 2.25rem;
@@ -8910,6 +8924,7 @@ div[id^="calendar-widget"] > table table tr:not(:first-child) td.descriptionbox:
   flex-flow: row-reverse;
 }
 
+/*** Individual page ***/
 .jc-global-individual #name-header-0,
 .jc-global-individual #name-content-0 {
   font-size: 1rem;
@@ -8939,6 +8954,7 @@ div[id^="calendar-widget"] > table table tr:not(:first-child) td.descriptionbox:
   border: none;
 }
 
+/*** Charts pages ***/
 #pedigree_canvas {
   color: #868e96;
 }
@@ -8954,10 +8970,12 @@ div[id^="calendar-widget"] > table table tr:not(:first-child) td.descriptionbox:
   outline: none;
 }
 
+/*** List pages ***/
 .jc-global-listpage .wt-initial.active {
   color: #dee2e6;
 }
 
+/*** Advanced search page ***/
 .wt-page-options-search-advanced {
   border: none;
 }
@@ -8991,6 +9009,8 @@ div[id^="calendar-widget"] > table table tr:not(:first-child) td.descriptionbox:
   border: 1px solid rgba(255, 255, 255, 0.175);
 }
 
+/*** Report pages (see forms) ***/
+/*** Album module ***/
 .jc-album-tab-container {
   background: #272727;
   border: 1px solid rgba(255, 255, 255, 0.175);
@@ -9002,6 +9022,7 @@ div[id^="calendar-widget"] > table table tr:not(:first-child) td.descriptionbox:
   white-space: nowrap;
 }
 
+/*** FAQ Module ***/
 .faq,
 .faq .odd td {
   background-color: transparent !important;
@@ -9011,6 +9032,7 @@ div[id^="calendar-widget"] > table table tr:not(:first-child) td.descriptionbox:
   background-color: transparent !important;
 }
 
+/*** Googlemaps module ***/
 .gm-ancestor {
   font-size: 0.875rem;
 }
@@ -9019,6 +9041,7 @@ div[id^="calendar-widget"] > table table tr:not(:first-child) td.descriptionbox:
   font-size: 0.875rem;
 }
 
+/*** Interactive tree module ***/
 .jc-global-module-tree #tv_tree .tv_box .tvM, .wt-block-charts-block #tv_tree .tv_box .tvM,
 #tree #tv_tree .tv_box .tvM, .jc-global-module-tree #tv_tree .tv_box .tvF, .wt-block-charts-block #tv_tree .tv_box .tvF,
 #tree #tv_tree .tv_box .tvF, .jc-global-module-tree #tv_tree .tv_box .tvU, .wt-block-charts-block #tv_tree .tv_box .tvU,
@@ -9089,6 +9112,12 @@ div[id^="calendar-widget"] > table table tr:not(:first-child) td.descriptionbox:
 }
 
 /*! JUSTBLACK THEME */
+/*** Common styles ***/
+h2 {
+  font-family: "salina", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 2.7rem;
+}
+
 @font-face {
   font-family: "salina";
   font-style: normal;
@@ -9101,11 +9130,7 @@ div[id^="calendar-widget"] > table table tr:not(:first-child) td.descriptionbox:
   font-weight: 500;
   src: url("fonts/comfortaa/comfortaa_bold-webfont.ttf") format("truetype"), url("fonts/comfortaa/comfortaa_bold-webfont.eot?") format("eot"), url("fonts/comfortaa/comfortaa_bold-webfont.woff") format("woff");
 }
-h2 {
-  font-family: "salina", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  font-size: 2.7rem;
-}
-
+/*** Header ***/
 .wt-header-content {
   max-width: 100%;
   height: auto;
@@ -9184,6 +9209,7 @@ h2 {
   color: #dee2e6;
 }
 
+/*** Menu ***/
 .wt-primary-menu, .wt-secondary-menu {
   font-size: 0.875rem;
 }
@@ -9438,6 +9464,7 @@ h2 {
   padding: .5rem .25rem;
 }
 
+/*** Tabs ***/
 .nav-tabs .nav-item {
   margin-right: 0.15rem;
 }
@@ -9471,6 +9498,7 @@ h2 {
   background-image: linear-gradient(to bottom, #7d7d7d 0%, #7d7d7d 35%, #797979 38%, #5c5c5c 53%, #545454 59%, #545454 100%);
 }
 
+/*** Theme divider ***/
 .jc-divider, .fancy-imagebar-divider {
   background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzczNzQ3MyIvPjxzdG9wIG9mZnNldD0iMzMlIiBzdG9wLWNvbG9yPSIjOGI4YjhiIi8+PHN0b3Agb2Zmc2V0PSI2NyUiIHN0b3AtY29sb3I9IiNiY2JkYmMiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlNmU2ZTYiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA=');
   background-size: 100%;
@@ -9482,6 +9510,7 @@ h2 {
   height: 4px;
 }
 
+/*** Cards ***/
 .card {
   margin-bottom: 0;
   overflow: hidden;
@@ -9550,6 +9579,7 @@ h2 {
   margin-bottom: .25rem;
 }
 
+/*** Tables ***/
 .table thead th, .markdown table thead th, .faq thead th,
 .table thead td,
 .markdown table thead td,
@@ -9568,6 +9598,7 @@ h2 {
   opacity: 1;
 }
 
+/*** Forms ***/
 .select2-container--default .select2-results {
   background-color: #272727;
 }
@@ -9575,6 +9606,7 @@ h2 {
   background-color: #868e96;
 }
 
+/*** Individual page ***/
 .jc-global-individual .wt-facts-table[role="presentation"] td,
 .jc-global-individual .wt-facts-table tr:first-child td[colspan="2"] {
   background-image: linear-gradient(#6c757d, #3d4349 50%, #2e2e2e);
@@ -9582,12 +9614,14 @@ h2 {
   color: #dee2e6;
 }
 
+/*** Charts pages ***/
 .jc-global-pedigree .shadow .person_box_template, .jc-global-pedigree .shadow #lifespan-people .popup, #lifespan-people .jc-global-pedigree .shadow .popup {
   -moz-box-shadow: 5px 7px 2px 0 #000;
   -webkit-box-shadow: 5px 7px 2px 0 #000;
   box-shadow: 5px 7px 2px 0 #000;
 }
 
+/*** FAQ Module ***/
 .faq tr {
   border: 1px solid rgba(255, 255, 255, 0.175);
 }
@@ -9604,6 +9638,8 @@ h2 {
   text-decoration: none;
 }
 
+/*** Fancy imagebar module (See theme divider) ***/
+/*** Interactive tree module ***/
 .jc-global-module-tree #tv_tools .icon-sfamily, .wt-block-charts-block #tv_tools .icon-sfamily,
 #tree #tv_tools .icon-sfamily {
   color: #000;

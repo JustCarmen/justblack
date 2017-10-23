@@ -1,0 +1,10 @@
+/*** Common styles ***/
+h2 {
+  font-family: $font-family-title, $font-family-base;
+  font-size: $h2-font-size * 1.5;
+}
+
+// Fonts
+@include jc-font-face($font-family-title, "salina-webfont", 500, normal, ttf eot woff);
+@include jc-font-face($font-family-treetitle, "comfortaa_bold-webfont", 500, normal, ttf eot woff);
+
