@@ -7866,6 +7866,12 @@ h2 {
   font-size: 0.875rem;
 }
 
+.optionbox,
+.descriptionbox,
+.topbottombar {
+  border-color: rgba(255, 255, 255, 0.175);
+}
+
 /*** Body ***/
 .wt-global {
   color: #dee2e6;
