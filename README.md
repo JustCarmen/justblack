@@ -1,7 +1,8 @@
 JustBlack Theme for webtrees
 ============================
+[![Latest Release](https://img.shields.io/github/release/JustCarmen/justblack.svg)](https://github.com/JustCarmen/justblack/releases/latest)
 
-This theme requires [webtrees 1.7.x](https://github.com/fisharebest/webtrees). Download the latest stable release of this theme [here](https://github.com/JustCarmen/justblack/releases/latest).
+This theme requires [webtrees 1.7.x](https://github.com/fisharebest/webtrees).
 
 *Note: the current development version (master branch) is compatible with webtrees 2.0.0-dev only. It does not work with older versions of webtrees.*
 
