@@ -1,5 +1,4 @@
 // Declaration of theme specific gradients
-// Needs latest Compass, add '@import "compass"' to your scss
 // Permalinks are used to edit these gradients:
 // Use the prefix 'jb-' here.
 
@@ -9,7 +8,7 @@
 // http://colorzilla.com/gradient-editor/#733900+0,7b4200+3,7b4200+5,8c4a00+8,944a00+10,9c5200+13,a55200+15,ad5a00+18,bd6300+21,c66300+23, d66b00+26,d66b00+28,f77b00+33,f77b00+36,ff8408+38,ff9429+44,ffa539+49,ff9429+54,ff9421+56,ff8408+59,f77b00+62,f77b00+64,e77300+67,de7300+69,d66b00+72,c66300+74,bd6300+77,b55a00+79,ad5a00+82,9c5200+85,944a00+87,8c4a00+90,844200+92,7b4200+95,733900+97,6b3900+100
 
 @mixin jb-theme-bar-gradient() {
-  @include background-image(linear-gradient(top, #733900 0%,#7b4200 3%,#7b4200 5%,#8c4a00 8%,#944a00 10%,#9c5200 13%,#a55200 15%,#ad5a00 18%,#bd6300 21%,#c66300 23%,#d66b00 26%,#d66b00 28%,#f77b00 33%,#f77b00 36%,#ff8408 38%,#ff9429 44%,#ffa539 49%,#ff9429 54%,#ff9421 56%,#ff8408 59%,#f77b00 62%,#f77b00 64%,#e77300 67%,#de7300 69%,#d66b00 72%,#c66300 74%,#bd6300 77%,#b55a00 79%,#ad5a00 82%,#9c5200 85%,#944a00 87%,#8c4a00 90%,#844200 92%,#7b4200 95%,#733900 97%,#6b3900 100%));
+  background: linear-gradient(#733900 0%,#7b4200 3%,#7b4200 5%,#8c4a00 8%,#944a00 10%,#9c5200 13%,#a55200 15%,#ad5a00 18%,#bd6300 21%,#c66300 23%,#d66b00 26%,#d66b00 28%,#f77b00 33%,#f77b00 36%,#ff8408 38%,#ff9429 44%,#ffa539 49%,#ff9429 54%,#ff9421 56%,#ff8408 59%,#f77b00 62%,#f77b00 64%,#e77300 67%,#de7300 69%,#d66b00 72%,#c66300 74%,#bd6300 77%,#b55a00 79%,#ad5a00 82%,#9c5200 85%,#944a00 87%,#8c4a00 90%,#844200 92%,#7b4200 95%,#733900 97%,#6b3900 100%);
 }
 
 // =======================================================================================
@@ -17,7 +16,7 @@
 // =======================================================================================
 // http://colorzilla.com/gradient-editor/#737473+0,8b8b8b+33,bcbdbc+67,e6e6e6+100
 @mixin jb-theme-divider-gradient() {
-  @include background-image(linear-gradient(top, #737473 0%,#8b8b8b 33%,#bcbdbc 67%,#e6e6e6 100%));
+  background: linear-gradient(#737473 0%,#8b8b8b 33%,#bcbdbc 67%,#e6e6e6 100%);
 }
 
 // =======================================================================================
@@ -40,15 +39,15 @@
 // =======================================================================================
 @mixin jb-tabs-gradient() {
   // http://colorzilla.com/gradient-editor/#5b5b5b+0,5b5b5b+34,515151+40,313131+53,272727+59,272727+100
-  @include background-image(linear-gradient(top,  #5b5b5b 0%,#5b5b5b 34%,#515151 40%,#313131 53%,#272727 59%,#272727 100%));
+  background: linear-gradient(#5b5b5b 0%,#5b5b5b 34%,#515151 40%,#313131 53%,#272727 59%,#272727 100%);
   &:hover {
     // http://colorzilla.com/gradient-editor/#737373+0,737373+35,676767+42,4c4c4c+55,474747+59,474747+100
-    @include background-image(linear-gradient(top,  #737373 0%,#737373 35%,#676767 42%,#4c4c4c 55%,#474747 59%,#474747 100%));
+    background: linear-gradient(#737373 0%,#737373 35%,#676767 42%,#4c4c4c 55%,#474747 59%,#474747 100%);
   }
   &:active,
     &.active {
     // http://colorzilla.com/gradient-editor/#7d7d7d+0,7d7d7d+35,797979+38,5c5c5c+53,545454+59,545454+100
-    @include background-image(linear-gradient(top,  #7d7d7d 0%,#7d7d7d 35%,#797979 38%,#5c5c5c 53%,#545454 59%,#545454 100%));
+    background: linear-gradient(#7d7d7d 0%,#7d7d7d 35%,#797979 38%,#5c5c5c 53%,#545454 59%,#545454 100%);
   }
 }
 
@@ -58,10 +57,10 @@
 @mixin jb-tree-gradient($gender) {
   @if $gender == "M" {
     // http://colorzilla.com/gradient-editor/#dd6900+0,dc6900+42,de700d+49,e27f25+60,e2832d+65,e2832d+100
-    @include background-image(linear-gradient(top,  #dd6900 0%,#dc6900 42%,#de700d 49%,#e27f25 60%,#e2832d 65%,#e2832d 100%));
+    background: linear-gradient(#dd6900 0%,#dc6900 42%,#de700d 49%,#e27f25 60%,#e2832d 65%,#e2832d 100%);
   } @else {
     // http://colorzilla.com/gradient-editor/#ffd05c+0,ffd05c+50,ffc73d+50,ffca47+51,ffd160+53,ffd56b+54,ffd56b+100
-    @include background-image(linear-gradient(top,  #ffd05c 0%,#ffd05c 50%,#ffc73d 50%,#ffca47 51%,#ffd160 53%,#ffd56b 54%,#ffd56b 100%));
+    background: linear-gradient(#ffd05c 0%,#ffd05c 50%,#ffc73d 50%,#ffca47 51%,#ffd160 53%,#ffd56b 54%,#ffd56b 100%);
   }
 }
 

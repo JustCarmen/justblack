@@ -15,6 +15,7 @@ $gray-900:                          #272727;
 
 // Colors
 $orange:                            #dd6900;
+$yellow:                            #ffc107;
 
 // Custom colors
 $orange-light:                      #ff9900;
@@ -23,12 +24,8 @@ $yellow-light:                      lighten($yellow, 35%); // #ffeeba
 $yellow-lighter:                    #ffffde;
 
 // Theme colors
-$theme-colors: (
-  primary: $orange,
-  secondary: $yellow-light
-);
-
-$primary-color: theme-color("primary");
+$primary:                           $orange;
+$secondary:                         $yellow-light;
 
 // Body
 $body-bg:                           $gray-800;
@@ -54,7 +51,7 @@ $banner-sm-width:                   540px;
 $banner-sm-height:                  101px;
 
 // Links
-$link-color:                        $primary-color;
+$link-color:                        $primary;
 $link-hover-color:                  $gray-100;
 
 // Nav
@@ -69,7 +66,7 @@ $btn-padding-y:                     .25rem;
 // Icons
 $icon-color:                        $yellow-lighter;
 $icon-hover-color:                  darken($icon-color, 10%);
-$icon-color-inverse:                $primary-color;
+$icon-color-inverse:                $primary;
 
 // Image icons used by this theme
 // Type: arrows, webtrees or other (icons without the prefix wt)
@@ -150,7 +147,7 @@ $popover-title-bg:                  $dropdown-link-active-bg;
 $personbox-male-bg:                 $gray-700;
 $personbox-male-border-color:       rgba($white, .5);
 $personbox-female-bg:               $gray-600;
-$personbox-unknown-border-color:    $primary-color;
+$personbox-unknown-border-color:    $primary;
 $personbox-link-color:              $body-color;
 
 // Facts tables
