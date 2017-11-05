@@ -5,7 +5,7 @@
 }
 
 %wt-nav-link {
-  @include jc-links-inverse;
+  @include jc-dark-links;
 }
 
 // General styles for dropdown menus
@@ -37,17 +37,17 @@
   }
 
   .dropdown-menu {
-    background-color: $dropdown-bg-inverse;
+    background-color: $dropdown-dark-bg;
   }
 
   .dropdown-item {
-    color: $link-color-inverse;
+    color: $link-dark-color;
     &:hover,
       &:focus {
-      background-color: $dropdown-link-hover-bg-inverse;
+      background-color: $dropdown-link-hover-bg;
     }
     &.active {
-      background-color: $dropdown-link-active-bg-inverse;
+      background-color: $dropdown-link-dark-active-bg;
     }
     &:before {
       @include jc-direction(padding, .5rem, null, right);

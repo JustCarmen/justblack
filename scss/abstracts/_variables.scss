@@ -66,7 +66,8 @@ $btn-padding-y:                     .25rem;
 // Icons
 $icon-color:                        $yellow-lighter;
 $icon-hover-color:                  darken($icon-color, 10%);
-$icon-color-inverse:                $primary;
+
+$icon-dark-color:                   $primary;
 
 // Image icons used by this theme
 // Type: arrows, webtrees or other (icons without the prefix wt)
@@ -120,19 +121,20 @@ $card-link-color:                   $gray-200;
 $card-link-hover-color:             $gray-600;
 
 // Dropdown menu container and contents.
-// inverse for dark background and light font colors
+// use 'dark' for dark background and light font colors
 $dropdown-bg:                       $yellow-lighter;
-$dropdown-bg-inverse:               $card-bg;
 $dropdown-border-color:             rgba($gray-200, .35);
 $dropdown-divider-bg:               $gray-600;
 $dropdown-link-color:               $link-color;
 $dropdown-link-hover-color:         darken($dropdown-link-color, 5%);
 $dropdown-link-hover-bg:            $orange-lighter;
-$dropdown-link-hover-bg-inverse:    lighten($gray-600, 5%);
 $dropdown-link-active-color:        $dropdown-link-hover-color;
 $dropdown-link-active-bg:           darken($orange-lighter, 5%);
-$dropdown-link-active-bg-inverse:   $gray-600;
 $dropdown-item-padding-x:           .5rem;
+
+$dropdown-dark-bg:                  $card-bg;
+$dropdown-link-dark-hover-bg:       lighten($gray-600, 5%);
+$dropdown-link-dark-active-bg:      $gray-600;
 
 // Forms
 $input-border-color:                lighten($yellow, 20%);

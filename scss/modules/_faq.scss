@@ -9,7 +9,7 @@
   }
 
   a {
-    @include jc-links-inverse;
+    @include jc-dark-links;
     &:hover {
       text-decoration: none;
     }

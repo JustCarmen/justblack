@@ -1,10 +1,10 @@
 /*** Forms ***/
 .select2-container--default {
   .select2-results {
-    background-color: $dropdown-bg-inverse;
+    background-color: $dropdown-dark-bg;
   }
 
   .select2-results__option[aria-selected=true] {
-    background-color: $dropdown-link-active-bg-inverse;
+    background-color: $dropdown-link-dark-active-bg;
   }
 }
