@@ -2993,7 +2993,7 @@ tbody.collapse.show {
 .dropdown-item:focus, .dropdown-item:hover {
   color: #c45d00;
   text-decoration: none;
-  background: #e9ecef linear-gradient(180deg, #cdd0d2, #e9ecef) repeat-x;
+  background: #ffd87f linear-gradient(180deg, #e0bf73, #ffd87f) repeat-x;
 }
 
 .dropdown-item.active, .dropdown-item:active {
@@ -9474,7 +9474,7 @@ div[id^="calendar-widget"] > table table td.descriptionbox a {
 
 div[id^="caldiv"] > table table td:hover,
 div[id^="calendar-widget"] > table table td:hover {
-  background-color: #e9ecef !important;
+  background-color: #ffd87f !important;
 }
 
 div[id^="caldiv"] > table table td:hover a,
@@ -10142,6 +10142,16 @@ h2 {
   font-size: 0.875rem;
 }
 
+.dropdown-item:focus, .dropdown-item:hover {
+  background: none;
+  background-color: #ffd87f;
+}
+
+.dropdown-item:active, .dropdown-item.active {
+  background: none;
+  background-color: #ffd066;
+}
+
 .dropdown-toggle:after {
   display: none;
 }
@@ -10168,12 +10178,14 @@ h2 {
   color: #dee2e6;
 }
 
-.wt-primary-menu .dropdown-item:hover, .wt-primary-menu .dropdown-item:focus {
-  background-color: #e9ecef;
+.wt-primary-menu .dropdown-item:focus, .wt-primary-menu .dropdown-item:hover {
+  background: none;
+  background-color: #414141;
 }
 
-.wt-primary-menu .dropdown-item.active {
-  background-color: #868e96;
+.wt-primary-menu .dropdown-item:active, .wt-primary-menu .dropdown-item.active {
+  background: none;
+  background-color: #545454;
 }
 
 .wt-primary-menu .dropdown-item:before {
@@ -10583,7 +10595,7 @@ h2 {
 }
 
 .select2-container--default .select2-results__option[aria-selected=true] {
-  background-color: #868e96;
+  background-color: #545454;
 }
 
 /*** Individual page ***/

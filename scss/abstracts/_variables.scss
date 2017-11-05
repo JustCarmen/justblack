@@ -6,8 +6,8 @@
 // =============================================================================
 
 // Options
-$enable-shadows:                    true !default;
-$enable-gradients:                  true !default;
+$enable-shadows:                    true;
+$enable-gradients:                  true;
 
 // Gray scale
 $gray-800:                          #2e2e2e;
@@ -133,8 +133,8 @@ $dropdown-link-active-bg:           darken($orange-lighter, 5%);
 $dropdown-item-padding-x:           .5rem;
 
 $dropdown-dark-bg:                  $card-bg;
-$dropdown-link-dark-hover-bg:       lighten($gray-600, 5%);
-$dropdown-link-dark-active-bg:      $gray-600;
+$dropdown-link-dark-hover-bg:       lighten($gray-800, 7.5%);
+$dropdown-link-dark-active-bg:      lighten($gray-800, 15%);
 
 // Forms
 $input-border-color:                lighten($yellow, 20%);
