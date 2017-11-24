@@ -158,9 +158,8 @@ class JustBlackTheme extends JustBaseTheme {
    */
   protected function setFluidClass() {
     $pages   = ['index', 'individual'];
-    $modules = ['tree'];
 
-    if (in_array($this->getPage(), $pages) || (in_array(Filter::get('mod'), $modules))) {
+    if (in_array($this->getPage(), $pages)) {
       return '-fluid'; // container-fluid
     }
   }
