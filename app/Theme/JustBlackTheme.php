@@ -22,11 +22,11 @@ use Fisharebest\Webtrees\FlashMessages;
 use Fisharebest\Webtrees\I18N;
 
 class JustBlackTheme extends JustBaseTheme {
-	const THEME_NAME    = 'JustBlack';
-	const THEME_DIR     = 'justblack';
-	const ASSET_DIR     = 'themes/' . self::THEME_DIR . '/css/';
-	const STYLESHEET    = self::ASSET_DIR . 'style.css?v' . self::THEME_VERSION;
-	const JAVASCRIPT    = 'themes/' . self::THEME_DIR . '/js/theme.js?v' . self::THEME_VERSION;
+	const THEME_NAME = 'JustBlack';
+	const THEME_DIR  = 'justblack';
+	const ASSET_DIR  = 'themes/' . self::THEME_DIR . '/css/';
+	const STYLESHEET = self::ASSET_DIR . 'style.css?v' . self::THEME_VERSION;
+	const JAVASCRIPT = 'themes/' . self::THEME_DIR . '/js/theme.js?v' . self::THEME_VERSION;
 
 	/**
 	 * In this theme we use a fluid container, an extra divider to separate the content from
@@ -155,7 +155,7 @@ class JustBlackTheme extends JustBaseTheme {
 	 * In this theme we use full width pages on some pages
 	 */
 	protected function setFluidClass() {
-		$pages   = ['index', 'individual'];
+		$pages = ['index', 'individual'];
 
 		if (in_array($this->getPage(), $pages)) {
 			return '-fluid'; // container-fluid
