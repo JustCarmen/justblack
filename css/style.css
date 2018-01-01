@@ -8986,49 +8986,74 @@ h2 {
   font-family: "icomoon";
 }
 
-.fa,
-a.fa {
+.fa, .fab, .fal, .far, .fas, a.fa, a.fab, a.fal, a.far, a.fas {
   color: #ffffde;
   text-decoration: none;
 }
 
-.fa:hover,
-a.fa:hover {
+.fa:hover, .fab:hover, .fal:hover, .far:hover, .fas:hover, a.fa:hover, a.fab:hover, a.fal:hover, a.far:hover, a.fas:hover {
   color: #ffffab;
 }
 
-.input-group-addon .fa,
+.input-group-addon .fa, .input-group-addon .fab, .input-group-addon .fal, .input-group-addon .far, .input-group-addon .fas,
 .input-group-btn .fa,
-.btn-secondary .fa, .input-group-addon
-a.fa,
-.input-group-btn
-a.fa,
-.btn-secondary
-a.fa {
+.input-group-btn .fab,
+.input-group-btn .fal,
+.input-group-btn .far,
+.input-group-btn .fas,
+.btn-secondary .fa,
+.btn-secondary .fab,
+.btn-secondary .fal,
+.btn-secondary .far,
+.btn-secondary .fas, .input-group-addon a.fa, .input-group-addon a.fab, .input-group-addon a.fal, .input-group-addon a.far, .input-group-addon a.fas,
+.input-group-btn a.fa,
+.input-group-btn a.fab,
+.input-group-btn a.fal,
+.input-group-btn a.far,
+.input-group-btn a.fas,
+.btn-secondary a.fa,
+.btn-secondary a.fab,
+.btn-secondary a.fal,
+.btn-secondary a.far,
+.btn-secondary a.fas {
   color: #dd6900;
 }
 
-.input-group-addon .fa:hover,
+.input-group-addon .fa:hover, .input-group-addon .fab:hover, .input-group-addon .fal:hover, .input-group-addon .far:hover, .input-group-addon .fas:hover,
 .input-group-btn .fa:hover,
-.btn-secondary .fa:hover, .input-group-addon
-a.fa:hover,
-.input-group-btn
-a.fa:hover,
-.btn-secondary
-a.fa:hover {
+.input-group-btn .fab:hover,
+.input-group-btn .fal:hover,
+.input-group-btn .far:hover,
+.input-group-btn .fas:hover,
+.btn-secondary .fa:hover,
+.btn-secondary .fab:hover,
+.btn-secondary .fal:hover,
+.btn-secondary .far:hover,
+.btn-secondary .fas:hover, .input-group-addon a.fa:hover, .input-group-addon a.fab:hover, .input-group-addon a.fal:hover, .input-group-addon a.far:hover, .input-group-addon a.fas:hover,
+.input-group-btn a.fa:hover,
+.input-group-btn a.fab:hover,
+.input-group-btn a.fal:hover,
+.input-group-btn a.far:hover,
+.input-group-btn a.fas:hover,
+.btn-secondary a.fa:hover,
+.btn-secondary a.fab:hover,
+.btn-secondary a.fal:hover,
+.btn-secondary a.far:hover,
+.btn-secondary a.fas:hover {
   color: #aa5100;
 }
 
-.btn-primary .fa, input[type="submit"] .fa,
+.btn-primary .fa, input[type="submit"] .fa, .btn-primary .fab, input[type="submit"] .fab, .btn-primary .fal, input[type="submit"] .fal, .btn-primary .far, input[type="submit"] .far, .btn-primary .fas, input[type="submit"] .fas,
 .btn-primary .fa:hover, input[type="submit"] .fa:hover,
-.btn-primary
-a.fa,
-input[type="submit"]
-a.fa,
-.btn-primary
-a.fa:hover,
-input[type="submit"]
-a.fa:hover {
+.btn-primary .fab:hover, input[type="submit"] .fab:hover,
+.btn-primary .fal:hover, input[type="submit"] .fal:hover,
+.btn-primary .far:hover, input[type="submit"] .far:hover,
+.btn-primary .fas:hover, input[type="submit"] .fas:hover, .btn-primary a.fa, input[type="submit"] a.fa, .btn-primary a.fab, input[type="submit"] a.fab, .btn-primary a.fal, input[type="submit"] a.fal, .btn-primary a.far, input[type="submit"] a.far, .btn-primary a.fas, input[type="submit"] a.fas,
+.btn-primary a.fa:hover, input[type="submit"] a.fa:hover,
+.btn-primary a.fab:hover, input[type="submit"] a.fab:hover,
+.btn-primary a.fal:hover, input[type="submit"] a.fal:hover,
+.btn-primary a.far:hover, input[type="submit"] a.far:hover,
+.btn-primary a.fas:hover, input[type="submit"] a.fas:hover {
   color: #fff;
 }
 
@@ -10676,7 +10701,7 @@ h2 {
   color: #e9ecef;
 }
 
-.card-header a.fa {
+.card-header a.fa, .card-header a.fab, .card-header a.fal, .card-header a.far, .card-header a.fas {
   color: #ffffde;
 }
 
