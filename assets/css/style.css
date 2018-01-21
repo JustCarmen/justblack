@@ -34,7 +34,7 @@
 }
 
 /* Override Bootstrap formatting */
-#select2-rootid-container {
+.select2-container .select2-selection--single {
   /* Relationships, thumbnail fit in parent */
   height: auto;
 }
