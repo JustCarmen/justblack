@@ -19343,7 +19343,8 @@ h2 {
   color: #ffffde;
 }
 
-.jc-global-index .card-header {
+.jc-global-tree-page .card-header,
+.jc-global-user-page .card-header {
   border-bottom: 0;
   font-family: "salina", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 1.8rem;

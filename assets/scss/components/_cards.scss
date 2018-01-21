@@ -13,7 +13,8 @@
     }
   }
 
-  .jc-global-index & {
+  .jc-global-tree-page &,
+  .jc-global-user-page & {
     border-bottom: 0;
     font-family: $font-family-title, $font-family-base;
     font-size: $h2-font-size;
