@@ -155,7 +155,7 @@ class JustBlackTheme extends JustBaseTheme {
 	 * In this theme we use full width pages on some pages
 	 */
 	protected function setFluidClass() {
-		$pages = ['index', 'individual'];
+		$pages = ['tree-page', 'user-page', 'individual'];
 
 		if (in_array($this->getPage(), $pages)) {
 			return '-fluid'; // container-fluid
