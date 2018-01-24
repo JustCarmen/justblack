@@ -24,9 +24,9 @@ use Fisharebest\Webtrees\I18N;
 class JustBlackTheme extends JustBaseTheme {
 	const THEME_NAME = 'JustBlack';
 	const THEME_DIR  = 'justblack';
-	const ASSET_DIR     = 'themes/' . self::THEME_DIR . '/assets/';
-	const STYLESHEET    = self::ASSET_DIR . 'css/style.css?v' . self::THEME_VERSION;
-	const JAVASCRIPT    = self::ASSET_DIR . 'js/theme.js?v' . self::THEME_VERSION;
+	const ASSET_DIR  = 'themes/' . self::THEME_DIR . '/assets/';
+	const STYLESHEET = self::ASSET_DIR . 'css/style.css?v' . self::THEME_VERSION;
+	const JAVASCRIPT = self::ASSET_DIR . 'js/theme.js?v' . self::THEME_VERSION;
 
 	/**
 	 * In this theme we use a fluid container, an extra divider to separate the content from
