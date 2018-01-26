@@ -1,6 +1,13 @@
+<?php
+/**
+ * Change: add media link and reorder-media link moved from individual-page view to individual-page-menu view
+ * Themes: all themes
+ *
+ */
+?>
+
 <?php use Fisharebest\Webtrees\Auth; ?>
 <?php use Fisharebest\Webtrees\Functions\FunctionsPrint; ?>
-<?php use Fisharebest\Webtrees\Html; ?>
 <?php use Fisharebest\Webtrees\I18N; ?>
 <?php use Fisharebest\Webtrees\View; ?>
 
@@ -55,20 +62,6 @@
 						</a>
 					</div>
 
-				<?php endif ?>
-
-				<?php if (Auth::isEditor($individual->getTree())): ?>
-					<?php if (count($individual->getFacts('OBJE')) > 1): ?>
-						<div><a href="<?= e(route('reorder-media', ['ged' => $individual->getTree()->getName(), 'xref' => $individual->getXref()])) ?>">
-								<?= I18N::translate('Re-order media') ?>
-							</a></div>
-					<?php endif ?>
-
-					<?php if ($individual->getTree()->getPreference('MEDIA_UPLOAD') >= Auth::accessLevel($individual->getTree())): ?>
-						<div><a href="<?= e(Html::url('edit_interface.php', ['action' => 'add-media-link', 'ged' => $individual->getTree()->getName(), 'xref' => $individual->getXref()])) ?>">
-								<?= I18N::translate('Add a media object') ?>
-							</a></div>
-					<?php endif ?>
 				<?php endif ?>
 			</div>
 
