@@ -1,6 +1,11 @@
+const sass = require('node-sass');
+
 module.exports = function(grunt) {
 
+  // load all grunt tasks with this command. No need to set grunt.loadNpmTasks(...) for each task separately;
   require('load-grunt-tasks')(grunt);
+
+  // output time table
 	require('time-grunt')(grunt);
 
   // Project configuration.
@@ -43,7 +48,7 @@ module.exports = function(grunt) {
         files: ['assets/scss/**/*.scss', '../justfancy/assets/scss/**/*.scss'],
         tasks: ['default'],
         options: {
-          spawn: false
+          spawn: true
         }
       },
       js: {
@@ -68,6 +73,7 @@ module.exports = function(grunt) {
     sass: {
       dev: {
         options: {
+          implementation: sass,
           outputStyle: 'expanded',
           sourceMap: true
 
@@ -109,7 +115,10 @@ module.exports = function(grunt) {
     // ========================================================================================
     concat: {
       options: {
-        separator: '' + grunt.util.linefeed
+        separator: '' + grunt.util.linefeed,
+        process: function (content) {
+          return content.replace(/JustFancy/, 'JustBlack');
+        }
       },
 
       justblack: {
@@ -167,27 +176,39 @@ module.exports = function(grunt) {
         }],
         options: {
           process: function (content) {
+            content = content.replace(/JustFancy/, 'JustBlack');
             return content.replace('JustFancy\\Theme', 'JustBlack\\Theme');
           }
         }
       },
 
      // excluded files:
-      // - views/tab/album.php
+      // - views/modules/lightbox/*
       // Add all other files explicitly
       resources: {
         files: [{
           cwd: '../justfancy/resources',
           src: [
             'colorbox.php',
-            'views/individual-page*',
-            'views/report-setup-page.php',
-            'views/blocks/*',
+            'views/edit*',
+            'views/individual*',
+            'views/report*',
+            'views/tree*',
+            'views/user*',
+            'views/lists/*',
+            'views/modules/gedcom_block/*',
+            'views/modules/gedcom_stats/*',
+            'views/modules/user_welcome/*',
             'views/selects/*'
           ],
           dest: 'resources',
           expand: true
-        }]
+        }],
+        options: {
+          process: function (content) {
+            return content.replace(/JustFancy/, 'JustBlack');
+          }
+        }
       },
 
       fonts: {
@@ -201,13 +222,14 @@ module.exports = function(grunt) {
         ]
       },
 
+      // gitignore is different in both themes
+      // we won't copy that file.
       other: {
        files: [{
          cwd: '../justfancy',
          src: [
            '.php_cs',
-           '.gitattributes',
-           '.gitignore'
+           '.gitattributes'
          ],
          dest: '',
          expand: true
@@ -223,7 +245,7 @@ module.exports = function(grunt) {
   grunt.registerTask('default', ['sass:dev', 'postcss:default']);
 
   // Custom tasks (development)
-  grunt.registerTask('_dev-theme', ['sass:dev', 'postcss:default', 'concat', 'copy', 'phpcsfixer']);
+  grunt.registerTask('_dev-theme', ['concat', 'sass:dev', 'postcss:default', 'copy', 'phpcsfixer']);
 
   // Custom tasks (distribution)
   grunt.registerTask('_dist-theme', ['_dev-theme', 'postcss:dist', 'uglify']);
