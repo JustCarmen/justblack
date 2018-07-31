@@ -1,1 +1,10 @@
-<?= $media->displayImage(21, 28, 'crop', []) ?> <?= $media->getFullName() ?>, <?= basename($media->getFilename()) ?>
+<?php
+/**
+ * Change: image display (smaller image)
+ * Themes: all themes
+ */
+?>
+<?php foreach ($media->mediaFiles() as $media_file): ?>
+	<?= $media_file->displayImage(21, 28, 'crop', []) ?>
+<?php endforeach ?>
+<?= $media->getFullName() ?>
