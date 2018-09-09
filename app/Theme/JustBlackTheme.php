@@ -90,7 +90,7 @@ class JustBlackTheme extends JustBaseTheme {
 	}
 
 	/** {@inheritdoc} */
-	protected function headerContent() {
+	protected function headerContent():string {
 		return
 		$this->accessibilityLinks() .
 		'<div class="d-flex col-12 order-2">' .
@@ -103,7 +103,7 @@ class JustBlackTheme extends JustBaseTheme {
 	}
 
 	/** {@inheritdoc} */
-	public function hookHeaderExtraContent() {
+	public function hookHeaderExtraContent():string {
 		$html = '';
 		if ($this->themeOption('css')) {
 			$html .= '<link rel="stylesheet" type="text/css" href="' . $this->themeOption('css') . '">';
@@ -137,7 +137,7 @@ class JustBlackTheme extends JustBaseTheme {
 	}
 
 	/** (@inheritdoc) */
-	public function secondaryMenu() {
+	public function secondaryMenu():array {
 		return array_filter([
 		$this->menuPendingChanges(),
 		$this->menuMyPages(),
@@ -160,7 +160,7 @@ class JustBlackTheme extends JustBaseTheme {
 	}
 
 	/** @inheritdoc} */
-	public function stylesheets() {
+	public function stylesheets():array {
 		return array_merge(
 	  parent::stylesheets(),
 		[self::STYLESHEET]
@@ -168,7 +168,7 @@ class JustBlackTheme extends JustBaseTheme {
 	}
 
 	/** {@inheritdoc} */
-	public function themeName() {
+	public function themeName():string {
 		return /* I18N: Name of a theme. */ I18N::translate(self::THEME_NAME);
 	}
 }
