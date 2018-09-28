@@ -3,8 +3,7 @@
  * JustBlack Theme
  *
  * webtrees: online genealogy
- * Copyright (C) 2017 webtrees development team
- * Copyright (C) 2017 JustCarmen
+ * Copyright (C) 2018 JustCarmen (http://justcarmen.nl)
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -33,7 +32,7 @@ use JustCarmen\WebtreesAddOns\JustBlack\JustBlackThemeOptionsClass;
 
 class JustBlackTheme extends AbstractTheme implements ThemeInterface {
 
-	const THEME_VERSION			 = '1.7.9';
+	const THEME_VERSION			 = '1.7.11';
 	const THEME_DIR				 = WT_THEMES_DIR . 'justblack/';
 	const THEME_CSS_URL			 = self::THEME_DIR . 'css-' . self::THEME_VERSION . '/';
 	const THEME_JS_URL			 = self::THEME_DIR . 'js-' . self::THEME_VERSION . '/';
