@@ -1,12 +1,12 @@
 const sass = require('node-sass');
 
-module.exports = function(grunt) {
+module.exports = function (grunt) {
 
   // load all grunt tasks with this command. No need to set grunt.loadNpmTasks(...) for each task separately;
   require('load-grunt-tasks')(grunt);
 
   // output time table
-	require('time-grunt')(grunt);
+  require('time-grunt')(grunt);
 
   // Project configuration.
   grunt.initConfig({
@@ -156,12 +156,12 @@ module.exports = function(grunt) {
 
     phpcsfixer: {
       app: {
-          dir: ''
+        dir: ''
       },
       options: {
-          bin: '../justfancy/vendor/bin/php-cs-fixer',
-          configfile: '.php_cs',
-          quiet: true
+        bin: '../justfancy/vendor/bin/php-cs-fixer',
+        configfile: '.php_cs',
+        quiet: true
       }
     },
 
@@ -182,7 +182,8 @@ module.exports = function(grunt) {
         }
       },
 
-     // excluded files:
+      // excluded files:
+      // - views/layouts/*
       // - views/modules/lightbox/*
       // Add all other files explicitly
       resources: {
@@ -190,11 +191,7 @@ module.exports = function(grunt) {
           cwd: '../justfancy/resources',
           src: [
             'colorbox.php',
-            'views/edit*',
-            'views/individual*',
-            'views/report*',
-            'views/tree*',
-            'views/user*',
+            'views/*page*',
             'views/lists/*',
             'views/modules/gedcom_block/*',
             'views/modules/gedcom_stats/*',
@@ -212,28 +209,26 @@ module.exports = function(grunt) {
       },
 
       fonts: {
-        files: [
-          {
-            cwd: '../justfancy/assets/css/fonts/',
-            src: ['**'],
-            dest: 'assets/css/fonts/',
-            expand: true
-          }
-        ]
+        files: [{
+          cwd: '../justfancy/assets/css/fonts/',
+          src: ['**'],
+          dest: 'assets/css/fonts/',
+          expand: true
+        }]
       },
 
       // gitignore is different in both themes
       // we won't copy that file.
       other: {
-       files: [{
-         cwd: '../justfancy',
-         src: [
-           '.php_cs',
-           '.gitattributes'
-         ],
-         dest: '',
-         expand: true
-       }]
+        files: [{
+          cwd: '../justfancy',
+          src: [
+            '.php_cs',
+            '.gitattributes'
+          ],
+          dest: '',
+          expand: true
+        }]
       }
     }
   }); // end of grunt configuration
