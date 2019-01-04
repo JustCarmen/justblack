@@ -86,7 +86,7 @@
   padding-bottom: 1rem;
 }
 
-.wt-page-content .form-control, .wt-page-content .jc-view-report-setup input, .jc-view-report-setup .wt-page-content input {
+.wt-page-content .form-control, .wt-page-content .jc-view-report-setup input:not([type=checkbox]):not([type=radio]), .jc-view-report-setup .wt-page-content input:not([type=checkbox]):not([type=radio]) {
   width: 100% !important;
 }
 
@@ -5136,7 +5136,7 @@ pre code {
   border: 0;
 }
 
-.form-control, .jc-view-report-setup input {
+.form-control, .jc-view-report-setup input:not([type=checkbox]):not([type=radio]) {
   display: block;
   width: 100%;
   height: calc(2.25rem + 2px);
@@ -5153,17 +5153,17 @@ pre code {
 }
 
 @media screen and (prefers-reduced-motion: reduce) {
-  .form-control, .jc-view-report-setup input {
+  .form-control, .jc-view-report-setup input:not([type=checkbox]):not([type=radio]) {
     transition: none;
   }
 }
 
-.form-control::-ms-expand, .jc-view-report-setup input::-ms-expand {
+.form-control::-ms-expand, .jc-view-report-setup input:not([type=radio]):not([type=checkbox])::-ms-expand {
   background-color: transparent;
   border: 0;
 }
 
-.form-control:focus, .jc-view-report-setup input:focus {
+.form-control:focus, .jc-view-report-setup input:focus:not([type=checkbox]):not([type=radio]) {
   color: #495057;
   background-color: #fff;
   border-color: #afb4ba;
@@ -5171,27 +5171,27 @@ pre code {
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 0 0.2rem rgba(108, 117, 125, 0.25);
 }
 
-.form-control::-webkit-input-placeholder, .jc-view-report-setup input::-webkit-input-placeholder {
+.form-control::-webkit-input-placeholder, .jc-view-report-setup input:not([type=radio]):not([type=checkbox])::-webkit-input-placeholder {
   color: #868e96;
   opacity: 1;
 }
 
-.form-control:-ms-input-placeholder, .jc-view-report-setup input:-ms-input-placeholder {
+.form-control:-ms-input-placeholder, .jc-view-report-setup input:not([type=radio]):not([type=checkbox]):-ms-input-placeholder {
   color: #868e96;
   opacity: 1;
 }
 
-.form-control::-ms-input-placeholder, .jc-view-report-setup input::-ms-input-placeholder {
+.form-control::-ms-input-placeholder, .jc-view-report-setup input:not([type=radio]):not([type=checkbox])::-ms-input-placeholder {
   color: #868e96;
   opacity: 1;
 }
 
-.form-control::placeholder, .jc-view-report-setup input::placeholder {
+.form-control::placeholder, .jc-view-report-setup input:not([type=radio]):not([type=checkbox])::placeholder {
   color: #868e96;
   opacity: 1;
 }
 
-.form-control:disabled, .jc-view-report-setup input:disabled, .form-control[readonly], .jc-view-report-setup input[readonly] {
+.form-control:disabled, .jc-view-report-setup input:disabled:not([type=checkbox]):not([type=radio]), .form-control[readonly], .jc-view-report-setup input[readonly]:not([type=checkbox]):not([type=radio]) {
   background-color: #e9ecef;
   opacity: 1;
 }
@@ -5351,25 +5351,25 @@ textarea.form-control {
   border-radius: 0.25rem;
 }
 
-.was-validated .form-control:valid, .was-validated .jc-view-report-setup input:valid, .jc-view-report-setup .was-validated input:valid, .form-control.is-valid, .jc-view-report-setup input.is-valid, .was-validated
+.was-validated .form-control:valid, .was-validated .jc-view-report-setup input:valid:not([type=checkbox]):not([type=radio]), .jc-view-report-setup .was-validated input:valid:not([type=checkbox]):not([type=radio]), .form-control.is-valid, .jc-view-report-setup input.is-valid:not([type=checkbox]):not([type=radio]), .was-validated
 .custom-select:valid,
 .custom-select.is-valid {
   border-color: #28a745;
 }
 
-.was-validated .form-control:valid:focus, .was-validated .jc-view-report-setup input:valid:focus, .jc-view-report-setup .was-validated input:valid:focus, .form-control.is-valid:focus, .jc-view-report-setup input.is-valid:focus, .was-validated
+.was-validated .form-control:valid:focus, .was-validated .jc-view-report-setup input:valid:focus:not([type=checkbox]):not([type=radio]), .jc-view-report-setup .was-validated input:valid:focus:not([type=checkbox]):not([type=radio]), .form-control.is-valid:focus, .jc-view-report-setup input.is-valid:focus:not([type=checkbox]):not([type=radio]), .was-validated
 .custom-select:valid:focus,
 .custom-select.is-valid:focus {
   border-color: #28a745;
   box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
 }
 
-.was-validated .form-control:valid ~ .valid-feedback, .was-validated .jc-view-report-setup input:valid ~ .valid-feedback, .jc-view-report-setup .was-validated input:valid ~ .valid-feedback,
+.was-validated .form-control:valid ~ .valid-feedback, .was-validated .jc-view-report-setup input:valid:not([type=checkbox]):not([type=radio]) ~ .valid-feedback, .jc-view-report-setup .was-validated input:valid:not([type=checkbox]):not([type=radio]) ~ .valid-feedback,
 .was-validated .form-control:valid ~ .valid-tooltip,
-.was-validated .jc-view-report-setup input:valid ~ .valid-tooltip,
-.jc-view-report-setup .was-validated input:valid ~ .valid-tooltip, .form-control.is-valid ~ .valid-feedback, .jc-view-report-setup input.is-valid ~ .valid-feedback,
+.was-validated .jc-view-report-setup input:valid:not([type=checkbox]):not([type=radio]) ~ .valid-tooltip,
+.jc-view-report-setup .was-validated input:valid:not([type=checkbox]):not([type=radio]) ~ .valid-tooltip, .form-control.is-valid ~ .valid-feedback, .jc-view-report-setup input.is-valid:not([type=checkbox]):not([type=radio]) ~ .valid-feedback,
 .form-control.is-valid ~ .valid-tooltip,
-.jc-view-report-setup input.is-valid ~ .valid-tooltip, .was-validated
+.jc-view-report-setup input.is-valid:not([type=checkbox]):not([type=radio]) ~ .valid-tooltip, .was-validated
 .custom-select:valid ~ .valid-feedback,
 .was-validated
 .custom-select:valid ~ .valid-tooltip,
@@ -5457,25 +5457,25 @@ textarea.form-control {
   border-radius: 0.25rem;
 }
 
-.was-validated .form-control:invalid, .was-validated .jc-view-report-setup input:invalid, .jc-view-report-setup .was-validated input:invalid, .form-control.is-invalid, .jc-view-report-setup input.is-invalid, .was-validated
+.was-validated .form-control:invalid, .was-validated .jc-view-report-setup input:invalid:not([type=checkbox]):not([type=radio]), .jc-view-report-setup .was-validated input:invalid:not([type=checkbox]):not([type=radio]), .form-control.is-invalid, .jc-view-report-setup input.is-invalid:not([type=checkbox]):not([type=radio]), .was-validated
 .custom-select:invalid,
 .custom-select.is-invalid {
   border-color: #dc3545;
 }
 
-.was-validated .form-control:invalid:focus, .was-validated .jc-view-report-setup input:invalid:focus, .jc-view-report-setup .was-validated input:invalid:focus, .form-control.is-invalid:focus, .jc-view-report-setup input.is-invalid:focus, .was-validated
+.was-validated .form-control:invalid:focus, .was-validated .jc-view-report-setup input:invalid:focus:not([type=checkbox]):not([type=radio]), .jc-view-report-setup .was-validated input:invalid:focus:not([type=checkbox]):not([type=radio]), .form-control.is-invalid:focus, .jc-view-report-setup input.is-invalid:focus:not([type=checkbox]):not([type=radio]), .was-validated
 .custom-select:invalid:focus,
 .custom-select.is-invalid:focus {
   border-color: #dc3545;
   box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
 }
 
-.was-validated .form-control:invalid ~ .invalid-feedback, .was-validated .jc-view-report-setup input:invalid ~ .invalid-feedback, .jc-view-report-setup .was-validated input:invalid ~ .invalid-feedback,
+.was-validated .form-control:invalid ~ .invalid-feedback, .was-validated .jc-view-report-setup input:invalid:not([type=checkbox]):not([type=radio]) ~ .invalid-feedback, .jc-view-report-setup .was-validated input:invalid:not([type=checkbox]):not([type=radio]) ~ .invalid-feedback,
 .was-validated .form-control:invalid ~ .invalid-tooltip,
-.was-validated .jc-view-report-setup input:invalid ~ .invalid-tooltip,
-.jc-view-report-setup .was-validated input:invalid ~ .invalid-tooltip, .form-control.is-invalid ~ .invalid-feedback, .jc-view-report-setup input.is-invalid ~ .invalid-feedback,
+.was-validated .jc-view-report-setup input:invalid:not([type=checkbox]):not([type=radio]) ~ .invalid-tooltip,
+.jc-view-report-setup .was-validated input:invalid:not([type=checkbox]):not([type=radio]) ~ .invalid-tooltip, .form-control.is-invalid ~ .invalid-feedback, .jc-view-report-setup input.is-invalid:not([type=checkbox]):not([type=radio]) ~ .invalid-feedback,
 .form-control.is-invalid ~ .invalid-tooltip,
-.jc-view-report-setup input.is-invalid ~ .invalid-tooltip, .was-validated
+.jc-view-report-setup input.is-invalid:not([type=checkbox]):not([type=radio]) ~ .invalid-tooltip, .was-validated
 .custom-select:invalid ~ .invalid-feedback,
 .was-validated
 .custom-select:invalid ~ .invalid-tooltip,
@@ -5564,7 +5564,7 @@ textarea.form-control {
     align-items: center;
     margin-bottom: 0;
   }
-  .form-inline .form-control, .form-inline .jc-view-report-setup input, .jc-view-report-setup .form-inline input {
+  .form-inline .form-control, .form-inline .jc-view-report-setup input:not([type=checkbox]):not([type=radio]), .jc-view-report-setup .form-inline input:not([type=checkbox]):not([type=radio]) {
     display: inline-block;
     width: auto;
     vertical-align: middle;
@@ -6675,7 +6675,7 @@ input[type="button"].btn-block {
   width: 100%;
 }
 
-.input-group > .form-control, .jc-view-report-setup .input-group > input,
+.input-group > .form-control, .jc-view-report-setup .input-group > input:not([type=checkbox]):not([type=radio]),
 .input-group > .custom-select,
 .input-group > .custom-file {
   position: relative;
@@ -6684,23 +6684,23 @@ input[type="button"].btn-block {
   margin-bottom: 0;
 }
 
-.input-group > .form-control + .form-control, .jc-view-report-setup .input-group > input + .form-control, .jc-view-report-setup .input-group > .form-control + input, .jc-view-report-setup .input-group > input + input,
+.input-group > .form-control + .form-control, .jc-view-report-setup .input-group > input:not([type=checkbox]):not([type=radio]) + .form-control, .jc-view-report-setup .input-group > .form-control + input:not([type=checkbox]):not([type=radio]), .jc-view-report-setup .input-group > input:not([type=checkbox]):not([type=radio]) + input:not([type=checkbox]):not([type=radio]),
 .input-group > .form-control + .custom-select,
-.jc-view-report-setup .input-group > input + .custom-select,
+.jc-view-report-setup .input-group > input:not([type=checkbox]):not([type=radio]) + .custom-select,
 .input-group > .form-control + .custom-file,
-.jc-view-report-setup .input-group > input + .custom-file,
+.jc-view-report-setup .input-group > input:not([type=checkbox]):not([type=radio]) + .custom-file,
 .input-group > .custom-select + .form-control,
-.jc-view-report-setup .input-group > .custom-select + input,
+.jc-view-report-setup .input-group > .custom-select + input:not([type=checkbox]):not([type=radio]),
 .input-group > .custom-select + .custom-select,
 .input-group > .custom-select + .custom-file,
 .input-group > .custom-file + .form-control,
-.jc-view-report-setup .input-group > .custom-file + input,
+.jc-view-report-setup .input-group > .custom-file + input:not([type=checkbox]):not([type=radio]),
 .input-group > .custom-file + .custom-select,
 .input-group > .custom-file + .custom-file {
   margin-left: -1px;
 }
 
-.input-group > .form-control:focus, .jc-view-report-setup .input-group > input:focus,
+.input-group > .form-control:focus, .jc-view-report-setup .input-group > input:focus:not([type=checkbox]):not([type=radio]),
 .input-group > .custom-select:focus,
 .input-group > .custom-file .custom-file-input:focus ~ .custom-file-label {
   z-index: 3;
@@ -6710,13 +6710,13 @@ input[type="button"].btn-block {
   z-index: 4;
 }
 
-.input-group > .form-control:not(:last-child), .jc-view-report-setup .input-group > input:not(:last-child),
+.input-group > .form-control:not(:last-child), .jc-view-report-setup .input-group > input:not(:last-child):not([type=checkbox]):not([type=radio]),
 .input-group > .custom-select:not(:last-child) {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
 
-.input-group > .form-control:not(:first-child), .jc-view-report-setup .input-group > input:not(:first-child),
+.input-group > .form-control:not(:first-child), .jc-view-report-setup .input-group > input:not(:first-child):not([type=checkbox]):not([type=radio]),
 .input-group > .custom-select:not(:first-child) {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
@@ -6797,7 +6797,7 @@ input[type="button"].btn-block {
   margin-top: 0;
 }
 
-.input-group-lg > .form-control, .jc-view-report-setup .input-group-lg > input,
+.input-group-lg > .form-control, .jc-view-report-setup .input-group-lg > input:not([type=checkbox]):not([type=radio]),
 .input-group-lg > .input-group-prepend > .input-group-text,
 .input-group-lg > .input-group-append > .input-group-text,
 .input-group-lg > .input-group-prepend > .btn,
@@ -6811,7 +6811,7 @@ input[type="button"].btn-block {
   border-radius: 0.3rem;
 }
 
-.input-group-sm > .form-control, .jc-view-report-setup .input-group-sm > input,
+.input-group-sm > .form-control, .jc-view-report-setup .input-group-sm > input:not([type=checkbox]):not([type=radio]),
 .input-group-sm > .input-group-prepend > .input-group-text,
 .input-group-sm > .input-group-append > .input-group-text,
 .input-group-sm > .input-group-prepend > .btn,
@@ -19563,7 +19563,7 @@ h2 {
   background-color: #dd6900;
 }
 
-.input-group .input-group-btn + .select2.form-control + .select2-container--default .select2-selection--single, .input-group .jc-view-report-setup .input-group-btn + input.select2 + .select2-container--default .select2-selection--single, .jc-view-report-setup .input-group .input-group-btn + input.select2 + .select2-container--default .select2-selection--single {
+.input-group .input-group-btn + .select2.form-control + .select2-container--default .select2-selection--single, .input-group .jc-view-report-setup .input-group-btn + input.select2:not([type=checkbox]):not([type=radio]) + .select2-container--default .select2-selection--single, .jc-view-report-setup .input-group .input-group-btn + input.select2:not([type=checkbox]):not([type=radio]) + .select2-container--default .select2-selection--single {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
@@ -20148,7 +20148,7 @@ tr.even {
 }
 
 .person_boxNN {
-  background-color: transparent;
+  background-color: #2e2e2e;
   border-color: #dd6900;
 }
 
