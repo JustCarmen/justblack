@@ -20059,6 +20059,10 @@ tr.even {
   padding: 0.25rem 0.5rem;
 }
 
+.dt-bootstrap4 .dataTables_length select {
+  width: 100% !important;
+}
+
 .dt-bootstrap4 .dataTables_filter input {
   width: auto !important;
 }
