@@ -6,161 +6,152 @@
 // =============================================================================
 
 // Options
-$enable-shadows:                    true;
-$enable-gradients:                  true;
+$enable-shadows: true;
+$enable-gradients: true;
 
 // Gray scale
-$gray-800:                          #2e2e2e;
-$gray-900:                          #272727;
+$gray-800: #2e2e2e;
+$gray-900: #272727;
 
 // Colors
-$orange:                            #dd6900;
-$yellow:                            #ffc107;
+$orange: #dd6900;
+$yellow: #ffc107;
 
 // Custom colors
-$orange-light:                      #ff9900;
-$orange-lighter:                    #ffd87f;
-$yellow-light:                      lighten($yellow, 35%); // #ffeeba
-$yellow-lighter:                    #ffffde;
+$orange-light: #ff9900;
+$orange-lighter: #ffd87f;
+$yellow-light: lighten($yellow, 35%); // #ffeeba
+$yellow-lighter: #ffffde;
 
 // Theme colors
-$primary:                           $orange;
-$secondary:                         $yellow-light;
+$primary: $orange;
+$secondary: $yellow-light;
 
 // Body
-$body-bg:                           $gray-800;
-$body-color:                        $gray-300;
+$body-bg: $gray-800;
+$body-color: $gray-300;
 
 // Fonts
-$theme-fonts-path:                  'fonts/';
-$font-family-title:                 'salina';
-$font-family-treetitle:             'comfortaa';
+$theme-fonts-path: 'fonts/';
+$font-family-title: 'salina';
+$font-family-treetitle: 'comfortaa';
 
-$text-muted:                        $gray-500;
+$text-muted: $gray-500;
 
 // Header
-$banner-sm:                         'images/banner-sm.jpg';
-$banner-md:                         'images/banner-md.jpg';
-$banner-lg:                         'images/banner-lg.jpg';
+$banner-sm: 'images/banner-sm.jpg';
+$banner-md: 'images/banner-md.jpg';
+$banner-lg: 'images/banner-lg.jpg';
 
-$banner-lg-width:                   800px;
-$banner-lg-height:                  150px;
-$banner-md-width:                   720px;
-$banner-md-height:                  135px;
-$banner-sm-width:                   540px;
-$banner-sm-height:                  101px;
+$banner-lg-width: 800px;
+$banner-lg-height: 150px;
+$banner-md-width: 720px;
+$banner-md-height: 135px;
+$banner-sm-width: 540px;
+$banner-sm-height: 101px;
 
 // Links
-$link-color:                        $primary;
-$link-hover-color:                  $gray-100;
+$link-color: $primary;
+$link-hover-color: $gray-100;
 
 // Nav
-$nav-link-padding:                  .25em 1em;
-$nav-link-color:                    $body-color;
-$nav-tabs-link-active-color:        $gray-100;
+$nav-link-padding: .25em 1em;
+$nav-link-color: $body-color;
+$nav-tabs-link-active-color: $gray-100;
 
 // Buttons
-$btn-padding-x:                     .5rem; // make all buttons small buttons
-$btn-padding-y:                     .25rem;
+$btn-padding-x: .5rem; // make all buttons small buttons
+$btn-padding-y: .25rem;
 
 // Icons
-$icon-color:                        $yellow-lighter;
-$icon-hover-color:                  darken($icon-color, 10%);
-
-$icon-dark-color:                   $primary;
+$icon-color: $yellow-lighter;
+$icon-hover-color: darken($icon-color, 10%);
+$icon-dark-color: $primary;
 
 // Image icons used by this theme
 // Type: arrows, webtrees or other (icons without the prefix wt)
 // optional parameters: width (default 16), height (default 16)
-$image-icons: (
-  arrows: (
-    arrow-down:         (20),
-    arrow-left:         (20),
-    arrow-right:        (20),
-    arrow-up:           (20)
-  ),
-  webtrees: (
-    bing-maps:          (23),
-    copy:               (),
-    delete:             (),
-    edit:               (),
-    google-maps:        (23),
-    openstreetmap:      (23)
-  ),
-  other: (
-    childless:          (25),
-    resn-confidential:  (),
-    resn-locked:        (),
-    resn-none:          (),
-    resn-privacy:       (),
-    ring:               (),
-    selected:           (12)
-  )
-);
+$image-icons: (arrows: (arrow-down: (20),
+arrow-left: (20),
+arrow-right: (20),
+arrow-up: (20)),
+webtrees: (bing-maps: (23),
+copy: (),
+delete: (),
+edit: (),
+google-maps: (23),
+openstreetmap: (23)),
+other: (childless: (25),
+resn-confidential: (),
+resn-locked: (),
+resn-none: (),
+resn-privacy: (),
+ring: (),
+selected: (12)));
 
 // Components
-$component-active-color:            $body-color;
-$component-active-bg:               darken($gray-600, 10%);
+$component-active-color: $body-color;
+$component-active-bg: darken($gray-600, 10%);
 
 // Tables
-$table-accent-bg:                   rgba($black,.25);
-$table-head-bg:                     $gray-700;
-$table-head-color:                  $body-color;
-$table-border-color:                rgba($white,.175);
+$table-accent-bg: rgba($black, .25);
+$table-head-bg: $gray-700;
+$table-head-color: $body-color;
+$table-border-color: rgba($white, .175);
 
 // Pagination
-$pagination-disabled-color:         $gray-600;
-$pagination-disabled-bg:            $gray-100;
-$pagination-hover-color:            $pagination-disabled-color;
+$pagination-disabled-color: $gray-600;
+$pagination-disabled-bg: $gray-100;
+$pagination-hover-color: $pagination-disabled-color;
 
 // Cards
-$card-cap-bg:                       $gray-900;
-$card-bg:                           $gray-900;
-$card-border-color:                 $table-border-color;
-$card-link-color:                   $gray-200;
-$card-link-hover-color:             $gray-600;
+$card-cap-bg: $gray-900;
+$card-bg: $gray-900;
+$card-border-color: $table-border-color;
+$card-link-color: $gray-200;
+$card-link-hover-color: $gray-600;
 
 // Dropdown menu container and contents.
 // use 'dark' for dark background and light font colors
-$dropdown-bg:                       $yellow-lighter;
-$dropdown-border-color:             rgba($gray-200, .35);
-$dropdown-divider-bg:               $gray-600;
-$dropdown-link-color:               $link-color;
-$dropdown-link-hover-color:         darken($dropdown-link-color, 5%);
-$dropdown-link-hover-bg:            $orange-lighter;
-$dropdown-link-active-color:        $dropdown-link-hover-color;
-$dropdown-link-active-bg:           darken($orange-lighter, 5%);
-$dropdown-item-padding-x:           .5rem;
+$dropdown-bg: $yellow-lighter;
+$dropdown-border-color: rgba($gray-200, .35);
+$dropdown-divider-bg: $gray-600;
+$dropdown-link-color: $link-color;
+$dropdown-link-hover-color: darken($dropdown-link-color, 5%);
+$dropdown-link-hover-bg: $orange-lighter;
+$dropdown-link-active-color: $dropdown-link-hover-color;
+$dropdown-link-active-bg: darken($orange-lighter, 5%);
+$dropdown-item-padding-x: .5rem;
 
-$dropdown-dark-bg:                  $card-bg;
-$dropdown-link-dark-hover-bg:       lighten($gray-800, 7.5%);
-$dropdown-link-dark-active-bg:      lighten($gray-800, 15%);
+$dropdown-dark-bg: $card-bg;
+$dropdown-link-dark-hover-bg: lighten($gray-800, 7.5%);
+$dropdown-link-dark-active-bg: lighten($gray-800, 15%);
 
 // Forms
-$input-border-color:                lighten($yellow, 20%);
-$input-group-addon-bg:              lighten($yellow, 35%);
+$input-border-color: lighten($yellow, 20%);
+$input-group-addon-bg: lighten($yellow, 35%);
 
 // Popovers
-$popover-bg:                        $dropdown-bg;
-$popover-border-color:              $dropdown-border-color;
-$popover-title-bg:                  $dropdown-link-active-bg;
+$popover-bg: $dropdown-bg;
+$popover-border-color: $dropdown-border-color;
+$popover-title-bg: $dropdown-link-active-bg;
 
 // Personboxes
-$personbox-male-bg:                 $gray-700;
-$personbox-male-border-color:       rgba($white, .5);
-$personbox-female-bg:               $gray-600;
-$personbox-unknown-border-color:    $primary;
-$personbox-link-color:              $body-color;
+$personbox-male-bg: $gray-700;
+$personbox-male-border-color: rgba($white, .5);
+$personbox-female-bg: $gray-600;
+$personbox-unknown-border-color: $primary;
+$personbox-link-color: $body-color;
 
 // Facts tables
-$facts-table-header-bg:             $table-head-bg;
-$facts-table-header-color:          $table-head-color;
-$facts-table-bg:                    $card-bg;
+$facts-table-header-bg: $table-head-bg;
+$facts-table-header-color: $table-head-color;
+$facts-table-bg: $card-bg;
 
 // Charts
-$pedigree-canvas-color:             $gray-600;
+$pedigree-canvas-color: $gray-600;
 
 // Treeview
-$treeview-bg-color:                 lighten($orange-lighter, 5%);
-$treeview-title-color:              $gray-800;
-$treeview-border-color:             darken($yellow, 5%);
+$treeview-bg-color: lighten($orange-lighter, 5%);
+$treeview-title-color: $gray-800;
+$treeview-border-color: darken($yellow, 5%);
