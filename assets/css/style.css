@@ -20612,15 +20612,23 @@ div[id^="calendar-widget"] > table table tr:not(:first-child) td.descriptionbox:
   color: #b2bcc5;
 }
 
-.jc-global-individual .wt-facts-table[role="presentation"]:first-child td,
-.jc-global-individual .wt-facts-table tr:first-child td[colspan="2"] {
-  background-color: #272727;
-  color: #2e2e2e;
-}
-
 .jc-global-individual .wt-facts-table .person_box, .jc-global-individual .wt-facts-table .person_boxF, .jc-global-individual .wt-facts-table .person_boxU {
   background-color: transparent;
   border: none;
+}
+
+.jc-global-individual .jc-indi-tab-header {
+  background-color: #272727;
+  border: 1px solid;
+  color: #2e2e2e;
+  padding: 0.75rem;
+}
+
+.jc-global-individual .jc-indi-tab-content {
+  background: #272727;
+  border: 1px solid rgba(255, 255, 255, 0.175);
+  font-size: 0.875rem;
+  padding: 0.75rem;
 }
 
 /*** Charts pages ***/
@@ -20709,11 +20717,6 @@ div[id^="calendar-widget"] > table table tr:not(:first-child) td.descriptionbox:
 }
 
 /*** Album module ***/
-.jc-album-tab-container {
-  background: #272727;
-  border: 1px solid rgba(255, 255, 255, 0.175);
-}
-
 .wt-album-tab-caption {
   overflow: hidden;
   text-overflow: ellipsis;
