@@ -10855,7 +10855,8 @@ div[id^="calendar-widget"] table td, .jc-global-individual #relatives_content td
 }
 
 .pr-2,
-.px-2 {
+.px-2,
+.wt-timeline-chart td {
   padding-right: 0.5rem !important;
 }
 
@@ -10866,7 +10867,8 @@ div[id^="calendar-widget"] table td, .jc-global-individual #relatives_content td
 }
 
 .pl-2,
-.px-2 {
+.px-2,
+.wt-timeline-chart td {
   padding-left: 0.5rem !important;
 }
 
@@ -20632,6 +20634,44 @@ div[id^="calendar-widget"] > table table tr:not(:first-child) td.descriptionbox:
 
 .jc-global-fanchart :focus {
   outline: none;
+}
+
+.person0, .person1, .person2, .person3, .person4, .person5 {
+  font-size: 0.875rem;
+}
+
+.person0 {
+  background-color: #f8f9fa;
+  border: 1px outset #f8f9fa;
+}
+
+.person1 {
+  background-color: #e9ecef;
+  border: 1px outset #e9ecef;
+}
+
+.person2 {
+  background-color: #dee2e6;
+  border: 1px outset #dee2e6;
+}
+
+.person3 {
+  background-color: #ced4da;
+  border: 1px outset #ced4da;
+}
+
+.person4 {
+  background-color: #adb5bd;
+  border: 1px outset #adb5bd;
+}
+
+.person5 {
+  background-color: #868e96;
+  border: 1px outset #868e96;
+}
+
+.wt-timeline-chart td {
+  font-size: 0.75rem;
 }
 
 .wt-ancestors-chart-list,
