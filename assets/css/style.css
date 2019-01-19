@@ -12321,7 +12321,8 @@ a.text-dark:hover, a.text-dark:focus {
 .icon-zoomin,
 .icon-zoomout,
 .wt-icon-delete,
-.wt-icon-individual {
+.wt-icon-individual,
+.fa-user {
   font-family: 'Font Awesome 5 Free';
   font-weight: 900;
 }
@@ -12348,7 +12349,8 @@ a.text-dark:hover, a.text-dark:focus {
 .icon-zoomin,
 .icon-zoomout,
 .wt-icon-delete,
-.wt-icon-individual, .far, .icon-minus, .icon-plus, .icon-reminder,
+.wt-icon-individual,
+.fa-user, .far, .icon-minus, .icon-plus, .icon-reminder,
 .fal,
 .fab {
   -moz-osx-font-smoothing: grayscale;
@@ -12470,6 +12472,7 @@ a.text-dark:hover, a.text-dark:focus {
 .fa-pull-left.icon-zoomout,
 .fa-pull-left.wt-icon-delete,
 .fa-pull-left.wt-icon-individual,
+.fa-pull-left.fa-user,
 .far.fa-pull-left,
 .fa-pull-left.icon-minus,
 .fa-pull-left.icon-plus,
@@ -12498,6 +12501,7 @@ a.text-dark:hover, a.text-dark:focus {
 .fa-pull-right.icon-zoomout,
 .fa-pull-right.wt-icon-delete,
 .fa-pull-right.wt-icon-individual,
+.fa-pull-right.fa-user,
 .far.fa-pull-right,
 .fa-pull-right.icon-minus,
 .fa-pull-right.icon-plus,
