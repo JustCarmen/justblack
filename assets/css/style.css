@@ -19640,6 +19640,11 @@ h2 {
   content: url(images/powered-by-webtrees.png);
 }
 
+/*** Dropdown menu ***/
+.dropdown-item active:hover, .dropdown-item active:focus, .dropdown-item.active:hover, .dropdown-item.active:focus {
+  background: #ffc133 linear-gradient(180deg, #e0ab32, #ffc133) repeat-x;
+}
+
 /*** Forms ***/
 .select2-container--default .select2-selection--single .select2-selection__rendered .gallery img, .select2-container--default .select2-results__option .gallery img {
   margin-right: 0.25rem;
