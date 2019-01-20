@@ -16,29 +16,36 @@ module.exports = function (grunt) {
     // WATCH TASK
     // ========================================================================================
     watch: {
-      config: { // watch JustFancy base theme for changes
+      basetheme: { // watch JustFancy base theme for changes
         files: ['../justfancy/app/Theme/JustBaseTheme.php'],
-        tasks: ['copy:config'],
+        tasks: ['copy:basetheme'],
         options: {
           spawn: false // Key ‘spawn’ defines whether to seed/repeat the task continuously or not.
         }
       },
-      resources: {
-        files: ['../justfancy/resources/*'],
-        tasks: ['copy:resources'],
+      colorbox: {
+        files: ['../justfancy/resources/colorbox.php'],
+        tasks: ['copy:colorbox'],
+        options: {
+          spawn: false
+        }
+      },
+      views: { // watch views folder for changes
+        files: ['../justfancy/resources/views/**'],
+        tasks: ['copy:views'],
         options: {
           spawn: false
         }
       },
       fonts: {
-        files: ['../justfancy/assets/css/fonts/*'],
+        files: ['../justfancy/assets/css/fonts/**'],
         tasks: ['copy:fonts'],
         options: {
           spawn: false
         }
       },
       other: {
-        files: ['../justfancy/.php_cs', '../justfancy/.gitattributes', '../justfancy/.gitignore'],
+        files: ['../justfancy/.php_cs', '../justfancy/.gitattributes'],
         tasks: ['copy:other'],
         options: {
           spawn: false
@@ -169,7 +176,7 @@ module.exports = function (grunt) {
     // COPY TASK
     // ========================================================================================
     copy: {
-      config: {
+      basetheme: {
         files: [{
           src: '../justfancy/app/Theme/JustBaseTheme.php',
           dest: 'app/Theme/JustBaseTheme.php'
@@ -182,27 +189,33 @@ module.exports = function (grunt) {
         }
       },
 
-      // excluded folders:
-      // - views/layouts/*
-      resources: {
+      colorbox: {
         files: [{
-          cwd: '../justfancy/resources',
-          src: [
-            'colorbox.php',
-            'views/*',
-            'views/icons/**',
-            'views/lists/**',
-            'views/modules/**',
-            'views/selects/**'
-          ],
-          dest: 'resources',
-          expand: true
-        }],
-        options: {
-          process: function (content) {
-            return content.replace(/JustFancy/, 'JustBlack');
+            cwd: '../justfancy/resources',
+            src: 'colorbox.php',
+            dest: 'resources',
+            expand: true
+          }],
+          options: {
+            process: function (content) {
+              content = content.replace(/JustFancy/, 'JustBlack');
+              return content.replace(/JustFancy/, 'JustBlack');
+            }
           }
-        }
+      },
+
+      // Copy the view folder. Use ** to include subfolders
+      // Use '!' to exclude a file or folder
+      views: {
+        files: [{
+          cwd: '../justfancy/resources/views/',
+          src: [
+            '**',
+            '!layouts/*'
+          ],
+          dest: 'resources/views',
+          expand: true
+        }]
       },
 
       fonts: {
