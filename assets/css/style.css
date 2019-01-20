@@ -20014,6 +20014,18 @@ h2 {
   content: '';
 }
 
+.jc-global-calendar .icon-indis {
+  font-size: 1.8rem;
+}
+
+.jc-global-calendar .icon-cfamily {
+  font-size: 1.8rem;
+}
+
+.jc-global-individual .icon-cfamily {
+  font-size: 1.8rem;
+}
+
 .fa-info-circle {
   color: #dd6900 !important;
 }
