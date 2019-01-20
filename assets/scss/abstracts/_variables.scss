@@ -38,6 +38,17 @@ $font-family-treetitle: 'comfortaa';
 
 $text-muted: $gray-500;
 
+// Font-sizes
+$font-size-base: .8125rem; // 13px
+$font-size-sm: .75rem; // 12px
+
+$h1-font-size: 2.0 * $font-size-base;
+$h2-font-size: 1.8 * $font-size-base;
+$h3-font-size: 1.6 * $font-size-base;
+$h4-font-size: 1.4 * $font-size-base;
+$h5-font-size: 1.2 * $font-size-base;
+$h6-font-size: 1.0 * $font-size-base;
+
 // Header
 $banner-sm: 'images/banner-sm.jpg';
 $banner-md: 'images/banner-md.jpg';
@@ -58,6 +69,10 @@ $link-hover-color: $gray-100;
 $nav-link-padding: .25em 1em;
 $nav-link-color: $body-color;
 $nav-tabs-link-active-color: $gray-100;
+
+// Tree title
+$treetitle-link-color: $white;
+$treetitle-link-hover-color: $nav-link-color;
 
 // Buttons
 $btn-padding-x: .5rem; // make all buttons small buttons

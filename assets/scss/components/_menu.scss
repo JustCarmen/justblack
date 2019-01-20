@@ -19,6 +19,7 @@
     background: none;
     background-color: $dropdown-link-hover-bg;
   }
+
   &:active,
   &.active {
     background: none;
@@ -35,14 +36,17 @@
   border: none;
   margin: .5rem 0;
 }
+
 .wt-primary-menu {
   @extend %wt-menu;
   .nav-item {
     min-width: 5rem;
     text-align: center;
   }
+
   .nav-link {
     @extend %wt-nav-link;
+
     &::before {
       display: block;
     }
@@ -54,15 +58,18 @@
 
   .dropdown-item {
     color: $link-dark-color;
+
     @include hover-focus {
       background: none;
       background-color: $dropdown-link-dark-hover-bg;
     }
+
     &:active,
     &.active {
       background: none;
       background-color: $dropdown-link-dark-active-bg;
     }
+
     &:before {
       @include jc-direction(padding, .5rem, null, right);
       display: inline-block;
@@ -76,7 +83,9 @@
 // Secondary menu
 .wt-secondary-menu {
   @extend %wt-menu;
-  .nav-item + .nav-item::before {
+  font-weight: 700;
+
+  .nav-item+.nav-item::before {
     content: "|"
   }
 

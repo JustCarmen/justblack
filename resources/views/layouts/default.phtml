@@ -58,11 +58,10 @@
                     </a>
                 </div>
 
-                <div class="d-flex col-12 order-2">
+                <div class="d-flex col order-2">
                     <div class="col wt-site-logo"></div>
-
                     <?php if ($tree !== null): ?>
-                    <h1 class="col jc-site-title text-right px-5 py-3 align-self-end">
+                    <h1 class="col jc-site-title align-self-end text-right px-5 pb-3">
                         <a href="index.php?route=tree-page&ged=<?= e($tree->name()) ?>">
                             <?= e($tree->title()) ?></a>
                     </h1>
@@ -81,28 +80,29 @@
             </div>
         </div>
 
-        <div class="jc-favsearch-bar">
-            <div class="jc-header-search-container  d-flex flex-nowrap flex-column">
-                <?php if ($tree !== null): ?>
-                <div class="col wt-header-search">
-                    <form class="wt-header-search-form" role="search">
-                        <input type="hidden" name="route" value="search-quick">
-                        <input type="hidden" name="ged" value="<?= e($tree->name()) ?>">
-                        <div class="input-group">
-                            <label class="sr-only" for="quick-search">
-                                <?= I18N::translate('Search') ?></label>
-                            <input type="search" class="form-control wt-header-search-field" id="quick-search" name="query"
-                                size="15" placeholder="<?= I18N::translate('Search') ?>">
-                            <span class="input-group-btn">
-                                <button type="submit" class="btn btn-primary wt-header-search-button">
-                                    <?= view('icons/search') ?>
-                                </button>
-                            </span>
-                        </div>
-                    </form>
-                </div>
-                <?php endif ?>
+        <div class="jc-favsearch-bar d-flex flex-nowrap flex-column">
+            <?php if ($tree !== null): ?>
+            <div class="col jc-header-favorites">
+                <ul class="dropdown  btn btn-primary-outline" role="menubar"><?= Theme::theme()->menuFavorites() ?></ul>
             </div>
+            <div class="col wt-header-search">
+                <form class="wt-header-search-form" role="search">
+                    <input type="hidden" name="route" value="search-quick">
+                    <input type="hidden" name="ged" value="<?= e($tree->name()) ?>">
+                    <div class="input-group">
+                        <label class="sr-only" for="quick-search">
+                            <?= I18N::translate('Search') ?></label>
+                        <input type="search" class="form-control wt-header-search-field" id="quick-search" name="query"
+                            size="15" placeholder="<?= I18N::translate('Search') ?>">
+                        <span class="input-group-btn">
+                            <button type="submit" class="btn btn-primary wt-header-search-button">
+                                <?= view('icons/search') ?>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+            <?php endif ?>
         </div>
 
         <?php if ($tree !== null): ?>

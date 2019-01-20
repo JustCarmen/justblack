@@ -14,7 +14,7 @@
   }
 }
 
-.wt-site-title {
+.jc-site-title {
   font-family: $font-family-treetitle, $font-family-base;
   font-size: $h1-font-size * .675;
   margin: 0 calc(50vw - #{$banner-sm-width/2});
@@ -31,16 +31,19 @@
     }
   }
   text-shadow: -2px 2px $black;
+  a {
+      color: $treetitle-link-color;
+      @include hover-focus {
+        color: $treetitle-link-hover-color;
+      }
+
+  }
 }
 
 .jc-favsearch-bar {
   @include jb-theme-bar-gradient;
 
   @at-root {
-    .jc-header-search-container {
-      padding: .4rem 0;
-    }
-
     .wt-header-search {
       input {
         border-bottom-left-radius: $btn-border-radius !important;

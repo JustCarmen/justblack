@@ -15,7 +15,6 @@
  */
 namespace JustCarmen\WebtreesThemes\JustBlack\Theme;
 
-use Fisharebest\Webtrees\FlashMessages;
 use Fisharebest\Webtrees\I18N;
 
 class JustBlackTheme extends JustBaseTheme {
@@ -25,90 +24,11 @@ class JustBlackTheme extends JustBaseTheme {
 	const STYLESHEET = self::ASSET_DIR . 'css/style.css?v' . self::THEME_VERSION;
 	const JAVASCRIPT = self::ASSET_DIR . 'js/theme.js?v' . self::THEME_VERSION;
 
-	/**
-	 * In this theme we use a fluid container, an extra divider to separate the content from
-	 * the header and footer, a background image in the header and a design bar with the search
-	 * and favorites menu
-	 *
-	 * {@inheritdoc} */
-	public function bodyHeader() {
-		return
-		'<body class="wt-global' . $this->getPageGlobalClass() . ' theme-' . self::THEME_DIR . '">' .
-		'<header class="wt-header-wrapper">' .
-		'<div class="container-fluid wt-header-container">' .
-		'<div class="d-flex flex-wrap wt-header-content m-0">' .
-		$this->headerContent() .
-		'</div>' .
-		'</div>' .
-		$this->formatFavSearchBar() .
-		$this->primaryMenuContainer($this->primaryMenu()) .
-		'</header>' .
-		$this->formatDivider() .
-		$this->fancyImagebar() .
-		'<main id="content" class="container' . $this->setFluidClass() . ' wt-main-wrapper mt-3">' .
-		'<div class="wt-main-container">' .
-		$this->flashMessagesContainer(FlashMessages::getMessages());
-	}
-
-	protected function bodyHeaderEnd() {
-		return parent::bodyHeaderEnd() . $this->formatDivider();
-	}
-
-	protected function formatDivider() {
-		return '<div class="jc-divider"></div>';
-	}
-
-	protected function formatFavoritesMenu() {
+	public function menuFavorites() {
 		$menu = parent::menuFavorites();
 		if ($menu && count($menu->getSubmenus())) {
-			return
-		  '<div class="header-favorites">' .
-		  '<ul class="dropdown  btn btn-primary-outline" role="menubar">' . $menu->bootstrap4() . '</ul>' .
-		  '</div>';
-		} else {
-			return null;
+			return $menu->bootstrap4();
 		}
-	}
-
-	protected function formatFavSearchBar() {
-		return
-		'<div class="jc-favsearch-bar">' .
-		'<div class="jc-header-search-container  d-flex flex-nowrap flex-column">' .
-		$this->formQuickSearch() .
-		'</div>' .
-		'</div>';
-	}
-
-	/** {@inheritdoc} */
-	public function formatTreeTitle() {
-		if ($this->tree) {
-			return
-		  '<h1 class="col wt-site-title text-right px-5 py-3 align-self-end">' . $this->formatTreeTitleLink() . '</h1>';
-		} else {
-			return '';
-		}
-	}
-
-	/** {@inheritdoc} */
-	protected function headerContent():string {
-		return
-		$this->accessibilityLinks() .
-		'<div class="d-flex col-12 order-2">' .
-		$this->logoHeader() .
-		$this->formatTreeTitle() .
-		'</div>' .
-		'<div class="d-flex flex-column flex-nowrap col-12 order-1">' .
-		$this->secondaryMenuContainer($this->secondaryMenu()) .
-		'</div>';
-	}
-
-	/** {@inheritdoc} */
-	public function hookHeaderExtraContent():string {
-		$html = '';
-		if ($this->themeOption('css')) {
-			$html .= '<link rel="stylesheet" type="text/css" href="' . $this->themeOption('css') . '">';
-		}
-		return $html;
 	}
 
 	/** {@inheritdoc} */
@@ -151,20 +71,12 @@ class JustBlackTheme extends JustBaseTheme {
 	/**
 	 * In this theme we use full width pages on some pages
 	 */
-	protected function setFluidClass() {
+	public function setFluidClass() {
 		$pages = ['tree-page', 'user-page', 'individual'];
 
-		if (in_array($this->getPage(), $pages)) {
+		if (in_array($this->request->get('route'), $pages)) {
 			return '-fluid'; // container-fluid
 		}
-	}
-
-	/** @inheritdoc} */
-	public function stylesheets():array {
-		return array_merge(
-	  parent::stylesheets(),
-		[self::STYLESHEET]
-	);
 	}
 
 	/** {@inheritdoc} */
