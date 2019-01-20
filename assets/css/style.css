@@ -86,7 +86,7 @@
   padding-bottom: 1rem;
 }
 
-.wt-page-content .form-control, .wt-page-content .jc-view-report-setup input:not([type=checkbox]):not([type=radio]), .jc-view-report-setup .wt-page-content input:not([type=checkbox]):not([type=radio]) {
+.wt-page-content .form-control {
   width: 100% !important;
 }
 
@@ -5129,7 +5129,7 @@ pre code {
   border: 0;
 }
 
-.form-control, .jc-view-report-setup input:not([type=checkbox]):not([type=radio]) {
+.form-control {
   display: block;
   width: 100%;
   height: calc(2.25rem + 2px);
@@ -5146,17 +5146,17 @@ pre code {
 }
 
 @media screen and (prefers-reduced-motion: reduce) {
-  .form-control, .jc-view-report-setup input:not([type=checkbox]):not([type=radio]) {
+  .form-control {
     transition: none;
   }
 }
 
-.form-control::-ms-expand, .jc-view-report-setup input:not([type=radio]):not([type=checkbox])::-ms-expand {
+.form-control::-ms-expand {
   background-color: transparent;
   border: 0;
 }
 
-.form-control:focus, .jc-view-report-setup input:focus:not([type=checkbox]):not([type=radio]) {
+.form-control:focus {
   color: #495057;
   background-color: #fff;
   border-color: #afb4ba;
@@ -5164,27 +5164,27 @@ pre code {
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 0 0.2rem rgba(108, 117, 125, 0.25);
 }
 
-.form-control::-webkit-input-placeholder, .jc-view-report-setup input:not([type=radio]):not([type=checkbox])::-webkit-input-placeholder {
+.form-control::-webkit-input-placeholder {
   color: #868e96;
   opacity: 1;
 }
 
-.form-control:-ms-input-placeholder, .jc-view-report-setup input:not([type=radio]):not([type=checkbox]):-ms-input-placeholder {
+.form-control:-ms-input-placeholder {
   color: #868e96;
   opacity: 1;
 }
 
-.form-control::-ms-input-placeholder, .jc-view-report-setup input:not([type=radio]):not([type=checkbox])::-ms-input-placeholder {
+.form-control::-ms-input-placeholder {
   color: #868e96;
   opacity: 1;
 }
 
-.form-control::placeholder, .jc-view-report-setup input:not([type=radio]):not([type=checkbox])::placeholder {
+.form-control::placeholder {
   color: #868e96;
   opacity: 1;
 }
 
-.form-control:disabled, .jc-view-report-setup input:disabled:not([type=checkbox]):not([type=radio]), .form-control[readonly], .jc-view-report-setup input[readonly]:not([type=checkbox]):not([type=radio]) {
+.form-control:disabled, .form-control[readonly] {
   background-color: #e9ecef;
   opacity: 1;
 }
@@ -5344,25 +5344,22 @@ textarea.form-control {
   border-radius: 0.25rem;
 }
 
-.was-validated .form-control:valid, .was-validated .jc-view-report-setup input:valid:not([type=checkbox]):not([type=radio]), .jc-view-report-setup .was-validated input:valid:not([type=checkbox]):not([type=radio]), .form-control.is-valid, .jc-view-report-setup input.is-valid:not([type=checkbox]):not([type=radio]), .was-validated
+.was-validated .form-control:valid, .form-control.is-valid, .was-validated
 .custom-select:valid,
 .custom-select.is-valid {
   border-color: #28a745;
 }
 
-.was-validated .form-control:valid:focus, .was-validated .jc-view-report-setup input:valid:focus:not([type=checkbox]):not([type=radio]), .jc-view-report-setup .was-validated input:valid:focus:not([type=checkbox]):not([type=radio]), .form-control.is-valid:focus, .jc-view-report-setup input.is-valid:focus:not([type=checkbox]):not([type=radio]), .was-validated
+.was-validated .form-control:valid:focus, .form-control.is-valid:focus, .was-validated
 .custom-select:valid:focus,
 .custom-select.is-valid:focus {
   border-color: #28a745;
   box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
 }
 
-.was-validated .form-control:valid ~ .valid-feedback, .was-validated .jc-view-report-setup input:valid:not([type=checkbox]):not([type=radio]) ~ .valid-feedback, .jc-view-report-setup .was-validated input:valid:not([type=checkbox]):not([type=radio]) ~ .valid-feedback,
-.was-validated .form-control:valid ~ .valid-tooltip,
-.was-validated .jc-view-report-setup input:valid:not([type=checkbox]):not([type=radio]) ~ .valid-tooltip,
-.jc-view-report-setup .was-validated input:valid:not([type=checkbox]):not([type=radio]) ~ .valid-tooltip, .form-control.is-valid ~ .valid-feedback, .jc-view-report-setup input.is-valid:not([type=checkbox]):not([type=radio]) ~ .valid-feedback,
-.form-control.is-valid ~ .valid-tooltip,
-.jc-view-report-setup input.is-valid:not([type=checkbox]):not([type=radio]) ~ .valid-tooltip, .was-validated
+.was-validated .form-control:valid ~ .valid-feedback,
+.was-validated .form-control:valid ~ .valid-tooltip, .form-control.is-valid ~ .valid-feedback,
+.form-control.is-valid ~ .valid-tooltip, .was-validated
 .custom-select:valid ~ .valid-feedback,
 .was-validated
 .custom-select:valid ~ .valid-tooltip,
@@ -5450,25 +5447,22 @@ textarea.form-control {
   border-radius: 0.25rem;
 }
 
-.was-validated .form-control:invalid, .was-validated .jc-view-report-setup input:invalid:not([type=checkbox]):not([type=radio]), .jc-view-report-setup .was-validated input:invalid:not([type=checkbox]):not([type=radio]), .form-control.is-invalid, .jc-view-report-setup input.is-invalid:not([type=checkbox]):not([type=radio]), .was-validated
+.was-validated .form-control:invalid, .form-control.is-invalid, .was-validated
 .custom-select:invalid,
 .custom-select.is-invalid {
   border-color: #dc3545;
 }
 
-.was-validated .form-control:invalid:focus, .was-validated .jc-view-report-setup input:invalid:focus:not([type=checkbox]):not([type=radio]), .jc-view-report-setup .was-validated input:invalid:focus:not([type=checkbox]):not([type=radio]), .form-control.is-invalid:focus, .jc-view-report-setup input.is-invalid:focus:not([type=checkbox]):not([type=radio]), .was-validated
+.was-validated .form-control:invalid:focus, .form-control.is-invalid:focus, .was-validated
 .custom-select:invalid:focus,
 .custom-select.is-invalid:focus {
   border-color: #dc3545;
   box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
 }
 
-.was-validated .form-control:invalid ~ .invalid-feedback, .was-validated .jc-view-report-setup input:invalid:not([type=checkbox]):not([type=radio]) ~ .invalid-feedback, .jc-view-report-setup .was-validated input:invalid:not([type=checkbox]):not([type=radio]) ~ .invalid-feedback,
-.was-validated .form-control:invalid ~ .invalid-tooltip,
-.was-validated .jc-view-report-setup input:invalid:not([type=checkbox]):not([type=radio]) ~ .invalid-tooltip,
-.jc-view-report-setup .was-validated input:invalid:not([type=checkbox]):not([type=radio]) ~ .invalid-tooltip, .form-control.is-invalid ~ .invalid-feedback, .jc-view-report-setup input.is-invalid:not([type=checkbox]):not([type=radio]) ~ .invalid-feedback,
-.form-control.is-invalid ~ .invalid-tooltip,
-.jc-view-report-setup input.is-invalid:not([type=checkbox]):not([type=radio]) ~ .invalid-tooltip, .was-validated
+.was-validated .form-control:invalid ~ .invalid-feedback,
+.was-validated .form-control:invalid ~ .invalid-tooltip, .form-control.is-invalid ~ .invalid-feedback,
+.form-control.is-invalid ~ .invalid-tooltip, .was-validated
 .custom-select:invalid ~ .invalid-feedback,
 .was-validated
 .custom-select:invalid ~ .invalid-tooltip,
@@ -5557,7 +5551,7 @@ textarea.form-control {
     align-items: center;
     margin-bottom: 0;
   }
-  .form-inline .form-control, .form-inline .jc-view-report-setup input:not([type=checkbox]):not([type=radio]), .jc-view-report-setup .form-inline input:not([type=checkbox]):not([type=radio]) {
+  .form-inline .form-control {
     display: inline-block;
     width: auto;
     vertical-align: middle;
@@ -6668,7 +6662,7 @@ input[type="button"].btn-block {
   width: 100%;
 }
 
-.input-group > .form-control, .jc-view-report-setup .input-group > input:not([type=checkbox]):not([type=radio]),
+.input-group > .form-control,
 .input-group > .custom-select,
 .input-group > .custom-file {
   position: relative;
@@ -6677,23 +6671,19 @@ input[type="button"].btn-block {
   margin-bottom: 0;
 }
 
-.input-group > .form-control + .form-control, .jc-view-report-setup .input-group > input:not([type=checkbox]):not([type=radio]) + .form-control, .jc-view-report-setup .input-group > .form-control + input:not([type=checkbox]):not([type=radio]), .jc-view-report-setup .input-group > input:not([type=checkbox]):not([type=radio]) + input:not([type=checkbox]):not([type=radio]),
+.input-group > .form-control + .form-control,
 .input-group > .form-control + .custom-select,
-.jc-view-report-setup .input-group > input:not([type=checkbox]):not([type=radio]) + .custom-select,
 .input-group > .form-control + .custom-file,
-.jc-view-report-setup .input-group > input:not([type=checkbox]):not([type=radio]) + .custom-file,
 .input-group > .custom-select + .form-control,
-.jc-view-report-setup .input-group > .custom-select + input:not([type=checkbox]):not([type=radio]),
 .input-group > .custom-select + .custom-select,
 .input-group > .custom-select + .custom-file,
 .input-group > .custom-file + .form-control,
-.jc-view-report-setup .input-group > .custom-file + input:not([type=checkbox]):not([type=radio]),
 .input-group > .custom-file + .custom-select,
 .input-group > .custom-file + .custom-file {
   margin-left: -1px;
 }
 
-.input-group > .form-control:focus, .jc-view-report-setup .input-group > input:focus:not([type=checkbox]):not([type=radio]),
+.input-group > .form-control:focus,
 .input-group > .custom-select:focus,
 .input-group > .custom-file .custom-file-input:focus ~ .custom-file-label {
   z-index: 3;
@@ -6703,13 +6693,13 @@ input[type="button"].btn-block {
   z-index: 4;
 }
 
-.input-group > .form-control:not(:last-child), .jc-view-report-setup .input-group > input:not(:last-child):not([type=checkbox]):not([type=radio]),
+.input-group > .form-control:not(:last-child),
 .input-group > .custom-select:not(:last-child) {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
 
-.input-group > .form-control:not(:first-child), .jc-view-report-setup .input-group > input:not(:first-child):not([type=checkbox]):not([type=radio]),
+.input-group > .form-control:not(:first-child),
 .input-group > .custom-select:not(:first-child) {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
@@ -6861,7 +6851,7 @@ input[type="button"].btn-block {
   margin-top: 0;
 }
 
-.input-group-lg > .form-control, .jc-view-report-setup .input-group-lg > input:not([type=checkbox]):not([type=radio]),
+.input-group-lg > .form-control,
 .input-group-lg > .input-group-prepend > .input-group-text,
 .input-group-lg > .input-group-btn > .input-group-text,
 .input-group-btn .input-group-lg > .input-group-prepend > .btn,
@@ -6884,7 +6874,7 @@ input[type="button"].btn-block {
   border-radius: 0.3rem;
 }
 
-.input-group-sm > .form-control, .jc-view-report-setup .input-group-sm > input:not([type=checkbox]):not([type=radio]),
+.input-group-sm > .form-control,
 .input-group-sm > .input-group-prepend > .input-group-text,
 .input-group-sm > .input-group-btn > .input-group-text,
 .input-group-btn .input-group-sm > .input-group-prepend > .btn,
@@ -19661,6 +19651,7 @@ h2 {
 
 .select2-container--default {
   flex: 1 1 auto;
+  width: 100% !important;
 }
 
 .select2-container--default .select2-selection--single {
@@ -19698,7 +19689,11 @@ h2 {
   background-color: #dd6900;
 }
 
-.input-group .input-group-btn + .select2.form-control + .select2-container--default .select2-selection--single, .input-group .jc-view-report-setup .input-group-btn + input.select2:not([type=checkbox]):not([type=radio]) + .select2-container--default .select2-selection--single, .jc-view-report-setup .input-group .input-group-btn + input.select2:not([type=checkbox]):not([type=radio]) + .select2-container--default .select2-selection--single {
+.input-group .input-group-btn + .select2.form-control + .select2-container--default {
+  width: auto !important;
+}
+
+.input-group .input-group-btn + .select2.form-control + .select2-container--default .select2-selection--single {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
@@ -19715,7 +19710,7 @@ h2 {
   padding-right: 0.25rem;
 }
 
-.input-group > .form-control, .jc-view-report-setup .input-group > input:not([type=checkbox]):not([type=radio]) {
+.input-group > .form-control {
   width: 1% !important;
 }
 
@@ -19736,7 +19731,7 @@ h2 {
   border-bottom-right-radius: 0;
 }
 
-.form-control.tt-input:focus, .jc-view-report-setup input.tt-input:focus:not([type=checkbox]):not([type=radio]) {
+.form-control.tt-input:focus {
   z-index: 3;
 }
 
@@ -20895,7 +20890,6 @@ div[id^="calendar-widget"] > table table tr:not(:first-child) td.descriptionbox:
   border: 1px solid rgba(255, 255, 255, 0.175);
 }
 
-/*** Report pages (see forms) ***/
 /*** edit-blocks page ***/
 .jc-edit-blocks-table .jc-edit-blocks-header,
 .jc-edit-blocks-table .jc-edit-blocks-footer {
