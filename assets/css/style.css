@@ -3514,7 +3514,7 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
   font-weight: 400;
   line-height: 1.5;
   color: #dee2e6;
@@ -3822,31 +3822,31 @@ h1, h2, h3, h4, h5, h6,
 }
 
 h1, .h1 {
-  font-size: 1.625rem;
+  font-size: 1.75rem;
 }
 
 h2, .h2 {
-  font-size: 1.4625rem;
+  font-size: 1.575rem;
 }
 
 h3, .h3 {
-  font-size: 1.3rem;
+  font-size: 1.4rem;
 }
 
 h4, .h4 {
-  font-size: 1.1375rem;
+  font-size: 1.225rem;
 }
 
 h5, .h5 {
-  font-size: 0.975rem;
+  font-size: 1.05rem;
 }
 
 h6, .h6 {
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
 }
 
 .lead {
-  font-size: 1.015625rem;
+  font-size: 1.09375rem;
   font-weight: 300;
 }
 
@@ -3918,7 +3918,7 @@ mark,
 
 .blockquote {
   margin-bottom: 1rem;
-  font-size: 1.015625rem;
+  font-size: 1.09375rem;
 }
 
 .blockquote-footer {
@@ -5132,9 +5132,9 @@ pre code {
 .form-control {
   display: block;
   width: 100%;
-  height: calc(1.96875rem + 2px);
+  height: calc(2.0625rem + 2px);
   padding: 0.375rem 0.75rem;
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
   line-height: 1.5;
   color: #495057;
   background-color: #fff;
@@ -5211,14 +5211,14 @@ select.form-control:focus::-ms-value {
 .col-form-label-lg {
   padding-top: calc(0.5rem + 1px);
   padding-bottom: calc(0.5rem + 1px);
-  font-size: 1.015625rem;
+  font-size: 1.09375rem;
   line-height: 1.5;
 }
 
 .col-form-label-sm {
   padding-top: calc(0.25rem + 1px);
   padding-bottom: calc(0.25rem + 1px);
-  font-size: 0.75rem;
+  font-size: 0.8125rem;
   line-height: 1.5;
 }
 
@@ -5241,17 +5241,17 @@ select.form-control:focus::-ms-value {
 }
 
 .form-control-sm {
-  height: calc(1.625rem + 2px);
+  height: calc(1.71875rem + 2px);
   padding: 0.25rem 0.5rem;
-  font-size: 0.75rem;
+  font-size: 0.8125rem;
   line-height: 1.5;
   border-radius: 0.2rem;
 }
 
 .form-control-lg {
-  height: calc(2.5234375rem + 2px);
+  height: calc(2.640625rem + 2px);
   padding: 0.5rem 1rem;
-  font-size: 1.015625rem;
+  font-size: 1.09375rem;
   line-height: 1.5;
   border-radius: 0.3rem;
 }
@@ -5337,7 +5337,7 @@ textarea.form-control {
   max-width: 100%;
   padding: 0.25rem 0.5rem;
   margin-top: .1rem;
-  font-size: 0.75rem;
+  font-size: 0.8125rem;
   line-height: 1.5;
   color: #fff;
   background-color: rgba(40, 167, 69, 0.9);
@@ -5440,7 +5440,7 @@ textarea.form-control {
   max-width: 100%;
   padding: 0.25rem 0.5rem;
   margin-top: .1rem;
-  font-size: 0.75rem;
+  font-size: 0.8125rem;
   line-height: 1.5;
   color: #fff;
   background-color: rgba(220, 53, 69, 0.9);
@@ -5597,7 +5597,7 @@ textarea.form-control {
           user-select: none;
   border: 1px solid transparent;
   padding: 0.25rem 0.5rem;
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
   line-height: 1.5;
   border-radius: 0.25rem;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
@@ -6228,14 +6228,14 @@ fieldset:disabled a.btn {
 
 .btn-lg, .btn-group-lg > .btn, .btn-group-lg > input[type="submit"] {
   padding: 0.5rem 1rem;
-  font-size: 1.015625rem;
+  font-size: 1.09375rem;
   line-height: 1.5;
   border-radius: 0.3rem;
 }
 
 .btn-sm, .btn-group-sm > .btn, .btn-group-sm > input[type="submit"] {
   padding: 0.25rem 0.5rem;
-  font-size: 0.75rem;
+  font-size: 0.8125rem;
   line-height: 1.5;
   border-radius: 0.2rem;
 }
@@ -6320,7 +6320,7 @@ input[type="button"].btn-block {
   min-width: 10rem;
   padding: 0.5rem 0;
   margin: 0.125rem 0 0;
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
   color: #dee2e6;
   text-align: left;
   list-style: none;
@@ -6481,7 +6481,7 @@ input[type="button"].btn-block {
   display: block;
   padding: 0.5rem 0.5rem;
   margin-bottom: 0;
-  font-size: 0.75rem;
+  font-size: 0.8125rem;
   color: #868e96;
   white-space: nowrap;
 }
@@ -6833,7 +6833,7 @@ input[type="button"].btn-block {
   align-items: center;
   padding: 0.375rem 0.75rem;
   margin-bottom: 0;
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
   font-weight: 400;
   line-height: 1.5;
   color: #495057;
@@ -6867,9 +6867,9 @@ input[type="button"].btn-block {
 .input-group-lg > .input-group-btn > input[type="submit"],
 .input-group-lg > .input-group-append > .btn,
 .input-group-lg > .input-group-append > input[type="submit"] {
-  height: calc(2.5234375rem + 2px);
+  height: calc(2.640625rem + 2px);
   padding: 0.5rem 1rem;
-  font-size: 1.015625rem;
+  font-size: 1.09375rem;
   line-height: 1.5;
   border-radius: 0.3rem;
 }
@@ -6890,9 +6890,9 @@ input[type="button"].btn-block {
 .input-group-sm > .input-group-btn > input[type="submit"],
 .input-group-sm > .input-group-append > .btn,
 .input-group-sm > .input-group-append > input[type="submit"] {
-  height: calc(1.625rem + 2px);
+  height: calc(1.71875rem + 2px);
   padding: 0.25rem 0.5rem;
-  font-size: 0.75rem;
+  font-size: 0.8125rem;
   line-height: 1.5;
   border-radius: 0.2rem;
 }
@@ -6949,7 +6949,7 @@ input[type="button"].btn-block {
 .custom-control {
   position: relative;
   display: block;
-  min-height: 1.21875rem;
+  min-height: 1.3125rem;
   padding-left: 1.5rem;
 }
 
@@ -6995,7 +6995,7 @@ input[type="button"].btn-block {
 
 .custom-control-label::before {
   position: absolute;
-  top: 0.109375rem;
+  top: 0.15625rem;
   left: -1.5rem;
   display: block;
   width: 1rem;
@@ -7012,7 +7012,7 @@ input[type="button"].btn-block {
 
 .custom-control-label::after {
   position: absolute;
-  top: 0.109375rem;
+  top: 0.15625rem;
   left: -1.5rem;
   display: block;
   width: 1rem;
@@ -7071,7 +7071,7 @@ input[type="button"].btn-block {
 .custom-select {
   display: inline-block;
   width: 100%;
-  height: calc(1.96875rem + 2px);
+  height: calc(2.0625rem + 2px);
   padding: 0.375rem 1.75rem 0.375rem 0.75rem;
   line-height: 1.5;
   color: #495057;
@@ -7113,14 +7113,14 @@ input[type="button"].btn-block {
 }
 
 .custom-select-sm {
-  height: calc(1.625rem + 2px);
+  height: calc(1.71875rem + 2px);
   padding-top: 0.375rem;
   padding-bottom: 0.375rem;
-  font-size: 0.75rem;
+  font-size: 0.8125rem;
 }
 
 .custom-select-lg {
-  height: calc(2.5234375rem + 2px);
+  height: calc(2.640625rem + 2px);
   padding-top: 0.375rem;
   padding-bottom: 0.375rem;
   font-size: 125%;
@@ -7130,7 +7130,7 @@ input[type="button"].btn-block {
   position: relative;
   display: inline-block;
   width: 100%;
-  height: calc(1.96875rem + 2px);
+  height: calc(2.0625rem + 2px);
   margin-bottom: 0;
 }
 
@@ -7138,7 +7138,7 @@ input[type="button"].btn-block {
   position: relative;
   z-index: 2;
   width: 100%;
-  height: calc(1.96875rem + 2px);
+  height: calc(2.0625rem + 2px);
   margin: 0;
   opacity: 0;
 }
@@ -7166,7 +7166,7 @@ input[type="button"].btn-block {
   right: 0;
   left: 0;
   z-index: 1;
-  height: calc(1.96875rem + 2px);
+  height: calc(2.0625rem + 2px);
   padding: 0.375rem 0.75rem;
   line-height: 1.5;
   color: #495057;
@@ -7183,7 +7183,7 @@ input[type="button"].btn-block {
   bottom: 0;
   z-index: 3;
   display: block;
-  height: 1.96875rem;
+  height: 2.0625rem;
   padding: 0.375rem 0.75rem;
   line-height: 1.5;
   color: #495057;
@@ -7455,10 +7455,10 @@ input[type="button"].btn-block {
 
 .navbar-brand {
   display: inline-block;
-  padding-top: 0.34765625rem;
-  padding-bottom: 0.34765625rem;
+  padding-top: 0.3359375rem;
+  padding-bottom: 0.3359375rem;
   margin-right: 1rem;
-  font-size: 1.015625rem;
+  font-size: 1.09375rem;
   line-height: inherit;
   white-space: nowrap;
 }
@@ -7499,7 +7499,7 @@ input[type="button"].btn-block {
 
 .navbar-toggler {
   padding: 0.25rem 0.75rem;
-  font-size: 1.015625rem;
+  font-size: 1.09375rem;
   line-height: 1;
   background-color: transparent;
   border: 1px solid transparent;
@@ -8148,7 +8148,7 @@ input[type="button"].btn-block {
 
 .pagination-lg .page-link {
   padding: 0.75rem 1.5rem;
-  font-size: 1.015625rem;
+  font-size: 1.09375rem;
   line-height: 1.5;
 }
 
@@ -8164,7 +8164,7 @@ input[type="button"].btn-block {
 
 .pagination-sm .page-link {
   padding: 0.25rem 0.5rem;
-  font-size: 0.75rem;
+  font-size: 0.8125rem;
   line-height: 1.5;
 }
 
@@ -8329,7 +8329,7 @@ input[type="button"].btn-block {
 }
 
 .alert-dismissible {
-  padding-right: 3.71875rem;
+  padding-right: 3.8125rem;
 }
 
 .alert-dismissible .close {
@@ -8474,7 +8474,7 @@ input[type="button"].btn-block {
   display: flex;
   height: 1rem;
   overflow: hidden;
-  font-size: 0.609375rem;
+  font-size: 0.65625rem;
   background-color: #e9ecef;
   border-radius: 0.25rem;
   box-shadow: inset 0 0.1rem 0.1rem rgba(0, 0, 0, 0.1);
@@ -8721,7 +8721,7 @@ input[type="button"].btn-block {
 
 .close {
   float: right;
-  font-size: 1.21875rem;
+  font-size: 1.3125rem;
   font-weight: 700;
   line-height: 1;
   color: #000;
@@ -8931,7 +8931,7 @@ button.close {
   word-spacing: normal;
   white-space: normal;
   line-break: auto;
-  font-size: 0.75rem;
+  font-size: 0.8125rem;
   word-wrap: break-word;
   opacity: 0;
 }
@@ -9044,7 +9044,7 @@ button.close {
   word-spacing: normal;
   white-space: normal;
   line-break: auto;
-  font-size: 0.75rem;
+  font-size: 0.8125rem;
   word-wrap: break-word;
   background-color: #ffffde;
   background-clip: padding-box;
@@ -9193,7 +9193,7 @@ button.close {
 .popover-header {
   padding: 0.5rem 0.75rem;
   margin-bottom: 0;
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
   color: inherit;
   background-color: #ffffcf;
   border-bottom: 1px solid #ffffb5;
@@ -19524,7 +19524,7 @@ a[href^="https:"] {
 }
 
 .quickfacts a {
-  font-size: 0.75rem;
+  font-size: 0.8125rem;
 }
 
 .quickfacts a:not(:last-of-type):after {
@@ -19553,7 +19553,7 @@ h2 {
 }
 
 .popup.person_box, .popup.person_boxF {
-  font-size: 0.75rem;
+  font-size: 0.8125rem;
 }
 
 .optionbox,
@@ -19563,6 +19563,10 @@ h2 {
 }
 
 /*** Body ***/
+html, body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
 .wt-global {
   color: #dee2e6;
   background-color: #2e2e2e;
@@ -19588,7 +19592,7 @@ h2 {
 
 .jc-site-title {
   order: 2;
-  font-size: 1.625rem;
+  font-size: 1.75rem;
   font-weight: 500;
 }
 
@@ -19633,7 +19637,7 @@ h2 {
 /*** Footer ***/
 .wt-footer-container {
   color: #fbfcfc;
-  font-size: 0.75rem;
+  font-size: 0.8125rem;
 }
 
 .wt-powered-by-webtrees:after {
@@ -20015,15 +20019,15 @@ h2 {
 }
 
 .jc-global-calendar .icon-indis {
-  font-size: 1.4625rem;
+  font-size: 1.575rem;
 }
 
 .jc-global-calendar .icon-cfamily {
-  font-size: 1.4625rem;
+  font-size: 1.575rem;
 }
 
 .jc-global-individual .icon-cfamily {
-  font-size: 1.4625rem;
+  font-size: 1.575rem;
 }
 
 .fa-info-circle {
@@ -20031,7 +20035,7 @@ h2 {
 }
 
 .wt-header-search .fa-search {
-  font-size: 1.015625rem;
+  font-size: 1.09375rem;
 }
 
 .fa-arrow-start::before {
@@ -20051,23 +20055,23 @@ h2 {
 }
 
 .jc-global-individual .wt-silhouette-F::before, .jc-global-individual .wt-silhouette-M::before, .jc-global-individual .wt-silhouette-U::before {
-  font-size: 4.875rem;
+  font-size: 5.25rem;
 }
 
 @media (min-width: 768px) {
   .jc-global-individual .wt-silhouette-F::before, .jc-global-individual .wt-silhouette-M::before, .jc-global-individual .wt-silhouette-U::before {
-    font-size: 6.5rem;
+    font-size: 7rem;
   }
 }
 
 @media (min-width: 992px) {
   .jc-global-individual .wt-silhouette-F::before, .jc-global-individual .wt-silhouette-M::before, .jc-global-individual .wt-silhouette-U::before {
-    font-size: 8.125rem;
+    font-size: 8.75rem;
   }
 }
 
 .icon-silhouette-F, .icon-silhouette-M, .icon-silhouette-U {
-  font-size: 2.4375rem;
+  font-size: 2.625rem;
 }
 
 #individual-tabs .icon-silhouette-F,
@@ -20075,7 +20079,7 @@ h2 {
 #sidebar .icon-silhouette-M, #individual-tabs .icon-silhouette-U,
 #sidebar .icon-silhouette-U {
   cursor: default;
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
 }
 
 @media (min-width: 768px) {
@@ -20083,7 +20087,7 @@ h2 {
   #sidebar .icon-silhouette-F, #individual-tabs .icon-silhouette-M,
   #sidebar .icon-silhouette-M, #individual-tabs .icon-silhouette-U,
   #sidebar .icon-silhouette-U {
-    font-size: 1.625rem;
+    font-size: 1.75rem;
   }
 }
 
@@ -20095,12 +20099,12 @@ h2 {
 }
 
 .icon-sex_m_9x9, .icon-sex_f_9x9, .icon-sex_u_9x9 {
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
   padding: 0 .25rem;
 }
 
 .icon-sex_m_15x15, .icon-sex_f_15x15, .icon-sex_u_15x15 {
-  font-size: 1.015625rem;
+  font-size: 1.09375rem;
 }
 
 .icon-plus,
@@ -20116,7 +20120,7 @@ h2 {
 @media (max-width: 991.98px) {
   .btn, input[type="submit"] {
     padding: 0.25rem 0.5rem;
-    font-size: 0.75rem;
+    font-size: 0.8125rem;
     line-height: 1.5;
     border-radius: 0.2rem;
   }
@@ -20151,11 +20155,11 @@ h2 {
 }
 
 .wt-side-blocks .card-body {
-  font-size: 0.75rem;
+  font-size: 0.8125rem;
 }
 
 .jc-global-individual .card-header {
-  font-size: 0.75rem;
+  font-size: 0.8125rem;
 }
 
 #name-header-add .card-title b {
@@ -20177,7 +20181,7 @@ tr.even {
 }
 
 .wt-facts-table {
-  font-size: 0.75rem;
+  font-size: 0.8125rem;
 }
 
 .wt-facts-table a {
@@ -20210,7 +20214,7 @@ tr.even {
 }
 
 .table-sm, .markdown table {
-  font-size: 0.75rem;
+  font-size: 0.8125rem;
 }
 
 .dt-bootstrap4 .dataTables_length, .dt-bootstrap4 .dataTables_filter, .dt-bootstrap4 .dataTables_paginate, .dt-bootstrap4 .dataTables_info {
@@ -20362,7 +20366,7 @@ tr.even {
 
 /*** Statistic block ***/
 .jc-statistics-row {
-  font-size: 0.75rem;
+  font-size: 0.8125rem;
 }
 
 .jc-statistics-row dt {
@@ -20505,7 +20509,7 @@ div[id^="calendar-widget"] > table table tr:not(:first-child) td.descriptionbox:
   margin: 0;
   top: initial;
   bottom: 0;
-  font-size: 0.75rem;
+  font-size: 0.8125rem;
   font-weight: normal;
   padding-left: 50px;
   padding-right: 50px;
@@ -20734,7 +20738,7 @@ div[id^="calendar-widget"] > table table tr:not(:first-child) td.descriptionbox:
 /*** Index page (homepage and my page) ***/
 .wt-block-gedcom-block-block i,
 .wt-block-user-welcome-block i {
-  font-size: 1.828125rem;
+  font-size: 1.96875rem;
 }
 
 .jc-global-tree-page .wt-block-content-charts-block,
@@ -20746,7 +20750,7 @@ div[id^="calendar-widget"] > table table tr:not(:first-child) td.descriptionbox:
 /*** Individual page ***/
 .jc-global-individual #name-header-0,
 .jc-global-individual #name-content-0 {
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
 }
 
 .jc-global-individual #name-header-add {
@@ -20784,7 +20788,7 @@ div[id^="calendar-widget"] > table table tr:not(:first-child) td.descriptionbox:
 .jc-global-individual .jc-indi-tab-content {
   background: #272727;
   border: 1px solid rgba(255, 255, 255, 0.175);
-  font-size: 0.75rem;
+  font-size: 0.8125rem;
   padding: 0.75rem;
 }
 
@@ -20798,7 +20802,7 @@ div[id^="calendar-widget"] > table table tr:not(:first-child) td.descriptionbox:
 }
 
 .person0, .person1, .person2, .person3, .person4, .person5 {
-  font-size: 0.75rem;
+  font-size: 0.8125rem;
 }
 
 .person0 {
@@ -20886,7 +20890,7 @@ div[id^="calendar-widget"] > table table tr:not(:first-child) td.descriptionbox:
 }
 
 .wt-page-options-search-advanced .wt-page-options-label .form-row {
-  font-size: 1.015625rem;
+  font-size: 1.09375rem;
   font-weight: 500;
   line-height: 1.1;
 }
@@ -20989,7 +20993,7 @@ div[id^="calendar-widget"] > table table tr:not(:first-child) td.descriptionbox:
 /*** Common styles ***/
 h2 {
   font-family: "salina", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  font-size: 2.19375rem;
+  font-size: 2.3625rem;
 }
 
 @font-face {
@@ -21040,21 +21044,21 @@ h2 {
 
 .jc-site-title {
   font-family: "comfortaa", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  font-size: 1.096875rem;
+  font-size: 1.18125rem;
   margin: 0 calc(50vw - 270px);
   text-shadow: -2px 2px #000;
 }
 
 @media (min-width: 768px) {
   .jc-site-title {
-    font-size: 1.21875rem;
+    font-size: 1.3125rem;
     margin: 0 calc(50vw - 360px);
   }
 }
 
 @media (min-width: 992px) {
   .jc-site-title {
-    font-size: 1.625rem;
+    font-size: 1.75rem;
     margin: 0 calc(50vw - 400px);
   }
 }
@@ -21093,7 +21097,7 @@ h2 {
 
 /*** Menu ***/
 .wt-primary-menu, .wt-secondary-menu {
-  font-size: 0.75rem;
+  font-size: 0.8125rem;
 }
 
 .wt-primary-menu .nav-link, .wt-secondary-menu .nav-link {
@@ -21107,7 +21111,7 @@ h2 {
 .dropdown-menu {
   box-shadow: 0 5px 11px 0 #171717, 0 4px 15px 0 rgba(23, 23, 23, 0.8);
   transition: .25s box-shadow;
-  font-size: 0.75rem;
+  font-size: 0.8125rem;
 }
 
 .dropdown-item:hover, .dropdown-item:focus {
@@ -21446,7 +21450,7 @@ h2 {
 
 .nav-tabs .nav-link {
   background: linear-gradient(#5b5b5b 0%, #5b5b5b 34%, #515151 40%, #313131 53%, #272727 59%, #272727 100%);
-  font-size: 0.75rem;
+  font-size: 0.8125rem;
   font-weight: 500;
 }
 
@@ -21485,7 +21489,7 @@ h2 {
 .jc-global-user-page .card-header {
   border-bottom: 0;
   font-family: "salina", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  font-size: 1.4625rem;
+  font-size: 1.575rem;
   padding-bottom: 0.5rem;
 }
 
