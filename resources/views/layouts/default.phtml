@@ -80,12 +80,12 @@
             </div>
         </div>
 
-        <div class="jc-favsearch-bar d-flex flex-nowrap flex-column">
+        <div class="jc-favsearch-bar d-flex flex-nowrap justify-content-between align-items-center">
             <?php if ($tree !== null): ?>
-            <div class="col jc-header-favorites">
-                <ul class="dropdown  btn btn-primary-outline" role="menubar"><?= Theme::theme()->menuFavorites() ?></ul>
+            <div class="col-3 jc-header-favorites">
+                <ul class="jc-favorites-dropdown" role="menubar"><?= Theme::theme()->menuFavorites() ?></ul>
             </div>
-            <div class="col wt-header-search">
+            <div class="col-3 jc-header-search">
                 <form class="wt-header-search-form" role="search">
                     <input type="hidden" name="route" value="search-quick">
                     <input type="hidden" name="ged" value="<?= e($tree->name()) ?>">

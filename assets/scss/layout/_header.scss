@@ -42,9 +42,10 @@
 
 .jc-favsearch-bar {
   @include jb-theme-bar-gradient;
+  min-height: 3rem;
 
   @at-root {
-    .wt-header-search {
+    .jc-header-search {
       input {
         border-bottom-left-radius: $btn-border-radius !important;
         border-top-left-radius: $btn-border-radius !important;
@@ -56,6 +57,9 @@
         border-bottom-right-radius: $btn-border-radius;
         border-top-right-radius: $btn-border-radius;
       }
+    }
+    .jc-favorites-dropdown {
+        @extend .form-control;
     }
   }
 }
