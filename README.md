@@ -4,7 +4,7 @@ JustBlack Theme for webtrees
 
 This theme requires [webtrees 1.7.x](https://github.com/fisharebest/webtrees).
 
-*Note: the current development version (master branch) is compatible with webtrees 2.0.0-dev only. It does not work with older versions of webtrees.*
+*Note: the current development version (master branch) has been tested against webtrees 2.0 alpha.4. It does not work with older versions of webtrees, but it is also unlikely to be compatible with the latest webtrees development version, since webtrees is undergoing major changes right now.*
 
 Description
 -----------
