@@ -1,6 +1,10 @@
 JustBlack Theme for webtrees
 ============================
 
+THERE IS A DARK JUSTBLACK THEME AVAILABLE FOR WEBTREES 2 AS A COLOR PALETTE IN THE JUSTLIGHT THEME. 
+FOR MORE INFORMATION GO TO https://github.com/JustCarmen/webtrees-theme-justlight
+
+------------
 This theme requires [webtrees 1.7.x](https://github.com/fisharebest/webtrees). Download the latest stable release of this theme [here](https://github.com/JustCarmen/justblack/releases/latest).
 
 Download the latest stable relase for webtrees 1.4.x here: https://github.com/JustCarmen/justblack/releases/tag/1.4.4
