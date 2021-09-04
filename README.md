@@ -1,6 +1,12 @@
 JustBlack Theme for webtrees
 ============================
 
+PLEASE NOTE: [THE JUSTLIGHT THEME FOR WEBTREES 2](https://github.com/JustCarmen/webtrees-theme-justlight) CONTAINS A COLOR PALETTE IN DARK/ORANGE COLOR SCHEME SIMILIAR TO THE COLORS USED IN THIS THEME.
+
+DEVELOPMENT FOR THE JUSTBLACK THEME AS A STAND ALONE MODULE IN WEBTREES 2 HAS BEEN DISCONTINUED.
+
+---
+
 This theme requires [webtrees 1.7.x](https://github.com/fisharebest/webtrees). Download the latest stable release of this theme [here](https://github.com/JustCarmen/justblack/releases/latest).
 
 Download the latest stable relase for webtrees 1.4.x here: https://github.com/JustCarmen/justblack/releases/tag/1.4.4
@@ -15,7 +21,7 @@ Features of this theme:
 * Colorbox support for pdf files.
 * Better dialog boxes. In this theme all dialog boxes are opening in the center of the browser window.
 
-And much more.    
+And much more.
 
 The JustBlack Theme comes with his own theme options module.
 
